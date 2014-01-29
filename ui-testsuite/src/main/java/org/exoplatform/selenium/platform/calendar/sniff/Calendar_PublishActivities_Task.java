@@ -107,7 +107,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
 		homeAct.checkTaskActivity(task);
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_ATTACHMENT));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT_AUX.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_ATTACHMENT));
 
 		//Delete data
 		sp.goToAllSpaces();
@@ -136,8 +136,10 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
+		//waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", note).replace("${comment}", 
+		//		homeAct.MSG_TASK_COMMENT_UPDATE_NOTE.replace("${note}",note)),50000);
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", note).replace("${comment}", 
-				homeAct.MSG_TASK_COMMENT_UPDATE_NOTE.replace("${note}",note)),50000);
+				homeAct.MSG_TASK_COMMENT_UPDATE_NOTE_TEXT).replace("${newTitle}",note));
 		
 		//Delete data
 		sp.goToAllSpaces();
@@ -167,7 +169,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_STATUS));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT_AUX.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_STATUS));
 		
 		//Delete data
 		sp.goToAllSpaces();

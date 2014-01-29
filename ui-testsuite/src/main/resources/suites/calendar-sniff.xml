@@ -7,9 +7,20 @@
 				<exclude name="pending" />
 			</run>
 		</groups>
-		<packages>
+		<!-- <packages>
 			<package name="org.exoplatform.selenium.platform.calendar.sniff.*" />
-		</packages>
+		</packages> -->
+		<classes>
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Calendar" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Category" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Event" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Event" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Task" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Search" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Settings" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Task" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Views" />
+		</classes>
 	</test>
 	<listeners>
 		<listener class-name="org.exoplatform.selenium.TestReportListener" />

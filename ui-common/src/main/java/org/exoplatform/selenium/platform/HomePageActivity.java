@@ -44,7 +44,8 @@ public class HomePageActivity extends PlatformBase{
 
 	//Comment box
 	public final String ELEMENT_COMMENT_LINK = "//div[@class='text' or @class = 'description'or @class='linkSource' or contains(@id, 'ContextBox')]/*[contains(text(), '${activityText}')]//ancestor::div[contains(@id,'ActivityContextBox')]//*[starts-with(@id, 'CommentLink')]";
-	public final String ELEMENT_ACTIVITY_COMMENT_CONTENT = "//*[contains(text(),'${title}')]/../../../..//*[@class='contentComment']/../*[contains(text(), '${comment}')]";
+	public final String ELEMENT_ACTIVITY_COMMENT_CONTENT_AUX = "//*[contains(text(),'${title}')]/../../../..//*[@class='contentComment']/../*[contains(text(), '${comment}')]";
+	public final String ELEMENT_ACTIVITY_COMMENT_CONTENT = "//*[contains(text(),'${title}')]/../../../..//*[@class='contentComment']/../*[contains(text(), '${comment}') and contains(text(), '${newTitle}')]";
 	public final String ELEMENT_GET_COMMENT_CONTENT = "//*[contains(text(),'${title}')]/../../../..//*[@class='commentItem commentItemLast']/..//p";
 	public final String ELEMENT_ACTIVITY_COMMENT_CONTENT_1 = "//*[text()='${title}']/ancestor::div[@class='boxContainer']//*[@class='contentComment']";
 	public final String ELEMENT_COMMENTBOX="//*[text()='${title}']/../../../..//div[@class='exo-mentions']/div[contains(@id,'DisplayCommentTextarea')]";
@@ -175,10 +176,14 @@ public class HomePageActivity extends PlatformBase{
 	public final String ELEMENT_EVENT_MONTH_ICON = "//a[text()='${event}']/../..//div[@class='pull-left calendarBox']/div[@class='heading' and contains(text(),'${month}')]";
 	public final String ELEMENT_EVENT_DATE_ICON = "//a[text()='${event}']/../..//div[@class='pull-left calendarBox']/div[@class='content' and contains(text(),'${date}')]";
 	public final String MSG_EVENT_COMMENT_UPDATE_ALL_DAY = "Event is now an all-day event.";
+	public final String MSG_EVENT_COMMENT_UPDATE_SUMMARY_TEXT = "Summary has been updated";
 	public final String MSG_EVENT_COMMENT_UPDATE_SUMMARY = "Summary has been updated: ${newTitle}.";
+	public final String MSG_EVENT_COMMENT_UPDATE_DESC_TEXT = "Description has been updated";
 	public final String MSG_EVENT_COMMENT_UPDATE_DESC = "Description has been updated: ${description}.";
+	public final String MSG_EVENT_COMMENT_UPDATE_LOCATION_TEXT = "Location has been updated";
 	public final String MSG_EVENT_COMMENT_UPDATE_LOCATION = "Location has been updated: ${location}.";
 	public final String MSG_TASK_COMMENT_UPDATE_ATTACHMENT = "Attachment(s) has been added to the task.";
+	public final String MSG_TASK_COMMENT_UPDATE_NOTE_TEXT = "Note has been updated";
 	public final String MSG_TASK_COMMENT_UPDATE_NOTE = "Note has been updated: ${note}.";
 	public final String MSG_TASK_COMMENT_UPDATE_STATUS = "Task has been completed.";
 

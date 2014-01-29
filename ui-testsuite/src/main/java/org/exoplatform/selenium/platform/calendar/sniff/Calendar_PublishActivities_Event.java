@@ -102,7 +102,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		homeAct.checkEventActivity(event, getCurrentDate("dd"), getCurrentDate("MMM"));
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_ALL_DAY));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT_AUX.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_ALL_DAY));
 		
 		//Delete space
 		sp.goToAllSpaces();
@@ -133,7 +133,8 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", newEvent).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_SUMMARY.replace("${newTitle}",newEvent)));
+		//waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", newEvent).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_SUMMARY.replace("${newTitle}",newEvent)));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", newEvent).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_SUMMARY_TEXT).replace("${newTitle}",newEvent));
 		
 		//Delete space
 		sp.goToAllSpaces();
@@ -164,7 +165,8 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_DESC.replace("${description}",desc)));
+		//waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_DESC.replace("${description}",desc)));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_DESC_TEXT).replace("${newTitle}", desc));
 		
 		//Delete space
 		sp.goToAllSpaces();
@@ -195,7 +197,8 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		//Check activity
 		toolBar.goToHomePage();
 		driver.navigate().refresh();
-		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_LOCATION.replace("${location}",location)));
+		//waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_LOCATION.replace("${location}",location)));
+		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_LOCATION_TEXT).replace("${newTitle}", location));
 		
 		//Delete space
 		sp.goToAllSpaces();
