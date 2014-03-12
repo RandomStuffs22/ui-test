@@ -18,8 +18,7 @@ public class Wiki_SpaceSwitcher_Display extends WikiBase {
 	ManageAccount magAcc;
 	SpaceManagement magSpace;
 
-	String DATA_USER_ADMIN = "fqa";
-	String DATA_PASS = "gtngtn";
+	String DATA_USER_ADMIN = DATA_USER1;
 
 	@BeforeMethod
 	public void setUpBeforeTest(){

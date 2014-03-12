@@ -23,18 +23,15 @@ public class ECMS_Admin_ManageScripts extends PlatformBase{
 	ECMainFunction ecMain;
 	ManageScript magScript;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		magAcc = new ManageAccount(driver);
 		ecMain = new ECMainFunction(driver); 
 		magScript = new ManageScript(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

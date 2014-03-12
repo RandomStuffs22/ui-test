@@ -77,8 +77,8 @@ public class PLF_Navigation_SpaceNavigation extends PlatformBase {
 		waitForAndGetElement(spaceMag.ELEMENT_SPACE_DOCUMENTS_PORTLET);
 		spaceMag.goToSpaceMenu("Space Setting");
 		waitForAndGetElement(spaceMag.ELEMENT_SPACE_SETTING_PORTLET);
-		spaceMag.goToSpaceMenu("Members");
-		waitForAndGetElement(spaceMag.ELEMENT_SPACE_MEMBER_PORTLET);
+		spaceMag.goToSpaceMenu("Answer");
+		waitForAndGetElement(spaceMag.ELEMENT_SPACE_ANSWER_PORTLET);
 
 		/*Clear data*/
 		info("-- Clear data --");

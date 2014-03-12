@@ -13,6 +13,7 @@ import org.exoplatform.selenium.platform.ecms.contentexplorer.ContentTemplate;
 import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu;
 import org.exoplatform.selenium.platform.ecms.contentexplorer.ContentTemplate.folderType;
 import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu.actionType;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.SitesExplorer;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -36,9 +37,7 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 	ContentTemplate cTemplate;
 	ActionBar actBar;
 	EcmsPermission ecmsPer;
-
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	SitesExplorer siteExp;
 
 	@BeforeMethod
 	public void beforeMethod(){
@@ -52,7 +51,8 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		actBar = new ActionBar(driver);
 		ecmsPer = new EcmsPermission(driver);
 		button = new Button(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		siteExp = new SitesExplorer(driver);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -81,15 +81,12 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		driver.close();
 
 		info("Login by user is not locker");
-		initSeleniumTest();
-		driver.get(baseUrl);
-		magAcc = new ManageAccount(driver);
-		navToolBar = new NavigationToolbar(driver);
-		ecms = new EcmsBase(driver);
-		cMenu = new ContextMenu(driver);
-
-		info("Login to intranet with user... Mary");
-		magAcc.signIn("mary", DATA_PASS);
+		loginWithAnotherAccOnThesameBrowser(DATA_USER2, DATA_PASS);
+		magAcc = new ManageAccount(newDriver);
+		navToolBar = new NavigationToolbar(newDriver);
+		ecms = new EcmsBase(newDriver);
+		cMenu = new ContextMenu(newDriver);
+		siteExp = new SitesExplorer(newDriver);
 
 		info("Checking... [Mary] can not see [Upload] icon on action bar");
 		navToolBar.goToSiteExplorer();
@@ -98,7 +95,7 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 
 		info("Restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		//reset data
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(By.linkText(DOCUMENT_FOLDER_TITLE));
@@ -149,20 +146,20 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		info("Set permission for this node");
 		actBar.goToNodePermissionManagement();
 		ecmsPer.removeDefaultPermissionOfNode();
-		ecms.selectUser("mary");
+		ecms.selectUser(DATA_USER2);
 		ecmsPer.setPermissionForNode(true, false, false);
 		button.save();
 
 		info("Login by user who has not permission to add node inside the above node");
 		magAcc.signOut();
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		ecms.goToNode(WEB_CONTENT_TITLE);
 		waitForElementNotPresent(ELEMENT_UPLOAD_LINK_XPATH);
 		
 		info("Reset data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(By.linkText(WEB_CONTENT_TITLE));		
 	}

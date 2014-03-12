@@ -50,7 +50,7 @@ public class Gatein_Navigation_PortalNavigation_EditNavigation extends PortalMan
 		pageMag = new PageManagement(driver);
 		navMag = new NavigationManagement(driver);
 		pageEditor = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		driver.navigate().refresh();
 	}
 

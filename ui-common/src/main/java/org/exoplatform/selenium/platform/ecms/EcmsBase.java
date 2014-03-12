@@ -423,7 +423,7 @@ public class EcmsBase extends ManageAccount {
 	//input: path: path of a node, split by  "/" character 
 	public void goToNode(Object locator, Object...params)
 	{
-		se = new SitesExplorer(driver, plfVersion);
+		se = new SitesExplorer(driver,this.plfVersion);
 		Boolean nodeAdminView = (Boolean) (params.length > 0 ? params[0]: false);
 		if (nodeAdminView && (locator instanceof String)){
 			String[] nodes = ((String) locator).split("/");
@@ -503,7 +503,7 @@ public class EcmsBase extends ManageAccount {
 		if (isElementPresent(By.xpath("//*[contains(@data-original-title,'" + anchor + "')]"))){
 			click(By.xpath("//*[contains(@data-original-title,'" + anchor + "')]"));
 		}else if (isElementPresent(By.xpath("//*[contains(@title,'" + anchor + "')]"))){
-			click(By.xpath("//*[contains(@title,'" + anchor + "')]"));
+			//click(By.xpath("//*[contains(@title,'" + anchor + "')]"));
 		}
 		userGroup.selectGroup(groupPath, true);
 		click(By.linkText(membership));

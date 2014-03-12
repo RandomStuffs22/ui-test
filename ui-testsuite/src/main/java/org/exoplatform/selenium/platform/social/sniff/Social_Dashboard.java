@@ -56,6 +56,7 @@ public class Social_Dashboard extends DashBoard {
 	public void test01_DragDropGadgetInDashboard(){
 		//Declare variable
 		String gadgetName = "My Spaces Gadget";
+		
 
 		/*Step 1: Drag & drop gadget in Dashboard*/ 
 		//- Click on Dashboard on Admin bar

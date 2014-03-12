@@ -78,7 +78,7 @@ public class Forum_Forum_ForumPortletSettings_ShowHideCategory extends ForumBase
 		pageE.finishEditLayout();
 		acc.signOut();
 		
-		acc.signIn("demo", "gtn");
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForElementNotPresent(By.linkText(catName1));
 		acc.signOut();
@@ -93,7 +93,7 @@ public class Forum_Forum_ForumPortletSettings_ShowHideCategory extends ForumBase
 		pageE.finishEditLayout();
 		acc.signOut();
 		
-		acc.signIn("demo", "gtn");
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForAndGetElement(By.linkText(catName1));
 		acc.signOut();

@@ -91,7 +91,7 @@ public class ManageMember extends SpaceManagement {
 	public void inviteSingleUser(String name, String...params ) {
 		String member = "//th[text()='Members']/ancestor::table//td[text()='Root Root']";  
 		selectUser(name);
-		if (name.equals("root")){
+		if (name.equals(USER_ROOT)){
 			info("--------------------------------");
 			waitForAndGetElement(By.xpath(member));
 		}else{
@@ -115,12 +115,12 @@ public class ManageMember extends SpaceManagement {
 		check(By.xpath(ELEMENT_SELECTED_USER_BOX.replace("${username}", name)),2);
 			clickButton("Add");
 			if (name.equals("Jack")){
-				waitForAndGetElement(By.xpath(user1.replace("${user}", "demo")));
+				waitForAndGetElement(By.xpath(user1.replace("${user}", DATA_USER4)));
 			}else{
 				waitForAndGetElement(By.xpath(user2));
 			}
-			if (name.equals("root")){
-				//waitForElementPresent(By.xpath(user1.replace("${user}", "demo")));
+			if (name.equals(USER_ROOT)){
+				//waitForElementPresent(By.xpath(user1.replace("${user}", DATA_USER4)));
 				info("-- Root is a super user so we don't need to add him as a member --");
 			}else{
 				waitForAndGetElement(By.xpath(user2));

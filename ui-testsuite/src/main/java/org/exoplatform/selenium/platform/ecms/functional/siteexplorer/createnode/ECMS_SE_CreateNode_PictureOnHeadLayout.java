@@ -37,9 +37,6 @@ public class ECMS_SE_CreateNode_PictureOnHeadLayout extends PlatformBase{
 	ContentTemplate cTemplate;
 	SitesExplorer sitesExp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -53,7 +50,7 @@ public class ECMS_SE_CreateNode_PictureOnHeadLayout extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		sitesExp = new SitesExplorer(driver);
 		magAlt = new ManageAlert(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

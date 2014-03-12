@@ -218,7 +218,7 @@ import org.testng.annotations.*;
 		String catName = "test 04 Category name";
 		String order = "0";
 		int chooseRestricted = 1;
-		String[] restricted = { "john" };
+		String[] restricted = { DATA_USER1 };
 		String description = "Description";
 		int setPermission = 0;
 		String[] userGroup = null;

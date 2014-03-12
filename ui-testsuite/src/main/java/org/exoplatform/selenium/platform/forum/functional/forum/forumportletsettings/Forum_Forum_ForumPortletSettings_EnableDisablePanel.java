@@ -89,14 +89,14 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		click(ELEMENT_FORUM_PORTLET_CLOSE_BUTTON);
 		pageE.finishEditLayout();
 		
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, true);
 		button.save();
 		button.close();
 		waitForElementNotPresent(ELEMENT_USER_MANAGEMENT_POPUP);
 		acc.signOut();
 		
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		fmCat.addNewCategoryInForum(catName, "1", 0, null, description, 0, null);
 		fmForum.quickAddForum(fmName);
@@ -115,7 +115,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		pageE.finishEditLayout();
 		
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		click(By.linkText(fmName));
 		waitForAndGetElement(ELEMENT_MODERATOR_PANEL);
@@ -126,7 +126,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, false);
 		button.save();
 		button.close();
@@ -164,7 +164,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Change role of demo to Admin
 		info("Change role of demo to Admin");
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, true);
 		button.save();
 		button.close();
@@ -173,7 +173,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and create poll
 		info("Demo signins and create poll");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		fmTopic.addCategoryForumTopic(catName, fmName, topName,topName);
 		waitForAndGetElement(By.linkText(topName)).click();
@@ -200,7 +200,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify created poll
 		info("Demo signins and verify created poll");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		fmTopic.addCategoryForumTopic(catName, fmName, topName,topName);
 		waitForAndGetElement(By.linkText(topName)).click();
@@ -214,7 +214,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, false);
 		button.save();
 		button.close();
@@ -250,7 +250,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Change role of demo to Admin
 		info("Change role of demo to Admin");
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, true);
 		button.save();
 		button.close();
@@ -259,7 +259,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and create poll
 		info("Demo signins and create topic");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		fmTopic.addCategoryForumTopic(catName, fmName, topName,topName);
 		waitForAndGetElement(By.linkText(topName)).click();
@@ -282,7 +282,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify quick reply panel
 		info("Demo signins and verify if quick reply panel displays");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		click(By.linkText(fmName));
 		click(By.linkText(topName));
@@ -295,7 +295,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, false);
 		button.save();
 		button.close();
@@ -328,7 +328,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify Icon Legends
 		info("Demo signins and create topic");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForElementNotPresent(ELEMENT_FORUM_STATE);
 		acc.signOut();
@@ -349,7 +349,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify Icons Legend panel
 		info("Demo signins and verify if  Icons Legend displays");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForAndGetElement(ELEMENT_FORUM_STATE);
  	}
@@ -382,7 +382,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Change role of demo to Admin
 		info("Change role of demo to Admin");
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, true);
 		button.save();
 		button.close();
@@ -391,7 +391,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and create topic
 		info("Demo signins and create topic");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		fmTopic.addCategoryForumTopic(catName, fmName, topName,topName);
 		waitForAndGetElement(By.linkText(topName)).click();
@@ -414,7 +414,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify Rules panel
 		info("Demo signins and verify if Rules panel displays");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		click(By.linkText(fmName));
 		click(By.linkText(topName));
@@ -427,7 +427,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile(null, null, null, null, null, false);
 		button.save();
 		button.close();
@@ -460,7 +460,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify Statistic
 		info("Demo signins and  and verify Statistic");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForElementNotPresent(ELEMENT_STATISTIC_PANEL);
 		acc.signOut();
@@ -481,7 +481,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//Demo signins and verify Statistic panel
 		info("Demo signins and verify if  Statistic displays");
 		acc.signOut();
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		waitForAndGetElement(ELEMENT_STATISTIC_PANEL);
  	}

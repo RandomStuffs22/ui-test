@@ -124,7 +124,7 @@ public class Activity extends SocialBase {
 	public final By ELEMENT_WELCOME_SPACES_LINK = By.linkText("Spaces");
 	public final By ELEMENT_WELCOME_APPSTORE_LINK = By.linkText("iOS App Store");
 	public final By ELEMENT_WELCOME_GOOGLE_LINK = By.linkText("Google Play"); 
-	
+
 	/*public Activity(WebDriver dr){
 		driver = dr;
 	}*/
@@ -293,7 +293,10 @@ public class Activity extends SocialBase {
 		{
 			info("----Click on Link----");
 			waitForAndGetElement(ELEMENT_LINK).click();
+			info("----Click on Link----");
+			waitForAndGetElement(ELEMENT_LINK).click();
 			info("----Input link into link box-----");
+	
 			waitForAndGetElement(ELEMENT_INPUT_LINK_BOX);
 			type(ELEMENT_INPUT_LINK_BOX, link, true);
 			waitForAndGetElement(ELEMENT_ATTACH_BUTTON);

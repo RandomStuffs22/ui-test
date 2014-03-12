@@ -36,8 +36,6 @@ public class ECMS_SE_Create extends PlatformBase {
 	Button button;
     ManageMember magMember;
 	
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
 	public final String file1 = "ECMS_Admin_ManageCategories_Display.jpg";
 	public final String file2 = "ECMS_Admin_SendMailScript_Template.txt";
 	public final String ELEMENT_LINK_IN_CE = "//*[@id='UIDocumentWorkspace']//img[contains(@src, '${file}')]";
@@ -54,7 +52,7 @@ public class ECMS_SE_Create extends PlatformBase {
 		cTemp = new ContentTemplate(driver,this.plfVersion);
 		button = new Button(driver,this.plfVersion);
 		ecms = new EcmsBase(driver,this.plfVersion);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
         magMember = new ManageMember(driver,this.plfVersion);
 	}
 

@@ -53,7 +53,7 @@ public class ECMS_WCM_Viewer extends PlatformBase{
 		pMag = new PageManagement(driver);
 		ecms = new EcmsBase(driver);
 		actBar = new ActionBar(driver);
-		cTemplate = new ContentTemplate(driver);
+		cTemplate = new ContentTemplate(driver,this.plfVersion);
 		cMenu = new ContextMenu(driver);
 		cList = new ContentListPreference(driver);
 		magAcc.signIn(DATA_USER1, DATA_PASS);
@@ -216,7 +216,8 @@ public class ECMS_WCM_Viewer extends PlatformBase{
 		actBar.publishDocument();
 		actBar.openManagePublicationForm();
 		String pDate;
-		pDate = actBar.getPublishDate(actBar.ELEMENT_FIRST_REVISION_DATE);
+		//pDate = actBar.getPublishDate(actBar.ELEMENT_FIRST_REVISION_DATE);
+		pDate = actBar.getPublishDate(By.xpath(actBar.ELEMENT_REVISION_DATE.replace("${status}", "Published[Current Revision]")));
 		button.close();
 
 		info("-- Open Overview page --");

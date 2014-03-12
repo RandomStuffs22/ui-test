@@ -33,6 +33,34 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 	/**
 	 * Case ID:79247.
 	 * Test Case Name: Display the Account Setup screen.
+	 * Case ID:79249.
+	 * Test Case Name: Display information text after the label "Create an account".
+	 * Case ID:79250.
+	 * Test Case Name: The Field "username" is mandatory.
+	 * Case ID:79251.
+	 * Test Case Name: The Field "First name" is mandatory.
+	 * Case ID:79252.
+	 * Test Case Name: The Field "Last name" is mandatory.
+	 * Case ID:79253.
+	 * Test Case Name: The Field "Email" is mandatory.
+	 * Case ID:79254.
+	 * Test Case Name: Input different data in fields "Password" and "Confirm" on form "Create your account".
+	 * Case ID:79255.
+	 * Test Case Name: The Field "Password" is mandatory.
+	 * Case ID:79256.
+	 * Test Case Name: The Field "Confirm" is mandatory.
+	 * Case ID:79315.
+	 * Test Case Name: Input different data in fields "Password" and "Confirm" of root.
+	 * Case ID:79257.
+	 * Test Case Name: Display USER_ROOT by default in the field "Username".
+	 * Case ID:79258.
+	 * Test Case Name: Display information text after the label "Admin Password".
+	 * Case ID:79259.
+	 * Test Case Name: Submit the accounts by click on "Start".
+	 * Case ID:79248.
+	 * Test Case Name: Not display "Setup account" screen at second launch with the 1st time account has been setup.
+	 * Case ID:79260.
+	 * Test Case Name: The new user account is an administrator.
 	 * Pre-Condition: 
 	 * Post-Condition: 
 	 * Done with OSs and browsers : 
@@ -94,6 +122,8 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		info("Account Setup displays");
 		waitForAndGetElement(ELEMENT_ACCOUNT_SETUP);
 
+		waitForAndGetElement(ELEMENT_USER_ADMIN).getAttribute("value").equalsIgnoreCase(USER_ROOT);	
+		
 		/*
 		- Read under "Create your account"
 		 *Input Data: 
@@ -151,10 +181,10 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);	
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("Username is required.");
@@ -208,10 +238,12 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_INPUT_USERNAME, "fqa", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);	
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_FIRSTNAME_ACCOUNT, "", true);
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("First name is required.");
@@ -265,10 +297,11 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_INPUT_USERNAME, "fqa", true);
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);	
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);		
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_LASTNAME_ACCOUNT, "", true);
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("Last name is required.");
@@ -322,10 +355,12 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_INPUT_USERNAME, "fqa", true);
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);	
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_EMAIL_ACCOUNT, "", true);	
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("Email is required.");
@@ -440,9 +475,10 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);	
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);	
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_INPUT_PASSWORD, "", true);
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("Password is required.");
@@ -498,9 +534,10 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_ROOT_PASS_ACCOUNT, "gtngtn", true);
-		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_ROOT_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "", true);	
 		click(ELEMENT_SUBMIT_BUTTON);
 		Utils.pause(100);
 		assert waitForAndGetElement(ELEMENT_ACCOUNT_ERROR).getText().equalsIgnoreCase("Confirm is required.");
@@ -556,12 +593,15 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		 *Input Data: 
 		 *Expected Outcome: 
 		- A warning message is displayed: "Password does not match the Confirm password"		*/ 
+
+		//String strPassRoot = DATA_PASS;
+		strPassConf = "gtn123";
 		type(ELEMENT_INPUT_USERNAME, "fqa", true);
 		type(ELEMENT_FIRSTNAME_ACCOUNT, "FQA", true);
 		type(ELEMENT_LASTNAME_ACCOUNT, "VN", true);
 		type(ELEMENT_EMAIL_ACCOUNT, "fqa@exoplatform.com", true);	
-		type(ELEMENT_INPUT_PASSWORD, "gtngtn", true);
-		type(ELEMENT_CONFIRM_PASS_ACCOUNT, "gtngtn", true);
+		type(ELEMENT_INPUT_PASSWORD, DATA_PASS, true);
+		type(ELEMENT_CONFIRM_PASS_ACCOUNT, DATA_PASS, true);
 		type(ELEMENT_ROOT_PASS_ACCOUNT, strPassRoot, true);
 		type(ELEMENT_ROOT_CONFIRM_PASS_ACCOUNT, strPassConf, true);
 		click(ELEMENT_SUBMIT_BUTTON);
@@ -739,6 +779,14 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		waitForAndGetElement(ELEMENT_ACCOUNT_SETUP);
 		accountSetup();
 		waitForAndGetElement(ELEMENT_CATEGORY_ADMINISTRATION);		
+		acc.signIn("fqa", DATA_PASS);
+		/*Expected Outcome: 
+			- Intranet Homepage is displayed
+			- User is looged with the account created 
+			- The user can see the full Administration menu
+			- This user in membership:*:/platform/administrators*:/platform/web
+			-contributors*:/platform:/users*:/developers		*/ 
+		waitForAndGetElement(ELEMENT_CATEGORY_ADMINISTRATION);
 	}
 
 	/**
@@ -813,7 +861,7 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		- Can log in with root/gtn here to create new account 		*/ 
 		click(ELEMENT_SKIP_BUTTON);
 		acc = new ManageAccount(driver, plfVersion);
-		acc.signIn("root", "gtn");;		
+		acc.signIn(USER_ROOT, PASS_ROOT);;		
 	}
 
 	/**
@@ -844,7 +892,7 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		waitForAndGetElement(ELEMENT_ACCOUNT_SETUP);
 		click(ELEMENT_SKIP_BUTTON);
 		acc = new ManageAccount(driver, plfVersion);
-		acc.signIn("root", "gtn");
+		acc.signIn(USER_ROOT, PASS_ROOT);
 
 		/*
 		- Restart server

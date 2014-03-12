@@ -24,10 +24,10 @@ public class Wiki_BasicAction_Move extends BasicAction {
 		driver.manage().window().maximize();
 		magAcc = new ManageAccount(driver);
 		button = new Button(driver);
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
-	String[] user1= {"james"};
+	String[] user1= {DATA_USER3};
 
 	/**
 	 * Qmetry ID: 69787
@@ -56,7 +56,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		addPagePermission(0, user1);
 		
-		editPagePermission("james", true, true, false, 2);
+		editPagePermission(DATA_USER3, true, true, false, 2);
 		
 		click(ELEMENT_WIKI_HOME);
 
@@ -68,11 +68,11 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		addPagePermission(0, user1);
 		
-		editPagePermission("james", true, true, false, 2);
+		editPagePermission(DATA_USER3, true, true, false, 2);
 		
 		magAcc.signOut();
 
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn(DATA_USER3, DATA_PASS);
 
 		goToWiki();
 		
@@ -110,7 +110,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		magAcc.signOut();
 
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		goToWiki();
 
@@ -142,7 +142,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		magAcc.signOut();
 
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn(DATA_USER3, DATA_PASS);
 
 		goToWiki();
 
@@ -155,7 +155,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		magAcc.signOut();
 
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		goToWiki();
 
@@ -183,7 +183,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		addPagePermission(0,user1);
 
-		editPagePermission("james", true, true, false, 2);
+		editPagePermission(DATA_USER3, true, true, false, 2);
 		
 		deletePagePermission("any");
 
@@ -195,7 +195,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		magAcc.signOut();
 
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn(DATA_USER3, DATA_PASS);
 
 		goToWiki();
 
@@ -215,7 +215,7 @@ public class Wiki_BasicAction_Move extends BasicAction {
 
 		magAcc.signOut();
 
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		goToWiki();
 

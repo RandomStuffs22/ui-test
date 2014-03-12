@@ -91,6 +91,6 @@ public class PLF_AccountSetup extends PlatformBase{
 		driver.get(baseUrl);
 		info("Login with " + "fqa");
 		magAcc = new ManageAccount(driver);
-		magAcc.signIn("fqa", "gtngtn");
+		magAcc.signIn("fqa", DATA_PASS);
 	}
 }

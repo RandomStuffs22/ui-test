@@ -55,7 +55,7 @@ public class Forum_Answer_Category_Add extends AnswerBase{
 	public void test01_AddCategoryWithValidModeratorByInput() {
 		String category = "Category 1 72719";
 		String newCategory = "New category 72719";
-		String[] userGroup = {"mary"};
+		String[] userGroup = {DATA_USER2};
 
 		info("Add new category in case valid data entry for Moderator field by inputing value into this field");
 
@@ -90,7 +90,7 @@ public class Forum_Answer_Category_Add extends AnswerBase{
 	@Test
 	public void test01_AddCategoryWithValidModeratorBySelectUser() {
 		String category = "Category 2 72719";
-		String[] userGroup = {"mary"};
+		String[] userGroup = {DATA_USER2};
 
 		info("Add new category in case valid data entry for Moderator field by select an user into this field");
 

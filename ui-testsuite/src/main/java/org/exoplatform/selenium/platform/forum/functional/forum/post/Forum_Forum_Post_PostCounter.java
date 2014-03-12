@@ -64,8 +64,8 @@ public class Forum_Forum_Post_PostCounter extends ForumBase{
 		Integer newPostNum;
 		
 		//Check data before testing
-		goToUserManagement("demo");
-		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", "demo"));
+		goToUserManagement(DATA_USER4);
+		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", DATA_USER4));
 		postProfile = waitForAndGetElement(ELEMENT_USER_NUMBER_POST).getText();
 		oldPostNum = Integer.valueOf(postProfile.substring(postProfile.indexOf(":")+1).trim());
 		click(ELEMENT_CLOSE_USER_PROFILE_BUTTON);
@@ -106,8 +106,8 @@ public class Forum_Forum_Post_PostCounter extends ForumBase{
 			- Post counter is shown with information "demo Has 2 Post"*/
 		magAc.userSignIn(userType.ADMIN);
 		goToForums();
-		goToUserManagement("demo");
-		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", "demo"));
+		goToUserManagement(DATA_USER4);
+		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", DATA_USER4));
 		postProfile = waitForAndGetElement(ELEMENT_USER_NUMBER_POST).getText();
 		newPostNum = Integer.valueOf(postProfile.substring(postProfile.indexOf(":")+1).trim());
 		assert (newPostNum==(oldPostNum+2));
@@ -130,8 +130,8 @@ public class Forum_Forum_Post_PostCounter extends ForumBase{
 		mngPost.postReply(post2, post2, "", "");
 		magAc.userSignIn(userType.ADMIN);
 		goToForums();
-		goToUserManagement("demo");
-		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", "demo"));
+		goToUserManagement(DATA_USER4);
+		click(ELEMENT_VIEW_USER_PROFILE_ICON.replace("${user}", DATA_USER4));
 		postProfile = waitForAndGetElement(ELEMENT_USER_NUMBER_POST).getText();
 		newPostNum = Integer.valueOf(postProfile.substring(postProfile.indexOf(":")+1).trim());
 		assert (newPostNum==(oldPostNum+4));

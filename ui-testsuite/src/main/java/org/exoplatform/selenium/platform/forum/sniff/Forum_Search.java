@@ -35,7 +35,7 @@ public class Forum_Search extends ForumBase {
 		magtopic = new ForumManageTopic(driver, this.plfVersion);
 		post = new ForumManagePost(driver, this.plfVersion);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToForums();
 	}
 
@@ -104,7 +104,7 @@ public class Forum_Search extends ForumBase {
 		waitForAndGetElement(By.linkText(title2));
 		
 		info("Advanced search in Post");
-		advancedSearch("Post", "Post", true, "john");
+		advancedSearch("Post", "Post", true, DATA_USER1);
 		waitForAndGetElement(By.linkText(post1));
 		waitForAndGetElement(By.linkText(post2));
 		

@@ -88,7 +88,7 @@ public class Social_Space_SpaceManagement_WikiPageAccess extends Permalink{
 		//- Paste the permalink
 		//- The member of space can view the page created by the manager
 		magAcc.signOut();
-		goToWikiByPermalink("mary", permalink, true, content);
+		goToWikiByPermalink(DATA_USER2, permalink, true, content);
 
 		/*Clear data*/
 		info("-- Clear data --");
@@ -129,7 +129,7 @@ public class Social_Space_SpaceManagement_WikiPageAccess extends Permalink{
 		//- Paste the permalink
 		//- The "Page Not found" is displayed, the user B cannot view the page
 		magAcc.signOut();
-		goToWikiByPermalink("mary", permalink, false, content);
+		goToWikiByPermalink(DATA_USER2, permalink, false, content);
 
 		/*Clear data*/
 		info("-- Clear data --");

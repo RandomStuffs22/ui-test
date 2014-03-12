@@ -46,6 +46,7 @@ public class ContentTemplate extends EcmsBase{
 	public final By ELEMENT_WEBCONTENT_NAME_TEXTBOX = By.id("name");	
 	public final By ELEMENT_WEBCONTENT_CONTENT_FRAME = By.xpath("//td[contains(@id,'cke_contents_htmlData')]/iframe");
 	public final By ELEMENT_WEBCONTENT_CONTENT_FRAME_41 = By.xpath("//div[@id= 'cke_1_contents']/iframe");
+	public final By ELEMENT_WEBCONTENT_CONTENT_FRAME_EDIT_41 = By.xpath("//*[contains(@id,'cke_htmlData')]//iframe");
 	public final By ELEMENT_WEBCONTENT_ADD_CONTENT_LINK = By.xpath("//*[@title='Insert Content Link']");
 	public final By ELEMENT_WEBCONTENT_ILLUSTRATION_TAB = By.xpath("//*[contains(text(),'Illustration')]");
 	public final By ELEMENT_WEBCONTENT_UPLOAD_FRAME = By.xpath("//*[contains(@name,'uploadIFrame')]");
@@ -260,7 +261,9 @@ public class ContentTemplate extends EcmsBase{
 			selectOption(ELEMENT_PIC_LANG, optionLang);
 		}
 		if (cont != ""){
-			if(this.plfVersion.equalsIgnoreCase("4.1"))
+			info("plf..." + plfVersion);
+		if(this.plfVersion.equalsIgnoreCase("4.1"))
+		
 				inputDataToFrame(ELEMENT_WEBCONTENT_CONTENT_FRAME_41,cont,true);
 			else
 				inputDataToFrame(ELEMENT_WEBCONTENT_CONTENT_FRAME,cont,true);
@@ -1011,7 +1014,11 @@ public class ContentTemplate extends EcmsBase{
 		//type(ELEMENT_WEBCONTENT_TITLE_TEXTBOX, title_edit, true);
 		//		waitForAndGetElement(ELEMENT_WEBCONTENT_NAME_TEXTBOX).clear();
 		if (contentToEdit != ""){
-			inputDataToFrame(ELEMENT_WEBCONTENT_CONTENT_FRAME, contentToEdit, true);
+			if(this.plfVersion.equalsIgnoreCase("4.0"))
+				inputDataToFrame(ELEMENT_WEBCONTENT_CONTENT_FRAME, contentToEdit, true);      
+			else
+			inputDataToFrame(ELEMENT_WEBCONTENT_CONTENT_FRAME_EDIT_41, contentToEdit, true);
+			
 			switchToParentWindow();
 		}
 

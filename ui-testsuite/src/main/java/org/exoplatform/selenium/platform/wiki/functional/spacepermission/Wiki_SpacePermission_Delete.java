@@ -20,7 +20,7 @@ public class Wiki_SpacePermission_Delete extends Permission {
 		initSeleniumTest();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	//Qmetry ID: 69746
@@ -28,13 +28,13 @@ public class Wiki_SpacePermission_Delete extends Permission {
 	@Test
 	public void test01_DeletePermissionForSpace() {
 
-		String[] user2= {"james"};
+		String[] user2= {DATA_USER3};
 
 		goToWiki();
 
 		addSpacePermission(0, user2);
 
-		deleteSpacePermission("james");
+		deleteSpacePermission(DATA_USER3);
 	}
 
 	@AfterMethod

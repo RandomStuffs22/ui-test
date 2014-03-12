@@ -237,7 +237,7 @@ public class ManageDrive extends EcmsBase{
 			selectCheckBoxList(view);
 			button.save();
 			magAcc.signOut();
-			magAcc.signIn("john", "gtn");
+			magAcc.signIn(DATA_USER1, DATA_PASS);
 		}else {
 			info("-- Web View is already displayed --");
 		}
@@ -263,7 +263,7 @@ public class ManageDrive extends EcmsBase{
 			unSelectCheckBoxList(view);
 			button.save();
 			magAcc.signOut();
-			magAcc.signIn("john", "gtn");
+			magAcc.signIn(DATA_USER1, DATA_PASS);
 		}else {
 			info("-- Web View is not displayed --");
 		}

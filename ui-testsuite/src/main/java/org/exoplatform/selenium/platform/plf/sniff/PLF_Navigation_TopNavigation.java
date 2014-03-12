@@ -111,9 +111,10 @@ public class PLF_Navigation_TopNavigation extends BasicAction {
 	 * == Create a new Poll via the top navigation ==
 	 * Test case ID: 74361
 	 * Step 1: Connect to intranet
-	 * Step 2: Open poll application	
+	 * Step 2: Open poll application
+	 * 27/3/2014: lientm comment, refer issue FORUM-846	
 	 */
-	@Test
+	@Test (groups="error")
 	public void test02_CreateANewPollViaTheTopNavigation(){
 		/*Declare variables*/
 		String titleCat = "Category 74361";
@@ -190,8 +191,9 @@ public class PLF_Navigation_TopNavigation extends BasicAction {
 	 * Test case ID: 74362
 	 * Step 1: Connect to Intranet
 	 * Step 2: Open Topic application
+	 * 27/3/2014: lientm comment, refer issue FORUM-846	
 	 */
-	@Test
+	@Test (groups="error")
 	public void test04_CreateANewTopicViaTheTopNavigation(){
 		/*Declare variables*/
 		String category = "Category 74362";

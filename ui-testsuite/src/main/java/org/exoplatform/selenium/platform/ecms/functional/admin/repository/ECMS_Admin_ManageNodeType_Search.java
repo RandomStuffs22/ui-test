@@ -34,20 +34,17 @@ public class ECMS_Admin_ManageNodeType_Search extends PlatformBase {
 	ECMainFunction ecMain;
 	ManageNodeType magNode;
 
-	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		button = new Button(driver);
 		magAcc = new ManageAccount(driver);
 		ecms = new EcmsBase(driver);
 		ecMain = new ECMainFunction(driver);
 		magNode = new ManageNodeType(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		alert = new ManageAlert(driver, this.plfVersion);
 		ecMain.goToNodeTypeTab();
 	}

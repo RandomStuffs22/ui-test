@@ -68,7 +68,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver); 
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn("john","gtn");
+		magAcc.signIn(DATA_USER1,DATA_PASS);
 	}
 
 	/**
@@ -178,13 +178,12 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		driver.close();
 
 		//login with user mary
-		initSeleniumTest();
-		driver.get(baseUrl);
-		ecms = new EcmsBase(driver);
-		navToolBar = new NavigationToolbar(driver);
-		magAcc = new ManageAccount(driver);
-		cMenu = new ContextMenu(driver);
-		magAcc.signIn("mary", "gtn");
+		info("Initialize a new session and Login with Mary");
+		loginWithAnotherAccOnThesameBrowser(DATA_USER2, DATA_PASS);
+		ecms = new EcmsBase(newDriver);
+		navToolBar = new NavigationToolbar(newDriver);
+		magAcc = new ManageAccount(newDriver);
+		cMenu = new ContextMenu(newDriver);
 		navToolBar.goToSiteExplorer();
 
 		//check user mary can not delete node
@@ -194,7 +193,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(ELEMENT_CONTENT_FOLDER);
 	}
@@ -240,7 +239,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		cMenu = new ContextMenu(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check user mary can delete child node
@@ -250,7 +249,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(ELEMENT_CONTENT_FOLDER);		
 	}
@@ -287,7 +286,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 
 		//Sign out and Sign in as mary
 		magAcc.signOut();
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		//goto Site Explorer
 		navToolBar.goToSiteExplorer();
@@ -299,7 +298,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 
 		//Delete data
 		magAcc.signOut();
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		//goto Site Explorer
 		navToolBar.goToSiteExplorer();

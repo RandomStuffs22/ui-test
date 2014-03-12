@@ -67,7 +67,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		magAc.signIn(DATA_USER1, DATA_PASS);
 
 		/*Create data*/
-		userGroup.editUserAccount("john", false, null, null, null, null, null, null, null, "");
+		userGroup.editUserAccount(DATA_USER1, false, null, null, null, null, null, null, null, "");
 
 		//Select Star toolbar portlet /Change Language
 		//- Language settings form is shown, list all supporting languages in the left pane
@@ -204,7 +204,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 
 		/*Create data*/
 		magAc.userSignIn(userType.ADMIN);
-		userGroup.editUserAccount("demo", false, null, null, null, null, null, null, null, "");
+		userGroup.editUserAccount(DATA_USER4, false, null, null, null, null, null, null, null, "");
 
 		/* Step 1: Check display after login to portal */
 		//Sign In portal by Admin/Manager/User/Demo account
@@ -246,7 +246,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 
 		/*Create data*/
 		magAc.userSignIn(userType.ADMIN);
-		userGroup.editUserAccount("demo", false, null, null, null, null, null, null, null, "");
+		userGroup.editUserAccount(DATA_USER4, false, null, null, null, null, null, null, null, "");
 
 		/* Step 1: Check display after login to portal */
 		//Sign In portal by Admin/Manager/User/Demo account
@@ -412,7 +412,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		//- Click Save
 		//- New change is saved
 		waitForAndGetElement(ELEMENT_HOME_TEXT_ENGLISH);
-		userGroup.editUserAccount("mary", false, null, null, null, null, null, null, null, newLang);
+		userGroup.editUserAccount(DATA_USER2, false, null, null, null, null, null, null, null, newLang);
 
 		/* Step 3: Check when change language */
 		//Sign In portal by account which edited above
@@ -423,7 +423,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		/*Clear data*/
 		info("-- Clear data --");
 		magAc.userSignIn(userType.ADMIN);
-		userGroup.editUserAccount("mary", false, null, null, null, null, null, null, null, oldLang);
+		userGroup.editUserAccount(DATA_USER2, false, null, null, null, null, null, null, null, oldLang);
 	}
 
 	/**CaseId: 73772
@@ -447,7 +447,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		String email = username+"@platform.com";
 
 		//Set captra to invisible
-		magAc.signInAcme("root","gtngtn");
+		magAc.signInAcme(USER_ROOT,PASS_ROOT);
 		info("Go to page edit layout");
 		driver.get(baseUrl+"/acme/newAccount");
 		navTool.goToEditPageEditor();

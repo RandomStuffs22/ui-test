@@ -31,7 +31,7 @@ public class Wiki_Search extends Template {
 		activity = new HomePageActivity(driver);
 		magMem = new ManageMember(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToWiki();
 	}
 	

@@ -21,8 +21,8 @@ public class Wiki_PagePermission_Other extends BasicAction{
 	ManageAccount magAc;
 	ManageMember magMember;
 
-	public String DATA_USER_ADMIN = "john";
-	public String DATA_PASS_ADMIN = "gtn";
+	public String DATA_USER_ADMIN = DATA_USER1;
+	public String DATA_PASS_ADMIN = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeTest(){
@@ -87,7 +87,7 @@ public class Wiki_PagePermission_Other extends BasicAction{
 		String title = "KS_Wiki_PagePermission_Other_Page_01_1";
 		String content = "KS_Wiki_PagePermission_Other_Content_01_1";
 		By element_page = By.linkText(title);
-		String user = "mary";
+		String user = DATA_USER2;
 		String[] userGroup = {user};
 
 		info("Add a wiki page");
@@ -168,7 +168,7 @@ public class Wiki_PagePermission_Other extends BasicAction{
 		String title = "KS_Wiki_PagePermission_Other_Page_02_1";
 		String content = "KS_Wiki_PagePermission_Other_Content_02_1";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 		String[] userGroup = {user};
 
 		info("Add a wiki page");
@@ -255,7 +255,7 @@ public class Wiki_PagePermission_Other extends BasicAction{
 		String title = "KS_Wiki_PagePermission_Other_Page_03_1";
 		String content = "KS_Wiki_PagePermission_Other_Content_03_1";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 		String[] userGroup = {user};
 
 		//add new space visible and open
@@ -299,7 +299,7 @@ public class Wiki_PagePermission_Other extends BasicAction{
 		magAc.signOut();
 
 		info("user james belongs to group that joins space -> check page permission");
-		userJoinSpaceAndCheckPagePermission("james", spaceName, element_space, element_page, content);
+		userJoinSpaceAndCheckPagePermission(DATA_USER3, spaceName, element_space, element_page, content);
 
 		//delete space
 		magAc.signIn(DATA_USER_ADMIN, DATA_PASS_ADMIN);
@@ -328,7 +328,7 @@ public class Wiki_PagePermission_Other extends BasicAction{
 		magAc.signOut();
 
 		info("user james belongs to membership that joins space -> check page permission");
-		userJoinSpaceAndCheckPagePermission("james", spaceName, element_space, element_page, content);
+		userJoinSpaceAndCheckPagePermission(DATA_USER3, spaceName, element_space, element_page, content);
 
 		//delete space
 		magAc.signIn(DATA_USER_ADMIN, DATA_PASS_ADMIN);

@@ -89,7 +89,7 @@ public class Forum_Forum_Post extends ForumBase{
 		mngPost.privatePost(topic, post, post, "", "");
 		
 		//Check if other user can see private post
-		goToTopic("demo", category, topic);
+		goToTopic(DATA_USER4, category, topic);
 		waitForElementNotPresent(mngPost.ELEMENT_POST_CONTENT_TEXT.replace("${post}", post));
 		
 		//Check if the receiver can see private post

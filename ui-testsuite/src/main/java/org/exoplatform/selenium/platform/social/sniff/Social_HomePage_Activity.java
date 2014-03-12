@@ -674,8 +674,9 @@ public class Social_HomePage_Activity extends Activity {
 		waitForAndGetElement(ELEMENT_AVATAR_SPACE_ACTIVITY.replace("${activityText}", newSpaceName));
 
 		//- A comment is added: Name has been updated to: $value.
-		waitForAndGetElement(activity.ELEMENT_CONTENT_COMMENT_RENAME_SPACE.replace("${spacename}", newSpaceName));
-
+	
+	waitForAndGetElement(activity.ELEMENT_CONTENT_COMMENT_RENAME_SPACE.replace("${spacename}", newSpaceName));
+		
 		//Clear data
 		info("clear data");
 		magMember.goToAllSpaces();

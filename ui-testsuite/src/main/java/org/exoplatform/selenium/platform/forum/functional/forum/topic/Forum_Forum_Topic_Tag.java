@@ -295,7 +295,7 @@ public class Forum_Forum_Topic_Tag extends ForumBase {
 		String tag = "helloworld";
 		String tagsplit = "hell";
 		String[] permissionCat = {};
-		String[] userGroup = {"mary"};
+		String[] userGroup = {DATA_USER2};
 
 		info("Go to forum");
 		goToForums();

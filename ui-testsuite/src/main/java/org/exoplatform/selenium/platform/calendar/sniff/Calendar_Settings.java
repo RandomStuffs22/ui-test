@@ -49,7 +49,7 @@ public class Calendar_Settings extends CalendarBase{
 	public void test01_DisplayCalendar() {
 
 		String calendar = "ShareCalendar";
-		String[] user = {"mary"};
+		String[] user = {DATA_USER2};
 		boolean[] canEdit = {true};
 
 		info("--Add share calendar--");
@@ -103,7 +103,17 @@ public class Calendar_Settings extends CalendarBase{
 			waitForElementNotPresent(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "checkbox iconUnCheckBox")));
 		}
 		click(ELEMENT_SETTINGS_FORM_SAVE_BUTTON);
-		waitForAndGetElement(ELEMENT_DISPLAY_CALENDAR.replace("${calendar}", "John Smith"));
+
+
+
+//	waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR_FORM.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+		waitForTextPresent("John Smith");
+
+
+
+
+	//	waitForAndGetElement(ELEMENT_DISPLAY_CALENDAR.replace("${calendar}", "John Smith"));
+
 		info("--Delete Calendar--");
 		deleteCalendar(calendar);
 	}

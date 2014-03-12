@@ -17,8 +17,8 @@ public class Wiki_PagePermission_Delete extends BasicAction{
 	
 	ManageAccount magAc;
 	
-	public String DATA_USER_ADMIN = "john";
-	public String DATA_PASS_ADMIN = "gtn";
+	public String DATA_USER_ADMIN = DATA_USER1;
+	public String DATA_PASS_ADMIN = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeTest(){
@@ -48,7 +48,7 @@ public class Wiki_PagePermission_Delete extends BasicAction{
 		String content = "KS_Wiki_PagePermission_Delete_Page_Content_01_1";
 		String new_content = "KS_Wiki_PagePermission_Delete_Page_Content_new_01_1";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 		String[] userGroup = {user};
 		
 		info("Add a wiki page");
@@ -101,7 +101,7 @@ public class Wiki_PagePermission_Delete extends BasicAction{
 		magAc.signOut();
 		
 		info("Check user James belong to group can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);
 		magAc.signOut();
 		
@@ -137,7 +137,7 @@ public class Wiki_PagePermission_Delete extends BasicAction{
 		magAc.signOut();
 		
 		info("Check user James belong to group and has membership can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);		
 		magAc.signOut();
 				

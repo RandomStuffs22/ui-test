@@ -103,7 +103,7 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		String fwdMessage = "Forward to message 71190";
 
 		//Compose a message
-		composePrivateMessage("demo", message, contentMessage);
+		composePrivateMessage(DATA_USER4, message, contentMessage);
 
 		//Forward a message
 		forwardPrivateMessage(message, DATA_USER2, fwdMessage);
@@ -118,7 +118,7 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		deletePrivateMessage("Forward:" + message);
 
 		//Check if demo can receive the message and delete data
-		loginForum("demo");
+		loginForum(DATA_USER4);
 		goToPrivateMessage();
 		deletePrivateMessage(message);
 

@@ -32,13 +32,18 @@ public class PeopleConnection extends SocialBase {
 	public final By ELEMENT_EVERYONE_TAB = By.linkText("Everyone");
 	public final By ELEMENT_REQUEST_SENT_TAB = By.linkText("Requests Sent");
 	public final String ELEMENT_CONNECTION_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Connect')]";
-public final String ELEMENT_CANCEL_REQUEST_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Cancel Request')]";
-public final String ELEMENT_REMOVE_CONNECTION_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Remove Connection')]";
-public final String ELEMENT_CONFIRM_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Confirm')]";
-public final String ELEMENT_IGNORE_BUTTON = "//*[@data-original-title='${peopleName}']/../..//*[text()='Ignore']";
+	public final String ELEMENT_CONNECTION_BUTTON_PLF41 = "//a[@href='/portal/intranet/profile/${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Connect')]";
+
+	public final String ELEMENT_CANCEL_REQUEST_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Cancel Request')]";
+	public final String ELEMENT_REMOVE_CONNECTION_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Remove Connection')]";
+	public final String ELEMENT_CONFIRM_BUTTON = "//a[text()='${peopleName}']/ancestor::div[@class='spaceBox pull-left']//button[contains(text(),'Confirm')]";
+	public final String ELEMENT_IGNORE_BUTTON = "//*[@data-original-title='${peopleName}']/../..//*[text()='Ignore']";
+	public final String ELEMENT_IGNORE_BUTTON_PLF41 = "//*[@href='/portal/intranet/profile/${peopleName}']/../..//*[text()='Ignore']";
+
 	//public final String ELEMENT_IGNORE_BUTTON = "//*[@data-original-title='${peopleName}']/../..//*[text()='Ignore']";
 	public final String ELEMENT_CONNECT_LIST = "//*[text()='Connect']";
 	public final String ELEMENT_PEOPLE_SEARCH = "//*[@class='uiProfileUserSearch']/..//*[text()='${peopleName}']";
+	public final String ELEMENT_EVERYONE_TAB_ACTIVE = "//li[@class='active']/a[contains(text(),'Everyone')]";
 
 	//-----------------------Connections page------------------------
 	public String ELEMENT_INVITATION_RECEIVED_MSG = "//h4[@class='spaceTitle']/a[contains(text(),'${acc}')]/ancestor::div[@class='spaceBox pull-left']/div[@class='connectionBtn clearfix']/span[contains(text(),'Invitation Received')]";
@@ -62,8 +67,21 @@ public final String ELEMENT_IGNORE_BUTTON = "//*[@data-original-title='${peopleN
 		}
 		else
 			click(ELEMENT_EVERYONE_TAB);
+		waitForAndGetElement(ELEMENT_EVERYONE_TAB_ACTIVE,80000);
+		peoSearch.searchPeople(false,peopleName);
+		waitForAndGetElement(By.linkText(peopleName));
 		info("-----Click connect to people-----");
-	//	waitForAndGetElement(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
+		if (waitForAndGetElement(ELEMENT_CANCEL_REQUEST_BUTTON.replace("${peopleName}", peopleName), 10000, 0) != null){
+			info("cancel connection request");
+			click(ELEMENT_CANCEL_REQUEST_BUTTON.replace("${peopleName}", peopleName));
+			Utils.pause(1000);
+		}
+		if (waitForAndGetElement(ELEMENT_REMOVE_CONNECTION_BUTTON.replace("${peopleName}", peopleName), 10000, 0) != null){
+			info("remove connection");
+			click(ELEMENT_REMOVE_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
+			Utils.pause(1000);
+		}
+		waitForAndGetElement(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
 		click(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
 		info("---Verify Connect button is disappeared----");
 		waitForElementNotPresent(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
@@ -108,13 +126,33 @@ public final String ELEMENT_IGNORE_BUTTON = "//*[@data-original-title='${peopleN
 		}
 		else
 			click(ELEMENT_REQUESTS_RECEIVED_TAB);
-		waitForAndGetElement(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
+
+
+		if(this.plfVersion == "4.1")
+
+			waitForAndGetElement(ELEMENT_IGNORE_BUTTON_PLF41.replace("${peopleName}", peopleName));
+		else
+			waitForAndGetElement(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
+
 		info("---Ignore the invitation from user '"+peopleName+"'-----");
-		click(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
-		waitForElementNotPresent(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
+
+		if(this.plfVersion == "4.1")
+			click(ELEMENT_IGNORE_BUTTON_PLF41.replace("${peopleName}", peopleName));
+		else
+			click(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
+		if(this.plfVersion == "4.1")
+			waitForElementNotPresent(ELEMENT_IGNORE_BUTTON_PLF41.replace("${peopleName}", peopleName));
+
+		else
+			waitForElementNotPresent(ELEMENT_IGNORE_BUTTON.replace("${peopleName}", peopleName));
 		info("---Go to Everyone tab----");
 		click(ELEMENT_EVERYONE_TAB);
-		waitForAndGetElement(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
+		if(this.plfVersion == "4.1")
+
+			waitForAndGetElement(ELEMENT_CONNECTION_BUTTON_PLF41.replace("${peopleName}", peopleName));
+
+		else
+			waitForAndGetElement(ELEMENT_CONNECTION_BUTTON.replace("${peopleName}", peopleName));
 	}
 
 	/**

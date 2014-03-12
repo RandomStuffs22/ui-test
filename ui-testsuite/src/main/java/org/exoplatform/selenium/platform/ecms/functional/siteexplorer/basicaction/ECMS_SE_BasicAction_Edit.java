@@ -47,9 +47,6 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 	ContextMenu cMenu;
 	SitesExplorer siteExp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	String DATA_UPLOAD_IMG_2 = "TestData/FNC_ECMS_FEX_ACTION_09_2.png";
 	String DATA_UPLOAD_IMG_1 = "TestData/FNC_ECMS_FEX_ACTION_09_1.png";
 
@@ -68,7 +65,7 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 	}
 
@@ -302,16 +299,14 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 		driver.close();
 
 		//login with mary
-		info("Initialize a new session");
-		initSeleniumTest();
-		driver.get(baseUrl);
-		magAcc = new ManageAccount(driver);
-		navToolBar = new NavigationToolbar(driver);
-		ecms = new EcmsBase(driver);
-		cMenu = new ContextMenu(driver);
-
-		info("Login with Mary");
-		magAcc.signIn("mary", "gtn");
+		info("Initialize a new session and Login with Mary");
+		loginWithAnotherAccOnThesameBrowser(DATA_USER2, DATA_PASS);
+		magAcc = new ManageAccount(newDriver);
+		navToolBar = new NavigationToolbar(newDriver);
+		ecms = new EcmsBase(newDriver);
+		cMenu = new ContextMenu(newDriver);
+		actBar = new ActionBar(newDriver);
+		siteExp = new SitesExplorer(newDriver);
 
 		//check can not edit this document with user Mary
 		navToolBar.goToSiteExplorer();
@@ -320,7 +315,7 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 		info("Cannot edit a locked document with user is not locker");
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(bDocument);
 	}
@@ -450,21 +445,21 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 		actBar.goToNodePermissionManagement();
 		ecmsPer.deletePermission("*:/platform/web-contributors", true);
 		ecmsPer.deletePermission("any", true);
-		ecms.selectUser("james");
+		ecms.selectUser(DATA_USER3);
 		ecmsPer.setPermissionForNode(true, false, false);
 		button.save();
 		button.close();
 
 		info("Login by user who does not have edit node right");
 		magAcc.signOut();
-		magAcc.signIn("james", DATA_PASS);
+		magAcc.signIn(DATA_USER3, DATA_PASS);
 
 		navToolBar.goToSiteExplorer();
 		ecms.goToNode(bDocument);
 		waitForElementNotPresent(actBar.ELEMENT_EDIT_LINK);
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		//delete data
 		navToolBar.goToSiteExplorer();

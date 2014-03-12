@@ -264,6 +264,8 @@ public class Event extends CalendarBase{
 		else{
 			if(isElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", name)))
 				waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY_1.replace("${taskName}", name));
+			else
+				waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", name));
 		}
 	}
 

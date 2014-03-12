@@ -35,14 +35,11 @@ public class ECMS_Admin_Explorer extends PlatformBase{
 	ManageView magView;
 	ActionBar actBar;
 
-	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("LogIn to Intranet, User... " + DATA_USER);
+		info("LogIn to Intranet, User... " + DATA_USER1);
 		magAcc = new ManageAccount(driver);
 		nav = new NavigationToolbar(driver);
 		ecms = new EcmsBase(driver);
@@ -51,7 +48,7 @@ public class ECMS_Admin_Explorer extends PlatformBase{
 		magView = new ManageView(driver);
 		magTag = new ManageTag(driver);
 		actBar = new ActionBar(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -161,7 +158,7 @@ public class ECMS_Admin_Explorer extends PlatformBase{
 		magView.fillAddNewViewForm(viewName, "List", actionTab, "addCategory", true, true, "Organization/Management", "*");
 
 		//Edit a View
-		magView.editView(viewName, editTemplate, false, true, true, actionTab, "manageCategories/manageActions", true, false, "", "", true, "james");
+		magView.editView(viewName, editTemplate, false, true, true, actionTab, "manageCategories/manageActions", true, false, "", "", true, DATA_USER3);
 
 		//View a View
 		magView.viewSelectedView(viewName, true, editTemplate, true, actionTab, "Manage Categories", true, "James");

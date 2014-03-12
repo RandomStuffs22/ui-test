@@ -32,7 +32,7 @@ public class Wiki_BasicAction_Delete extends ManageDraft {
 		magAcc = new ManageAccount(driver);
 		button = new Button(driver, this.plfVersion);	
 		mAlert = new ManageAlert(driver, this.plfVersion);
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

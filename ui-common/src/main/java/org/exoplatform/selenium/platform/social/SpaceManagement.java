@@ -39,6 +39,7 @@ public class SpaceManagement extends SocialBase {
 	Button button;
 	ManageAlert magAlert;
 	ActionBar actBar;
+	SpaceSearch spSeach;
 
 	//Go to My Spaces	> 
 	//Add space Form
@@ -71,7 +72,7 @@ public class SpaceManagement extends SocialBase {
 	public final By		ELEMENT_ACCESS_EDIT_HIDDEN 	= By.xpath("//span[text()='Hidden']/../input[@name='UIVisibility']");
 	public final By		ELEMENT_ACCESS_EDIT_REGISTRATION_OPEN 	= By.xpath("//span[text()='Open']/../input[@name='UIRegistration']");
 	public final By		ELEMENT_ACCESS_EDIT_REGISTRATION_VALIDATION 	= By.xpath("//span[text()='Validation']/../input[@name='UIRegistration']");
-	public final By		ELEMENT_ACCESS_EDIT_REGISTRATION_CLOSE 	= By.xpath("//span[text()='Close']/../input[@name='UIRegistration']");
+	public final By		ELEMENT_ACCESS_EDIT_REGISTRATION_CLOSE 	= By.xpath("//span[contains(text(),'Close')]/../input[@name='UIRegistration']");
 	public final By		ELEMENT_SPACE_ACCESS_INFO = By.xpath("//div[@class='spaceAccessInfo']");
 	public final By		ELEMENT_SPACE_ACCESS_ALERT_SUCCESS = By.xpath("//div[@class='alert alert-success']");
 	public final By 	ELEMENT_RESTRICT_SPACE_PAGE = By.xpath("//div[@class='spaceAccessBlock lockIcon']/*[text()='Restricted Area']");
@@ -111,6 +112,7 @@ public class SpaceManagement extends SocialBase {
 		button = new Button(driver);
 		magAlert = new ManageAlert(driver);
 		actBar = new ActionBar(driver);
+		spSeach = new SpaceSearch(driver);
 	}
 
 	/**
@@ -255,6 +257,7 @@ public class SpaceManagement extends SocialBase {
 	public void deleteSpace(String name, int... params){
 		info("-- Deleting Space..." + name);
 		int iTimeout = params.length > 0 ? params[0] : DEFAULT_TIMEOUT;    
+		spSeach.searchSpaceByName(name,true);
 		doAction("Delete", name);    
 		magAlert = new ManageAlert(driver);
 		magAlert.acceptAlert();
@@ -301,6 +304,7 @@ public class SpaceManagement extends SocialBase {
 	 */
 	public void gotoEditSpace(String name){  
 		info("-- Go to Edit space page --");
+		spSeach.searchSpaceByName(name,true);
 		doAction("Edit", name);
 		waitForAndGetElement(ELEMENT_SPACE_SETTING_MENU,60000);    
 	}
@@ -378,7 +382,7 @@ public class SpaceManagement extends SocialBase {
 		if(waitForAndGetElement(eMenuItem.replace("${menuItem}", menuItem),DEFAULT_TIMEOUT,0)!=null)
 			click(By.xpath(eMenuItem.replace("${menuItem}", menuItem)));
 		else{
-			click(By.xpath(eMenuItem.replace("${menuItem}", "More")));
+			click(By.xpath(eMenuItem.replace("${menuItem}", "members")));
 			String []items = menuItem.split(" ");
 			if(items.length>1){
 				click(By.xpath(eMenuItem.replace("${menuItem}", menuItem.split(" ")[0]+" ...")));

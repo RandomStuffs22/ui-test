@@ -32,9 +32,6 @@ public class ECMS_SE_BasicAction_SortAndRevert extends PlatformBase{
 	ContextMenu cMenu;
 	ContentTemplate cTemp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -45,7 +42,7 @@ public class ECMS_SE_BasicAction_SortAndRevert extends PlatformBase{
 		ecms = new EcmsBase(driver);
 		cMenu = new ContextMenu(driver);
 		cTemp = new ContentTemplate(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

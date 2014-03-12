@@ -71,8 +71,8 @@ public class Calendar_Event extends CalendarBase {
 		String CAL_02 = "CAL_02";
 		String EVENT_CATEGORY = "All";
 		String EVENT_SHARED_CALENDAR = CAL_02;
-		String[] USER_SHARED = {"root"};
-		String USER_SHARED_PASS = "gtngtn";
+		String[] USER_SHARED = {USER_ROOT};
+		String USER_SHARED_PASS = PASS_ROOT;
 		boolean[] EDITABLE = {true};
 
 		info("==Go to Intranet Calendar with User fqa==");
@@ -110,8 +110,8 @@ public class Calendar_Event extends CalendarBase {
 		String EVENT_03 = "EVENT_03";
 		String CAL_03 = "CAL_03";
 		String EVENT_CATEGORY = "All";
-		String USER_GROUP = "root";
-		String USER_GROUP_PASS = "gtngtn";
+		String USER_GROUP = USER_ROOT;
+		String USER_GROUP_PASS = PASS_ROOT;
 		String CAL_GROUP = "/platform/administrators";
 
 		info("==Go to Intranet Calendar==");
@@ -223,8 +223,8 @@ public class Calendar_Event extends CalendarBase {
 		String TITLE = "EVENT_07_edited";
 		String DESCRIPTION = "EVENT_07_description_edited";
 		String EVENT_CATEGORY = "All";
-		String USER_GROUP = "root";
-		String USER_GROUP_PASS = "gtngtn";
+		String USER_GROUP = USER_ROOT;
+		String USER_GROUP_PASS = PASS_ROOT;
 
 		info("==Go to Intranet Calendar==");
 		goToCalendarPage();
@@ -267,8 +267,8 @@ public class Calendar_Event extends CalendarBase {
 		String CAL_08 = "CAL_08";
 		String CAL_GROUP = "/platform/web-contributors";
 		String EVENT_CATEGORY = "All";
-		String USER_GROUP = "root";
-		String USER_GROUP_PASS = "gtngtn";
+		String USER_GROUP = USER_ROOT;
+		String USER_GROUP_PASS = PASS_ROOT;
 
 		info("==Go to Intranet Calendar==");
 		goToCalendarPage();
@@ -308,8 +308,8 @@ public class Calendar_Event extends CalendarBase {
 		String TITLE = "EVENT_09_edited";
 		String DESCRIPTION = "EVENT_09_description_edited";
 		String EVENT_CATEGORY = "All";
-		String[] USER_SHARED = {"root"};
-		String USER_SHARED_PASS = "gtngtn";
+		String[] USER_SHARED = {USER_ROOT};
+		String USER_SHARED_PASS = PASS_ROOT;
 		boolean[] EDITABLE = {true};
 
 		info("==Go to Intranet Calendar==");
@@ -351,8 +351,8 @@ public class Calendar_Event extends CalendarBase {
 		String EVENT10 = "EVENT_10";
 		String CAL_10 = "CAL_10";
 		String EVENT_CATEGORY = "All";
-		String[] USER_SHARED = {"root"};
-		String USER_SHARED_PASS = "gtngtn";
+		String[] USER_SHARED = {USER_ROOT};
+		String USER_SHARED_PASS = PASS_ROOT;
 		boolean[] EDITABLE = {true};
 
 		info("==Go to Intranet Calendar==");

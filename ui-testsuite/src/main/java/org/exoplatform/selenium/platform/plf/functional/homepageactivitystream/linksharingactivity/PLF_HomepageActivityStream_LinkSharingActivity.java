@@ -29,7 +29,7 @@ public class PLF_HomepageActivityStream_LinkSharingActivity extends Activity{
 	    naviToolbar = new NavigationToolbar(driver);
 	    hpActivity = new HomePageActivity(driver);
 		spaceMag = new SpaceManagement(driver);
-	    magAc.signIn("john", "gtn");
+	    magAc.signIn(DATA_USER1, DATA_PASS);
 	
 	  }
 

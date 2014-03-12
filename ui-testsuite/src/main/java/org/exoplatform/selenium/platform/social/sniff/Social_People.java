@@ -39,8 +39,8 @@ public class Social_People extends SocialBase {
 	String user2="Jack Miller";
 	String user3="James Davis";
 	String user4="Root Root";
-	String user_login1 = "mary";
-	String user_login2 = "demo";
+	String user_login1 = DATA_USER2;
+	String user_login2 = DATA_USER4;
 
 	@BeforeMethod
 	public void beforeMethods() {
@@ -68,7 +68,7 @@ public class Social_People extends SocialBase {
 	 * This test case is not included in qmetry
 	 * Purpose of selenium test case: verify bug: https://jira.exoplatform.org/browse/PLF-4862
 	 */
-	@Test
+	//@Test
 	public void test00_VerifyMouseOver(){
 		mouseOver(ELEMENT_ACCOUNT_NAME_LINK, true);
 		mouseOver(ELEMENT_TOOLBAR_NETWORKS_ICON, true);

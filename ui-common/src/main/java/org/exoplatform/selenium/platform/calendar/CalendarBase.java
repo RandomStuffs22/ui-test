@@ -698,15 +698,15 @@ public class CalendarBase extends PlatformBase {
 	 * 				= false: not verify that calendar is deleted, 
 	 */
 	public void deleteCalendar(String name, boolean...verify){
-		alert = new ManageAlert(driver); 
+		button = new Button(driver); 
 		boolean check = verify.length > 0 ? verify[0] : true;
 
 		info("--Delete a Calendar-");
 
 		executeActionCalendar(name,"RemoveCalendar");
-
+		click(button.ELEMENT_YES_BUTTON_AUX);
 		if (check){
-			waitForElementNotPresent(ELEMENT_CALENDAR_GET_BY_TAG_LI.replace("{$calendar}", name));
+			waitForElementNotPresent(ELEMENT_CALENDAR_GET_BY_TAG_LI.replace("${calendar}", name), DEFAULT_TIMEOUT, 1, 2);
 			info("Remove calendar successfully");
 		}
 	}

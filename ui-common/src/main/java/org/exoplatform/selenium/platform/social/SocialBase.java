@@ -114,7 +114,7 @@ public class SocialBase extends PlatformBase {
 		goToAllSpaces();
 		waitForAndGetElement(ELEMENT_MY_SPACES_LINK);
 		click(ELEMENT_MY_SPACES_LINK);
-		Utils.pause(500);
+		Utils.pause(1000);
 	}
 
 	// Go to All Spaces
