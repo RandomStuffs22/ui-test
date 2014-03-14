@@ -59,10 +59,10 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		String catName = "New Category 001"; 
 		String order = "1";
 		int chooseRestricted = 1;
-		String[] restricted = {"john"}; 
+		String[] restricted = {DATA_USER1}; 
 		String description = "Description of Category 001";
 		int setPermission = 2; 
-		String[] userGroup = {"john"}; 
+		String[] userGroup = {DATA_USER1}; 
 		String[] addForum = {"Title of forum 001", "1", "Open", "Unlocked", "Description of forum 001"}; 	
 		String title = "Title topic 001"; 
 		String message = "Topic 001"; 
@@ -113,7 +113,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		String catName = "New Category 002"; 
 		String order = "1";
 		int chooseRestricted = 1;
-		String[] restricted = {"demo"}; 
+		String[] restricted = {DATA_USER4}; 
 		String description = "Description of Category 002";
 		int setPermission = 0; 
 		String[] userGroup = {""}; 
@@ -143,7 +143,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		// - Login by the normal user
 		// - On created category and select [Watch]
 		info("Login by the normal user");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn(DATA_USER4, DATA_PASS);
 		magAc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums(); 
 		click(By.linkText(catName));
@@ -184,10 +184,10 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		String catName = "New Category 003"; 
 		String order = "1"; 
 		int chooseRestricted = 1;  
-		String[] restricted = {"demo"}; 
+		String[] restricted = {DATA_USER4}; 
 		String description = "Description of Category 003";
 		int setPermission = 0; 
-		String[] userGroup = {"demo"}; 
+		String[] userGroup = {DATA_USER4}; 
 		String[] addForum = {"Title of forum 003", "1", "Open", "Unlocked", "Description of forum 003"}; 	
 		String message = "Topic 003"; 
 		String key = "Test"; 
@@ -213,7 +213,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		//- Login by the normal user
 		//- On created category select [Watch]
 		info("Login by the normal user");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn(DATA_USER4, DATA_PASS);
 		magAc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums();
 		click(By.linkText(catName));
@@ -254,10 +254,10 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		String catName = "New Category 004"; 
 		String order = "1"; 
 		int chooseRestricted = 1;  
-		String[] restricted = {"john"}; 
+		String[] restricted = {DATA_USER1}; 
 		String description = "Description of Category 004";
 		int setPermission = 2; 
-		String[] userGroup = {"john"}; 
+		String[] userGroup = {DATA_USER1}; 
 		String[] addForum1 = {"Title of forum 004", "1", "Open", "Unlocked", "Description of forum 004"}; 	
 		String[] addForum2 = {"Title of forum 005", "1", "Open", "Unlocked", "Description of forum 005"}; 	
 		String title = "Title topic 004"; 

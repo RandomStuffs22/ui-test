@@ -179,7 +179,7 @@ public class Forum_Forum_Category_Edit extends ForumBase{
 		fmCat.addNewCategoryInForum(catName, order, chooseRestricted,
 				restricted, description, setPermission, userGroup, permission);
 
-		fmCat.loginInNewWindowToDeleteCategory("root","gtngtn",catName);
+		fmCat.loginInNewWindowToDeleteCategory(USER_ROOT, PASS_ROOT, catName);
 
 		fmCat.goToEditCategoryInForum(false);
 		waitForMessage(fmCat.MESSAGE_CATEGORY_NOT_EXISTE);

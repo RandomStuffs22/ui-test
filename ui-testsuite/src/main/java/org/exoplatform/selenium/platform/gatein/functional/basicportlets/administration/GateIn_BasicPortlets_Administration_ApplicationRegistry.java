@@ -528,7 +528,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//- Select category above from left pane and click Delete
 		//- Click OK to confirm
 		//The category is removed from left pane
-		loginWithAnotherAccOnThesameBrowser("root", "gtngtn");
+		loginWithAnotherAccOnThesameBrowser(USER_ROOT, PASS_ROOT);
 		navTool = new NavigationToolbar(newDriver);
 		magApp = new ManageApplications(newDriver);
 		navTool.goToApplicationRegistry();

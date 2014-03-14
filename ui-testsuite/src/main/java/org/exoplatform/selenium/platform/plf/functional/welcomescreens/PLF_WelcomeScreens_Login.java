@@ -16,11 +16,7 @@ import org.testng.annotations.Test;
 public class PLF_WelcomeScreens_Login extends PlatformBase {
 	//Platform
 	ManageAccount magAcc;
-
-	public final String DATA_USER = "root";
-	public final String DATA_PASS = "gtngtn";
-
-
+	
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
@@ -35,7 +31,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 	}
 
 	/**
-	 * == Connect with the "root" user ==
+	 * == Connect with the USER_ROOT user ==
 	 * Test case ID: 79261, 79299
 	 * - Launch the app for the first time (/portal)
 	 * - Check the checkbox: "I agree with these terms and conditions"
@@ -43,7 +39,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 	 * - In the screen "Account Setup", Input valid data on each fields
 	 * - Click on the button "Submit" 
 	 * - Logout/Login
-	 * - Input Username "root"
+	 * - Input Username USER_ROOT
 	 * - Use the password submitted in the "Account Setup" screen
 	 */
 	@Test
@@ -55,7 +51,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 		//- Click on the button "Submit" 	
 
 		info("Login as root");
-		magAcc.signIn(DATA_USER, DATA_PASS);		
+		magAcc.signIn(USER_ROOT, PASS_ROOT);		
 
 		info("Verify standing at homepage");
 		waitForAndGetElement(ELEMENT_CALENDAR_GADGET);
@@ -92,7 +88,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 	@Test
 	public void test05_PasswordIsMandatoryInTheConnexionScreen() {
 
-		magAcc.signIn(DATA_USER, "", false);
+		magAcc.signIn(USER_ROOT, "", false);
 		waitForAndGetElement(By.xpath(magAcc.MESSAGE_LOGIN_FAILED));
 	}
 
@@ -106,7 +102,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 
 		waitForAndGetElement(By.xpath(magAcc.ELEMENT_REMEMBER_MY_LOGIN_YES));
 
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(USER_ROOT, PASS_ROOT);
 
 //		restartBrowser();
 
@@ -128,7 +124,7 @@ public class PLF_WelcomeScreens_Login extends PlatformBase {
 		info("Click Remember my login to change to No");
 		click(By.xpath(magAcc.ELEMENT_REMEMBER_MY_LOGIN_YES));
 
-		magAcc.signIn(DATA_USER, DATA_PASS, false, false);
+		magAcc.signIn(USER_ROOT, PASS_ROOT, false, false);
 
 //		restartBrowser();
 

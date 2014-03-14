@@ -34,7 +34,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		user = new UserGroupManagement(driver);
 		but = new Button(driver);
 		
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn(DATA_USER1, DATA_PASS); 
 	}
 
 	@AfterMethod
@@ -75,7 +75,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		waitForTextPresent(newDisplayName);
 		magAc.signOut();
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
 		user.deleteUser(username);
 	}
@@ -109,7 +109,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		magAc.signIn(username, newpass);
 		magAc.signOut();
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
 		user.deleteUser(username);
 	}
@@ -120,7 +120,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 	@Test
 	public void test03_ChangeLanguageForAnotherUser(){
 		navTool.goToUsersAndGroupsManagement();
-		user.goToEditUserInfo("mary");
+		user.goToEditUserInfo(DATA_USER2);
 		info("Change language of user mary to French");
 		click(ELEMENT_USER_PROFILE_TAB);
 		select(ELEMENT_SELECT_USER_LANGUAGE, "French");
@@ -129,14 +129,14 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		magAc.signOut();
 		
 		info("Check language display with user mary");
-		magAc.signIn("mary", "gtn");
+		magAc.signIn(DATA_USER2, DATA_PASS);
 		waitForAndGetElement(By.xpath("//*[text()='Accueil']"));
 		magAc.signOut();
 		
 		info("Rollback language for user");
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
-		user.goToEditUserInfo("mary");
+		user.goToEditUserInfo(DATA_USER2);
 		click(ELEMENT_USER_PROFILE_TAB);
 		select(ELEMENT_SELECT_USER_LANGUAGE, "");
 		but.save();
@@ -159,7 +159,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		info("Check displaying language when language of browser don't support by portal with user account demo");
 		getDriverSetLanguage(Language.lo);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("demo", "gtn");
+		magAc.signIn(DATA_USER4, DATA_PASS);
 		waitForAndGetElement(ELEMENT_HOME_TEXT);
 		
 		info("Check when change language to French");

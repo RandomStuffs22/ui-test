@@ -42,9 +42,6 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 	EcmsPermission ecmsPer;
 	SitesExplorer siteExp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -58,7 +55,7 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		ecmsPer = new EcmsPermission(driver);
 		button = new Button(driver);
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -87,7 +84,7 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		assert cMenu.isLockedNode(By.linkText(DOCUMENT_FOLDER_TITLE)): "Failed to lock the node..." + DOCUMENT_FOLDER_TITLE;
 
 		info("Login by user is not locker");
-		loginWithAnotherAccOnThesameBrowser("mary", DATA_PASS);
+		loginWithAnotherAccOnThesameBrowser(DATA_USER2, DATA_PASS);
 		magAcc = new ManageAccount(newDriver);
 		navToolBar = new NavigationToolbar(newDriver);
 		ecms = new EcmsBase(newDriver);
@@ -105,7 +102,7 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 
 		info("Restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		//reset data
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(bNode);
@@ -158,20 +155,20 @@ public class ECMS_SE_CreateNode_Upload_Action_Other extends PlatformBase{
 		info("Set permission for this node");
 		actBar.goToNodePermissionManagement();
 		ecmsPer.removeDefaultPermissionOfNode();
-		ecms.selectUser("mary");
+		ecms.selectUser(DATA_USER2);
 		ecmsPer.setPermissionForNode(true, false, false);
 		button.save();
 
 		info("Login by user who has not permission to add node inside the above node");
 		magAcc.signOut();
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		ecms.goToNode(WEB_CONTENT_TITLE);
 		waitForElementNotPresent(ELEMENT_UPLOAD_LINK_XPATH);
 		
 		info("Reset data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(By.linkText(WEB_CONTENT_TITLE));		
 	}

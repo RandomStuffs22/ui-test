@@ -49,7 +49,7 @@ public class Calendar_Settings extends CalendarBase{
 	public void test01_DisplayCalendar() {
 
 		String calendar = "ShareCalendar";
-		String[] user = {"mary"};
+		String[] user = {DATA_USER2};
 		boolean[] canEdit = {true};
 
 		info("--Add share calendar--");

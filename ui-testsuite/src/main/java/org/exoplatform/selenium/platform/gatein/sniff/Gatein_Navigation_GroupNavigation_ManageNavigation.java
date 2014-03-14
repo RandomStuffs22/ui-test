@@ -31,7 +31,7 @@ public class Gatein_Navigation_GroupNavigation_ManageNavigation extends GroupNav
 		navTool = new NavigationToolbar(driver);
 		group = new UserGroupManagement(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

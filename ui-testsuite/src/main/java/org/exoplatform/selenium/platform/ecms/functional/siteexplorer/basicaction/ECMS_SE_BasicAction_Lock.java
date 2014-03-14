@@ -33,9 +33,6 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 	ContentTemplate cTemplate;
 	ContextMenu cMenu;
 	SitesExplorer siteExp;
-
-	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
 	
 	@BeforeMethod
 	public void beforeMethods() {
@@ -52,7 +49,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
 		
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -165,7 +162,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		navToolBar = new NavigationToolbar(driver);
 		cMenu = new ContextMenu(driver);
 		ecms = new EcmsBase(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check mary cannot unlock this node
@@ -177,7 +174,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data with user John
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteData(FILE_PATH);
 	}
@@ -369,14 +366,14 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		ecmsPer.removeDefaultPermissionOfNode();
 
 		info("Set for user James that does not have set properties permission");
-		ecms.selectUser("james");
+		ecms.selectUser(DATA_USER3);
 		ecmsPer.setPermissionForNode(true, false, true);
 		button.save();
 		button.close();
 
 		info("Verify user James cannot lock document");
 		magAcc.signOut();
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn(DATA_USER3, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		rightClickOnElement(FILE_PATH);
 		waitForElementNotPresent(cMenu.ELEMENT_CONTEXT_MENU_LOCK);
@@ -384,7 +381,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		magAcc.signOut();
 
 		//Login as John and delete data
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(FILE_PATH);
 	}
@@ -416,7 +413,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		magAcc.signOut();
 
 		info("Check automatically unlock a node when user logout");
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		rightClickOnElement(FILE_PATH_LOCKED);
 		waitForAndGetElement(cMenu.ELEMENT_CONTEXT_MENU_LOCK);

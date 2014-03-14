@@ -165,7 +165,7 @@ public class Forum_Forum_Category_Add extends ForumBase {
 		String catName = "test 04 Category name";
 		String order = "0";
 		int chooseRestricted = 1;
-		String[] restricted = { "john" };
+		String[] restricted = { DATA_USER1 };
 		String description = "Description";
 		int setPermission = 0;
 		String[] userGroup = null;
@@ -391,7 +391,7 @@ public class Forum_Forum_Category_Add extends ForumBase {
 		info("Test 15 Check with normal user");
 		// test with James, who is a normal user
 		acc.signOut();
-		acc.signIn("james", DATA_PASS);
+		acc.signIn(DATA_USER3, DATA_PASS);
 		goToForums();
 		waitForElementNotPresent(ELEMENT_ADD_CATEGORY);
 

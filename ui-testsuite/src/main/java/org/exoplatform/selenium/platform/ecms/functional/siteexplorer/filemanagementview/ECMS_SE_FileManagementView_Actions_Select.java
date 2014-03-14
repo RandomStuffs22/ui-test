@@ -35,17 +35,14 @@ public class ECMS_SE_FileManagementView_Actions_Select extends PlatformBase{
 	ContentTemplate cTemplate;
 	ActionBar actBar;
 	ContextMenu cMenu;
-
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
+	
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
 		driver.get(baseUrl);
 		actBar = new ActionBar(driver);
 		magAcc = new ManageAccount(driver);		
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar = new NavigationToolbar(driver);
 		ecms = new EcmsBase(driver);
 		cTemplate = new ContentTemplate(driver);

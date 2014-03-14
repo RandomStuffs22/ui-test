@@ -37,14 +37,11 @@ public class ECMS_SE_FileManagementView_Actions_OtherActions extends PlatformBas
 	ContextMenu cMenu;
 	Button btn;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods() {
 		getDriverAutoSave();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		magAcc = new ManageAccount(driver);
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);
@@ -53,7 +50,7 @@ public class ECMS_SE_FileManagementView_Actions_OtherActions extends PlatformBas
 		ecms = new EcmsBase(driver);
 		cMenu= new ContextMenu(driver);
 		btn = new Button(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 	}
 

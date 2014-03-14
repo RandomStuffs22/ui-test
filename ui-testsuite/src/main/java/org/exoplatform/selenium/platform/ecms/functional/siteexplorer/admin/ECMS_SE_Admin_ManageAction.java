@@ -38,14 +38,12 @@ public class ECMS_SE_Admin_ManageAction extends PlatformBase{
 		ContentTemplate cTemplate;
 		ActionBar actBar;
 		SitesExplorer siteExp;
-		public final String DATA_USER = "john";
-		public final String DATA_PASS = "gtn";
 
 		@BeforeMethod
 		public void beforeMethods() {
 			initSeleniumTest();
 			driver.get(baseUrl);
-			info("Login ECMS with " + DATA_USER);
+			info("Login ECMS with " + DATA_USER1);
 			magAcc = new ManageAccount(driver);
 			ecMain = new ECMainFunction(driver); 
 			magScript = new ManageScript(driver);
@@ -57,7 +55,7 @@ public class ECMS_SE_Admin_ManageAction extends PlatformBase{
 			actBar = new ActionBar(driver);
 			ecms = new EcmsBase(driver);
 			siteExp = new SitesExplorer(driver);
-			magAcc.signIn(DATA_USER, DATA_PASS);
+			magAcc.signIn(DATA_USER1, DATA_PASS);
 		}
 
 		@AfterMethod

@@ -39,8 +39,8 @@ public class Social_People extends SocialBase {
 	String user2="Jack Miller";
 	String user3="James Davis";
 	String user4="Root Root";
-	String user_login1 = "mary";
-	String user_login2 = "demo";
+	String user_login1 = DATA_USER2;
+	String user_login2 = DATA_USER4;
 
 	@BeforeMethod
 	public void beforeMethods() {

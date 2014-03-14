@@ -65,10 +65,10 @@ public class Forum_Forum_Topic_ActiveSortWatchAndUnwatch extends ForumBase{
 		String catName = "Category 72677";
 		String order = "1";
 		int chooseRestricted = 1;
-		String []restricted = {"john"};
+		String []restricted = {DATA_USER1};
 		String description = "Description Category 72677";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 72677", "1", "Open", "Unlocked", "Description of forum 001"};
 		String title = "Topic 72677";
 		String message = "Topic 72677";
@@ -399,7 +399,7 @@ public class Forum_Forum_Topic_ActiveSortWatchAndUnwatch extends ForumBase{
 		String []addForum = {"Forum 72929", "1", "Open", "Unlocked", "Description of forum 001"};
 		String title = "Topic 72929";
 		String message = "Topic 72929";
-		String []userGroupEdit = {"john"};
+		String []userGroupEdit = {DATA_USER1};
 		String titleEdit = "Edit Topic 72929";
 		String messageEdit = "Edit 72929";
 		String catNameEdit = "Update 72929";

@@ -39,9 +39,6 @@ public class ECMS_SE_CreateNode_CSSFile extends PlatformBase{
 	ContentTemplate cTemplate;
 	SitesExplorer sExplorer;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -55,7 +52,7 @@ public class ECMS_SE_CreateNode_CSSFile extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		magAlt = new ManageAlert(driver);
 		sExplorer = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

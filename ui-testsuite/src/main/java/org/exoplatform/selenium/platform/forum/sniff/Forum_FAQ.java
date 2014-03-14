@@ -35,7 +35,7 @@ public class Forum_FAQ extends FAQ {
 		magAns = new AnswerManageAnwser(driver);
 		button = new Button(driver);
 		pageE = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToAnswer();
 	}
 

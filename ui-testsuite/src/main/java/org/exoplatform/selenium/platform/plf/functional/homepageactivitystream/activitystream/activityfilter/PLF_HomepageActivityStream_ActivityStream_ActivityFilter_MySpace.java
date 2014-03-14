@@ -121,7 +121,7 @@ public class PLF_HomepageActivityStream_ActivityStream_ActivityFilter_MySpace ex
 		- Open the stream [My spaces]
 		 *Input Data: 
 		 *Expected Outcome: The activity posted by the User A in the space is displayed in the stream "My spaces"		*/ 
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		mMember.goToMySpacePage();
 		mMember.acceptInvitation(spaceName);
 		nav.goToHomePage();
@@ -230,7 +230,7 @@ public class PLF_HomepageActivityStream_ActivityStream_ActivityFilter_MySpace ex
 		 *Input Data: 
 		 *Expected Outcome: The User B can't view the activity posted by the user A from his space		*/ 
 
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		nav.goToConnectionPage();
 		click(By.linkText(user));
 		waitForAndGetElement(ELEMENT_MY_PROFILE_TAB);
@@ -280,7 +280,7 @@ public class PLF_HomepageActivityStream_ActivityStream_ActivityFilter_MySpace ex
 		- Open the stream "All activities"
 		 *Input Data: 
 		 *Expected Outcome: The activity which user B is mentioned is displayed		*/
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		nav.goToHomePage();
 		selectFileter("My Activities");
 		waitForAndGetElement(ELEMENT_USER_MENTION_BY_OTHER_USER.replace("${author}",user).replace("${userName}", user1));
@@ -410,7 +410,7 @@ public class PLF_HomepageActivityStream_ActivityStream_ActivityFilter_MySpace ex
 		 *Input Data: 
 		 *Expected Outcome: 
 		- Non of the space's activity is displayed in the stream activityof the user A		*/ 
-		acc.signIn("demo", DATA_PASS);
+		acc.signIn(DATA_USER4, DATA_PASS);
 		nav.goToConnectionPage();
 		click(By.linkText(user));
 		waitForAndGetElement(ELEMENT_MY_PROFILE_TAB);

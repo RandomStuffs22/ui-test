@@ -44,9 +44,6 @@ public class ECMS_SE_CreateNode_Category extends PlatformBase{
 	ManageCategory magCa;
 	ManageDrive magDrv;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -63,7 +60,7 @@ public class ECMS_SE_CreateNode_Category extends PlatformBase{
 		magCa = new ManageCategory(driver);
 		dialog = new Dialog(driver);
 		magDrv = new ManageDrive(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

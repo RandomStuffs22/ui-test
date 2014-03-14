@@ -27,8 +27,8 @@ public class PLF_HomepageGadget_WhoIsOnlineGadget extends PlatformBase {
 	PeopleConnection peopleC;
 	
 	String User1 = "fqa";
-	String User2 = "root";
-	String Pass1 = "gtngtn";
+	String User2 = USER_ROOT;
+	String Pass1 = DATA_PASS;
 	String fullNameUser2="Root Root";
 	
 	@BeforeMethod

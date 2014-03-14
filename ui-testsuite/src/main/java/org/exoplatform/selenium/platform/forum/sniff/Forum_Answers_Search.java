@@ -46,7 +46,7 @@ public class Forum_Answers_Search extends AnswerBase {
 	public void test01_QuickSearch(){
 		String categoryName = "Answersearch1";
 		String description = "Add new category for answer";
-		String[] userGroup = {"demo"};
+		String[] userGroup = {DATA_USER4};
 		
 		magCat.addNewCategoryInAnswer(categoryName, null, description, 2, userGroup, true, false);
 
@@ -64,7 +64,7 @@ public class Forum_Answers_Search extends AnswerBase {
 	public void test02_AdvancedSearch(){
 		String categoryName = "Answersearch2";
 		String description = "Add new category for answer";
-		String[] userGroup = {"demo"};		
+		String[] userGroup = {DATA_USER4};		
 		String questionName = "Questionsearch2";
 		String questionContent = "Add new question2 for category";
 		
@@ -73,7 +73,7 @@ public class Forum_Answers_Search extends AnswerBase {
 		magCat.openCategoryInAnswer(categoryName);
 		magQuest.submitQuestion(null, questionName, questionContent, null, false, null);
 		
-		advancedSearchInAnswer(null, 3, null, null, null, true, null, "john", null, null, "question2", null, null);
+		advancedSearchInAnswer(null, 3, null, null, null, true, null, DATA_USER1, null, null, "question2", null, null);
 		waitForAndGetElement(By.xpath("//*[@id='ResultQuickSearch']//a[text()='" + questionName + "']"));
 		click(ELEMENT_CLOSE_ADVANCE_SEARCH);
 		

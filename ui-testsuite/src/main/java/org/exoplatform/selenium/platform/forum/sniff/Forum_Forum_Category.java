@@ -32,7 +32,7 @@ public class Forum_Forum_Category extends ForumBase {
 		magForum = new ForumManageForum(driver);
 		magTopic = new ForumManageTopic(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToForums();
 	}
 
@@ -48,7 +48,7 @@ public class Forum_Forum_Category extends ForumBase {
 	@Test
 	public void test01_AddEditDeleteCategory(){
 		String catName = "CategoryForum_01";
-		String[] restricted = {"demo"};
+		String[] restricted = {DATA_USER4};
 		String description = "Add new category in forum";
 		
 		String catEdit = "ForumCategory_01Edit";
@@ -67,7 +67,7 @@ public class Forum_Forum_Category extends ForumBase {
 	@Test
 	public void test02_ExportImportCategory(){
 		String catName = "Category71120";
-		String[] restricted = {"demo"};
+		String[] restricted = {DATA_USER4};
 		String description = "Add new category in forum";
 		String forumName = "Forum02";
 		String fileName = "Category71120";
@@ -96,7 +96,7 @@ public class Forum_Forum_Category extends ForumBase {
 	@Test
 	public void test03_ExportImportForum(){
 		String catName = "Category71121";
-		String[] restricted = {"demo"};
+		String[] restricted = {DATA_USER4};
 		String description = "Add new category in forum";
 		String forumName1 = "Forum03_1";
 		String forumName2 = "Forum03_2";

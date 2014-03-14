@@ -50,7 +50,7 @@ public class PLF_HomepageGadgets_Bookmarks extends WikiBase{
 		hpGadget = new HomePageGadget(driver, this.plfVersion);
 		tsk = new Task(driver, this.plfVersion);
 		magApp = new ManageApplications(driver, this.plfVersion);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 
 	}
 

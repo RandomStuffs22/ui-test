@@ -43,9 +43,6 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 	ContextMenu cMenu;
 	ContentTemplate cTemplate;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -61,7 +58,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		ecmsPer = new EcmsPermission(driver);
 		ecMain = new ECMainFunction(driver);
 		magDrv = new ManageDrive(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -97,7 +94,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 
 		info("Login with Mary");
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		info("Verify that [Mary] can not see [Add Folder] icon on action bar");
 		navToolBar.goToSiteExplorer();
@@ -106,7 +103,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		//delete data
 		navToolBar.goToSiteExplorer();
@@ -150,7 +147,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		actBar = new ActionBar(driver);
 
 		info("Login with Mary");
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		info("Verify that [Mary] can not see [Add Folder] icon on action bar");
 		navToolBar.goToSiteExplorer();
@@ -161,7 +158,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		//delete data
 		navToolBar.goToSiteExplorer();
@@ -242,13 +239,13 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		ecms.goToNode(CONTENT_FOLDER_TITLE);
 		actBar.goToNodePermissionManagement();
 		ecmsPer.removeDefaultPermissionOfNode();
-		ecms.selectUser("mary");
+		ecms.selectUser(DATA_USER2);
 		ecmsPer.setPermissionForNode(true, false, false);
 		button.save();
 
 		info("Login by user who has not permission to add node inside the above node");
 		magAcc.signOut();
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		info("Add a new folder: user does not have right to do this action");
 		navToolBar.goToSiteExplorer();
@@ -259,7 +256,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Login with [john] to delete data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(By.linkText(CONTENT_FOLDER_TITLE));
 	}
@@ -514,7 +511,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Go to [Sites Management] Drive");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar.goToAddNewFolder();
 
@@ -654,7 +651,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Go to [Sites Management] Drive");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar.goToAddNewFolder();
 
@@ -687,7 +684,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 
 		info("Go to [Sites Management] Drive");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		
 		info("Step 1: Create Content folder and Lock node");
@@ -717,7 +714,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		
 		info("Step 1: Create Content folder and Lock node by a [Web-Contributor] User");
 		magAcc.signOut();
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		
 		cTemplate.createNewFolder(CONTENT_FOLDER_TITLE, folderType.Content);
@@ -734,7 +731,7 @@ public class ECMS_SE_CreateNode_Folder extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 
 		info("Login with Root");
-		magAcc.signIn("root", "gtngtn");
+		magAcc.signIn(USER_ROOT, PASS_ROOT);
 		
 		info("Step 2: Add folder into locked node using Admin account");
 		navToolBar.goToSiteExplorer();

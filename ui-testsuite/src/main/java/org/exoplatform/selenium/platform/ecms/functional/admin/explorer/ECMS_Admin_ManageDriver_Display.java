@@ -39,14 +39,11 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 	ManageDrive magDrv;
 	ActionBar actBar;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with "+ DATA_USER);
+		info("Login ECMS with "+ DATA_USER1);
 		nav = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		userGrp = new UserGroupManagement(driver);
@@ -58,7 +55,7 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 		adminPer = new Permission(driver);
 		magDrv = new ManageDrive(driver);
 		actBar = new ActionBar(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -111,7 +108,7 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 
 		//login with user mary
 		info("Login as mary who does not have access permission on drive");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		nav.goToSiteExplorer();
 		//click(ecms.ELEMENT_SHOW_DRIVES);
 		actBar.showDrives();
@@ -120,7 +117,7 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		magDrv.deleteDrive(DATA_DRIVER_NAME);
 	}
 

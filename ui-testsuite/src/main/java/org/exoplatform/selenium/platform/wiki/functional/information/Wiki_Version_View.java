@@ -24,8 +24,8 @@ public class Wiki_Version_View extends Version{
 	ManageAccount magAcc;
 	Button button;
 
-	public String admin = "john";
-	public String pass = "gtn";
+	public String admin = DATA_USER1;
+	public String pass = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods(){

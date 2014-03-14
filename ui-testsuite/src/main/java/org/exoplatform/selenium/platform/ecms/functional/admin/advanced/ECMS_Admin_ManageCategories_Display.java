@@ -46,14 +46,14 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 	ECMainFunction ecMain;
 	AdvancedSearch advSrc;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_USER = DATA_USER1;
+	//public final String DATA_PASS = DATA_PASS;
 	
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		nav = new NavigationToolbar(driver); magAcc = new ManageAccount(driver);
 		userGrp = new UserGroupManagement(driver); button = new Button(driver);
 		alt = new ManageAlert(driver);
@@ -62,7 +62,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		ecmsPer = new EcmsPermission(driver); adminPer = new Permission(driver);
 		ecMain = new ECMainFunction(driver); sitesExp = new SitesExplorer(driver);
 		cTemplate = new ContentTemplate(driver); advSrc = new AdvancedSearch(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -92,7 +92,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2, "mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2, DATA_USER2, setPermission, DATA3);
 
 		//go to DMS Administration Drive
 		nav.goToSiteExplorer();
@@ -134,7 +134,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2,"mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2,DATA_USER2, setPermission, DATA3);
 
 		info("--complete--");
 		//create new document: article document
@@ -181,7 +181,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2,"mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2,DATA_USER2, setPermission, DATA3);
 
 		//delete permission default
 		info("Edit category tree");
@@ -190,14 +190,14 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		click(button.ELEMENT_PREVIOUS_BUTTON_ADMIN_3);
 		ecmsPer.deletePermission("*:/platform/administrators",true);
 		ecmsPer.deletePermission("*:/platform/users",true);
-		ecmsPer.deletePermission("mary",true);
+		ecmsPer.deletePermission(DATA_USER2,true);
 		ecmsPer.deletePermission("any",true);
 		ecmsPer.deletePermission("*:/platform/web-contributors",true);
 		button.close();
 		magAcc.signOut();
 
 		//create node by user does not have read node permission
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		nav.goToSiteExplorer();
 		ecms.goToNode("intranet/documents");
 		actBar.goToAddNewContent();
@@ -218,7 +218,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		//delete data
 		cMenu.deleteData(ELEMENT_ARTICLE);
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ecMain.goToCategoriesTabInContentAdmin();
 		magCa.deleteCategory(DATA_CATEGORY_TREE_NAME);
 		//waitForElementNotPresent(ELEMENT_ALERT_VISIBLE);
@@ -241,7 +241,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2,"mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2,DATA_USER2, setPermission, DATA3);
 
 		//upload new file
 		nav.goToSiteExplorer();
@@ -285,7 +285,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2, "mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2, DATA_USER2, setPermission, DATA3);
 
 		//create a new document
 		nav.goToSiteExplorer();
@@ -320,7 +320,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2, "mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2, DATA_USER2, setPermission, DATA3);
 
 		//check user can see category when do advanced search using category
 		info("Go to Saved Search/Advanced Search/Constraint Form");
@@ -354,7 +354,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2,"mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2,DATA_USER2, setPermission, DATA3);
 
 		//delete permission default
 		info("Edit category tree");
@@ -363,13 +363,13 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		click(button.ELEMENT_PREVIOUS_BUTTON_ADMIN_3);
 		ecmsPer.deletePermission("*:/platform/administrators",true);
 		ecmsPer.deletePermission("*:/platform/users",true);
-		ecmsPer.deletePermission("mary",true);
+		ecmsPer.deletePermission(DATA_USER2,true);
 		ecmsPer.deletePermission("any",true);
 		ecmsPer.deletePermission("*:/platform/web-contributors",true);
 		magAcc.signOut();
 
 		//check can not see category when do advanced search using category
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		nav.goToSiteExplorer();
 		info("Go to Saved Search/Advanced Search/Constraint Form");
 		advSrc.goToAdvancedSearch();
@@ -381,7 +381,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ecMain.goToCategoriesTabInContentAdmin();
 		magCa.deleteCategory(DATA_CATEGORY_TREE_NAME);
 		//waitForElementNotPresent(ELEMENT_ALERT_VISIBLE);
@@ -404,7 +404,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		
 		//add new category tree
 		nav.goToContentAdministration();
-		magCa.addNewCategoryTree(DATA1, true, false, DATA2,"mary", setPermission, DATA3);
+		magCa.addNewCategoryTree(DATA1, true, false, DATA2,DATA_USER2, setPermission, DATA3);
 
 		//create 2 new categories
 		click(magCa.ELEMENT_EDIT_CATEGORY_TREE.replace("${categoryTreeName}", DATA_CATEGORY_TREE_NAME));
@@ -421,7 +421,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		click(ecmsPer.ELEMENT_DELETE_USER_PERMISSION_AUX_1.replace("${userOrGroupName}", "*:/platform/users"));
 		alt.acceptAlert();
 		driver.navigate().refresh();
-		click(ecmsPer.ELEMENT_DELETE_USER_PERMISSION_AUX_1.replace("${userOrGroupName}", "mary"));
+		click(ecmsPer.ELEMENT_DELETE_USER_PERMISSION_AUX_1.replace("${userOrGroupName}", DATA_USER2));
 		alt.acceptAlert();
 		driver.navigate().refresh();
 		click(ecmsPer.ELEMENT_DELETE_USER_PERMISSION_AUX_1.replace("${userOrGroupName}", "any"));
@@ -434,7 +434,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		magAcc.signOut();
 
 		//check can not see category when do advanced search using category
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		nav.goToSiteExplorer();
 		info("Go to Saved Search/Advanced Search/Constraint Form");
 		advSrc.goToAdvancedSearch();
@@ -449,7 +449,7 @@ public class ECMS_Admin_ManageCategories_Display extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ecMain.goToCategoriesTabInContentAdmin();
 		magCa.deleteCategory(DATA_CATEGORY_TREE_NAME);
 		//waitForElementNotPresent(ELEMENT_ALERT_VISIBLE);

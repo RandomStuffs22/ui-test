@@ -35,9 +35,6 @@ public class ECMS_SE_Admin extends PlatformBase {
 	ContentTemplate cTemplate;
 	ContextMenu cMenu;
 	SitesExplorer siteExp;
-
-	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
 	
 	/**CaseID 65844 Export a node
 	 * Step 1: Export a node
@@ -294,7 +291,7 @@ public class ECMS_SE_Admin extends PlatformBase {
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 	}
 

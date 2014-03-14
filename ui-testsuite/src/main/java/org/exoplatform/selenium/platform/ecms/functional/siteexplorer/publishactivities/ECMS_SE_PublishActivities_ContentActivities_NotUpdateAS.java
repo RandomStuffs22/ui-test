@@ -27,8 +27,6 @@ import org.testng.annotations.Test;
  * Sep, 19th, 2013
  *
  */
-
-
 public class ECMS_SE_PublishActivities_ContentActivities_NotUpdateAS extends PlatformBase{
 
 	//Platform
@@ -44,9 +42,6 @@ public class ECMS_SE_PublishActivities_ContentActivities_NotUpdateAS extends Pla
 	EcmsPermission ePermission;
 	EcmsBase ecms;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -60,7 +55,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_NotUpdateAS extends Pla
 		SE = new SitesExplorer(driver);
 		ecms = new EcmsBase(driver);
 		ePermission = new EcmsPermission(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

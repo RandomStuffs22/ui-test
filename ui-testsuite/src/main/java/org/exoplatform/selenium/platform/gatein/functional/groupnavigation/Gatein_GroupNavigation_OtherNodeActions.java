@@ -49,7 +49,7 @@ public class Gatein_GroupNavigation_OtherNodeActions extends GroupNavigation{
 		pageEditor = new PageEditor(driver);
 		pageMag = new PageManagement(driver);
 		navMag = new NavigationManagement(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

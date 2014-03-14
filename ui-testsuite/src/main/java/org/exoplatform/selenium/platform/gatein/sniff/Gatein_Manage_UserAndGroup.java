@@ -33,7 +33,7 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		but = new Button(driver);
 		dialog = new Dialog(driver);
 		
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn(DATA_USER1, DATA_PASS); 
 	}
 
 	@AfterMethod
@@ -72,7 +72,7 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		waitForTextPresent(newFirstName);
 		
 		info("Search user follow username, last name, first name, email");
-		user.searchUser("john", "User Name");
+		user.searchUser(DATA_USER1, "User Name");
 		user.searchUser("Davis", "Last Name");
 		user.searchUser("Mary", "First Name");
 		user.searchUser(newEmail, "Email");
@@ -102,8 +102,8 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		user.editGroup(groupName, null, newLabel, newDesc, true);
 		
 		info("Add some user into group");
-		user.addUsersToGroup("mary", "member", true, true);
-		user.addUsersToGroup("demo", "manager", false, true);
+		user.addUsersToGroup(DATA_USER2, "member", true, true);
+		user.addUsersToGroup(DATA_USER4, "manager", false, true);
 		
 		info("Delete group");
 		user.deleteGroup(groupName, true);

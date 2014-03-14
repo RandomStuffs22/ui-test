@@ -17,8 +17,8 @@ import org.exoplatform.selenium.platform.ManageAccount;
 public class Wiki_BasicAction_Edit extends BasicAction {
 	ManageAccount magAcc;
 	
-	public String admin = "john";
-	public String pass = "gtn";
+	public String admin = DATA_USER1;
+	public String pass = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods(){

@@ -40,7 +40,7 @@ public class Forum_Setting extends ForumBase {
 		button = new Button(driver);
 		navTool = new NavigationToolbar(driver);
 		pageE = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToForums();
 	}
 
@@ -96,17 +96,17 @@ public class Forum_Setting extends ForumBase {
 		magAc.signOut();
 		
 		info("Create topic and post with user demo");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		click(By.linkText(forumName));
 		magtopic.quickStartTopic(title, message);
 		click(By.linkText(title));
 		post.postReply(postname, messagePost, null, null);
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		
 		goToForums();
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile("Jack Miller Update", "User", catName, forumName, "Thanks. Jack Miller", true, true, true);
 		forumsSettings("+7.00", "dd-MM-yyyy", "EEEE,=MMMM dd, yyyy", "24-hour", "5", "15", "false");
 		banUser(true, null, "abc");
@@ -120,18 +120,18 @@ public class Forum_Setting extends ForumBase {
 		magAc.signOut();
 		
 		info("Check ban user demo");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn(DATA_USER4, DATA_PASS);
 		goToForums();
 		click(By.linkText(forumName));
 		waitForAndGetElement(ELEMENT_START_TOPIC_DISABLE);
 		magAc.signOut();
 		
 		info("Reset data");
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		cat.deleteCategoryInForum(catName);
-		goToUserManagement("demo");
+		goToUserManagement(DATA_USER4);
 		settingUserManagementProfile("Jack Miller", "User", null, null, "", true, false, true);
 		forumsSettings("0.00", "MM/dd/yyyy", "EEE,=MMMM dd, yyyy", "12-hour", "10", "10", "false");
 		banUser(false, null, null);

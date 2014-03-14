@@ -61,7 +61,7 @@ import org.testng.annotations.*;
 			button = new Button(driver);
 			magAlert = new ManageAlert(driver);
 
-			magAc.signIn("john", "gtn");
+			magAc.signIn(DATA_USER1, DATA_PASS);
 		}
 
 		@AfterMethod
@@ -301,13 +301,13 @@ import org.testng.annotations.*;
 		
 		info("Check if user in the not-granted-permission group can edit page or not");
 		magAc.signOut();
-		magAc.signIn("mary", "gtn");
+		magAc.signIn(DATA_USER2, DATA_PASS);
 		driver.get(url);
 		waitForElementNotPresent(ELEMENT_LINK_EDITOR);
 		
 		info("Restore data");
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		navTool.goToManagePages();
 		pageMag.deletePage(PageType.PORTAL, pageTitle);
  	}

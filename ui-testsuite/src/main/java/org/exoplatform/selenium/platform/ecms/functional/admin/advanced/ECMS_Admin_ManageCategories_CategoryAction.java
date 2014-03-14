@@ -37,14 +37,11 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 	ContentTemplate cTemplate;
 
 	//Data for these test cases
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	String categoryName = "category1";
 	String newCategoryName = "category2";
 	String categoryWorkspace = "collaboration";
 	String nodeHomePath = "sites/intranet";
-	//String username = "john";
+	//String username = DATA_USER1;
 	String groupID = "Platform/Administration"; 
 	String actionName = "test";
 	String optionLifeCycle = "Content Addition"; 
@@ -56,7 +53,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		nav = new NavigationToolbar(driver, this.plfVersion);
 		magAcc = new ManageAccount(driver, this.plfVersion);
 		button = new Button(driver, this.plfVersion);
@@ -65,7 +62,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		magCa = new ManageCategory(driver);
 		cMenu = new ContextMenu(driver, this.plfVersion);
 		alert = new ManageAlert(driver, this.plfVersion);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -92,7 +89,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Copy a Category --");
@@ -130,7 +127,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath};
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Copy a Category --");
@@ -171,7 +168,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {"", ""};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, true, false, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, true, false, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Copy a Category --");
@@ -207,7 +204,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Copy a Category --");
@@ -252,7 +249,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Copy a Category --");
@@ -290,7 +287,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Cut a Category --");
@@ -331,7 +328,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Cut a Category --");
@@ -366,7 +363,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 
 		info("-- Step 2: Cut a Category --");
@@ -409,7 +406,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 		waitForTextPresent(categoryTreeName);
 		magCa.addChildCategory(categoryTreeName, categoryName);
 
@@ -452,7 +449,7 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, false, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 
 		info("-- Step 2: Delete a Category --");
 		magCa.deleteCategory(categoryTreeName);
@@ -475,10 +472,10 @@ public class ECMS_Admin_ManageCategories_CategoryAction extends PlatformBase{
 		String[] form2 = {groupID, "*"};
 		String[] form3 = {actionName, optionLifeCycle, nodeTargetPath}; 
 		boolean[] setPermission = {true, true, false};
-		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER, setPermission, form3);
+		magCa.addNewCategoryTree(form1, false, true, form2, DATA_USER1, setPermission, form3);
 
 		info("-- Step 2: Edit a Category --");
-		magCa.addNewCategoryTree_Step4(categoryTreeName, categoryName, newCategoryName, "mary", true, true, true);
+		magCa.addNewCategoryTree_Step4(categoryTreeName, categoryName, newCategoryName, DATA_USER2, true, true, true);
 
 		info("-- Reset Data --");
 		magCa.deleteCategory(categoryTreeName);

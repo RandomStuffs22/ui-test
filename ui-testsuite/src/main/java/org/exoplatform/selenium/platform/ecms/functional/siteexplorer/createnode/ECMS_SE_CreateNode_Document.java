@@ -37,9 +37,6 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 	ContextMenu cMenu;
 	ContentTemplate cTemplate;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -53,7 +50,7 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 		cTemplate = new ContentTemplate(driver);
 		magAlt = new ManageAlert(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -113,7 +110,7 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 		actBar = new ActionBar(driver);
 
 		info("Login with Mary");
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		info("Verify that [Mary] can not see [Add Content] icon on action bar");
 		navToolBar.goToSiteExplorer();
@@ -122,7 +119,7 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 
 		info("Restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 		//delete data
 		navToolBar.goToSiteExplorer();
@@ -407,13 +404,13 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 		ecms.goToNode(ELEMENT_FILE_TITLE);
 		actBar.goToNodePermissionManagement();
 		ecmsPer.removeDefaultPermissionOfNode();
-		ecms.selectUser("mary");
+		ecms.selectUser(DATA_USER2);
 		ecmsPer.setPermissionForNode(true, false, false);
 		button.save();
 
 		info("Login by user who does not have permission to add node inside the above node");
 		magAcc.signOut();
-		magAcc.signIn("mary", DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 
 		info("Add a new content: user does not have right to do this action");
 		navToolBar.goToSiteExplorer();
@@ -422,7 +419,7 @@ public class ECMS_SE_CreateNode_Document extends PlatformBase{
 
 		info("Login with [john] to restore data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(ELEMENT_FILE_TITLE);
 	}

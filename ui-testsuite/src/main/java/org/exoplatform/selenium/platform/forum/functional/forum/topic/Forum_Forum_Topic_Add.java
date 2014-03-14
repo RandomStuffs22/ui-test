@@ -59,10 +59,10 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String catName = "Category 73018";
 		String order = "1";
 		int chooseRestricted = 1;
-		String []restricted = {"john"};
+		String []restricted = {DATA_USER1};
 		String description = "Description Category 73018";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73018", "1", "Open", "Unlocked", "Description of forum 001"};
 		String title = "Topic 73018";
 		String message = "Topic 73018";
@@ -145,10 +145,10 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String catName = "Category 73052";
 		String order = "1";
 		int chooseRestricted = 1;
-		String []restricted = {"john"};
+		String []restricted = {DATA_USER1};
 		String description = "Description Category 73052";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73052", "1", "Open", "Unlocked", "Description of forum 002"};
 		String title = "Topic 73052";
 		String message = "Topic 73052";
@@ -232,7 +232,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73171";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73171", "1", "Open", "Unlocked", "Description of forum 003"};
 		String title = "Topic 73171";
 		String message = "Topic 73171";
@@ -325,7 +325,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73185";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73185", "1", "Open", "Unlocked", "Description of forum 004"};
 		String title = "Topic 73185";
 		String message = "Topic 73185";
@@ -418,7 +418,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73196";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73196", "1", "Open", "Unlocked", "Description of forum 005"};
 		String title = "Topic 73196";
 		String message = "Topic 73196";
@@ -510,7 +510,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73206";
 		int setPermission = 2;
-		String []userGroup = {"john"};
+		String []userGroup = {DATA_USER1};
 		String []addForum = {"Forum 73206", "1", "Open", "Unlocked", "Description of forum 006"};
 		String title = "Topic 73206";
 		String message = "Topic 73206";
@@ -603,7 +603,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73215";
 		int setPermission = 2;
-		String []userGroup = {"demo"};
+		String []userGroup = {DATA_USER4};
 		String []addForum = {"Forum 73215", "1", "Open", "Unlocked", "Description of forum 007"};
 		String title = "Topic 73215";
 		String message = "Topic 73215";
@@ -705,7 +705,7 @@ public class Forum_Forum_Topic_Add extends ForumBase{
 		String []restricted = {""};
 		String description = "Description Category 73223";
 		int setPermission = 2;
-		String []userGroup = {"demo"};
+		String []userGroup = {DATA_USER4};
 		String []addForum = {"Forum 73223", "1", "Open", "Unlocked", "Description of forum 008"};
 		String title = "Topic 73223";
 		String message = "Topic 73223";

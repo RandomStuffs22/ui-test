@@ -29,8 +29,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 	Button button;
 	PlatformPermission per;
 	
-	String DATA_USER_ADMIN = "john";
-	String DATA_PASS = "gtn";
+	String DATA_USER_ADMIN = DATA_USER1;
 
 	@BeforeMethod
 	public void setUpBeforeTest(){
@@ -61,11 +60,11 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		String PAGE_NAME1 = "Add permission for user by putting user name";
 
-		String[] user2= {"james"};
+		String[] user2= {DATA_USER3};
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV1(PAGE_NAME1, 0, user2, "james");
+		prepareDataWikiSpacePermissionV1(PAGE_NAME1, 0, user2, DATA_USER3);
 
 		magAcc.userSignIn(ManageAccount.userType.AUTHOR);
 		
@@ -81,7 +80,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -96,11 +95,11 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		String PAGE_NAME1 = "Add permission for user by selecting directly";
 
-		String[] user2= {"james"};
+		String[] user2= {DATA_USER3};
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV1(PAGE_NAME1, 1, user2, "james");
+		prepareDataWikiSpacePermissionV1(PAGE_NAME1, 1, user2, DATA_USER3);
 
 		magAcc.userSignIn(ManageAccount.userType.AUTHOR);
 
@@ -116,7 +115,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -133,7 +132,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "james", "james", 1);
+		prepareDataWikiSpacePermissionV2(PAGE_NAME1, DATA_USER3, DATA_USER3, 1);
 
 		info("Check user after set permisison");
 
@@ -151,7 +150,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -168,7 +167,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "James", "james", 2);
+		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "James", DATA_USER3, 2);
 
 		info("Check after edit user");
 
@@ -186,7 +185,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -203,7 +202,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "Davis", "james", 3);
+		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "Davis", DATA_USER3, 3);
 
 		magAcc.userSignIn(ManageAccount.userType.AUTHOR);
 		
@@ -219,7 +218,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -236,7 +235,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "james.davis@acme.exoplatform.com", "james", 4);
+		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "james.davis@acme.exoplatform.com", DATA_USER3, 4);
 
 		magAcc.userSignIn(ManageAccount.userType.AUTHOR);
 		
@@ -252,7 +251,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 		
 		goToWiki();
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/**
@@ -269,9 +268,9 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		By ELEMENT_PAGE1 = By.linkText(PAGE_NAME1);
 
-		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "james/mary", "james");
+		prepareDataWikiSpacePermissionV2(PAGE_NAME1, "james/mary", DATA_USER3);
 
-		editSpacePermission("mary", true, true, true, true, 2);
+		editSpacePermission(DATA_USER2, true, true, true, true, 2);
 
 		magAcc.userSignIn(ManageAccount.userType.PUBLISHER);
 		
@@ -289,9 +288,9 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 
 		click(ELEMENT_PAGE1);
 
-		deleteSpacePermission("mary");
+		deleteSpacePermission(DATA_USER2);
 
-		resetDataWikiSpacePermission(ELEMENT_PAGE1, "james");
+		resetDataWikiSpacePermission(ELEMENT_PAGE1, DATA_USER3);
 	}
 
 	/* case08: Add permission for user by putting group name

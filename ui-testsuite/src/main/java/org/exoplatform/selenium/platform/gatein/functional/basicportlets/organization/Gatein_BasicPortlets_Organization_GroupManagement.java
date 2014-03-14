@@ -44,7 +44,7 @@ public class Gatein_BasicPortlets_Organization_GroupManagement extends PlatformB
 		pageEditor = new PageEditor(driver);
 		pageMag = new PageManagement(driver);
 		button = new Button(driver);
-		magAc.signIn("fqa", "gtngtn"); 
+		magAc.signIn("fqa", DATA_PASS); 
 	}
 
 	@AfterMethod
@@ -167,7 +167,7 @@ public class Gatein_BasicPortlets_Organization_GroupManagement extends PlatformB
 	@Test
 	public void test05_CheckSearchUserWhenAddUserIntoGroup() {
 		String groupName = "Platform";
-		String username1 = "root";
+		String username1 = USER_ROOT;
 		String username2 = "abc1234";
 		String username3 = "#$%^&";
 		

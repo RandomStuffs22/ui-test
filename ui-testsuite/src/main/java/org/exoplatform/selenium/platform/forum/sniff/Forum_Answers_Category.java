@@ -31,7 +31,7 @@ public class Forum_Answers_Category extends AnswerBase {
 		magCat = new AnswerManageCategory(driver);
 		magQuest = new AnswerManageQuestion(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToAnswer();
 	}
 
@@ -48,7 +48,7 @@ public class Forum_Answers_Category extends AnswerBase {
 	public void test01_AddEditDeleteCategory(){
 		String categoryName = "Answercategory1";
 		String description = "Add new category for answer";
-		String[] userGroup = {"demo"};
+		String[] userGroup = {DATA_USER4};
 		
 		String name_edit = "Category1_Edit";
 		String des_edit = "Edit category 1";
@@ -70,7 +70,7 @@ public class Forum_Answers_Category extends AnswerBase {
 	public void test02_MoveCategory(){
 		String categoryName1 = "Answercategory2_1";
 		String description1 = "Add new category1 for answer";
-		String[] userGroup1 = {"demo"};
+		String[] userGroup1 = {DATA_USER4};
 		
 		String categoryName2 = "Answercategory2_2";
 		String description2 = "Add new category2 for answer";
@@ -96,7 +96,7 @@ public class Forum_Answers_Category extends AnswerBase {
 	public void test03_ExportImportCategory(){
 		String categoryName = "Answercategory3";
 		String description = "Add new category for answer";
-		String[] userGroup = {"demo"};		
+		String[] userGroup = {DATA_USER4};		
 		String questionName = "QuestionCategory3";
 		String questionContent = "Question of Answercategory3";
 		String fileName = "Answercategory3";
@@ -133,7 +133,7 @@ public class Forum_Answers_Category extends AnswerBase {
 	public void test04_WatchUnwatchCategory(){
 		String categoryName = "Answercategory4";
 		String description = "Add new category for answer";
-		String[] userGroup = {"demo"};		
+		String[] userGroup = {DATA_USER4};		
 		String questionName = "QuestionCategory4";
 		String questionContent = "Question of Answercategory4";
 		
@@ -157,7 +157,7 @@ public class Forum_Answers_Category extends AnswerBase {
 	public void test05_DragDropCategory(){
 		String categoryName1 = "Answercategory5_1";
 		String description1 = "Add new category1 for answer";
-		String[] userGroup1 = {"demo"};
+		String[] userGroup1 = {DATA_USER4};
 		
 		String categoryName2 = "Answercategory5_2";
 		String description2 = "Add new category2 for answer";

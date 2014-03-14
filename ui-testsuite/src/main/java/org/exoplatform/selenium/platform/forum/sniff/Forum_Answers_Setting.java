@@ -36,7 +36,7 @@ public class Forum_Answers_Setting extends AnswerBase {
 		forum = new ForumManageForum(driver);
 		question = new AnswerManageQuestion(driver);
 		pageE = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToAnswer();
 	}
 
@@ -54,7 +54,7 @@ public class Forum_Answers_Setting extends AnswerBase {
 		//category1 in answer
 		String categoryName1 = "Answersetting1";
 		String description1 = "Add new category for answer";
-		String[] userGroup1 = {"demo"};
+		String[] userGroup1 = {DATA_USER4};
 		
 		//category2 in answer
 		String categoryName2 = "Answersetting2";

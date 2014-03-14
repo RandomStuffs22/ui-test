@@ -34,9 +34,6 @@ public class ECMS_SE_PublicActivity extends PlatformBase {
 	SitesExplorer siteExp;
 	NavigationToolbar navToolBar;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods(){
 		initSeleniumTest();
@@ -52,7 +49,7 @@ public class ECMS_SE_PublicActivity extends PlatformBase {
 		siteExp = new SitesExplorer(driver,this.plfVersion);
 		navToolBar = new NavigationToolbar(driver,this.plfVersion);
 		
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

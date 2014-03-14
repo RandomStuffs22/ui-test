@@ -45,15 +45,11 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 	ManageAlert magAlert;
 	UserGroupManagement ugMan;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
-
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		magAcc = new ManageAccount(driver);
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);
@@ -65,7 +61,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		mDrive = new ManageDrive(driver);
 		ePerm=new EcmsPermission(driver);
 		magAlert = new ManageAlert(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ugMan = new UserGroupManagement(driver);
 		navToolBar.goToSiteExplorer();
 	}
@@ -570,7 +566,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		btn.save();
 		btn.close();
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		//Check if mary has edit, read on node1
 		rightClickOnElement(bFolder);
@@ -642,7 +638,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Step 3: Open 'Permission Management' pop-up*/
 		//Login by user is not locker
-		loginWithAnotherAccOnThesameBrowser(DATA_USER2, "gtn");
+		loginWithAnotherAccOnThesameBrowser(DATA_USER2, DATA_PASS);
 		magAcc = new ManageAccount(newDriver);
 		actBar= new ActionBar(newDriver);
 		navToolBar = new NavigationToolbar(newDriver);
@@ -810,7 +806,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		String defaultuser1 = "*:/platform/web-contributors";
 		String defaultuser2 = "*:/platform/administrators";
 		String defaultuser3 = "any";
-		String user = "demo";
+		String user = DATA_USER4;
 
 		/*Step 1: Select node to view permission of node*/
 		//Create node (folder, document) or upload file

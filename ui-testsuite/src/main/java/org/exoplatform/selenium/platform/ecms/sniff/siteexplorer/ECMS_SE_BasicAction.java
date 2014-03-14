@@ -30,8 +30,6 @@ public class ECMS_SE_BasicAction extends PlatformBase {
 	EcmsBase ecms;
 	ContextMenu cMenu;
 	ManageAccount magAcc;
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
 	ManageAlert alt;
 	SitesExplorer siteExp;
 	Dialog dialog;
@@ -358,7 +356,7 @@ public class ECMS_SE_BasicAction extends PlatformBase {
 		dialog = new Dialog(driver);
 		navToolBar = new NavigationToolbar(driver,this.plfVersion);
 		magAcc = new ManageAccount(driver,this.plfVersion);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar = new ActionBar(driver,this.plfVersion);
 		cTemplate = new ContentTemplate(driver,this.plfVersion);

@@ -53,7 +53,7 @@ public class Forum_Answer_Category_Edit extends AnswerBase{
 	public void test01_EditCategoryWithValidModeratorByInput() {
 		String category = "Category 1 72720";
 		String newCategory = "New category 72720";
-		String[] userGroup = {"mary"};
+		String[] userGroup = {DATA_USER2};
 
 		info("Edit category in case valid data entry for Moderator field");
 		mCat.addNewCategoryInAnswer(category, "1", category, 0, null, true, true);
@@ -87,7 +87,7 @@ public class Forum_Answer_Category_Edit extends AnswerBase{
 	public void test01_EditCategoryWithValidModeratorBySelectUser() {
 		String category = "Category 2 72720";
 		String newCategory = "New category 72720";
-		String[] userGroup = {"mary"};
+		String[] userGroup = {DATA_USER2};
 
 		info("Edit category in case valid data entry for Moderator field by select User");
 
