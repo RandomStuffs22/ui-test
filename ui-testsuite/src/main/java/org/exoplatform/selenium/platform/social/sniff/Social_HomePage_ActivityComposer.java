@@ -2,6 +2,7 @@ package org.exoplatform.selenium.platform.social.sniff;
 
 import static org.exoplatform.selenium.TestLogger.info;
 
+import org.exoplatform.selenium.Utils;
 import org.exoplatform.selenium.platform.HomePageActivity;
 import org.exoplatform.selenium.platform.ManageAccount;
 import org.exoplatform.selenium.platform.NavigationToolbar;
@@ -85,7 +86,7 @@ public class Social_HomePage_ActivityComposer extends Activity {
 	@Test(priority=1)
 	public void test02_ShareYourStatus(){
 		//Declare variables
-		String activity1 = "Activity1";
+		String activity1 = "activity74711";
 		/*Step 1: Share your status*/  
 		//- Go to Home page
 		navToolBar.goToHomePage();
@@ -93,6 +94,8 @@ public class Social_HomePage_ActivityComposer extends Activity {
 		//- Input into activity input field and click share
 		//- The message will show in Activity Stream
 		addActivity(true, activity1, false, "");
+		Utils.pause(500);
+		driver.navigate().refresh();
 
 		//Clear data
 		activity.deleteActivity(activity1);
@@ -118,6 +121,7 @@ public class Social_HomePage_ActivityComposer extends Activity {
 		navToolBar.goToPersonalDocuments();
 		actBar.addItem2ActionBar("addDocument", actBar.ELEMENT_NEW_CONTENT_LINK, "Admin", "Admin");
 		actBar.chooseDrive(ecms.ELEMENT_PERSONAL_DRIVE);
+		actBar.goToViewMode("Admin");
 		actBar.goToAddNewContent();
 		conTemp.createNewFile(file, file, "");
 
@@ -138,6 +142,8 @@ public class Social_HomePage_ActivityComposer extends Activity {
 		selectFile(driverName,false,folderPath,file,""); 
 
 		//Clear data
+		Utils.pause(500);
+		driver.navigate().refresh();
 		activity.deleteActivity(file);
 		navToolBar.goToSiteExplorer();
 		actBar.chooseDrive(ecms.ELEMENT_PERSONAL_DRIVE);

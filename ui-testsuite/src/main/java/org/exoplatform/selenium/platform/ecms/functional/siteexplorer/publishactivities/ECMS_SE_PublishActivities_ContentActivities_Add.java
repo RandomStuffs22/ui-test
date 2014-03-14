@@ -39,14 +39,11 @@ public class ECMS_SE_PublishActivities_ContentActivities_Add extends PlatformBas
 	SitesExplorer siteExp;
 	ContextMenu cMenu;
 	
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-	
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER);
+		info("Login ECMS with " + DATA_USER1);
 		magAcc = new ManageAccount(driver);
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);
@@ -56,7 +53,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_Add extends PlatformBas
 		cMenu = new ContextMenu(driver);
 		activity = new HomePageActivity(driver);
 		magMember = new ManageMember(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

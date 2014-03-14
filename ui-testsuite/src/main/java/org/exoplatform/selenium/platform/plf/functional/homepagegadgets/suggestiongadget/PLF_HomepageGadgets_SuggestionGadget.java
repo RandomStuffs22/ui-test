@@ -807,7 +807,7 @@ public class PLF_HomepageGadgets_SuggestionGadget extends Activity{
 		pConn.acceptInvitation(user);
 		Utils.pause(500);
 		acc.signOut();
-		acc.signIn("fqa", "gtngtn");
+		acc.signIn("fqa", DATA_PASS);
 		pConn.acceptInvitation(user);
 
 		/*
@@ -840,21 +840,21 @@ public class PLF_HomepageGadgets_SuggestionGadget extends Activity{
 	@Test (groups = "pending")
 	public  void test16_GadgetSuggestionsIsntDisplayedWhenOnlyOneUserIsAvailableInTheProduct() {
 		info("Test 16 Gadget Suggestions isn't displayed when only one user is available in the product");
-		String username1 = "mary";
-		String password = "gtn";
+		String username1 = DATA_USER2;
+		String password = DATA_PASS;
 		String firstName1 = "Mary";
 		String lastName1 = "Williams";
 		String email1 = "mary.williams@acme.exoplatform.com";
-		String username2 = "demo";
+		String username2 = DATA_USER4;
 		String firstName2 = "Jack";
 		String lastName2 = "Miller";
 		String email2 = "jack.miller@acme.exoplatform.com";
-		String username3 = "james";
+		String username3 = DATA_USER3;
 		String firstName3 = "James";
 		String lastName3 = "Davis";
 		String email3 = "james.davis@acme.exoplatform.com";
 		String username4 = "fqa";
-		String password4 = "gtngtn";
+		String password4 = DATA_PASS;
 		String firstName4 = "FQA";
 		String lastName4 = "VN";
 		String email4 = "fqa@exoplatform.com";
@@ -968,7 +968,7 @@ public class PLF_HomepageGadgets_SuggestionGadget extends Activity{
 		pConn.acceptInvitation(user);
 		Utils.pause(500);
 		acc.signOut();
-		acc.signIn(user4, "gtngtn");
+		acc.signIn(user4, DATA_PASS);
 		pConn.acceptInvitation(user);
 
 		info("User X create spaceX");

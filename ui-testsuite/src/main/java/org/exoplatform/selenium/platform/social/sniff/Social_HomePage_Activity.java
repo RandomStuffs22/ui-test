@@ -260,11 +260,6 @@ public class Social_HomePage_Activity extends Activity {
 
 		//Clear data
 		info("clear data");
-		navToolBar.goToHomePage();
-		activity.deleteActivity(activity1);
-		activity.deleteActivity(link);
-		activity.deleteActivity(fileDocument);
-		activity.deleteActivity(uploadFileName);
 		navToolBar.goToSiteExplorer();
 		actBar.chooseDrive(ecms.ELEMENT_SITES_MANAGEMENT_DRIVE);
 		cMenu.deleteData(bNameWebContent);
@@ -279,6 +274,9 @@ public class Social_HomePage_Activity extends Activity {
 		actBar.chooseDrive(ecms.ELEMENT_PERSONAL_DRIVE);
 		actBar.actionsOnElement(folder, actionType.DELETE,true,true);
 		actBar.actionsOnElement(fileDocument, actionType.DELETE,true,true);
+		navToolBar.goToHomePage();
+		activity.deleteActivity(activity1);
+		activity.deleteActivity(link);
 	}
 
 	/**
@@ -606,6 +604,7 @@ public class Social_HomePage_Activity extends Activity {
 
 		//- Back to the Homepage
 		navToolBar.goToHomePage();
+		driver.navigate().refresh();
 
 		//- The Space activity content isn't updated in the activity stream
 		//- Informations displayed in the featured content are :
@@ -619,8 +618,9 @@ public class Social_HomePage_Activity extends Activity {
 		waitForAndGetElement(ELEMENT_NUMBER_MEMBER_SPACE_ACTIVITY.replace("${activityText}", spaceName).replace("${numbermember}", "2"));
 
 		//- A comment is added: $user has been promoted as space's manager.
-		String comment = waitForAndGetElement(ELEMENT_COMMENT_BOX_SPACE_ACTIVITY.replace("${activityText}", spaceName)+"/a[text()='"+user1+"']/..").getText();
-		assert comment.contains(user1+" has been promoted as the space's manager");
+		String comment = waitForAndGetElement(ELEMENT_COMMENT_BOX_SPACE_ACTIVITY.replace("${activityText}", spaceName)+"/..//a[text()='"+user+"']/../../p").getText();
+		info(comment);
+		assert comment.contains(user1+" has been promoted as space's manager");
 
 		//Clear data
 		info("clear data");
@@ -674,8 +674,9 @@ public class Social_HomePage_Activity extends Activity {
 		waitForAndGetElement(ELEMENT_AVATAR_SPACE_ACTIVITY.replace("${activityText}", newSpaceName));
 
 		//- A comment is added: Name has been updated to: $value.
-		waitForAndGetElement(activity.ELEMENT_CONTENT_COMMENT_RENAME_SPACE.replace("${spacename}", newSpaceName));
-
+	
+	waitForAndGetElement(activity.ELEMENT_CONTENT_COMMENT_RENAME_SPACE.replace("${spacename}", newSpaceName));
+		
 		//Clear data
 		info("clear data");
 		magMember.goToAllSpaces();

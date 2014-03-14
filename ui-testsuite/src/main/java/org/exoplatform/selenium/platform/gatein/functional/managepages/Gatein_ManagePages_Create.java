@@ -63,7 +63,7 @@ import org.testng.annotations.*;
 			button = new Button(driver);
 			magAlert = new ManageAlert(driver);
 
-			magAc.signIn("john", "gtn");
+			magAc.signIn(DATA_USER1, DATA_PASS);
 		}
 
 		@AfterMethod
@@ -143,8 +143,8 @@ import org.testng.annotations.*;
 		String portletId = "Administration/RegisterPortlet";
 		String portletTitle = "Register New Account";
 		String url = baseUrl + "/intranet/home/" + pageName;
-		String username1 = "mary";
-		String password1 = "gtn";
+		String username1 = DATA_USER2;
+		String password1 = DATA_PASS;
 
 		/*Step Number: 1
 		*Step Name: -

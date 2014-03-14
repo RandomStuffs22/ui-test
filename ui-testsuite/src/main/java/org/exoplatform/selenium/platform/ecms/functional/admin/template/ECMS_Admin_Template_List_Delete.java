@@ -29,21 +29,18 @@ public class ECMS_Admin_Template_List_Delete extends PlatformBase{
 	ECMainFunction ecMain;
 	ManageTemplate magTem;
 
-	public final String DATA_USER_ADMIN = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER_ADMIN);
+		info("Login ECMS with " + DATA_USER1);
 		button = new Button(driver);
 		alt = new ManageAlert(driver);
 		magAcc = new ManageAccount(driver);
 		ecms = new EcmsBase(driver);
 		ecMain = new ECMainFunction(driver);
 		magTem = new ManageTemplate(driver);
-		magAcc.signIn(DATA_USER_ADMIN, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

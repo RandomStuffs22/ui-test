@@ -123,7 +123,7 @@ public class Calendar_Calendar extends CalendarBase{
 	@Test
 	public void test05_AddDeleteSharedCalendar() {
 		String calendar = "Calendar 69650";
-		String[] user = {"mary"};
+		String[] user = {DATA_USER2};
 		boolean[] canEdit = {true};
 
 		info("Add Calendar");
@@ -153,7 +153,7 @@ public class Calendar_Calendar extends CalendarBase{
 	@Test
 	public void test06_EditSharedCalendar() {
 		String calendar = "Calendar 69263";
-		String[] user = {"mary"};
+		String[] user = {DATA_USER2};
 		boolean[] canEdit = {true};
 
 		info("Edit Shared Calendar");

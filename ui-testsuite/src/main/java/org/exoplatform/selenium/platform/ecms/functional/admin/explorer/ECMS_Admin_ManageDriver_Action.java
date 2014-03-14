@@ -44,14 +44,11 @@ public class ECMS_Admin_ManageDriver_Action extends PlatformBase{
 	Permission adminPer;
 	ManageDrive magDrv;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with "+ DATA_USER);
+		info("Login ECMS with "+ DATA_USER1);
 		nav = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		userGrp = new UserGroupManagement(driver);
@@ -62,7 +59,7 @@ public class ECMS_Admin_ManageDriver_Action extends PlatformBase{
 		sitesExp = new SitesExplorer(driver);
 		adminPer = new Permission(driver);
 		magDrv = new ManageDrive(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

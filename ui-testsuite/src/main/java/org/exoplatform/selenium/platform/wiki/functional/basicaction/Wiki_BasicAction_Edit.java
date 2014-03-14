@@ -23,7 +23,10 @@ public class Wiki_BasicAction_Edit extends ManageDraft {
 	Button button; 
 	ManageAlert mAlert; 
 	RichTextMode rText;
-	
+
+	public String admin = DATA_USER1;
+	public String pass = DATA_PASS;
+
 	@BeforeMethod
 	public void setUpBeforeTest(){
 		initSeleniumTest();

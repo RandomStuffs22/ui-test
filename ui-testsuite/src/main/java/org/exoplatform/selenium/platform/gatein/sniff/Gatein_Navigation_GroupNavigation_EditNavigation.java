@@ -42,15 +42,16 @@ public class Gatein_Navigation_GroupNavigation_EditNavigation extends GroupNavig
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		button = new Button(driver, this.plfVersion);
-		magAlert = new ManageAlert(driver, this.plfVersion);
-		magAc = new ManageAccount(driver, this.plfVersion);
-		navToolbar = new NavigationToolbar(driver, this.plfVersion);
-		userGroupMag = new UserGroupManagement(driver, this.plfVersion);
-		pageMag = new PageManagement(driver, this.plfVersion);
-		navMag = new NavigationManagement(driver, this.plfVersion);
-		pageEditor = new PageEditor(driver, this.plfVersion);
-		magAc.signIn("john", "gtn");
+
+		button = new Button(driver);
+		magAlert = new ManageAlert(driver);
+		magAc = new ManageAccount(driver);
+		navToolbar = new NavigationToolbar(driver);
+		userGroupMag = new UserGroupManagement(driver);
+		pageMag = new PageManagement(driver);
+		navMag = new NavigationManagement(driver);
+		pageEditor = new PageEditor(driver);
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		driver.navigate().refresh();
 	}
 
@@ -89,7 +90,7 @@ public class Gatein_Navigation_GroupNavigation_EditNavigation extends GroupNavig
 		info("Verify position of Administration after changing order");
 		waitForAndGetElement(groupAdminNewPosition);
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		navToolbar.goToGroupSites();
 		//Verify position of Administration after SignOut and SignIn  
 		waitForElementNotPresent(groupAdminOldPosition);

@@ -31,9 +31,6 @@ public class ECMS_SE_FileManagementView_Actions_Sort extends PlatformBase {
 	EcmsBase ecms;
 	ContentTemplate cTemp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -43,7 +40,7 @@ public class ECMS_SE_FileManagementView_Actions_Sort extends PlatformBase {
 		actBar = new ActionBar(driver);
 		ecms = new EcmsBase(driver);
 		cTemp = new ContentTemplate(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 	
 	/**

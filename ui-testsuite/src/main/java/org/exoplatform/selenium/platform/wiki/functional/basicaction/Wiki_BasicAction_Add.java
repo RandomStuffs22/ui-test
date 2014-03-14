@@ -50,10 +50,9 @@ public class Wiki_BasicAction_Add extends ManageDraft{
 		driver.get(baseUrl);
 		driver.manage().window().maximize();
 		magAcc = new ManageAccount(driver);
-		dialog = new Dialog(driver);	
-		button = new Button(driver, this.plfVersion);	
-		mMember = new ManageMember(driver, this.plfVersion);	
-		magAcc.signIn("john", "gtn");
+		dialog = new Dialog(driver);
+		button = new Button(driver);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -194,7 +193,7 @@ public class Wiki_BasicAction_Add extends ManageDraft{
 	@Test
 	public void test06_AddNewPageWithNotPermission(){    
 		int mode = 0;
-		String[] userGroup = {"james"};
+		String[] userGroup = {DATA_USER3};
 		String[] userGroupR = {"any"};
 		By ELEMEN_USER = By.xpath("//div[@class='Id' and contains(text(),'" + userGroup[0] + "')]");
 		//("//div[@class='Id' and @title='" + userGroup[0] + "']");
@@ -206,13 +205,13 @@ public class Wiki_BasicAction_Add extends ManageDraft{
 
 		//Verify that James can't add new page
 		magAcc.signOut();
-		magAcc.signIn("james","gtn");
+		magAcc.signIn(DATA_USER3,DATA_PASS);
 		goToWiki();
 		waitForElementNotPresent(ELEMENT_ADD_PAGE_LINK);
 
 		//Reset data
 		magAcc.signOut();
-		magAcc.signIn("john","gtn");
+		magAcc.signIn(DATA_USER1,DATA_PASS);
 		goToWiki();
 		deleteSpacePermission(userGroup[0]);
 		addSpacePermission(0, userGroupR);

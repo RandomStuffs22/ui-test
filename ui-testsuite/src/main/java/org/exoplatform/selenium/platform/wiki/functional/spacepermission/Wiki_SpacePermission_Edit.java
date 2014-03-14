@@ -20,7 +20,7 @@ public class Wiki_SpacePermission_Edit extends Permission {
 		initSeleniumTest();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 	
 	//Qmetry ID: 69759
@@ -28,15 +28,15 @@ public class Wiki_SpacePermission_Edit extends Permission {
 	@Test
 	public void test01_EditPermissionForSpace() {
 
-		String[] user2= {"james"};
+		String[] user2= {DATA_USER3};
 
 		goToWiki();
 
 		addSpacePermission(0, user2);
 
-		editSpacePermission("james", true, true, true, false, 2);
+		editSpacePermission(DATA_USER3, true, true, true, false, 2);
 
-		deleteSpacePermission("james");
+		deleteSpacePermission(DATA_USER3);
 	}
 	
 	//Qmetry ID: 69757
@@ -44,13 +44,13 @@ public class Wiki_SpacePermission_Edit extends Permission {
 	@Test
 	public void test02_EditPermissionForSpaceIsBlank() {
 
-		String[] user2= {"james"};
+		String[] user2= {DATA_USER3};
 
 		goToWiki();
 
 		addSpacePermission(0, user2);
 
-		editSpacePermission("james", false, false, false, false, 2);
+		editSpacePermission(DATA_USER3, false, false, false, false, 2);
 	}
 
 	@AfterMethod

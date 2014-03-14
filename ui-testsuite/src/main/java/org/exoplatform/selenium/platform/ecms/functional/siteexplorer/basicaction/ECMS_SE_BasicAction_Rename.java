@@ -38,9 +38,6 @@ public class ECMS_SE_BasicAction_Rename extends PlatformBase{
 	SitesExplorer siteExp;
 	ManageDrive magDrv;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -53,7 +50,7 @@ public class ECMS_SE_BasicAction_Rename extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
 		magDrv = new ManageDrive(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

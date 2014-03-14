@@ -345,7 +345,7 @@ public class ECMS_WCM_Others extends PlatformBase{
 		navToolBar = new NavigationToolbar(driver);
 		actBar = new ActionBar(driver);
 		ecms = new EcmsBase(driver);
-		cTemplate = new ContentTemplate(driver);
+		cTemplate = new ContentTemplate(driver,this.plfVersion);
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
 		pages = new PageManagement(driver);

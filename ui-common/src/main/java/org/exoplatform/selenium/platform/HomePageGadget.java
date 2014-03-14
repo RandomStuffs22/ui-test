@@ -19,7 +19,7 @@ public class HomePageGadget extends PlatformBase{
 	public By ELEMENT_INVITATION_GADGET = By.id("InvitationsPortlet");
 	public String ELEMENT_SHOW_CONNECTIONS_REQUEST_USER = "//div[@id='InvitationsPortlet']//div[@class='peopleInviteName']//div[text()='${nameinvitation}']";
 	public String ELEMENT_INVITATION_GADGET_USER_41 = "//div[@id='InvitationsPortlet']//div[@class='peopleInviteName']//a[contains(text(),'${nameinvitation}')]";
-	public String ELEMENT_SHOW_CONNECTIONS_REQUEST_USER_PLF41="//div[@id='InvitationsPortlet']//div[@class='peopleInvitePicture pull-left avatarXSmall']//a[@href='/portal/intranet/profile/james']";
+	public String ELEMENT_SHOW_CONNECTIONS_REQUEST_USER_PLF41="//div[@id='InvitationsPortlet']//div[@class='peopleInvitePicture pull-left avatarXSmall']//a[@href='/portal/intranet/profile/${peopleName}']";
 	public String ELEMENT_SHOW_CONNECTIONS_REQUEST_SPACE= "//div[@id='InvitationsPortlet']//div[@class='spaceInviteInfo']//div[text()='${namespace}']";
 	public String ELEMENT_VERIFY_STATUS_SPACE = "//div[@id='InvitationsPortlet']//div[@class='spaceInviteInfo']//div[text()='${namespace}']/../div[@class='spaceproperties']/div[@class='spacevisibility' and contains(text(),'${statusspace}')]";
 	public String ELEMENT_SHOW_ACCEPTS_BUTTON = "//div[@id='InvitationsPortlet']//div[@class='peopleInviteInfo']//div[text()='${peopleName}']/..//a[text()='Accept']";

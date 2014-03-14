@@ -69,7 +69,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		//Create category
 		cat.addNewCategoryInForum(category, "1", 0,permission, descCate, 0,null);
 
-		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER4, DATA_PASS, category, descCate, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -85,14 +85,14 @@ public class Forum_Forum_Category_View extends ForumBase {
 	public void test02_ViewCategoryIncaseRestrictedForSpecificUsers(){
 		String category = "Category 72440";
 		String descCate = "Description category 72440";
-		String[] permission = {"mary"};
+		String[] permission = {DATA_USER2};
 
 		info("View a category in case it is restricted for specific users");
 		//Create category
 		cat.addNewCategoryInForum(category, "1", 1,permission, descCate, 0,null);
 
 		//Check if demo cannot see the category
-		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
+		cat.checkRightOfViewCategory(DATA_USER4, DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
 		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
@@ -118,7 +118,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 4,permission, descCate, 0,null);
 
 		//Check if demo cannot see the category
-		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
+		cat.checkRightOfViewCategory(DATA_USER4, DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
 		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
@@ -144,7 +144,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 3,permission, descCate, 0,null);
 
 		//Check if demo cannot see the category
-		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
+		cat.checkRightOfViewCategory(DATA_USER4, DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
 		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
@@ -164,10 +164,10 @@ public class Forum_Forum_Category_View extends ForumBase {
 		String category = "Category 72745";
 		String descCate = "Category 72745";
 		String[] groups = {"Development"};
-		String[] users = {"james"};
+		String[] users = {DATA_USER3};
 		String[] membership = {"Platform/Content Management","*"};
 		String user = getRandomString();
-		String pass = "gtngtn";
+		String pass = DATA_PASS;
 
 		info("View a category in case its is restricted for user, role and group at once");
 		navTool.goToNewStaff();
@@ -185,13 +185,13 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.checkRightOfViewCategory(user, pass, category, descCate, false);
 
 		//Check if demo cannot see the category
-		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER4, DATA_PASS, category, descCate, true);
 
 		//Check if mary can see the category
 		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
 
 		//Check if james can the category
-		cat.checkRightOfViewCategory("james", DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER3, DATA_PASS, category, descCate, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -210,14 +210,14 @@ public class Forum_Forum_Category_View extends ForumBase {
 	public void test06_AdministratorViewCategoryWithRestrictedAudience(){
 		String category = "Category 72815";
 		String descCate = "Description category 72815";
-		String[] permission = {"demo"};
+		String[] permission = {DATA_USER4};
 
 		info("View a category with restricted audience in case the administrator login");
 		//Create category
 		cat.addNewCategoryInForum(category, "1", 1,permission, descCate, 0,null);
 
 		//Check if root can see the category
-		cat.checkRightOfViewCategory("root", "gtngtn", category, descCate, true);
+		cat.checkRightOfViewCategory(USER_ROOT, PASS_ROOT, category, descCate, true);
 
 		//Delete data
 		cat.deleteCategoryInForum(category);
@@ -236,7 +236,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 0,null, descCate, 0,null);
 
 		//Check if root can see the category
-		cat.checkRightOfViewCategory("root", "gtngtn", category, descCate, true);
+		cat.checkRightOfViewCategory(USER_ROOT, PASS_ROOT, category, descCate, true);
 
 		//Delete data
 		cat.deleteCategoryInForum(category);
@@ -249,7 +249,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 	public void test08_ViewForumOfCategoryWhichAssignModeratorForSpecificUser(){
 		String category = "Category 72921";
 		String descCate = "Description category 72921";
-		String[] userGroup = {"demo"};
+		String[] userGroup = {DATA_USER4};
 		String forumName = "Forum 72921";
 		String[] addForum = {forumName, "1",null,null,forumName};
 
@@ -260,7 +260,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 
 		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, false);
 
-		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER4,DATA_PASS, category, forumName, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -285,7 +285,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 0,null, descCate, 4,userGroup,true,false,false,false);
 		mForum.addForum(category, addForum, false, null, null, false, 0, null);
 
-		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, false);
+		mForum.checkRightOfCategoryForum(DATA_USER4,DATA_PASS, category, forumName, false);
 
 		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, true);
 
@@ -314,7 +314,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 
 		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, false);
 
-		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER4,DATA_PASS, category, forumName, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -331,12 +331,12 @@ public class Forum_Forum_Category_View extends ForumBase {
 		String category = "Category 73041";
 		String descCate = "Description category 73041";
 		String[] groups = {"Development"};
-		String[] users = {"mary"};
+		String[] users = {DATA_USER2};
 		String[] membership = {"Organization/Management/Human Resources","*"};
 		String forumName = "Forum 73041";
 		String[] addForum = {forumName, "1",null,null,forumName};
 		String user = getRandomString();
-		String pass = "gtngtn";
+		String pass = DATA_PASS;
 
 		info("View a forum in case it is assigned moderator for user, role and group at once");
 
@@ -361,9 +361,9 @@ public class Forum_Forum_Category_View extends ForumBase {
 
 		mForum.checkRightOfCategoryForum(DATA_USER2, DATA_PASS, category, forumName, true);
 
-		mForum.checkRightOfCategoryForum("demo", DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER4, DATA_PASS, category, forumName, true);
 
-		mForum.checkRightOfCategoryForum("james", DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER3, DATA_PASS, category, forumName, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -391,7 +391,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		goToForumHome();
 
 		//Login as root and delete category
-		cat.loginInNewWindowToDeleteCategory("root", "gtngtn", category);
+		cat.loginInNewWindowToDeleteCategory(USER_ROOT, PASS_ROOT, category);
 
 		//Check the message when view a deleted category
 		backToPreviousBrowser(cookieBefore, handlesBefore);

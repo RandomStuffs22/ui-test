@@ -21,8 +21,8 @@ public class Wiki_PagePermission_Add extends BasicAction {
 	Button button;
 	PlatformPermission per;
 	
-	public String DATA_USER_ADMIN = "john";
-	public String DATA_PASS_ADMIN = "gtn";
+	public String DATA_USER_ADMIN = DATA_USER1;
+	public String DATA_PASS_ADMIN = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeTest(){
@@ -53,7 +53,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_01";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_01";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 		String[] userGroup = {user};
 
 		info("Add a wiki page");
@@ -90,7 +90,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_02";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_02";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 		String[] userGroup = {user};
 
 		info("Add a wiki page");
@@ -127,7 +127,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_03";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_03";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 
 		info("Add a wiki page");
 		addBlankWikiPage(title, content, 0);
@@ -169,7 +169,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_04";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_04";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 
 		info("Add a wiki page");
 		addBlankWikiPage(title, content, 0);
@@ -211,7 +211,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_05";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_05";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 
 		info("Add a wiki page");
 		addBlankWikiPage(title, content, 0);
@@ -253,7 +253,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_06";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_06";
 		By element_page = By.linkText(title);
-		String user = "james";
+		String user = DATA_USER3;
 
 		info("Add a wiki page");
 		addBlankWikiPage(title, content, 0);
@@ -295,8 +295,8 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		String content = "KS_Wiki_PagePermission_Add_Page_Content_07";
 		String new_content = "KS_Wiki_PagePermission_Add_Page_Content_new_07";
 		By element_page = By.linkText(title);
-		String user1 = "james";
-		String user2 = "mary";
+		String user1 = DATA_USER3;
+		String user2 = DATA_USER2;
 
 		info("Add a wiki page");
 		addBlankWikiPage(title, content, 0);
@@ -360,7 +360,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		magAc.signOut();
 
 		info("Check user James belong to group can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);
 		magAc.signOut();
 
@@ -397,7 +397,7 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		magAc.signOut();
 
 		info("Check user James belong to group can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);
 		magAc.signOut();
 
@@ -434,12 +434,12 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		magAc.signOut();
 
 		info("Check user James belong to group and has membership can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);
 		magAc.signOut();
 
 		info("Check user Mary belong to group but does not have membership that can not view/edit wikipage");
-		magAc.signIn("mary", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER2, DATA_PASS_ADMIN);
 		goToWiki();
 		waitForElementNotPresent(element_page);
 		magAc.signOut();
@@ -477,12 +477,12 @@ public class Wiki_PagePermission_Add extends BasicAction {
 		magAc.signOut();
 
 		info("Check user James belong to group and has membership can view/edit wiki page");
-		magAc.signIn("james", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER3, DATA_PASS_ADMIN);
 		checkViewEditPage(element_page, content, new_content);
 		magAc.signOut();
 
 		info("Check user Mary belong to group but does not have membership that can not view/edit wikipage");
-		magAc.signIn("mary", DATA_PASS_ADMIN);
+		magAc.signIn(DATA_USER2, DATA_PASS_ADMIN);
 		goToWiki();
 		waitForElementNotPresent(element_page);
 		magAc.signOut();

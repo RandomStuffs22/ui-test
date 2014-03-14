@@ -54,7 +54,7 @@ public class AccountTest extends NavigationToolbar{
 	@Test()
 	public void testAccountAddNewUser(){
 		System.out.println("--Create new user account--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn(USER_ROOT, DATA_PASS);
 		Utils.pause(2000);
 		goToNewStaff();
 		Utils.pause(2000);
@@ -69,7 +69,7 @@ public class AccountTest extends NavigationToolbar{
 	@Test()
 	public void testSearchUser(){
 		System.out.println("--Search user --");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn(USER_ROOT, DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);
@@ -82,7 +82,7 @@ public class AccountTest extends NavigationToolbar{
 	@Test(groups={"paltform", "AccountTest"})
 	public void testEditUserEmail(){
 		System.out.println("--Edit a user email--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn(USER_ROOT, DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		userGroup.goToEditUserInfo(username);
@@ -98,7 +98,7 @@ public class AccountTest extends NavigationToolbar{
 	@Test(groups={"paltform", "AccountTest"})
 	public void testDeleteUser(){
 		System.out.println("--Delete a user account--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn(USER_ROOT, DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);

@@ -28,9 +28,6 @@ public class ECMS_SE_BasicAction_ResizeAndCollapse extends PlatformBase {
 	ManageDrive magDri;
 	ManageMember magMember;
 
-	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
@@ -42,7 +39,7 @@ public class ECMS_SE_BasicAction_ResizeAndCollapse extends PlatformBase {
 		ecms = new EcmsBase(driver);
 		magDri = new ManageDrive(driver);
 
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		magMember = new ManageMember(driver);
 	}
 

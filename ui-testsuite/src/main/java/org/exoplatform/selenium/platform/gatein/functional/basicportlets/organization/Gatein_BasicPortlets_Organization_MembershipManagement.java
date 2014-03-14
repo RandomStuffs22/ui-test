@@ -30,7 +30,7 @@ public class Gatein_BasicPortlets_Organization_MembershipManagement extends Plat
 		but = new Button(driver);
 		dialog = new Dialog(driver);
 
-		magAc.signIn("fqa", "gtngtn"); 
+		magAc.signIn("fqa", DATA_PASS); 
 	}
 
 	@AfterMethod
@@ -54,7 +54,7 @@ public class Gatein_BasicPortlets_Organization_MembershipManagement extends Plat
 		String newMembership = "member";
 		String EditMembership = "manager";
 		String email = "helloworld@gmail.com";
-		String password = "gtngtn";
+		String password = DATA_PASS;
 
 		navTool.goToNewStaff();
 		info("Create new user");
@@ -109,7 +109,7 @@ public class Gatein_BasicPortlets_Organization_MembershipManagement extends Plat
 		String newUser = "testb";
 		String membership = "member";
 		String email = "helloworld@gmail.com";
-		String password = "gtngtn";
+		String password = DATA_PASS;
 
 		navTool.goToNewStaff();
 		info("Create new user");
@@ -149,7 +149,7 @@ public class Gatein_BasicPortlets_Organization_MembershipManagement extends Plat
 		String membership = "test";
 		String membershipDesc = "test";
 		String email = "helloworld@gmail.com";
-		String password = "gtngtn";
+		String password = DATA_PASS;
 
 		navTool.goToNewStaff();
 		info("Create new user");

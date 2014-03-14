@@ -42,7 +42,7 @@ public class ECMS_SE_Info extends PlatformBase {
 	public void test01_AddPermission() {
 		String node1= "test01AddPermission1";
 		By bNode1= By.xpath(siteExp.ELEMENT_SE_NODE.replace("{$node}",node1));
-		String user = "mary";
+		String user = DATA_USER2;
 
 		info("Add permisison for a node");
 
@@ -62,7 +62,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -130,7 +130,7 @@ public class ECMS_SE_Info extends PlatformBase {
 	public void test03_DeletePermission() {
 		String node1= "test03DeletePermission1";
 		By bNode1= By.xpath(siteExp.ELEMENT_SE_NODE.replace("{$node}",node1));
-		String user = "mary";
+		String user = DATA_USER2;
 
 		info("Delete permisison for a node");
 
@@ -163,7 +163,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		navToolBar.goToSiteExplorer();
 		actBar.goToNode(bNode1);
 		actBar.goToNodePermissionManagement();
-		ePerm.deletePermission("mary", true);
+		ePerm.deletePermission(DATA_USER2, true);
 
 		//Check if mary can see this  node
 		magAcc.signOut();

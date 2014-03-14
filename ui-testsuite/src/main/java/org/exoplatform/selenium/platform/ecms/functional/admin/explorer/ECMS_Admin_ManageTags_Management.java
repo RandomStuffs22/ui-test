@@ -66,15 +66,11 @@ public class ECMS_Admin_ManageTags_Management extends PlatformBase {
 	ContentTemplate contentTemp;
 	ContextMenu contextMenu;
 
-	public final String DATA_USER_ADMIN = "john";
-	public final String DATA_USER_NORMAL = "mary";
-	public final String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with "+ DATA_USER_ADMIN);
+		info("Login ECMS with "+ DATA_USER1);
 		nav = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		userGrp = new UserGroupManagement(driver);
@@ -86,7 +82,7 @@ public class ECMS_Admin_ManageTags_Management extends PlatformBase {
 		actBar = new ActionBar(driver);
 		contentTemp = new ContentTemplate(driver);
 		contextMenu = new ContextMenu(driver);
-		magAcc.signIn(DATA_USER_ADMIN, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -112,11 +108,11 @@ public class ECMS_Admin_ManageTags_Management extends PlatformBase {
 
 		//Open Edit Tag form
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER_NORMAL, DATA_PASS);
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		sitesExp.goToEditTag();
 		info("Reset data");
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER_ADMIN, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ecMain.goToTagPermissionManager();
 		adminPer.removeTagPermission("platform/web-contributors", "*");
 	}

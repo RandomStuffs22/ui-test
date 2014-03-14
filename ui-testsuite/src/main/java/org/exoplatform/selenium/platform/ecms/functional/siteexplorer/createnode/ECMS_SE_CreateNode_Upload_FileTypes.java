@@ -27,9 +27,6 @@ public class ECMS_SE_CreateNode_Upload_FileTypes extends PlatformBase{
 	EcmsBase ecms;
 	ContextMenu cMenu;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -38,7 +35,7 @@ public class ECMS_SE_CreateNode_Upload_FileTypes extends PlatformBase{
 		navToolBar = new NavigationToolbar(driver);
 		ecms = new EcmsBase(driver);
 		cMenu = new ContextMenu(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

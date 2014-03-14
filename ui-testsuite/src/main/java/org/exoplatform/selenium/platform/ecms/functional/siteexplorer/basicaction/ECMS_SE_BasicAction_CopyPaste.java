@@ -70,7 +70,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 		bPre = new BrowserPreferences(driver);
 		siteExp = new SitesExplorer(driver);
 		alert = new ManageAlert(driver);
-		magAcc.signIn("john","gtn");
+		magAcc.signIn(DATA_USER1,DATA_PASS);
 	}
 
 	@AfterMethod
@@ -347,7 +347,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 		magAcc = new ManageAccount(driver);
 		cMenu = new ContextMenu(driver);
 		cTemplate = new ContentTemplate(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//create new document folder
@@ -363,7 +363,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data with john
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteData(DOCUMENT_FOLDER_PATH_1);
 	}
@@ -401,7 +401,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 
 		info("Delete permisson of all except John");
 		ecmsPer.removeDefaultPermissionOfNode();
-		ecms.selectUser("mary");
+		ecms.selectUser(DATA_USER2);
 		ecmsPer.setPermissionForNode(true, false, true);
 
 		info("Save then close");
@@ -409,7 +409,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 		click(button.ELEMENT_CLOSE_BUTTON);
 		magAcc.signOut();
 		
-		magAcc.signIn("mary","gtn");
+		magAcc.signIn(DATA_USER2,DATA_PASS);
 		navToolBar.goToSiteExplorer();		
 		cMenu.copyAndPasteNode(CONTENT_FOLDER_PATH_1, CONTENT_FOLDER_PATH_2);
 		info("Verify cannot paste");
@@ -418,7 +418,7 @@ public class ECMS_SE_BasicAction_CopyPaste extends PlatformBase {
 
 		info("Log out, log in as john to delete data");
 		magAcc.signOut();
-		magAcc.signIn("john","gtn");
+		magAcc.signIn(DATA_USER1,DATA_PASS);
 		navToolBar.goToSiteExplorer();	
 		cMenu.deleteDocument(CONTENT_FOLDER_PATH_1);
 		cMenu.deleteDocument(CONTENT_FOLDER_PATH_2);

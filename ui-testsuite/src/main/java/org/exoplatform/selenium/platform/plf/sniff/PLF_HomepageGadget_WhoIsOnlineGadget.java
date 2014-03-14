@@ -27,8 +27,8 @@ public class PLF_HomepageGadget_WhoIsOnlineGadget extends PlatformBase {
 	PeopleConnection peopleC;
 	
 	String User1 = "fqa";
-	String User2 = "root";
-	String Pass1 = "gtngtn";
+	String User2 = USER_ROOT;
+	String Pass1 = DATA_PASS;
 	String fullNameUser2="Root Root";
 	
 	@BeforeMethod
@@ -36,7 +36,7 @@ public class PLF_HomepageGadget_WhoIsOnlineGadget extends PlatformBase {
 		getDriverAutoSave();
 		acc = new ManageAccount(driver);
 		hg = new HomePageGadget(driver);
-		peopleC = new PeopleConnection(driver);
+		peopleC = new PeopleConnection(driver, this.plfVersion);
 		navToolBar = new NavigationToolbar(driver);
 		acc.signIn(User1, Pass1);
 	}
@@ -109,7 +109,7 @@ public class PLF_HomepageGadget_WhoIsOnlineGadget extends PlatformBase {
 		info("Check if user 1 received connect invitation from user 2 or not");
 		acc.signIn(User1, Pass1);
 		Utils.pause(500);
-		if(plfVersion =="4.1"){
+		if(plfVersion == "4.1"){
 			
 			newDriver.findElement(By.xpath(hg.ELEMENT_SHOW_CONNECTIONS_REQUEST_USER_PLF41.replace("${peopleName}","root")));
 		}
@@ -121,7 +121,7 @@ public class PLF_HomepageGadget_WhoIsOnlineGadget extends PlatformBase {
 		
 		info("-- Clear data --");
 		navToolBar = new NavigationToolbar(newDriver);
-		peopleC = new PeopleConnection(newDriver);
+		peopleC = new PeopleConnection(newDriver, this.plfVersion);
 		navToolBar.goToConnectionPage();
 		peopleC.ignoreInvitation(User2);
 		newDriver.manage().deleteAllCookies();

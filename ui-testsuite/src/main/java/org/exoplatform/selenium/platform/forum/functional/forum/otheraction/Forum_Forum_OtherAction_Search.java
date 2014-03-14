@@ -38,7 +38,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	    magTopic = new ForumManageTopic(driver, this.plfVersion);
 	    magPost = new ForumManagePost(driver, this.plfVersion);
 
-	    magAc.signIn("john", "gtn");
+	    magAc.signIn(DATA_USER1, DATA_PASS);
 	    goToForums();
 
 	  }
@@ -62,19 +62,19 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test01_SimpleSearchCategory_showinghiding(){
 	    String catName1 = "Category 01 73221";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 73221";
 
 	    String catName2 = "Category 02 73221";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 73221";
 	    
 	    String catName3 = "Category 01 73228";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 73228";
 	    
 	    String catName4 = "Category 02 73228";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 73228";	    
 	    
 	    // Create Categories
@@ -101,7 +101,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Simple Search categories in case Categories showed
@@ -124,7 +124,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories before exit test cases:");
 		
 		goToForums();
@@ -152,19 +152,19 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test02_SimpleSearchForum_showinghiding(){
 	    String catName1 = "Category 01 73235";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 73235";
 
 	    String catName2 = "Category 02 73235";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 73235";
 	    
 	    String catName3 = "Category 01 73240";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 73240";
 	    
 	    String catName4 = "Category 02 73240";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 73240";	  
 	    
 	    String forumName1 = "Forum 01 73235";
@@ -214,7 +214,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Simple Search categories in case Categories showed
@@ -239,7 +239,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories and forums before exit test cases:");
 		
 		goToForums();
@@ -269,19 +269,19 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test03_AdvancedSearchCategory_showinghiding(){
 	    String catName1 = "Category 01 73329";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 73329";
 
 	    String catName2 = "Category 02 73329";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 73329";
 	    
 	    String catName3 = "Category 01 73298";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 73298";
 	    
 	    String catName4 = "Category 02 73298";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 73298";	    
 	    
 	    // Create Categories
@@ -308,7 +308,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Advanced Search categories in case Categories showed
@@ -331,7 +331,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories before exit test cases:");
 		
 		goToForums();
@@ -359,19 +359,19 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test04_AdvancedSearchForum_showinghiding(){
 	    String catName1 = "Category 01 73334";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 73334";
 
 	    String catName2 = "Category 02 73334";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 73334";
 	    
 	    String catName3 = "Category 01 73299";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 73299";
 	    
 	    String catName4 = "Category 02 73299";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 73299";	  
 	    
 	    String forumName1 = "Forum 01 73334";
@@ -421,7 +421,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Advanced Search categories in case Categories showed
@@ -453,7 +453,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories and forums before exit test cases:");
 		
 		goToForums();
@@ -483,19 +483,19 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test05_AdvancedSearchPost_Attachment(){
 	    String catName1 = "Category 01 73300";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 73300";
 
 	    String catName2 = "Category 02 73300";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 73300";
 	    
 	    String catName3 = "Category 01 73301";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 73301";
 	    
 	    String catName4 = "Category 02 73301";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 73301";	    
 	    
 	    String forumName1 = "Forum 01 73300";
@@ -546,7 +546,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Advanced Search posts with name of attachment
@@ -569,7 +569,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories before exit test cases:");
 		
 		goToForums();		
@@ -591,32 +591,32 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 	  @Test  
 	  public void test06_AdvancedSearchCategoryForum_Moderator(){
 	    String catName1 = "Category 01 72934";
-	    String[] restricted1 = {"demo"};
+	    String[] restricted1 = {DATA_USER4};
 	    String description1 = "Add new category Test01 72934";
 
 	    String catName2 = "Category 02 72934";
-	    String[] restricted2 = {"demo"};
+	    String[] restricted2 = {DATA_USER4};
 	    String description2 = "Add new category Test02 72934";
 	    	    
 	    String catName3 = "Category 01 72978";
-	    String[] restricted3 = {"demo"};
+	    String[] restricted3 = {DATA_USER4};
 	    String description3 = "Add new category Test01 72978";
 	    
 	    String catName4 = "Category 02 72978";
-	    String[] restricted4 = {"demo"};
+	    String[] restricted4 = {DATA_USER4};
 	    String description4 = "Add new category Test02 72978";
 	    
 	    String catName5 = "Category 01 73250";
-	    String[] restricted5 = {"demo"};
+	    String[] restricted5 = {DATA_USER4};
 	    String description5 = "Add new category Test01 73250";
 	    
 	    String catName6 = "Category 02 73250";
-	    String[] restricted6 = {"demo"};
+	    String[] restricted6 = {DATA_USER4};
 	    String description6 = "Add new category Test02 73250";
 	    
-	    String[] userGroup1 = {"john"};
-	    String[] userGroup2 = {"demo"};
-	    String[] userGroup3 = {"root"};
+	    String[] userGroup1 = {DATA_USER1};
+	    String[] userGroup2 = {DATA_USER4};
+	    String[] userGroup3 = {USER_ROOT};
 	    
 	    String[] forumName1 = {"Forum 01 73250","1","Open","Unlocked","Add new Forum 01 73250"};
 	    String[] forumName2 = {"Forum 02 73250","2","Open","Unlocked","Add new Forum 02 73250"};
@@ -649,12 +649,12 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 
 		// Login by demo user
 		magAc.signOut();
-		magAc.signIn("demo","gtn");
+		magAc.signIn(DATA_USER4,DATA_PASS);
 		goToForums();
 		
 	    // Advanced Search categories with moderator option
 		info("Advanced Search: Category with moderator.");
-		advancedSearch("Category","",true,null,null,null,"john");
+		advancedSearch("Category","",true,null,null,null,DATA_USER1);
 		waitForAndGetElement(By.linkText(catName1));
 		waitForAndGetElement(By.linkText(catName4));
 		waitForAndGetElement(By.linkText(catName6));
@@ -676,7 +676,7 @@ public class Forum_Forum_OtherAction_Search extends ForumBase{
 		
 	    // Delete all categories before exit test cases
 		magAc.signOut();
-		magAc.signIn("john","gtn");
+		magAc.signIn(DATA_USER1,DATA_PASS);
 		info("Delete all categories before exit test cases:");
 		
 		goToForums();		

@@ -31,11 +31,12 @@ public class Forum_FAQ extends FAQ {
 		initSeleniumTest();
 		magAc = new ManageAccount(driver, this.plfVersion);
 		magCat = new AnswerManageCategory(driver);
-		magQuest = new AnswerManageQuestion(driver,this.plfVersion);
-		magAns = new AnswerManageAnwser(driver,this.plfVersion);
-		button = new Button(driver, this.plfVersion);
-		pageE = new PageEditor(driver, this.plfVersion);
-		magAc.signIn("john", "gtn");
+
+		magQuest = new AnswerManageQuestion(driver);
+		magAns = new AnswerManageAnwser(driver);
+		button = new Button(driver);
+		pageE = new PageEditor(driver);
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToAnswer();
 	}
 

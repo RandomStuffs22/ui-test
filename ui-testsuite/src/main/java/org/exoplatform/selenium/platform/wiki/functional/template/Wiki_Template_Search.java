@@ -22,7 +22,7 @@ public class Wiki_Template_Search extends Template{
 		initSeleniumTest();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn(DATA_USER1, DATA_PASS); 
 		goToWiki();
 	}
 
@@ -97,7 +97,15 @@ public class Wiki_Template_Search extends Template{
 		searchTemplate(DATA_SEARCH_KEY_WORD);
 
 		waitForAndGetElement(By.xpath(ELEMENT_EMPTY_DATA));
+		
 		searchTemplate(DATA_SEARCH_KEY_BLANK);
+
+		magAc.signOut();
+
+		magAc.signIn(DATA_USER1, DATA_PASS); 
+
+		goToWiki();
+
 		deleteTemplate(DATA_TEMPLATE_TITLE);
 	}
 

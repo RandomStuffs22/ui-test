@@ -38,9 +38,6 @@ public class ECMS_SE_PublishActivities_ContentActivities_Delete extends Platform
 	ContentTemplate cTemplate;
 	HomePageActivity sActivity;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -52,7 +49,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_Delete extends Platform
 		cMenu = new ContextMenu(driver);
 		cTemplate = new ContentTemplate(driver);
 		SE = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 
 	}
 

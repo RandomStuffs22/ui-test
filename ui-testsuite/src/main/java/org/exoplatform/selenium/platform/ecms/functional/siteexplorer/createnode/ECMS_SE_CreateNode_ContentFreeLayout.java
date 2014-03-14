@@ -38,9 +38,6 @@ public class ECMS_SE_CreateNode_ContentFreeLayout extends PlatformBase{
 	ContentTemplate cTemplate;
 	SitesExplorer sitesExp;
 
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
-
 	@BeforeMethod
 	public void beforeMethod(){
 		initSeleniumTest();
@@ -54,7 +51,7 @@ public class ECMS_SE_CreateNode_ContentFreeLayout extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		magAlt = new ManageAlert(driver);
 		sitesExp = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod

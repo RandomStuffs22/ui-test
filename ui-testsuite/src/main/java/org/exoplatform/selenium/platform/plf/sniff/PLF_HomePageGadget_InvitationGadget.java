@@ -65,11 +65,11 @@ public class PLF_HomePageGadget_InvitationGadget extends Activity{
 		String spaceName2 = "space705792";
 		String user2="Jack Miller";
 		String user3="James Davis";
-		String user_login2 = "demo";
-		String user_login4 = "james";
-		String user_login5 = "john";
+		String user5="John Smith";
 		String eInvitationUser = "";
-
+		String user_login2 = DATA_USER4;
+		//String user_login3 = DATA_USER2;
+		String user_login4 = DATA_USER3;
 		String number_gadget = "4";
 		String status = "Private Space";
 
@@ -94,13 +94,13 @@ public class PLF_HomePageGadget_InvitationGadget extends Activity{
 		//Login by demo
 		acc.signIn(user_login2,DATA_PASS);
 		navToolBar.goToConnectionPage();
-		peoConn.connectPeople(user_login5);
+		peoConn.connectPeople(user5);
 		acc.signOut();
 
 		//Login by james
 		acc.signIn(user_login4,DATA_PASS);
 		navToolBar.goToConnectionPage();
-		peoConn.connectPeople(user_login5);
+		peoConn.connectPeople(user5);
 		acc.signOut();
 		acc.signIn(DATA_USER1, DATA_PASS);
 		waitForAndGetElement(homeGad.ELEMENT_INVITATION_GADGET);
@@ -127,7 +127,7 @@ public class PLF_HomePageGadget_InvitationGadget extends Activity{
 		info("-- clear data --");
 		//remove connection
 		navToolBar.goToConnectionPage();
-		peoConn.removeConnection(user_login2);
+		peoConn.removeConnection(user2);
 		acc.signOut();
 
 		//Delete space

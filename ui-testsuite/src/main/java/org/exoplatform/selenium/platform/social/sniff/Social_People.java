@@ -34,13 +34,13 @@ public class Social_People extends SocialBase {
 	PeopleProfile peoPro;
 	PeopleSearch peoSearch;
 	
-	String user = "John Smith";
-	String user1="Mary Williams";
-	String user2="Jack Miller";
-	String user3="James Davis";
-	String user4="Root Root";
-	String user_login1 = "mary";
-	String user_login2 = "demo";
+	String user = DATA_USER1; //john
+	String user1=DATA_USER2; //mary
+	String user2=DATA_USER4; //jack
+	String user3=DATA_USER3; //james
+	String user4=USER_ROOT; //root
+	String user_login1 = DATA_USER2;
+	String user_login2 = DATA_USER4;
 
 	@BeforeMethod
 	public void beforeMethods() {
@@ -68,7 +68,7 @@ public class Social_People extends SocialBase {
 	 * This test case is not included in qmetry
 	 * Purpose of selenium test case: verify bug: https://jira.exoplatform.org/browse/PLF-4862
 	 */
-	@Test
+	//@Test
 	public void test00_VerifyMouseOver(){
 		mouseOver(ELEMENT_ACCOUNT_NAME_LINK, true);
 		mouseOver(ELEMENT_TOOLBAR_NETWORKS_ICON, true);
@@ -108,11 +108,11 @@ public class Social_People extends SocialBase {
 		click(peoConn.ELEMENT_MY_CONNECTIONS_TAB);
 		//With user confirmed the invitation, user  becomes friend and user's name is displayed on user's network list
 		peoSearch.searchPeople(true,user1);
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
 		
 		//With user ignored the invitation, User isn't displayed on user's network list
 		peoSearch.searchPeople(true,user2);
-		waitForElementNotPresent("//*[contains(text(),'"+user2+"')]");
+		waitForElementNotPresent("//*[contains(@href,'"+user2+"')]");
 
 		/*Clear data*/
 		info("clear data");
@@ -190,7 +190,7 @@ public class Social_People extends SocialBase {
 
 		//Display all user's requests
 		peoSearch.searchPeople(true,user1);
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
 
 		//Click Cancel Request
 		peoSearch.searchPeople(false,"");
@@ -217,7 +217,7 @@ public class Social_People extends SocialBase {
 
 		//Display all user's invitations
 		peoSearch.searchPeople(true,user);
-		waitForAndGetElement("//*[contains(text(),'"+user+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user+"')]");
 
 		//Invited user can Accept/Ignore the invitation
 		peoSearch.searchPeople(false,"");
@@ -259,27 +259,27 @@ public class Social_People extends SocialBase {
 		//Enter name of people into search text box and press Enter
 		peoSearch.searchPeople(true,user1);
 		//Display all results match with keyword 
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
 		peoSearch.searchPeople(true,"", "", "");
 
 		//Search by Role/Skill:
 		//Enter text into field skill and press Enter
 		peoSearch.searchPeople(true,"", "", nameOfSkill);
 		//Display all results match with keyword 
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
 		peoSearch.searchPeople(true,"", "", "");
 
 		//Enter text into Position field and press Enter
 		peoSearch.searchPeople(true,"",nameOfPosition);
 		//Display all results match with keyword 
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
 		peoSearch.searchPeople(true,"", "", "");
 
 		//Click on character from people directory characters list
 		peoSearch.searchPeople(true,"", "", "","W");
 		//Use search by directory, display all user which has name start by selected char
-		waitForAndGetElement("//*[contains(text(),'"+user1+"')]");
-		waitForElementNotPresent("//*[contains(text(),'"+user2+"')]");
+		waitForAndGetElement("//*[contains(@href,'"+user1+"')]");
+		waitForElementNotPresent("//*[contains(@href,'"+user2+"')]");
 	}
 
 	/** 
@@ -349,7 +349,7 @@ public class Social_People extends SocialBase {
 
 		//Click on Connections on the left panel
 		navToolBar.goToConnectionPage();
-		peoPro.goToUserProfile(user);
+		peoPro.goToUserProfile("John Smith");
 
 		//Click on My network tab
 		click(peoConn.ELEMENT_CONNECTION_OF_USER);
@@ -370,7 +370,7 @@ public class Social_People extends SocialBase {
 
 		/*Step 1: View Connections list*/ 
 		//Click on name or avatar
-		peoPro.goToUserProfile(user);
+		peoPro.goToUserProfile("John Smith");
 
 		//Click on My network tab
 		click(peoConn.ELEMENT_CONNECTION_OF_USER);

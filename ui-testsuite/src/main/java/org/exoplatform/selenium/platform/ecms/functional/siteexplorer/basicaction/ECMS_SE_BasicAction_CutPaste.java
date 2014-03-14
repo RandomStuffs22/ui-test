@@ -41,8 +41,8 @@ public class ECMS_SE_BasicAction_CutPaste extends PlatformBase {
 	ManageView magView;
 	SitesExplorer siteExp;
 
-	public String USER = "john";
-	public String PASS = "gtn";
+	public String USER = DATA_USER1;
+	public String PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod() {

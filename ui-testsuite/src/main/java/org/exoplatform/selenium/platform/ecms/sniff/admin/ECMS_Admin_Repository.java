@@ -47,15 +47,12 @@ public class ECMS_Admin_Repository extends PlatformBase{
 	Permission adminPer;
 	ManageNamespace magNamespace;
 	ManageNodeType magNodeType;
-	
-	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
 
 	@BeforeMethod
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("LogIn to Intranet with User..." + DATA_USER);
+		info("LogIn to Intranet with User..." + DATA_USER1);
 		userGroup = new UserGroupManagement(driver);
 		nav = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
@@ -70,7 +67,7 @@ public class ECMS_Admin_Repository extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		magNamespace = new ManageNamespace(driver);
 		magNodeType = new ManageNodeType(driver);
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -171,14 +168,14 @@ public class ECMS_Admin_Repository extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 		ecms = new EcmsBase(driver);
 		
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn(DATA_USER2, DATA_PASS);
 		ecMain.goToLockedTab();
 		click(ecMain.ELEMENT_UNLOCK_NODE.replace("${lockedNode}", fileTitle));
 		waitForTextNotPresent(fileTitle);
 		
 		//Admin re-LogIn and Delete Permission...
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER, DATA_PASS);
+		magAcc.signIn(DATA_USER1, DATA_PASS);
 		ecMain.goToManageLockTab();
 		click(adminPer.ELEMENT_DELETE_SELECTED_GROUP.replace("${selectedGroup}", ELEMENT_GROUP_DISPLAY));
 		waitForTextNotPresent(ELEMENT_GROUP_MEMBERSHIP_DISPLAY + ":/" + ELEMENT_GROUP_DISPLAY);

@@ -90,7 +90,7 @@ public class Forum_Forum_Poll_Activities extends ForumBase{
 		String[] restricted = {""}; 
 		String description = "Description of Category 77290";
 		int setPermission = 0; 		
-		String[] userGroup = {"john"}; 
+		String[] userGroup = {DATA_USER1}; 
 		String[] addForum = {"Forum 77290", "1", "Open", "Unlocked", "Description of forum 001"}; 	
 		String title = "Topic 77290"; 
 		String message = "Topic 77290"; 
@@ -193,7 +193,7 @@ public class Forum_Forum_Poll_Activities extends ForumBase{
 		String[] restricted = {""}; 
 		String description = "Description of Category 77292";
 		int setPermission = 0; 		
-		String[] userGroup = {"john"}; 
+		String[] userGroup = {DATA_USER1}; 
 		String[] addForum = {"Forum 77292", "1", "Open", "Unlocked", "Description of forum 002"}; 	
 		String title = "Topic 77292"; 
 		String message = "Topic 77292"; 
@@ -258,7 +258,7 @@ public class Forum_Forum_Poll_Activities extends ForumBase{
 		String[] restricted = {""}; 
 		String description = "Description of Category 77298";
 		int setPermission = 0; 		
-		String[] userGroup = {"john"}; 
+		String[] userGroup = {DATA_USER1}; 
 		String[] addForum = {"Forum 77298", "1", "Open", "Unlocked", "Description of forum 005"}; 	
 		String title = "Topic 77298"; 
 		String message = "Topic 77298"; 
