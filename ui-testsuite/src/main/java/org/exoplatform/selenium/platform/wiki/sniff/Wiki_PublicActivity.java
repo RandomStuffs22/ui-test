@@ -27,7 +27,8 @@ public class Wiki_PublicActivity extends BasicAction {
 		magAc = new ManageAccount(driver,this.plfVersion);
 		naTool = new NavigationToolbar(driver,this.plfVersion);
 		activity = new HomePageActivity(driver,this.plfVersion);
-		magAc.signIn("john", "gtn");
+
+		magAc.signIn("john", DATA_PASS);
 		goToWiki();
 	}
 

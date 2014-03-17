@@ -39,7 +39,7 @@ public class ECMS_SE_Admin_Import_Folder extends PlatformBase {
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver);
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 
 		info("Add Import icon to action bar if it does not existed");
 		navToolBar.goToSiteExplorer();

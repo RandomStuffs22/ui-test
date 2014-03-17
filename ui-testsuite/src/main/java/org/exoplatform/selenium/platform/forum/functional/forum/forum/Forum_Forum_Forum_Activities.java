@@ -45,7 +45,7 @@ public class Forum_Forum_Forum_Activities extends ForumBase{
 		activity = new Activity();
 		manMember = new ManageMember(driver);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		fmForum = new ForumManageForum(driver);
 	}
@@ -147,14 +147,14 @@ public class Forum_Forum_Forum_Activities extends ForumBase{
 		manMember.adminInviteUserAndUserAcceptInvitation(true, true, false, spaceName
 				, "", null, ManageAccount.userType.PUBLISHER);
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		
 		spaceMan.goToSpaceFromMySpaceNavigation(spaceName);
 		spaceMan.goToSpaceMenu("Forums");		
 		fmTopic.quickStartTopic(tpName, tpContent);
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		
 		spaceMan.goToSpaceFromMySpaceNavigation(spaceName);
 		spaceMan.goToSpaceMenu("Activity Stream");
@@ -164,7 +164,7 @@ public class Forum_Forum_Forum_Activities extends ForumBase{
 		homePage.deleteActivity(tpName,false);
 		
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		
 		spaceMan.goToAllSpaces();
 		spaceMan.deleteSpace(spaceName);
@@ -253,7 +253,7 @@ public class Forum_Forum_Forum_Activities extends ForumBase{
 		
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		goToForums();
 		
 		click(By.linkText(fmName));
@@ -268,7 +268,7 @@ public class Forum_Forum_Forum_Activities extends ForumBase{
 		waitForTextNotPresent(post);
 		
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		
 		goToPendingJob();

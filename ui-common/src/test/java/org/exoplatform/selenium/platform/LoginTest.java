@@ -31,31 +31,31 @@ public class LoginTest extends TestBase{
 	
 	@Test(groups = {"platform", "LoginTest"})
 	public void testLoginasRoot(){
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn("root", "12345");
 		waitForTextPresent("Root");
 		magAcc.signOut();
 	}
 	@Test(groups = {"platform", "LoginTest"})
 	public void testLoginasJack(){
-		magAcc.signIn("demo", "gtn");
+		magAcc.signIn("demo", "gtngtn");
 		waitForTextPresent("Jack Miller");
 		magAcc.signOut();
 	}
 	@Test(groups = {"platform", "LoginTest"})
 	public void testLoginasMary(){
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", "gtngtn");
 		waitForTextPresent("Mary Williams");
 		magAcc.signOut();
 	}
 	@Test(groups = {"platform", "LoginTest"})
 	public void testLoginasJames(){
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn("james", "gtngtn");
 		waitForTextPresent("James Davis");
 		magAcc.signOut();
 	}	
 	@Test(groups = {"platform", "LoginTest"})
 	public void testLoginasJohn(){	
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn("john", "gtngtn");
 		waitForTextPresent("John Smith");
 		magAcc.signOut();		
 	}	

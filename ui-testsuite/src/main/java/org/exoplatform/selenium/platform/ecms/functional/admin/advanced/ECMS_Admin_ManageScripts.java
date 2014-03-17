@@ -24,7 +24,7 @@ public class ECMS_Admin_ManageScripts extends PlatformBase{
 	ManageScript magScript;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {

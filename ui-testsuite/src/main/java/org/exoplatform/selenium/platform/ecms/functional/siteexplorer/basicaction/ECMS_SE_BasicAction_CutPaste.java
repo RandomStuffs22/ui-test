@@ -42,7 +42,7 @@ public class ECMS_SE_BasicAction_CutPaste extends PlatformBase {
 	SitesExplorer siteExp;
 
 	public String USER = "john";
-	public String PASS = "gtn";
+	public String PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod() {

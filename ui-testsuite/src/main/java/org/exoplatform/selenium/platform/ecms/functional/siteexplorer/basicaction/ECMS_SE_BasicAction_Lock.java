@@ -35,7 +35,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 	SitesExplorer siteExp;
 
 	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
+	//String DATA_PASS = DATA_PASS;
 	
 	@BeforeMethod
 	public void beforeMethods() {
@@ -165,7 +165,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 		navToolBar = new NavigationToolbar(driver);
 		cMenu = new ContextMenu(driver);
 		ecms = new EcmsBase(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check mary cannot unlock this node
@@ -376,7 +376,7 @@ public class ECMS_SE_BasicAction_Lock extends PlatformBase {
 
 		info("Verify user James cannot lock document");
 		magAcc.signOut();
-		magAcc.signIn("james", "gtn");
+		magAcc.signIn("james", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		rightClickOnElement(FILE_PATH);
 		waitForElementNotPresent(cMenu.ELEMENT_CONTEXT_MENU_LOCK);

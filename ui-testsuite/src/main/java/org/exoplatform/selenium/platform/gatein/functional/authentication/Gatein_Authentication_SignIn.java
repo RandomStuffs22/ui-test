@@ -30,7 +30,7 @@ public class Gatein_Authentication_SignIn extends PlatformBase {
 		navTool = new NavigationToolbar(driver);
 		user = new UserGroupManagement(driver);
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	@AfterMethod
@@ -98,7 +98,7 @@ public class Gatein_Authentication_SignIn extends PlatformBase {
 		magAc.signOut();
 
 		info("Login by normal user acc");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 
 		driver.navigate().refresh();
 		info("Refresh homepage after login");
@@ -125,7 +125,7 @@ public class Gatein_Authentication_SignIn extends PlatformBase {
 		waitForAndGetElement(ELEMENT_SIGNIN_FAIL_MSG);
 
 		info("Login again");
-		magAc.signIn("john", "gtn",true,false);
+		magAc.signIn("john", DATA_PASS,true,false);
 
 	}
 
@@ -145,6 +145,6 @@ public class Gatein_Authentication_SignIn extends PlatformBase {
 		waitForAndGetElement(ELEMENT_SIGNIN_FAIL_MSG);
 
 		info("Login again");
-		magAc.signIn("john", "gtn",true,false);
+		magAc.signIn("john", DATA_PASS,true,false);
 	}
 }

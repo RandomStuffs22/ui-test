@@ -40,7 +40,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_Add extends PlatformBas
 	ContextMenu cMenu;
 	
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 	
 	@BeforeMethod
 	public void beforeMethods() {

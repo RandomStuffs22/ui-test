@@ -29,7 +29,7 @@ public class Forum_Answers_Question_EditQuestion extends AnswerBase {
 		magAc = new ManageAccount(driver);
 		magCat = new AnswerManageCategory(driver);
 		magQuest = new AnswerManageQuestion(driver);
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 	}
 
@@ -87,7 +87,7 @@ public class Forum_Answers_Question_EditQuestion extends AnswerBase {
 		/*Step 4: Activate question*/
 		//- Click on 'No' link of the inactivated question in Activated column to activate question
 		//- 'No' link is changed into 'Yes'
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magQuest.goToManageQuestions();
 		magQuest.activeQuestion(questionName1, true);
@@ -99,7 +99,7 @@ public class Forum_Answers_Question_EditQuestion extends AnswerBase {
 
 		/*Clear data*/
 		info("-- Clear data --");
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -150,7 +150,7 @@ public class Forum_Answers_Question_EditQuestion extends AnswerBase {
 		/*Step 4: Approve question*/
 		//- Click on 'No' link of the unapproved question in Approved column to approve question
 		//- 'No' link is changed into 'Yes'
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magQuest.goToManageQuestions();
 		magQuest.approveQuestion(questionName1, true);
@@ -161,7 +161,7 @@ public class Forum_Answers_Question_EditQuestion extends AnswerBase {
 
 		/*Clear data*/
 		info("-- Clear data --");
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}

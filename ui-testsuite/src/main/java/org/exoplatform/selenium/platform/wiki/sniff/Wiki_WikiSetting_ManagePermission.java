@@ -25,7 +25,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
 		but = new Button(driver);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 	}
 
@@ -38,7 +38,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 	
 	public void checkUserNotHaveWikiAdminPermission(String user){
 		info("Check user " + user + "just have view wiki permission");
-		magAc.signIn(user, "gtn");
+		magAc.signIn(user, DATA_PASS);
 		goToWiki();
 		mouseOverAndClick(ELEMENT_BROWSE_LINK);
 		waitForElementNotPresent(ELEMENT_WIKI_SETTING_LINK);
@@ -47,7 +47,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 	
 	public void checkUserHaveWikiAdminPermission(String user){
 		info("Check user " + user + "have admin wiki permission");
-		magAc.signIn(user, "gtn");
+		magAc.signIn(user, DATA_PASS);
 		goToWiki();
 		mouseOverAndClick(ELEMENT_BROWSE_LINK);
 		waitForAndGetElement(ELEMENT_WIKI_SETTING_LINK);
@@ -56,7 +56,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 	
 	public void checkUserHaveOnlyViewPagePermission(String user, String title){
 		info("Check user " + user + "just have view page permission");
-		magAc.signIn(user, "gtn");
+		magAc.signIn(user, DATA_PASS);
 		goToWiki();
 		click(By.linkText(title));
 		waitForElementNotPresent(ELEMENT_EDIT_PAGE_LINK);
@@ -65,7 +65,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 	
 	public void checkUserHaveEditPagePermission(String user, String title){
 		info("Check user " + user + "have edit page permission");
-		magAc.signIn(user, "gtn");
+		magAc.signIn(user, DATA_PASS);
 		goToWiki();
 		click(By.linkText(title));
 		waitForAndGetElement(ELEMENT_EDIT_PAGE_LINK);
@@ -89,7 +89,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserNotHaveWikiAdminPermission(user);
 		
 		info("Edit permission for user mary");	
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		editSpacePermission(user, true, true, true, true, 2);
 		assert waitForAndGetElement(ELEMENT_ADMIN_SPACE_CHECK.replace("{$user}", user),DEFAULT_TIMEOUT, 1, 2).isSelected();
@@ -98,7 +98,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserHaveWikiAdminPermission(user);
 		
 		info("Delete permission");
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		deleteSpacePermission(user);
 	}
@@ -116,7 +116,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserNotHaveWikiAdminPermission(user);
 		
 		info("Edit permission for group Development");
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		editSpacePermission("developers", true, true, true, true, 2);
 		assert waitForAndGetElement(ELEMENT_ADMIN_SPACE_CHECK.replace("{$user}", "developers"),DEFAULT_TIMEOUT, 1, 2).isSelected();
@@ -125,7 +125,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserHaveWikiAdminPermission(user);
 		
 		info("Delete permission");
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		deleteSpacePermission("developers");
 	}
@@ -144,7 +144,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserNotHaveWikiAdminPermission(user);
 		
 		info("Edit permission for membership " + path);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		editSpacePermission(path, true, true, true, true, 2);
 		assert waitForAndGetElement(ELEMENT_ADMIN_SPACE_CHECK.replace("{$user}", path),DEFAULT_TIMEOUT, 1, 2).isSelected();
@@ -153,7 +153,7 @@ public class Wiki_WikiSetting_ManagePermission extends BasicAction {
 		checkUserHaveWikiAdminPermission(user);
 		
 		info("Delete permission");
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 		deleteSpacePermission(path);
 	}

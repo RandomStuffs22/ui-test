@@ -40,7 +40,7 @@ public class ECMS_SE_Admin_Export extends PlatformBase{
 		siteExp = new SitesExplorer(driver);
 		cMenu = new ContextMenu(driver);
 		
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		//driver.get(baseUrl + "/acme");
 
 		navToolBar.goToSiteExplorer();

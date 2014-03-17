@@ -28,7 +28,7 @@ public class PLF_HomepageActivityStream_ActivityStream_GeneralRules extends Acti
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver, this.plfVersion);
 		home = new HomePageActivity(driver, this.plfVersion); 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		nav = new NavigationToolbar(driver, this.plfVersion);
 		mMember = new ManageMember(driver,this.plfVersion);
 	}

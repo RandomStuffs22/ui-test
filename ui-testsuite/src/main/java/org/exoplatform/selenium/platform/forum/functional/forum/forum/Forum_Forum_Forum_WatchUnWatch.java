@@ -33,7 +33,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		fmTopic = new ForumManageTopic(driver);
 		fmPost = new ForumManagePost(driver);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		fmForum = new ForumManageForum(driver);
 	}
@@ -61,7 +61,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		setCensorKeywords(censorText);
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		acc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums();
 		
@@ -75,7 +75,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		
 		
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(fmName));
 		waitForTextPresent(fmForum.CENSORED_TITLE.replace("${title}", tpName));
@@ -97,7 +97,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		fmCat.deleteCategoryInForum(catName, true);		
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		acc.updateUserProfile(null,null, null, "mary.williams@acme.exoplatform.com");
 
 	}
@@ -119,7 +119,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		fmForum.addForum(catName, fmName, true, null, null, true, 0, null);
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		acc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums();
 		
@@ -133,7 +133,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		
 		
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(fmName[0]));
 		waitForTextPresent(fmTopic.APPROVE_TITLE.replace("${title}", tpName));
@@ -155,7 +155,7 @@ public class Forum_Forum_Forum_WatchUnWatch extends ForumBase {
 		fmCat.deleteCategoryInForum(catName, true);		
 		
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		acc.updateUserProfile(null,null, null, "mary.williams@acme.exoplatform.com");
 	}
 

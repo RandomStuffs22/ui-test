@@ -34,7 +34,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		user = new UserGroupManagement(driver);
 		but = new Button(driver);
 		
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 	}
 
 	@AfterMethod
@@ -75,7 +75,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		waitForTextPresent(newDisplayName);
 		magAc.signOut();
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
 		user.deleteUser(username);
 	}
@@ -109,7 +109,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		magAc.signIn(username, newpass);
 		magAc.signOut();
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
 		user.deleteUser(username);
 	}
@@ -129,12 +129,12 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		magAc.signOut();
 		
 		info("Check language display with user mary");
-		magAc.signIn("mary", "gtn");
+		magAc.signIn("mary", DATA_PASS);
 		waitForAndGetElement(By.xpath("//*[text()='Accueil']"));
 		magAc.signOut();
 		
 		info("Rollback language for user");
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navTool.goToUsersAndGroupsManagement();
 		user.goToEditUserInfo("mary");
 		click(ELEMENT_USER_PROFILE_TAB);
@@ -159,7 +159,7 @@ public class Gatein_GlobalSetting extends PlatformBase {
 		info("Check displaying language when language of browser don't support by portal with user account demo");
 		getDriverSetLanguage(Language.lo);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		waitForAndGetElement(ELEMENT_HOME_TEXT);
 		
 		info("Check when change language to French");

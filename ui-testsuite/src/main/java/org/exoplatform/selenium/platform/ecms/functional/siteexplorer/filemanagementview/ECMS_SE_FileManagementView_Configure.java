@@ -39,7 +39,7 @@ public class ECMS_SE_FileManagementView_Configure extends PlatformBase {
 		driver.get(baseUrl);
 		navToolBar = new NavigationToolbar(driver);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		ecMain = new ECMainFunction(driver);
 		magView = new ManageView(driver);
 		ecms = new EcmsBase(driver);
@@ -82,7 +82,7 @@ public class ECMS_SE_FileManagementView_Configure extends PlatformBase {
 		waitForElementNotPresent(magView.ELEMENT_HIDE_EXPLORER_PANEL);
 		magView.editView("Web", "Content", false, false);
 		magAc.signOut();
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		navToolBar.goToSiteExplorer();
 		actBar.showDrives();
 		actBar.chooseDrive(sitesEx.ELEMENT_SIDEBAR_SITES_MANAGEMENT);

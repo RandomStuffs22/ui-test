@@ -44,7 +44,7 @@ public class ECMS_Admin_ManageLock extends PlatformBase{
 	Permission adminPer;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	//Data for these test cases
 	public By ELEMENT_GROUP_MEMBERSHIP = By.linkText("manager");
@@ -138,7 +138,7 @@ public class ECMS_Admin_ManageLock extends PlatformBase{
 		nav = new NavigationToolbar(driver);
 		cMenu = new ContextMenu(driver);
 		ecms = new EcmsBase(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		info("-- Step 2: Open form to unlock node --");
 
@@ -418,7 +418,7 @@ public class ECMS_Admin_ManageLock extends PlatformBase{
 		info("-- Login with user in the selected group and un lock that node --");
 
 		ecms = new EcmsBase(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		goToAdminManageLockAndVerify(titleArticle);
 
@@ -554,7 +554,7 @@ public class ECMS_Admin_ManageLock extends PlatformBase{
 		info("-- Login with user in the selected group and un-lock that node --");
 
 		ecms = new EcmsBase(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		nav.goToSiteExplorer();
 

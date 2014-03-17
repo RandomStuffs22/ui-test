@@ -24,12 +24,13 @@ public class Wiki_BasicAction_Edit extends ManageDraft {
 	ManageAlert mAlert; 
 	RichTextMode rText;
 	
+
 	@BeforeMethod
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver, this.plfVersion);	
 		mAlert = new ManageAlert(driver, this.plfVersion);
 	}

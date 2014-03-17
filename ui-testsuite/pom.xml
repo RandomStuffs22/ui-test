@@ -29,6 +29,18 @@
 
 	<profiles>
 		<profile>
+			<id>create-user</id>
+			<properties>
+				<testSuite>create-user.xml</testSuite>
+			</properties>
+		</profile>
+		<profile>
+			<id>update-user</id>
+			<properties>
+				<testSuite>update-user.xml</testSuite>
+			</properties>
+		</profile>
+		<profile>
 			<id>ecms-se</id>
 			<properties>
 				<testSuite>ecms-se.xml</testSuite>

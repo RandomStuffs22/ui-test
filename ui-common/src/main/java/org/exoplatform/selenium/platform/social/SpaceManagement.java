@@ -39,6 +39,7 @@ public class SpaceManagement extends SocialBase {
 	Button button;
 	ManageAlert magAlert;
 	ActionBar actBar;
+	SpaceSearch spSeach;
 
 	//Go to My Spaces	> 
 	//Add space Form
@@ -111,6 +112,7 @@ public class SpaceManagement extends SocialBase {
 		button = new Button(driver);
 		magAlert = new ManageAlert(driver);
 		actBar = new ActionBar(driver);
+		spSeach = new SpaceSearch(driver);
 	}
 
 	/**
@@ -254,7 +256,8 @@ public class SpaceManagement extends SocialBase {
 	 */
 	public void deleteSpace(String name, int... params){
 		info("-- Deleting Space..." + name);
-		int iTimeout = params.length > 0 ? params[0] : DEFAULT_TIMEOUT;    
+		int iTimeout = params.length > 0 ? params[0] : DEFAULT_TIMEOUT;
+		spSeach.searchSpaceByName(name,true);
 		doAction("Delete", name);    
 		magAlert = new ManageAlert(driver);
 		magAlert.acceptAlert();

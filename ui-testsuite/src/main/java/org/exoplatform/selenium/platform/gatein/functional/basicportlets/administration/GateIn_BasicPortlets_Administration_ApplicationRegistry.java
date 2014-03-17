@@ -41,7 +41,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		pageE = new PageEditor(driver);
 		magApp = new ManageApplications(driver);
 		button = new Button(driver);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 	}
 
 	@AfterMethod
@@ -229,7 +229,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 
 		//Everyone can see this category 
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.PUBLISHER,displayName,true);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/* Step 3: Edit category */
@@ -251,7 +251,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//- Login by user who is in selected group/membership when assign right at step 3
 		//This category is listed for this user to use
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.ROOT,displayName,true);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/*Clear data*/
@@ -311,7 +311,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//- Click Next from step 2 to go to step 3
 		//Above application is listed for this user to use
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.ROOT,displayName,true,appName1,true);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/*Clear data*/
@@ -396,7 +396,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//This category is listed for this user to use
 		//Everyone can see this category 
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.ROOT,displayName,true);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/* Step 3: Check accessing category without right */
@@ -407,7 +407,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		/* Step 4: Change access right of category to public */
 		//Edit above category with checked Make it public option
 		//Edit category successfully
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 		magApp.editCategoryAtManageApplications(categoryName, displayName, categoryDescription, true, permissions, true);
 
@@ -417,7 +417,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//This category is listed for this user to use
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.PUBLISHER,displayName,true);
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.ROOT,displayName,true);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/*Clear data*/
@@ -484,7 +484,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//- Click Next from step 2 to go to step 3
 		//The category and of course its application(s) can not be displayed for user to use
 		magApp.viewCategoryAtManageApplicationsWithOtherUser(userType.ROOT,displayName,false);
-		magAc.signIn(DATA_USER1,DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN,DATA_PASS);
 		navTool.goToApplicationRegistry();
 
 		/*Clear data*/
@@ -528,7 +528,7 @@ public class GateIn_BasicPortlets_Administration_ApplicationRegistry extends Das
 		//- Select category above from left pane and click Delete
 		//- Click OK to confirm
 		//The category is removed from left pane
-		loginWithAnotherAccOnThesameBrowser("root", "gtn");
+		loginWithAnotherAccOnThesameBrowser("root", DATA_PASS);
 		navTool.goToApplicationRegistry();
 		magApp.deleteCategoryAtManageApplications(categoryName, true);
 		

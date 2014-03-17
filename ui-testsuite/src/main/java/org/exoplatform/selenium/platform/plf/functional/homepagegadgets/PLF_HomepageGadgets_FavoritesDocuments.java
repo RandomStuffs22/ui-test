@@ -47,7 +47,7 @@ public class PLF_HomepageGadgets_FavoritesDocuments extends PlatformBase {
 		magApp = new ManageApplications(driver, this.plfVersion);
 		siteExp = new SitesExplorer(driver, this.plfVersion);
 		hpGadget = new HomePageGadget(driver, this.plfVersion);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

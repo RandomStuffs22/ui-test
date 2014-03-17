@@ -35,7 +35,7 @@ public class Forum_Answer_Category_Add extends AnswerBase{
 		mQuest = new AnswerManageQuestion(driver);
 		mAns = new AnswerManageAnwser(driver);
 		frumPer = new ForumPermission(driver);
-		Acc.signIn(DATA_USER1, DATA_PASS);
+		Acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 	}
 	

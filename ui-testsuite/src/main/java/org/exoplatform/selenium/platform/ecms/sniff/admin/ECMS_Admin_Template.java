@@ -31,7 +31,7 @@ public class ECMS_Admin_Template extends PlatformBase{
 	ManageNodeType magNType;
 
 	public final String DATA_USER_ADMIN = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

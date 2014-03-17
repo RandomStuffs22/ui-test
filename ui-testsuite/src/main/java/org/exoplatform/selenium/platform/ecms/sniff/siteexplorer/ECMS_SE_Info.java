@@ -62,7 +62,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, "gtn");
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -71,7 +71,7 @@ public class ECMS_SE_Info extends PlatformBase {
 
 		//Delete data
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(bNode1);
 	}
@@ -107,7 +107,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -118,7 +118,7 @@ public class ECMS_SE_Info extends PlatformBase {
 
 		//Delete data
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		cMenu.deleteDocument(bNode1);
@@ -150,7 +150,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -159,7 +159,7 @@ public class ECMS_SE_Info extends PlatformBase {
 
 		//Delete permission
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar.goToNode(bNode1);
 		actBar.goToNodePermissionManagement();
@@ -167,13 +167,13 @@ public class ECMS_SE_Info extends PlatformBase {
 
 		//Check if mary can see this  node
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		waitForElementNotPresent(bNode1);
 
 		//Delete data
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(bNode1);
 	}
@@ -211,7 +211,7 @@ public class ECMS_SE_Info extends PlatformBase {
 		driver.get(baseUrl);
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);

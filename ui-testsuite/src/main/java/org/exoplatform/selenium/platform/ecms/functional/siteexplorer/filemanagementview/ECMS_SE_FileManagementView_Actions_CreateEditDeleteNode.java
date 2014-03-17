@@ -31,7 +31,7 @@ public class ECMS_SE_FileManagementView_Actions_CreateEditDeleteNode extends Pla
 		driver.get(baseUrl);
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS); 
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS); 
 		ecms = new EcmsBase(driver);
 		actBar = new ActionBar(driver);
 		conTemp = new ContentTemplate(driver);

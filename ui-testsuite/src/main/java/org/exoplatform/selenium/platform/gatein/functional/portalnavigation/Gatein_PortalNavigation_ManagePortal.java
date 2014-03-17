@@ -36,7 +36,7 @@ public class Gatein_PortalNavigation_ManagePortal extends PortalManagement{
 		magAc = new ManageAccount(driver);
 		navToolbar = new NavigationToolbar(driver);
 		portalMag = new PortalManagement();
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		driver.navigate().refresh();
 	}
 

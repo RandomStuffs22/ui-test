@@ -18,7 +18,7 @@ public class LogSeleniumTest extends EcmsBase{
 	}
 	
 	public static final String ELEMENT_USER = "root";
-	public static final String ELEMENT_PASS = "gtn";
+	public static final String ELEMENT_PASS = "12345";
 	
 	public static final String DATA_CONTENT_FOLDER_TITLE = "Test";
 	public static final String DATA_ARTICLE_TITLE= "Testabc";

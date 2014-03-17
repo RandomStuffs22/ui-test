@@ -35,7 +35,7 @@ public class PLF_HomePageActivityStream_Activity_Comment extends Activity{
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver);
 		home = new HomePageActivity(driver); 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		alert = new ManageAlert(driver);
 		nav = new NavigationToolbar(driver);

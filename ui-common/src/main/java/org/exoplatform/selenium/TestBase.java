@@ -61,7 +61,7 @@ public class TestBase {
 	//public final By ELEMENT_MENU_EDIT_LINK = By.xpath("//i[@class='uiIconPLF24x24Edit']");
 	//public final By ELEMENT_MENU_PAGE_LINK = By.linkText("Page");
 	//public final String AJAX_LOADING_MASK = "//div[@id='AjaxLoadingMask']";
-	public final String DEFAULT_BASEURL="http://localhost:8080/portal";
+	public final String DEFAULT_BASEURL="http://192.168.3.50:8080/portal";
 
 	/*======= Welcome Screen (Term and Conditions) =====*/
 	public final By ELEMENT_FIRSTNAME_ACCOUNT = By.name("firstNameAccount");
@@ -90,6 +90,10 @@ public class TestBase {
 	public final By ELEMENT_ADMIN_PASS_LABEL = By.xpath("//h5[contains(text(), 'Admin Password')]");
 	public final By ELEMENT_ACCOUNT_ERROR = By.xpath("//*[@class='accountSetupError']");
 
+	/*********************Community******************************/
+	public final By ELEMENT_COMMUNITY_SIGN_IN = By.xpath("//h5[text()='eXo Community Sign in']");
+	public final String ELEMENT_COMMUNITY_SIGN_IN_LINK = "//a[contains(text(),'Sign in')]";
+
 	/*======== End of Term and conditions =====*/	
 
 	public void initSeleniumTestWithOutTermAndCondition(Object... opParams){
@@ -102,9 +106,9 @@ public class TestBase {
 			ieFlag = true;
 		} else {
 			FirefoxProfile profile = new FirefoxProfile();
-            profile.setPreference("plugins.hide_infobar_for_missing_plugin", true);
-            DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-            capabilities.setCapability(FirefoxDriver.PROFILE, profile);
+			profile.setPreference("plugins.hide_infobar_for_missing_plugin", true);
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability(FirefoxDriver.PROFILE, profile);
 			driver = new FirefoxDriver(capabilities);
 		}
 		baseUrl = System.getProperty("baseUrl");
@@ -131,7 +135,7 @@ public class TestBase {
 			ManageAccount acc = new ManageAccount(driver,this.plfVersion);
 			acc.signOut();
 			firstTimeLogin=false;
-			checkPLFVersion();
+			//			checkPLFVersion();
 		}
 	}
 
@@ -197,18 +201,25 @@ public class TestBase {
 		waitForTextNotPresent("terms and conditions agreement");
 		try{
 			info("Verify platform version");
-			String des = driver.findElement(ELEMENT_PLF_INFORMATION).getText();
-			if(des.contains("v4.0")){
-				this.plfVersion = "4.0";
-				info("Platform version 4.0.x");
-			}
-			else if(des.contains("v4.1")){
+			WebElement eVersion = waitForAndGetElement(ELEMENT_PLF_INFORMATION, DEFAULT_TIMEOUT,0);
+			if(eVersion != null){
+				String des = eVersion.getText();
+				if(des.contains("v4.0")){
+					this.plfVersion = "4.0";
+					info("Platform version 4.0.x");
+				}
+				else if(des.contains("v4.1")){
+					this.plfVersion="4.1";
+					info("Platform version 4.1.x");
+				}
+
+			}else{
 				this.plfVersion="4.1";
-				info("Platform version 4.1.x");
+				info("Set default to 4.1");
 			}
 		}catch(Exception e){
-			info("Unknown platform version. Set to default version 4.0.x.");
-			this.plfVersion="4.0";
+			info("Unknown platform version. Set default to 4.1");
+			this.plfVersion="4.1";
 		}
 
 	}

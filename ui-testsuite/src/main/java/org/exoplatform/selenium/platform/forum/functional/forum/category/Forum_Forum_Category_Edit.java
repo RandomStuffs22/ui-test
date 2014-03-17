@@ -29,7 +29,7 @@ public class Forum_Forum_Category_Edit extends ForumBase{
 		driver.get(baseUrl);
 		fmCat = new ForumManageCategory(driver);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 	}
 
@@ -129,12 +129,12 @@ public class Forum_Forum_Category_Edit extends ForumBase{
 		// determine if mary who is not a of development group can view the new
 		// category or not
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		goToForums();
-		fmCat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, catName, description, false);
+		fmCat.checkRightOfViewCategory(DATA_USER_MARY, DATA_PASS, catName, description, false);
 
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		waitForAndGetElement(By.linkText(catName)).click();
 

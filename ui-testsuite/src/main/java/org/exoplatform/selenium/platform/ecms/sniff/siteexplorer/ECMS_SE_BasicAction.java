@@ -31,7 +31,7 @@ public class ECMS_SE_BasicAction extends PlatformBase {
 	ContextMenu cMenu;
 	ManageAccount magAcc;
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 	ManageAlert alt;
 	SitesExplorer siteExp;
 	Dialog dialog;

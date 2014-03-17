@@ -45,7 +45,7 @@ public class PLF_HomepageGadgets_SuggestionGadget extends Activity{
 		hGadget = new HomePageGadget(driver);
 		uGroup = new UserGroupManagement(driver, this.plfVersion);
 		mSpace = new SpaceManagement(driver, this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);		
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 		button = new Button(driver, this.plfVersion);
 	}
 

@@ -45,7 +45,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		button = new Button(driver);
 		forPermission = new ForumPermission(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 
@@ -95,7 +95,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
-		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER_MARY, DATA_PASS, category, descCate, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -121,7 +121,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
-		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER_MARY, DATA_PASS, category, descCate, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -147,7 +147,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, false);
 
 		//Check if mary can see the category
-		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER_MARY, DATA_PASS, category, descCate, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -188,7 +188,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.checkRightOfViewCategory("demo", DATA_PASS, category, descCate, true);
 
 		//Check if mary can see the category
-		cat.checkRightOfViewCategory(DATA_USER2, DATA_PASS, category, descCate, true);
+		cat.checkRightOfViewCategory(DATA_USER_MARY, DATA_PASS, category, descCate, true);
 
 		//Check if james can the category
 		cat.checkRightOfViewCategory("james", DATA_PASS, category, descCate, true);
@@ -258,7 +258,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 0,null, descCate, 1,userGroup,true,false,false,false);
 		mForum.addForum(category, addForum, false, null, null, false, 0, null);
 
-		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, false);
+		mForum.checkRightOfCategoryForum(DATA_USER_MARY,DATA_PASS, category, forumName, false);
 
 		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, true);
 
@@ -287,7 +287,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 
 		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, false);
 
-		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER_MARY,DATA_PASS, category, forumName, true);
 
 		//Delete data
 		magAc.userSignIn(userType.ADMIN);
@@ -312,7 +312,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		cat.addNewCategoryInForum(category, "1", 0,null, descCate, 3,userGroup,true,false,false,false);
 		mForum.addForum(category, addForum, false, null, null, false, 0, null);
 
-		mForum.checkRightOfCategoryForum(DATA_USER2,DATA_PASS, category, forumName, false);
+		mForum.checkRightOfCategoryForum(DATA_USER_MARY,DATA_PASS, category, forumName, false);
 
 		mForum.checkRightOfCategoryForum("demo",DATA_PASS, category, forumName, true);
 
@@ -359,7 +359,7 @@ public class Forum_Forum_Category_View extends ForumBase {
 		//Check right of users
 		mForum.checkRightOfCategoryForum(user, pass, category, forumName, false);
 
-		mForum.checkRightOfCategoryForum(DATA_USER2, DATA_PASS, category, forumName, true);
+		mForum.checkRightOfCategoryForum(DATA_USER_MARY, DATA_PASS, category, forumName, true);
 
 		mForum.checkRightOfCategoryForum("demo", DATA_PASS, category, forumName, true);
 

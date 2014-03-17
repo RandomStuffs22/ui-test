@@ -39,7 +39,7 @@ import org.testng.annotations.*;
 			fmTopic = new ForumManageTopic(driver,this.plfVersion);
 			fmPost = new ForumManagePost(driver,this.plfVersion);
 			acc = new ManageAccount(driver,this.plfVersion);
-			acc.signIn(DATA_USER1, DATA_PASS);
+			acc.signIn(DATA_USER_JOHN, DATA_PASS);
 			button = new Button(driver,this.plfVersion);
 			goToForums();
 		}

@@ -36,7 +36,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		forum = new ForumManageForum(driver);
 		topic = new ForumManageTopic(driver);
 		button = new Button(driver);
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		alert = new ManageAlert(driver); 
 	}
 
@@ -142,7 +142,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		// - Login by the normal user
 		// - On created category and select [Watch]
 		info("Login by the normal user");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		magAc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums(); 
 		click(By.linkText(catName));
@@ -156,7 +156,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		topic.startTopic(title, message, null, 0, userGroup, true, true,true);
 		alert.cancelAlert();
 		magAc.signOut();
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		click(By.linkText(addForum[0]));
@@ -212,7 +212,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		//- Login by the normal user
 		//- On created category select [Watch]
 		info("Login by the normal user");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		magAc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums();
 		click(By.linkText(catName));
@@ -226,7 +226,7 @@ public class Forum_Forum_Category_WatchAndUnwatch extends ForumBase{
 		topic.startTopic(key, message, null, 0, userGroup, true, true,false);
 		alert.cancelAlert();
 		magAc.signOut();
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		click(By.linkText(addForum[0]));

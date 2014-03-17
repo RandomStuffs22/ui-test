@@ -17,7 +17,7 @@
 	<properties>
 		<maven.test.skip>true</maven.test.skip>
 		<maven-surefire-plugin.version>2.12.1</maven-surefire-plugin.version>
-		<selenium-java.version>2.39.0</selenium-java.version>
+		<selenium-java.version>2.40.0</selenium-java.version>
 		<testng.version>6.3.1</testng.version>
 		<cargo-maven2-plugin.version>1.1.1</cargo-maven2-plugin.version>
 		<maven-dependency-plugin.version>2.1</maven-dependency-plugin.version>

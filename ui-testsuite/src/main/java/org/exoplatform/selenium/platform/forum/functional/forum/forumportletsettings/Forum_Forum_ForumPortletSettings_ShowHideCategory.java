@@ -40,7 +40,7 @@ public class Forum_Forum_ForumPortletSettings_ShowHideCategory extends ForumBase
 		fmPost = new ForumManagePost(driver);
 		acc = new ManageAccount(driver);
 		pageE = new PageEditor(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		fmForum = new ForumManageForum(driver);
 		navTool = new NavigationToolbar(driver);
@@ -83,7 +83,7 @@ public class Forum_Forum_ForumPortletSettings_ShowHideCategory extends ForumBase
 		waitForElementNotPresent(By.linkText(catName1));
 		acc.signOut();
 		
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -98,7 +98,7 @@ public class Forum_Forum_ForumPortletSettings_ShowHideCategory extends ForumBase
 		waitForAndGetElement(By.linkText(catName1));
 		acc.signOut();
 		
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName1));
 		fmCat.deleteCategoryInForum(catName1);

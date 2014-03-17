@@ -31,7 +31,7 @@ public class Forum_Forum_Bookmark extends ForumBase{
 		mngFru = new ForumManageForum(driver);
 		mngTopic = new ForumManageTopic(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 

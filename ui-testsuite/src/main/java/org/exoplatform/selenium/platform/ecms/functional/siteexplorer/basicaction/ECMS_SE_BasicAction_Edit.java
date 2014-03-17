@@ -48,7 +48,7 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 	SitesExplorer siteExp;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	String DATA_UPLOAD_IMG_2 = "TestData/FNC_ECMS_FEX_ACTION_09_2.png";
 	String DATA_UPLOAD_IMG_1 = "TestData/FNC_ECMS_FEX_ACTION_09_1.png";
@@ -311,7 +311,7 @@ public class ECMS_SE_BasicAction_Edit extends PlatformBase {
 		cMenu = new ContextMenu(driver);
 
 		info("Login with Mary");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		//check can not edit this document with user Mary
 		navToolBar.goToSiteExplorer();

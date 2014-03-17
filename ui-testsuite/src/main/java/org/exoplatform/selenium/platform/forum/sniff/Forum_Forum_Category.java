@@ -32,7 +32,7 @@ public class Forum_Forum_Category extends ForumBase {
 		magForum = new ForumManageForum(driver, this.plfVersion);
 		magTopic = new ForumManageTopic(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToForums();
 	}
 

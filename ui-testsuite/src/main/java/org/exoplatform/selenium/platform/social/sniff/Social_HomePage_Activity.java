@@ -52,7 +52,7 @@ public class Social_HomePage_Activity extends Activity {
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver,this.plfVersion);
 		activity = new HomePageActivity(driver,this.plfVersion);
 		navToolBar = new NavigationToolbar(driver,this.plfVersion);
@@ -64,7 +64,8 @@ public class Social_HomePage_Activity extends Activity {
 		conTemp = new ContentTemplate(driver,this.plfVersion);
 		cMenu= new ContextMenu(driver,this.plfVersion);
 		siteExp = new SitesExplorer(driver,this.plfVersion);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

@@ -35,7 +35,7 @@ public class ManageAccount extends PlatformBase {
 
 	public ManageAccount(WebDriver dr,String...plfVersion){
 		driver = dr;
-		this.plfVersion = plfVersion.length>0?plfVersion[0]:"4.0";
+		this.plfVersion =  plfVersion.length>0?plfVersion[0]:"4.1";
 	}
 
 	Dialog dialog;
@@ -47,6 +47,7 @@ public class ManageAccount extends PlatformBase {
 	public void signIn(String username, String password,Boolean...opParams) {
 		Boolean verify = (Boolean) (opParams.length > 0 ? opParams[0]: true);
 		Boolean maxWin = (Boolean) (opParams.length > 1 ? opParams[1]: true);
+		boolean community = (waitForAndGetElement(ELEMENT_COMMUNITY_SIGN_IN_LINK,5000,0) != null) ? true :false;
 		if(maxWin){
 			driver.manage().window().maximize();
 			driver.navigate().refresh();
@@ -57,14 +58,16 @@ public class ManageAccount extends PlatformBase {
 			firstTimeLogin = false;
 		}
 		info("--Sign in as " + username + "--");
-		/*if (isElementPresent(ELEMENT_GO_TO_PORTAL) ){
-			click(ELEMENT_GO_TO_PORTAL);		
-		}
-		click(ELEMENT_SIGN_IN_LINK);*/
+		if(community)
+			click(ELEMENT_COMMUNITY_SIGN_IN_LINK);
 		Utils.pause(1000);
 		type(ELEMENT_INPUT_USERNAME, username, true);
 		type(ELEMENT_INPUT_PASSWORD, password, true);
-		click(ELEMENT_SIGN_IN_BUTTON);
+		if(community)
+			click(ELEMENT_COMMUNITY_SIGN_IN_BUTTON);
+		else
+			click(ELEMENT_SIGN_IN_BUTTON);
+
 		if(verify)
 			waitForElementNotPresent(ELEMENT_SIGN_IN_BUTTON);
 	}
@@ -167,7 +170,12 @@ public class ManageAccount extends PlatformBase {
 			type(ELEMENT_INPUT_DISPLAY_NAME, displayName, true);
 		}
 
-		type(ELEMENT_INPUT_EMAIL, email, true);
+		if(email!="" && email!=null){
+			if(isElementPresent(ELEMENT_INPUT_EMAIL_ADD))
+				type(ELEMENT_INPUT_EMAIL_ADD, email, true);
+			else
+				type(ELEMENT_INPUT_EMAIL, email, true);
+		}
 		if (userNameGiven != null || language != null){
 			click(ELEMENT_USER_PROFILE_TAB);
 			waitForTextPresent("Given Name:");
@@ -182,6 +190,7 @@ public class ManageAccount extends PlatformBase {
 		button.save();
 
 		if (verify) {
+			Utils.pause(10000);
 			waitForMessage("You have registered a new account.");
 			dialog.closeMessageDialog();
 		}
@@ -206,6 +215,7 @@ public class ManageAccount extends PlatformBase {
 			dialog.closeMessageDialog();
 		}
 	}
+
 
 	public void changeLanguageForUser(String language){
 		button = new Button(driver);
@@ -331,19 +341,20 @@ public class ManageAccount extends PlatformBase {
 		}
 		switch (user) {
 		case ROOT:
-			signIn("root", "gtngtn");
+			signIn("root", DATA_PASS);
 			break;
 		case ADMIN:
-			signIn("john", "gtn");
+			signIn("john", DATA_PASS);
 			break;	
 		case AUTHOR:
-			signIn("james", "gtn");
+			signIn("james", DATA_PASS);
 			break;
 		case DEVELOPER:
-			signIn("demo", "gtn");
+			signIn("demo", DATA_PASS);
 			break;
 		case PUBLISHER:
-			signIn("mary", "gtn");
+			signIn("mary", DATA_PASS);
+
 			break;
 		default:
 			break;

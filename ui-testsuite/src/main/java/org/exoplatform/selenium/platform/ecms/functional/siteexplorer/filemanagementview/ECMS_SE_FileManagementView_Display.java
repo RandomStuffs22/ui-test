@@ -39,7 +39,7 @@ public class ECMS_SE_FileManagementView_Display extends PlatformBase{
 		initSeleniumTest();
 		navToolBar = new NavigationToolbar(driver);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 
 		action = new ActionBar(driver);
 		contemp = new ContentTemplate(driver); 

@@ -33,7 +33,7 @@ public class Forum_Forum_Topic_BasicAction extends ForumBase {
 		mngTopic = new ForumManageTopic(driver);
 		mngPost = new ForumManagePost(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 

@@ -40,7 +40,7 @@ public class ECMS_SE_FileManagementView_Actions_OtherActions extends PlatformBas
 	Button btn;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {

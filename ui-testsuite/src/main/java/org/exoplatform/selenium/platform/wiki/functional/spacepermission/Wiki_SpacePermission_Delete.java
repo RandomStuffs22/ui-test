@@ -20,7 +20,7 @@ public class Wiki_SpacePermission_Delete extends Permission {
 		initSeleniumTest();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	//Qmetry ID: 69746

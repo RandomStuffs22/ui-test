@@ -31,7 +31,7 @@ public class ECMS_SE_Admin_ManageCategories extends PlatformBase {
 	ContextMenu cMenu;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 	
 
 	@BeforeMethod

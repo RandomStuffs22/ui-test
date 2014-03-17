@@ -49,7 +49,7 @@ public class PLF_HomepageGadgets_FeaturePoll extends BasicAction{
 		pageEditor = new PageEditor(driver, this.plfVersion);
 		home = new HomePageActivity(driver, this.plfVersion);
 		hpGadget = new HomePageGadget(driver, this.plfVersion);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

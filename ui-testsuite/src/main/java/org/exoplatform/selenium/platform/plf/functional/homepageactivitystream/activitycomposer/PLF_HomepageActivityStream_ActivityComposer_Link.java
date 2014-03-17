@@ -32,7 +32,7 @@ public class PLF_HomepageActivityStream_ActivityComposer_Link extends Activity{
 		button = new Button(driver);
 		alert = new ManageAlert(driver); 
 		home = new HomePageActivity(driver); 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

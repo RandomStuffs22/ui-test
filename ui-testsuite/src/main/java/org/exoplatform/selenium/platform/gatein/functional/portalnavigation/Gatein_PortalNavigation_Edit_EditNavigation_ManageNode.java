@@ -38,7 +38,7 @@ public class Gatein_PortalNavigation_Edit_EditNavigation_ManageNode extends Plat
 	PageEditor pageEditor;
 	UserGroupManagement userGroupMag;
 	
-	public String username = DATA_USER1;
+	public String username = DATA_USER_JOHN;
 	public String password = DATA_PASS;
 
 	@BeforeMethod

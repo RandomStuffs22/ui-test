@@ -17,7 +17,7 @@ public class Wiki_PagePermission_Edit extends BasicAction {
 	ManageAccount magAc;
 	
 	public String DATA_USER_ADMIN = "john";
-	public String DATA_PASS_ADMIN = "gtn";
+	public String DATA_PASS_ADMIN = DATA_PASS;
 	
 	@BeforeMethod
 	public void beforeTest(){

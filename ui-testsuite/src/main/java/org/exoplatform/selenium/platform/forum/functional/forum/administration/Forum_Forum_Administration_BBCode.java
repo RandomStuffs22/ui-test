@@ -27,7 +27,7 @@ public class Forum_Forum_Administration_BBCode extends ForumManageAdministration
 		initSeleniumTest();
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 	}
 

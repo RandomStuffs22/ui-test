@@ -30,7 +30,7 @@ public class Forum_Forum_Administration_Notification extends ForumBase{
 		initSeleniumTest();
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		cat = new ForumManageCategory(driver);
 		forum = new ForumManageForum(driver); 
 		button = new Button(driver);

@@ -31,7 +31,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		sp = new SpaceManagement(driver);
 		toolBar = new NavigationToolbar(driver);
 		homeAct = new HomePageActivity(driver);
@@ -67,7 +67,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		homeAct.checkTaskActivity(task);
 
 		//Delete task
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.accessSpace(space);
 		sp.goToSpaceMenu("Agenda");
 		waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", task));
@@ -78,7 +78,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		//homeAct.checkTaskActivity(task, false);
 
 		//Delete data
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 
@@ -87,8 +87,8 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 	 */
 	@Test
 	public void test02_UpdateActivityForTaskWhenAddAttachment() {
-		String space = "Space74735";
-		String task = "Task74735";
+		String space = "Space74741";
+		String task = "Task74741";
 		String path = "TestData/Calendar_74741.xml";
 		info("Update activity for event of Space Calendar- event is updated as all day event a space");
 		
@@ -111,7 +111,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_ATTACHMENT));
 
 		//Delete data
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 
@@ -120,9 +120,9 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 	 */
 	@Test
 	public void test03_UpdateActivityForTaskWhenUpdateNote() {
-		String space = "Space74736";
-		String task = "Event74736";
-		String note = "new Event74736";
+		String space = "Space74742";
+		String task = "Event74742";
+		String note = "new Event74742";
 		info("Update activity for event of Space Calendar - event summary");
 		
 		//Add a space
@@ -141,7 +141,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 				homeAct.MSG_TASK_COMMENT_UPDATE_NOTE.replace("${note}",note)),50000);
 		
 		//Delete data
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 
@@ -150,8 +150,8 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 	 */
 	@Test
 	public void test04_UpdateActivityForTaskWhenUpdateTaskStatus() {
-		String space = "Space74737";
-		String task = "Task74737";
+		String space = "Space74743";
+		String task = "Task74743";
 		info("Update activity for event of Space Calendar - event description");
 
 		//Add space
@@ -171,7 +171,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", task).replace("${comment}", homeAct.MSG_TASK_COMMENT_UPDATE_STATUS));
 		
 		//Delete data
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 
@@ -205,7 +205,7 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 		waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", task));
 
 		//Delete data
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 }

@@ -48,7 +48,7 @@ public class ECMS_Admin_Advanced extends PlatformBase{
 	ManageQuery magQuery;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	//Categories
 	String categoryTreeName = "Sniff_Ecms_Admin_Category_Test";
@@ -194,7 +194,7 @@ public class ECMS_Admin_Advanced extends PlatformBase{
 		magAcc.signOut();
 
 		//create a node by user who hasn't [read] permission
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		nav.goToSiteExplorer();
 		actBar.addItem2ActionBar("addDocument", actBar.ELEMENT_NEW_CONTENT_LINK);
 		magAcc.userSignIn(userType.PUBLISHER);

@@ -44,7 +44,7 @@ public class ECMS_SE_Collaboration_Manage_Tag extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		siteExp = new SitesExplorer(driver);
 		cMenu = new ContextMenu(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		driver.navigate().refresh();
 	}
 
@@ -77,14 +77,14 @@ public class ECMS_SE_Collaboration_Manage_Tag extends PlatformBase{
 
 		info("User [mary] can see this tag");
 		magAc.signOut();
-		magAc.signIn("mary", "gtn");
+		magAc.signIn("mary", DATA_PASS);
 		navToolbar.goToSiteExplorer();
 		click(siteExp.ELEMENT_TAG_CLOUD);
 		waitForAndGetElement(siteExp.ELEMENT_TAG_IN_CONTAINER_LIST.replace("${tagName}", tagName[0]));
 
 		info("Reset data");
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navToolbar.goToSiteExplorer();
 		siteExp.goToEditTag();
 		siteExp.deleteTag(tagName);
@@ -115,14 +115,14 @@ public class ECMS_SE_Collaboration_Manage_Tag extends PlatformBase{
 
 		info("User [mary] can see this tag");
 		magAc.signOut();
-		magAc.signIn("mary", "gtn");
+		magAc.signIn("mary", DATA_PASS);
 		navToolbar.goToSiteExplorer();
 		click(siteExp.ELEMENT_TAG_CLOUD);
 		waitForAndGetElement(siteExp.ELEMENT_TAG_IN_CONTAINER_LIST.replace("${tagName}", tagName[0]));
 
 		info("Reset data");
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navToolbar.goToSiteExplorer();
 		siteExp.goToEditTag();
 		siteExp.deleteTag(tagName);

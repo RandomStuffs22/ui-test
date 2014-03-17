@@ -64,7 +64,7 @@ import org.testng.annotations.*;
 			pConn = new PeopleConnection(driver,this.plfVersion);
 			mMember = new ManageMember(driver,this.plfVersion);
 			spaceMan = new SpaceManagement(driver,this.plfVersion);
-			acc.signIn(DATA_USER1, DATA_PASS);		
+			acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 		}
 
 		@AfterMethod
@@ -110,7 +110,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		home.deleteActivity(text);
  	}
 
@@ -151,7 +151,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		home.deleteActivity(user1);
  	}
 
@@ -205,7 +205,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -256,7 +256,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -304,7 +304,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -352,7 +352,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -397,7 +397,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToActivityStream();
 		home.deleteActivity(text);
  	}
@@ -439,7 +439,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToActivityStream();
  	}
 
@@ -735,7 +735,7 @@ import org.testng.annotations.*;
 		*Input Data: 
 		*Expected Outcome: The activity commented is displayed in the stream "My activities"		*/ 
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		nav.goToHomePage();
 		waitForActivityPresent(text, true);
 		

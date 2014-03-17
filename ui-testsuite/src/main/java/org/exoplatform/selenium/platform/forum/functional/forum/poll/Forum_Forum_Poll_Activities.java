@@ -48,7 +48,7 @@ public class Forum_Forum_Poll_Activities extends ForumBase{
 		initSeleniumTest();//true,platform,browser,url,version);
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver, this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		cat = new ForumManageCategory(driver, this.plfVersion);
 		forum = new ForumManageForum(driver, this.plfVersion); 
 		button = new Button(driver, this.plfVersion);

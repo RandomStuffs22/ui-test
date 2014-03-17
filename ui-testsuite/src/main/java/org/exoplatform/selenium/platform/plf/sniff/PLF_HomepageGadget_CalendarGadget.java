@@ -31,13 +31,13 @@ public class PLF_HomepageGadget_CalendarGadget extends CalendarBase{
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		naviToolbar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		brandMag = new BrandingManagement(driver);
 		button = new Button(driver);
 		event = new Event(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

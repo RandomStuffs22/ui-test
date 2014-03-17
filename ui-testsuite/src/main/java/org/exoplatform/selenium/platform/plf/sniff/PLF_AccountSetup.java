@@ -58,9 +58,9 @@ public class PLF_AccountSetup extends PlatformBase{
 		//- Can log in with root/gtn here to create new account 
 		initSeleniumTest(false);
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 	
 	/**

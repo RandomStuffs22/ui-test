@@ -44,7 +44,7 @@ public class ECMS_Admin_ManageView extends PlatformBase{
 	ManageView magView;
 
 	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
+	//String DATA_PASS = DATA_PASS;
 	
 	@BeforeMethod
 	public void beforeMethods(){

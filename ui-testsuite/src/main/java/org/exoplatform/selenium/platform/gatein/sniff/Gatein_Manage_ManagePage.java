@@ -38,7 +38,7 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		pageE = new PageEditor(driver);
 		but = new Button(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	@AfterMethod

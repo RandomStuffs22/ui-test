@@ -31,7 +31,7 @@ public class Calendar_Settings extends CalendarBase{
 		evt = new Event(driver);
 		tsk = new Task(driver);
 		btn = new Button(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToCalendarPage();
 	}
 
@@ -75,35 +75,34 @@ public class Calendar_Settings extends CalendarBase{
 
 		info("--Verify personal and share calendar--");
 		waitForAndGetElement(ELEMENT_PERSONAL_CALENDAR);
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
 		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","ShareCalendar").replace("${CheckboxColor}", "red").replace("${checkicon}", "iconCheckBox checkbox")));
 
 		info("--Verify group calendar--");
 		waitForAndGetElement(ELEMENT_GROUP_CALENDAR);
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Employees").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Administration").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Content Management").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Users").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Development").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Executive Board").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+//		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Employees").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+//		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Administration").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+//		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Content Management").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+//		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Development").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+//		waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","Executive Board").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
 
 		info("--Setup to hide specific calendar--");
-		if(waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")),DEFAULT_TIMEOUT,0)!=null){
-			click(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
-			waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "checkbox iconUnCheckBox")));
+		if(waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")),DEFAULT_TIMEOUT,0)!=null){
+			click(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconCheckBox checkbox")));
+			waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "checkbox iconUnCheckBox")));
 		}
 		click(ELEMENT_SETTINGS_FORM_SAVE_BUTTON);
-		waitForElementNotPresent(By.xpath(ELEMENT_VERIFY_CALENDAR_FORM.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus")));
+		waitForElementNotPresent(By.xpath(ELEMENT_VERIFY_CALENDAR_FORM.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus")));
 
 		info("--Setup to Show specific calendar--");
 		goToCalendarSettings();
 		click (ELEMENT_DISPLAYED_CALENDAR);
-		if(waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconUnCheckBox checkbox")),DEFAULT_TIMEOUT,0)!=null){
-			click(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconUnCheckBox checkbox")));
-			waitForElementNotPresent(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John Smith").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "checkbox iconUnCheckBox")));
+		if(waitForAndGetElement(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconUnCheckBox checkbox")),DEFAULT_TIMEOUT,0)!=null){
+			click(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "iconUnCheckBox checkbox")));
+			waitForElementNotPresent(By.xpath(ELEMENT_VERIFY_CALENDAR.replace("${UserName}","John").replace("${CheckboxColor}", "asparagus").replace("${checkicon}", "checkbox iconUnCheckBox")));
 		}
 		click(ELEMENT_SETTINGS_FORM_SAVE_BUTTON);
-		waitForAndGetElement(ELEMENT_DISPLAY_CALENDAR.replace("${calendar}", "John Smith"));
+		waitForAndGetElement(ELEMENT_DISPLAY_CALENDAR.replace("${calendar}", "John"));
 		info("--Delete Calendar--");
 		deleteCalendar(calendar);
 	}
@@ -115,18 +114,17 @@ public class Calendar_Settings extends CalendarBase{
 	@Test
 	public void test02_Feed(){
 		String eventName = "eventfeeds";
-		String namefeed = "test";
-		String[] userGroup = {"John Smith"};
+		String namefeed = "test74837";
 		String newfeed = "newtest";
 
 		info("--Add event--");
 		evt.addQuickEvent(eventName,eventName,getDate(1,"MM/dd/yyyy"),getDate(1,"MM/dd/yyyy"),false);
 
 		info("--Add new feeds --");
-		addFeeds(namefeed, userGroup,2);
+		addFeeds(namefeed, null,2);
 
 		info("--edit feeds--");
-		editFeeds(namefeed,newfeed, userGroup, 2);
+		editFeeds(namefeed,newfeed, null, 2);
 
 		info("--Delete feeds--");
 		deleteFeeds(newfeed);
@@ -166,7 +164,7 @@ public class Calendar_Settings extends CalendarBase{
 		click(ELEMENT_SETTINGS_FORM_SAVE_BUTTON);
 
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToCalendarPage();
 		waitForAndGetElement(ELEMENT_MONTH_TAB_ACTIVE);
 		goToCalendarSettings();

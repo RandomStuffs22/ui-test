@@ -67,7 +67,7 @@ public class ECMS_SE_Setting extends PlatformBase {
 		driver.get(baseUrl);
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);

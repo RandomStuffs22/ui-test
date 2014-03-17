@@ -35,7 +35,7 @@ public class Forum_Forum_Post_PostCounter extends ForumBase{
 		mngPost = new ForumManagePost(driver, this.plfVersion);
 		button = new Button(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 

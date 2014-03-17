@@ -40,7 +40,7 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 	ActionBar actBar;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods(){
@@ -111,7 +111,7 @@ public class ECMS_Admin_ManageDriver_Display extends PlatformBase{
 
 		//login with user mary
 		info("Login as mary who does not have access permission on drive");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		nav.goToSiteExplorer();
 		//click(ecms.ELEMENT_SHOW_DRIVES);
 		actBar.showDrives();

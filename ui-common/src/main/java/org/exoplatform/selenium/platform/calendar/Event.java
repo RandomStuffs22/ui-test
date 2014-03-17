@@ -44,6 +44,7 @@ public class Event extends CalendarBase{
 	public By ELEMENT_ADD_EDIT_EVENT_CATEGORY = By.xpath("//form[@id='UIEventForm']//*[@name='category']");
 	public By ELEMENT_ADD_EDIT_EVENT_LOCATION = By.id("place");
 	public By ELEMENT_EDIT_EVENT_POPUP = By.xpath("//span[@class='PopupTitle popupTitle' and text()='Add/Edit Event']");
+	public By ELEMENT_EDIT_EVENT_CONFIRM_POPUP = By.xpath("//*[@id='UIConfirmFormUpdate']//*[text()='Save']");
 
 	public Event(WebDriver dr, String...plfVersion){
 		driver = dr;
@@ -294,6 +295,9 @@ public class Event extends CalendarBase{
 		goToEditEventForm(oldEvent);
 		inputAddEventForm(name,description, location,from,to,allDay,opt);
 		click(ELEMENT_ADD_EVENT_SAVE_BUTTON);
+		Utils.pause(1000);
+		if(isElementPresent(ELEMENT_EDIT_EVENT_CONFIRM_POPUP))
+			click(ELEMENT_EDIT_EVENT_CONFIRM_POPUP);
 		waitForElementNotPresent(ELEMENT_EDIT_EVENT_POPUP);
 	}
 	

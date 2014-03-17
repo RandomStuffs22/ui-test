@@ -38,7 +38,7 @@ public class Forum_Answers_PublishActivites_Update extends AnswerBase{
 		mQuest = new AnswerManageQuestion(driver);
 		mAns = new AnswerManageAnwser(driver);
 		mCom = new AnswerManageComment(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		hpAct = new HomePageActivity(driver);
 		navTool = new NavigationToolbar(driver);
 		act = new Activity();

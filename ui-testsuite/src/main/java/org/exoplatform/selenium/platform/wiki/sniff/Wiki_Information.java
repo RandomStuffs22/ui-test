@@ -30,8 +30,8 @@ public class Wiki_Information extends Version {
 		magAc = new ManageAccount(driver);
 		but = new Button(driver);
 		magMem = new ManageMember(driver);
-
-		magAc.signIn("john", "gtn"); 
+		
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 	}
 
@@ -183,9 +183,6 @@ public class Wiki_Information extends Version {
 		String title = "Wiki_sniff_infor_page_title_06";
 		String content = "Wiki_sniff_infor_page_content_06";
 
-		magAc.signOut();
-		magAc.signIn("fqa", "gtngtn");
-		goToWiki();
 		addBlankWikiPage(title, content, 0);
 		goToAddRelation();
 		click(ELEMENT_SELECT_SPACE);

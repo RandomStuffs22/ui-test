@@ -32,7 +32,7 @@ public class Forum_Forum_Administration_AutoPrune extends ForumBase {
 		mForum = new ForumManageForum(driver);
 		magtopic = new ForumManageTopic(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 

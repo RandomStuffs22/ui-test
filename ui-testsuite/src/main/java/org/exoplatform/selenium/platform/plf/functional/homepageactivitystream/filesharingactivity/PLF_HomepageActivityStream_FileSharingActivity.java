@@ -33,7 +33,7 @@ public class PLF_HomepageActivityStream_FileSharingActivity extends Activity{
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver, this.plfVersion);
 		home = new HomePageActivity(driver, this.plfVersion); 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		nav = new NavigationToolbar(driver, this.plfVersion);	
 		actBar = new ActionBar(driver, this.plfVersion);
 		ecms = new EcmsBase(driver, this.plfVersion);

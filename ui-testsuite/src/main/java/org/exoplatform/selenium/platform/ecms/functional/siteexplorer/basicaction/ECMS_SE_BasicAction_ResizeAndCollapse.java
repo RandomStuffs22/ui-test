@@ -29,7 +29,7 @@ public class ECMS_SE_BasicAction_ResizeAndCollapse extends PlatformBase {
 	ManageMember magMember;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {

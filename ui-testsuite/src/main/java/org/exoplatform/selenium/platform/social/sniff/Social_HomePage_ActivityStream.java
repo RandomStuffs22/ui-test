@@ -45,7 +45,7 @@ public class Social_HomePage_ActivityStream extends Activity {
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver);
 		activity = new HomePageActivity(driver);
 		navToolBar = new NavigationToolbar(driver);
@@ -53,7 +53,7 @@ public class Social_HomePage_ActivityStream extends Activity {
 		actBar = new ActionBar(driver);
 		peoConn = new PeopleConnection(driver);
 		peoPro = new PeopleProfile(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -112,7 +112,7 @@ public class Social_HomePage_ActivityStream extends Activity {
 		/*Step 2: check the loading automatically  previous activity page*/
 		//- log out and  log in again
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 
 		//- go to home page
 		//-  the first page of last activities is displayeds

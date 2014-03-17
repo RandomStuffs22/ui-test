@@ -20,7 +20,7 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		initSeleniumTest();
 		magAc = new ManageAccount(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 
@@ -41,16 +41,16 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		String contentMessage = "Content of Message 71181";
 
 		//Compose a message
-		composePrivateMessage(DATA_USER2, message, contentMessage);
+		composePrivateMessage(DATA_USER_MARY, message, contentMessage);
 
 		//Check if receiver can receive the message
-		loginForum(DATA_USER2);
+		loginForum(DATA_USER_MARY);
 		goToPrivateMessage();
 		checkPrivateMessage(message, contentMessage);
 		deletePrivateMessage(message);
 
 		//Delete message
-		loginForum(DATA_USER1);
+		loginForum(DATA_USER_JOHN);
 		goToPrivateMessage();
 		click(ELEMENT_PRIVATE_MESSAGE_SENT_TAB);
 		deletePrivateMessage(message);
@@ -68,14 +68,14 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		String replyMessage = "Reply to message 71189";
 
 		//Compose a message
-		composePrivateMessage(DATA_USER2, message, contentMessage);
+		composePrivateMessage(DATA_USER_MARY, message, contentMessage);
 
 		//user2 reply the message
-		loginForum(DATA_USER2);
+		loginForum(DATA_USER_MARY);
 		replyPrivateMessage(message, replyMessage);
 
 		//Check if user1 can receive the reply message
-		loginForum(DATA_USER1);
+		loginForum(DATA_USER_JOHN);
 		goToPrivateMessage();
 		checkPrivateMessage("Reply:" + message, replyMessage);
 
@@ -84,7 +84,7 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		click(ELEMENT_PRIVATE_MESSAGE_SENT_TAB);
 		deletePrivateMessage(message);
 
-		loginForum(DATA_USER2);
+		loginForum(DATA_USER_MARY);
 		goToPrivateMessage();
 		deletePrivateMessage(message);
 		click(ELEMENT_PRIVATE_MESSAGE_SENT_TAB);
@@ -106,10 +106,10 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		composePrivateMessage("demo", message, contentMessage);
 
 		//Forward a message
-		forwardPrivateMessage(message, DATA_USER2, fwdMessage);
+		forwardPrivateMessage(message, DATA_USER_MARY, fwdMessage);
 
 		//Check if the user2 can receive the forward message
-		loginForum(DATA_USER2);
+		loginForum(DATA_USER_MARY);
 		goToPrivateMessage();
 		checkPrivateMessage("Forward:" + message, fwdMessage);
 		waitForAndGetElement(ELEMENT_PRIVATE_MESSAGE_CONTENT.replace("${message}", contentMessage));
@@ -123,7 +123,7 @@ public class Forum_Forum_PrivateMessage extends ForumBase{
 		deletePrivateMessage(message);
 
 		//Delete data
-		loginForum(DATA_USER1);
+		loginForum(DATA_USER_JOHN);
 		goToPrivateMessage();
 		click(ELEMENT_PRIVATE_MESSAGE_SENT_TAB);
 		deletePrivateMessage(message);

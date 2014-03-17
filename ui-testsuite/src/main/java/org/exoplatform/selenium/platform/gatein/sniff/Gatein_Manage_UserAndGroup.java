@@ -33,7 +33,7 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		but = new Button(driver, this.plfVersion);
 		dialog = new Dialog(driver);
 		
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 	}
 
 	@AfterMethod

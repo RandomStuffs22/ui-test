@@ -33,7 +33,7 @@ public class Gatein_GroupNavigation_ManageNavigation extends GroupNavigation {
 		group = new UserGroupManagement(driver);
 		navToolbar = new NavigationToolbar(driver);
 		button = new Button(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	@AfterMethod
@@ -109,7 +109,7 @@ public class Gatein_GroupNavigation_ManageNavigation extends GroupNavigation {
 		
 		//Verify position of Administration after SignOut and SignIn
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		navToolbar.goToGroupSites();
 		waitForElementNotPresent(groupAdminOldPosition);
 		waitForAndGetElement(groupAdminNewPosition);

@@ -31,7 +31,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 		magAc = new ManageAccount(driver);
 		magCat = new AnswerManageCategory(driver);
 		magQuest = new AnswerManageQuestion(driver, this.plfVersion);
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		goToAnswer();
 	}
@@ -117,7 +117,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 		
 		viewQuestionWithDemoUser(categoryName,questionName,false);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		
 		goToAnswer();
 
@@ -136,7 +136,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 		
 		info("Clear data");
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		
 		goToAnswer();
 				
@@ -167,7 +167,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 		
 		viewQuestionWithDemoUser(categoryName,questionName,false);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		
 		goToAnswer();
 
@@ -186,7 +186,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 		
 		info("Clear data");
 			
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		
 		goToAnswer();
 				
@@ -308,7 +308,7 @@ public class Forum_Answers_Questions extends AnswerBase {
 	}
 	
 	public void viewQuestionWithDemoUser(String categoryName, String questionName, boolean view){
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		goToAnswer();
 		magCat.openCategoryInAnswer(categoryName);
 		if (view){

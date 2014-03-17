@@ -34,14 +34,15 @@ public class PLF_Navigation_LeftNavigation extends GroupNavigation {
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver, this.plfVersion);
 		spaceMag = new SpaceManagement(driver, this.plfVersion);
 		navToolbar = new NavigationToolbar(driver, this.plfVersion);
 		button = new Button(driver, this.plfVersion);
 		pageMag = new PageManagement(driver, this.plfVersion);
 		navMag = new NavigationManagement(driver, this.plfVersion);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
+
 	}
 
 	@AfterMethod

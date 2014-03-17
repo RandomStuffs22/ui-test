@@ -30,7 +30,7 @@ public class Calendar_Task extends CalendarBase {
 		acc = new ManageAccount(driver);
 		evt = new Event(driver);
 		tsk = new Task(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod
@@ -201,6 +201,8 @@ public class Calendar_Task extends CalendarBase {
 		dragAndDropToObject(By.xpath(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", CALENDAR06)),ELEMENT_TARGET_DATE);
 
 		info("Restore data");
+		Utils.pause(5000);
+		driver.navigate().refresh();
 		deleteEventTask(CALENDAR06, selectDayOption.ONEDAY);
 	}
 

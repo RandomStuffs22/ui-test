@@ -35,7 +35,7 @@ public class Forum_Forum_UserSettings extends ForumBase {
 		fmTopic = new ForumManageTopic(driver,this.plfVersion);
 		fmPost = new ForumManagePost(driver);
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		goToForums();	
 	}

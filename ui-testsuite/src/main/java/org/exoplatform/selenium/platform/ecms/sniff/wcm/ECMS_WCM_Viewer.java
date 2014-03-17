@@ -56,7 +56,7 @@ public class ECMS_WCM_Viewer extends PlatformBase{
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver);
 		cList = new ContentListPreference(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		driver.get(acmeURL);
 		driver.navigate().refresh();
 		waitForElementNotPresent(ELEMENT_PERSONAL_DOCUMENTS);

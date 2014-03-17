@@ -35,7 +35,7 @@ public class Forum_Forum_Post extends ForumBase{
 		mngTopic = new ForumManageTopic(driver,this.plfVersion);
 		mngPost = new ForumManagePost(driver,this.plfVersion);
 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 
@@ -85,7 +85,7 @@ public class Forum_Forum_Post extends ForumBase{
 		click(By.linkText(topic));
 		
 		//Add private post
-		goToTopic(DATA_USER2, category, topic);
+		goToTopic(DATA_USER_MARY, category, topic);
 		mngPost.privatePost(topic, post, post, "", "");
 		
 		//Check if other user can see private post
@@ -93,7 +93,7 @@ public class Forum_Forum_Post extends ForumBase{
 		waitForElementNotPresent(mngPost.ELEMENT_POST_CONTENT_TEXT.replace("${post}", post));
 		
 		//Check if the receiver can see private post
-		goToTopic(DATA_USER1, category, topic);
+		goToTopic(DATA_USER_JOHN, category, topic);
 		waitForAndGetElement(mngPost.ELEMENT_POST_CONTENT_TEXT.replace("${post}", post));
 		
 		//Delete data

@@ -49,7 +49,7 @@ public class ECMS_Admin_Repository extends PlatformBase{
 	ManageNodeType magNodeType;
 	
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {
@@ -171,7 +171,7 @@ public class ECMS_Admin_Repository extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 		ecms = new EcmsBase(driver);
 		
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		ecMain.goToLockedTab();
 		click(ecMain.ELEMENT_UNLOCK_NODE.replace("${lockedNode}", fileTitle));
 		waitForTextNotPresent(fileTitle);

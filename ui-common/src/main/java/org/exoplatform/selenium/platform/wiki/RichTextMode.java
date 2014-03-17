@@ -208,6 +208,7 @@ public class RichTextMode extends Template {
 			inputsummary.click();
 			inputsummary.sendKeys(Keys.END);
 			inputsummary.sendKeys(Keys.ENTER);
+			inputsummary.sendKeys("</br>");
 			switchToParentWindow();
 			Utils.pause(1000);
 			driver.switchTo().defaultContent();

@@ -31,7 +31,7 @@ public class Forum_Answers_Question_List extends AnswerBase {
 		magCat = new AnswerManageCategory(driver);
 		magQuest = new AnswerManageQuestion(driver);
 		magAns = new AnswerManageAnwser(driver);
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 	}
 

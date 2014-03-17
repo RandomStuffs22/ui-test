@@ -40,7 +40,7 @@ public class PLF_HomePageGadget_GettingStartedGadget extends Activity{
 	public void setUpBeforeTest(){
 		getDriverAutoSave();
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		homeGad = new HomePageGadget(driver);
 		magMember = new ManageMember(driver);
 		spaceMag = new SpaceManagement(driver);
@@ -130,10 +130,10 @@ public class PLF_HomePageGadget_GettingStartedGadget extends Activity{
 		click(peoConn.ELEMENT_EVERYONE_TAB);
 		peoConn.connectPeople(user1); 
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS); 
+		acc.signIn(DATA_USER_MARY, DATA_PASS); 
 		peoConn.acceptInvitation(user2);
 		acc.signOut(); 
-		acc.signIn(DATA_USER1,DATA_PASS); 
+		acc.signIn(DATA_USER_JOHN,DATA_PASS); 
 		//Add profile picture
 		click(homeGad.ELEMENT_PROFILE_PICTURE);
 		peoPro.changeAvatar("TestData/"+file);

@@ -39,7 +39,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		fmPost = new ForumManagePost(driver);
 		acc = new ManageAccount(driver);
 		pageE = new PageEditor(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 		fmForum = new ForumManageForum(driver);
 		fmPoll = new ForumManagePoll(driver);
@@ -104,7 +104,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		acc.signOut();
 		
 		info("TC 72673: Enable Moderator Panel");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -122,7 +122,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		info("Remove data");
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
@@ -186,7 +186,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Enable poll panel for forum portlet
 		info("Enable poll panel for forum portlet");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -210,7 +210,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//********************************Remove data***********************************//
 		info("Remove data");
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
@@ -271,7 +271,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Enable quick reply panel for forum portlet
 		info("Enable quick reply panel for forum portlet");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -291,7 +291,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//********************************Remove data***********************************//
 		info("Remove data");
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
@@ -338,7 +338,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Enable Icons Legend panel for forum portlet
 		info("Enable Icons Legend panel for forum portlet");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -403,7 +403,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Enable quick reply panel for forum portlet
 		info("Enable Rules panel for forum portlet");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);
@@ -423,7 +423,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		//********************************Remove data***********************************//
 		info("Remove data");
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		fmCat.deleteCategoryInForum(catName);
@@ -470,7 +470,7 @@ public class Forum_Forum_ForumPortletSettings_EnableDisablePanel extends ForumBa
 		
 		//Enable Statistic panel for forum portlet
 		info("Enable Statistic panel for forum portlet");
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		navTool.goToEditPageEditor();
 		pageE.goToEditPortlet(ELEMENT_FRAME_CONTAIN_PORTLET);

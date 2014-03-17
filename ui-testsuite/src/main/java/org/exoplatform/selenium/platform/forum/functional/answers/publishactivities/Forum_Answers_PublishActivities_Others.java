@@ -35,7 +35,7 @@ public class Forum_Answers_PublishActivities_Others extends AnswerBase{
 		driver.get(baseUrl);
 		acc = new ManageAccount(driver);
 		mQuest = new AnswerManageQuestion(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		hpAct = new HomePageActivity(driver);
 		navTool = new NavigationToolbar(driver);
 		mAns = new AnswerManageAnwser(driver);

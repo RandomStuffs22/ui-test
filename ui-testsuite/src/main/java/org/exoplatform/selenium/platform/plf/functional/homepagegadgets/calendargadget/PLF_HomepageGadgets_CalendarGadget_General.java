@@ -36,7 +36,7 @@ public class PLF_HomepageGadgets_CalendarGadget_General extends CalendarBase{
 		nav = new NavigationToolbar(driver, this.plfVersion);	
 		task = new Task(driver, this.plfVersion);
 		event = new Event(driver, this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);		
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 		button = new Button(driver, this.plfVersion);
 	}
 
@@ -574,7 +574,7 @@ public class PLF_HomepageGadgets_CalendarGadget_General extends CalendarBase{
 		 *Input Data: 
 		 *Expected Outcome: The list of calendars doesn't changed		*/ 
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);	
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);	
 		info("User signIn/signOut to check");
 		waitForAndGetElement(ELEMENT_CALENDAR_GADGET);
 		waitForAndGetElement(ELEMENT_CALENDAR_GADGET_SETTING_LINK_ITEM.replace("${calendar}",calendar1));

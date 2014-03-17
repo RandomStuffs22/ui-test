@@ -40,7 +40,7 @@ public class Forum_Answers_PublishActivity extends AnswerBase{
 		mCom = new AnswerManageComment(driver, this.plfVersion);
 		HPAct = new HomePageActivity(driver, this.plfVersion);
 		navTool = new NavigationToolbar(driver);
-		Acc.signIn(DATA_USER1, DATA_PASS);
+		Acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		button = new Button(driver);
 
 		goToAnswer();

@@ -31,7 +31,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		initSeleniumTest();
 		acc = new ManageAccount(driver);
 		evt = new Event(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		sp = new SpaceManagement(driver);
 		toolBar = new NavigationToolbar(driver);
 		homeAct = new HomePageActivity(driver);
@@ -67,7 +67,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		homeAct.checkEventActivity(event, getCurrentDate("dd"), getCurrentDate("MMM"));
 		
 		//Delete event
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.accessSpace(space);
 		sp.goToSpaceMenu("Agenda");
 		deleteEventTask(event, selectDayOption.ONEDAY);
@@ -77,7 +77,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		// homeAct.checkEventActivity(event, getCurrentDate("dd"), getCurrentDate("MMM"), false);
 		
 		//Delete spaces
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 	
@@ -105,7 +105,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_ALL_DAY));
 		
 		//Delete space
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 	
@@ -136,7 +136,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", newEvent).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_SUMMARY.replace("${newTitle}",newEvent)));
 		
 		//Delete space
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 	
@@ -167,7 +167,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_DESC.replace("${description}",desc)));
 		
 		//Delete space
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 	
@@ -198,7 +198,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		waitForAndGetElement(homeAct.ELEMENT_ACTIVITY_COMMENT_CONTENT.replace("${title}", event).replace("${comment}", homeAct.MSG_EVENT_COMMENT_UPDATE_LOCATION.replace("${location}",location)));
 		
 		//Delete space
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 	
@@ -229,7 +229,7 @@ public class Calendar_PublishActivities_Event extends CalendarBase{
 		waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event));
 		
 		//Delete space
-		sp.goToAllSpaces();
+		sp.goToMySpacePage();
 		sp.deleteSpace(space);
 	}
 }

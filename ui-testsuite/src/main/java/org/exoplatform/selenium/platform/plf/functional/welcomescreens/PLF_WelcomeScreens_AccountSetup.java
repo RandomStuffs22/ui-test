@@ -698,7 +698,7 @@ public class PLF_WelcomeScreens_AccountSetup extends PlatformBase{
 		- The screen "Terms and Conditions Agreement" is Not displayed
 		- The screen "Setup account" is not displayed		*/ 	
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		waitForElementNotPresent(By.xpath(ELEMENT_TERM_CONDITION_BOX));
 	}
 

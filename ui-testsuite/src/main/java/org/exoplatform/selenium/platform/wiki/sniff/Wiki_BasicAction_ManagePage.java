@@ -31,11 +31,11 @@ public class Wiki_BasicAction_ManagePage extends ManageDraft{
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		magAc = new ManageAccount(driver);
+		magAc = new ManageAccount(driver,this.plfVersion);
 		but = new Button(driver);
 		naTool = new NavigationToolbar(driver);
 		activity = new HomePageActivity(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToWiki();
 	}
 
@@ -84,13 +84,11 @@ public class Wiki_BasicAction_ManagePage extends ManageDraft{
 		typeEnterInRichText();
 		createColorMacro("red", message);
 		typeEnterInRichText();
-		insertPageLink2WikiPage(true, pageLink, "Link to pageLink", "Go to pageLink");
-		typeEnterInRichText();
 		insertTable2WikiPage("2", "2");
+		typeEnterInRichText();
+		insertPageLink2WikiPage(true, pageLink, "Link to pageLink", "Go to pageLink");
 		click(ELEMENT_SAVE_BUTTON_ADD_PAGE);
 		waitForElementNotPresent(ELEMENT_SAVE_BUTTON_ADD_PAGE);
-		//waitForAndGetElement(By.xpath("//a[@title='Go to pageLink' and contains(text(), 'Link to pageLink')]"));
-		//waitForAndGetElement(activity.ELEMENT_CONTENT_NAME.replace("@{fileName}", "Go to pageLink"));
 		waitForAndGetElement(By.linkText("Link to pageLink"));
 		waitForAndGetElement(By.xpath("//*[@style='color:red;' and contains(text(),'" + message + "')]"));
 
@@ -115,7 +113,7 @@ public class Wiki_BasicAction_ManagePage extends ManageDraft{
 
 		goToAddBlankPage();
 		addWikiPageSourceEditor(title, content);
-		Utils.pause(30000);
+		Utils.pause(32000);
 		assert isElementPresent(ELEMENT_DRAFT_NOTIFY);
 
 		goToManageDraft();

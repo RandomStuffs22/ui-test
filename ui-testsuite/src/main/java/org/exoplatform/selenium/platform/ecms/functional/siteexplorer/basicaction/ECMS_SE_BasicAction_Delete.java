@@ -68,7 +68,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		cTemplate = new ContentTemplate(driver);
 		cMenu = new ContextMenu(driver); 
 		siteExp = new SitesExplorer(driver);
-		magAcc.signIn("john","gtn");
+		magAcc.signIn("john",DATA_PASS);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		cMenu = new ContextMenu(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check user mary can not delete node
@@ -194,7 +194,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn("john", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(ELEMENT_CONTENT_FOLDER);
 	}
@@ -240,7 +240,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		navToolBar = new NavigationToolbar(driver);
 		magAcc = new ManageAccount(driver);
 		cMenu = new ContextMenu(driver);
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check user mary can delete child node
@@ -250,7 +250,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 		magAcc.signOut();
 
 		//delete data
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn("john", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		cMenu.deleteDocument(ELEMENT_CONTENT_FOLDER);		
 	}
@@ -287,7 +287,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 
 		//Sign out and Sign in as mary
 		magAcc.signOut();
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		//goto Site Explorer
 		navToolBar.goToSiteExplorer();
@@ -299,7 +299,7 @@ public class ECMS_SE_BasicAction_Delete extends PlatformBase {
 
 		//Delete data
 		magAcc.signOut();
-		magAcc.signIn("john", "gtn");
+		magAcc.signIn("john", DATA_PASS);
 
 		//goto Site Explorer
 		navToolBar.goToSiteExplorer();

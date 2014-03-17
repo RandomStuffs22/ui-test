@@ -235,7 +235,7 @@ import org.testng.annotations.*;
 		
 		info("Restore data");
 		magAc.signOut();
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navTool.goToManagePages();
 		pageMag.deletePage(PageType.PORTAL, pageName);
 

@@ -30,7 +30,7 @@ public class Calendar_Calendar extends CalendarBase{
 		acc = new ManageAccount(driver);
 		evt = new Event(driver, this.plfVersion);
 		tsk = new Task(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToCalendarPage();
 		setTimezoneForCalendar("(GMT +07:00) Asia/Ho_Chi_Minh");
 	}
@@ -110,8 +110,9 @@ public class Calendar_Calendar extends CalendarBase{
 		String calendar = "Calendar 69649";
 		String newCalendar = "new Calendar 69649";
 		info("Add/Edit/Delete Group Calendar");
-		addCalendar(calendar,calendar,"red","/platform/administrators");
-		editCalendar(calendar,newCalendar, newCalendar,"light_purple","/platform/web-contributors");
+		addCalendar(calendar,calendar,"red","/organization/management/executive-board");
+		changeEditPermissionForCalShowInGroup(calendar, "root", "/organization/management/executive-board");
+		editCalendar(calendar,newCalendar, newCalendar,"light_purple");
 		deleteCalendar(newCalendar);
 	}
 
@@ -133,14 +134,14 @@ public class Calendar_Calendar extends CalendarBase{
 
 		info("Confirm shared Calendar");
 		acc.signOut();
-		acc.signIn(DATA_USER2,DATA_PASS);
+		acc.signIn(DATA_USER_MARY,DATA_PASS);
 		goToCalendarPage();
 		driver.navigate().refresh();
 		waitForAndGetElement(ELEMENT_CALENDAR_GET_BY_TAG_LI.replace("${calendar}",calendar));
 		
 		info("Delete shared Calendar");
 		acc.signOut();
-		acc.signIn(DATA_USER1,DATA_PASS);
+		acc.signIn(DATA_USER_JOHN,DATA_PASS);
 		goToCalendarPage();
 		driver.navigate().refresh();
 		deleteCalendar(calendar,true);		
@@ -160,7 +161,7 @@ public class Calendar_Calendar extends CalendarBase{
 		addCalendar(calendar,calendar,"red");
 		shareCalendar(calendar,user,canEdit);
 		acc.signOut();
-		acc.signIn(DATA_USER2,DATA_PASS);
+		acc.signIn(DATA_USER_MARY,DATA_PASS);
 		goToCalendarPage();
 
 		openMenuOfCalendar(calendar);
@@ -173,7 +174,7 @@ public class Calendar_Calendar extends CalendarBase{
 		waitForAndGetElement(ELEMENT_CAL_ADD_TASK_MENU,DEFAULT_TIMEOUT,0,2);
 
 		acc.signOut();
-		acc.signIn(DATA_USER1,DATA_PASS);
+		acc.signIn(DATA_USER_JOHN,DATA_PASS);
 		goToCalendarPage();
 		deleteCalendar(calendar);
 	}

@@ -46,7 +46,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 	UserGroupManagement ugMan;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 
 	@BeforeMethod
@@ -188,7 +188,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Step 1: Select node to view permission of node*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Create node (folder, document) or upload file
@@ -204,7 +204,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		/*Step 3: Open 'Permission Management' pop-up*/
 		//Login by user is not locker
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Add permission button to action bar if it is not on action bar
@@ -354,7 +354,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -363,7 +363,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Clear data*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		mDrive.removeViewFromDrive("Admin", "Managed Sites");
 		navToolBar.goToSiteExplorer();
@@ -410,9 +410,9 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		/*Step 3: Edit permission of user or group*/
 		//Click on 'Edit' icon to edit permission of user is owner of this node
 		//Form to edit permission appears but you can not edit permission of this user
-		assert (!waitForAndGetElement(ePerm.ELEMENT_READ_CHECK.replace("{$user}",DATA_USER1),DEFAULT_TIMEOUT,1,2).isEnabled());
-		assert (!waitForAndGetElement(ePerm.ELEMENT_MODIFY_CHECK.replace("{$user}",DATA_USER1),DEFAULT_TIMEOUT,1,2).isEnabled());
-		assert (!waitForAndGetElement(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",DATA_USER1),DEFAULT_TIMEOUT,1,2).isEnabled());
+		assert (!waitForAndGetElement(ePerm.ELEMENT_READ_CHECK.replace("{$user}",DATA_USER_JOHN),DEFAULT_TIMEOUT,1,2).isEnabled());
+		assert (!waitForAndGetElement(ePerm.ELEMENT_MODIFY_CHECK.replace("{$user}",DATA_USER_JOHN),DEFAULT_TIMEOUT,1,2).isEnabled());
+		assert (!waitForAndGetElement(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",DATA_USER_JOHN),DEFAULT_TIMEOUT,1,2).isEnabled());
 
 		btn.close();
 
@@ -512,7 +512,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Step 3: Delete permission of user 'root' */
 		//Can't see delete icon of owner
-		waitForElementNotPresent(ePerm.ELEMENT_DELETE_USER_PERMISSION_1.replace("${userOrGroupName}", DATA_USER1));
+		waitForElementNotPresent(ePerm.ELEMENT_DELETE_USER_PERMISSION_1.replace("${userOrGroupName}", DATA_USER_JOHN));
 
 		/*Clear data*/
 		mDrive.removeViewFromDrive("Admin", "Managed Sites");
@@ -564,12 +564,12 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		//Locker add permission of this node
 		//Add permission "read", "write" for mary
-		ePerm.selectUser(DATA_USER2);
+		ePerm.selectUser(DATA_USER_MARY);
 		ePerm.setPermissionForNode(true, true, false);
 		btn.save();
 		btn.close();
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, "gtn");
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		//Check if mary has edit, read on node1
 		rightClickOnElement(bFolder);
@@ -577,7 +577,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Login again*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Select 'Admin view'
@@ -589,14 +589,14 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		//Click 'Delete' icon to delete permission of user 
 		//Locker delete permission of this node
-		ePerm.deletePermission(DATA_USER2, true);
+		ePerm.deletePermission(DATA_USER_MARY, true);
 
 		//Locker edit permission of this node
 		uncheck(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",user1),2);
 		btn.close();
 
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Check if mary has edit, read on node1
@@ -605,7 +605,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Clear data*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		mDrive.removeViewFromDrive("Admin", "Managed Sites");
 		navToolBar.goToSiteExplorer();
@@ -651,8 +651,8 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		btn = new Button(driver);
 		cMenu = new ContextMenu(driver);
 
-		info("Login ECMS with " + DATA_USER2);
-		magAcc.signIn(DATA_USER2, "gtn");
+		info("Login ECMS with " + DATA_USER_MARY);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Click on 'View Permissions' icon 
@@ -666,7 +666,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		magAcc.signOut();
 
 		/*Clear data*/
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		click(siteExp.ELEMENT_SIDEBAR_FILE_EXPLORER);
 		cMenu.deleteDocument(bFolderLocked);
@@ -719,7 +719,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		magAlert.click(By.xpath("//*[text()='OK']"));
 
 		//Add new permission
-		ePerm.selectUser(DATA_USER2);
+		ePerm.selectUser(DATA_USER_MARY);
 		ePerm.setPermissionForNode(true, true, false);
 		btn.save();
 		waitForAndGetElement(ePerm.ELEMENT_WARNING_DIALOG_PERMISSION);
@@ -779,12 +779,12 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		uncheck(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",user),2);
 
 		//Add new permission
-		ePerm.selectUser(DATA_USER2);
+		ePerm.selectUser(DATA_USER_MARY);
 		ePerm.setPermissionForNode(true, true, false);
 		btn.save();
 
 		//Delete permission
-		ePerm.deletePermission(DATA_USER2, true);
+		ePerm.deletePermission(DATA_USER_MARY, true);
 
 		//close permission form
 		btn.close();
@@ -846,14 +846,14 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		ePerm.setPermissionForNode(true, true, true);
 		btn.save();
 
-		ePerm.selectUser(DATA_USER2);
+		ePerm.selectUser(DATA_USER_MARY);
 		ePerm.setPermissionForNode(true, false, true);
 		btn.save();
 		btn.close();
 
 		/*Login again*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER2, DATA_PASS);
+		magAcc.signIn(DATA_USER_MARY, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//Click on 'View Permissions' icon 
@@ -867,7 +867,7 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 
 		/*Clear data*/
 		magAcc.signOut();
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		mDrive.removeViewFromDrive("Admin", "Managed Sites");
 		navToolBar.goToSiteExplorer();
@@ -1098,14 +1098,14 @@ public class ECMS_SE_Info_Permission  extends PlatformBase {
 		/*Step 5: Select permission for user*/
 		//Select the group in 'Select group' form
 		//Select membership is *
-		ePerm.selectUser(DATA_USER2);
+		ePerm.selectUser(DATA_USER_MARY);
 		ePerm.setPermissionForNode(true, true, true);
 		btn.save();
 		//Node is added permission. All the users in the group at step 5 can do these  actions
-		waitForAndGetElement(ePerm.ELEMENT_DELETE_USER_PERMISSION_1.replace("${userOrGroupName}", DATA_USER2),DEFAULT_TIMEOUT, 1);
-		assert waitForAndGetElement(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",DATA_USER2),DEFAULT_TIMEOUT,1,2).isSelected();
-		assert waitForAndGetElement(ePerm.ELEMENT_MODIFY_CHECK.replace("{$user}",DATA_USER2),DEFAULT_TIMEOUT,1,2).isSelected();
-		assert waitForAndGetElement(ePerm.ELEMENT_READ_CHECK.replace("{$user}",DATA_USER2),DEFAULT_TIMEOUT,1,2).isSelected();
+		waitForAndGetElement(ePerm.ELEMENT_DELETE_USER_PERMISSION_1.replace("${userOrGroupName}", DATA_USER_MARY),DEFAULT_TIMEOUT, 1);
+		assert waitForAndGetElement(ePerm.ELEMENT_REMOVE_CHECK.replace("{$user}",DATA_USER_MARY),DEFAULT_TIMEOUT,1,2).isSelected();
+		assert waitForAndGetElement(ePerm.ELEMENT_MODIFY_CHECK.replace("{$user}",DATA_USER_MARY),DEFAULT_TIMEOUT,1,2).isSelected();
+		assert waitForAndGetElement(ePerm.ELEMENT_READ_CHECK.replace("{$user}",DATA_USER_MARY),DEFAULT_TIMEOUT,1,2).isSelected();
 		btn.close();
 
 		/*Clear data*/

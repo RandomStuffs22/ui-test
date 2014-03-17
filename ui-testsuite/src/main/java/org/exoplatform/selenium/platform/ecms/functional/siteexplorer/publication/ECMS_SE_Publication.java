@@ -35,7 +35,7 @@ public class ECMS_SE_Publication extends PlatformBase{
 		driver.get(baseUrl);
 		navToolBar = new NavigationToolbar(driver);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		actBar = new ActionBar(driver);
 		conTemp =  new ContentTemplate(driver);
 		ecms = new EcmsBase(driver);

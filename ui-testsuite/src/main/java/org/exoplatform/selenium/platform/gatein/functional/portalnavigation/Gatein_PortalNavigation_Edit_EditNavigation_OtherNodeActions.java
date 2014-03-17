@@ -41,7 +41,7 @@ public class Gatein_PortalNavigation_Edit_EditNavigation_OtherNodeActions extend
 		PageEditor pageEditor;
 		UserGroupManagement userGroupMag;
 		
-		public String username = DATA_USER1;
+		public String username = DATA_USER_JOHN;
 		public String password = DATA_PASS;
 		public String nodeNamelocator = "//*[@id='UINavigationNodeSelector']//a[@title='${nodeName}']";
 		public By WarningMsgFailPasteNode = By.xpath("//span[contains(text(),'This node name already exists')]");

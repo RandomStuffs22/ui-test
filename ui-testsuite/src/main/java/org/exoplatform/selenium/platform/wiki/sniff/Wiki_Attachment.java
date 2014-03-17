@@ -24,7 +24,8 @@ public class Wiki_Attachment extends BasicAction {
 		getDriverAutoSave();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn");
+
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 	}
 

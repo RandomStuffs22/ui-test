@@ -25,18 +25,18 @@ public class Calendar_Views extends CalendarBase{
 	Task tsk;
 	Button but;
 
-	@BeforeMethod(groups="fail")
+	@BeforeMethod
 	public void setUpBeforeTest(){
 		getDriverAutoSave();
 		acc = new ManageAccount(driver);
 		evt = new Event(driver);
 		tsk = new Task(driver);
 
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToCalendarPage();
 	}
 
-	@AfterMethod(groups="fail")
+	@AfterMethod
 	public void afterTest(){
 		driver.manage().deleteAllCookies();
 		driver.quit();
@@ -80,7 +80,7 @@ public class Calendar_Views extends CalendarBase{
 
 		info("Restore data");
 		click(ELEMENT_BUTTON_WEEK_VIEW);
-		deleteEventTask(EVENT_NAME_01);
+		deleteEventTask(EVENT_NAME_01,selectDayOption.ONEDAY);
 	}
 
 	/** Check category filter in Week view
@@ -101,7 +101,7 @@ public class Calendar_Views extends CalendarBase{
 		}
 		info("Add new event with specific category");
 		Utils.pause(5000);
-		evt.addQuickEvent(EVENT_NAME_02,EVENT_NAME_02,getDate(0,"MM/dd/yyyy"),getDate(0,"MM/dd/yyyy"),false,"John Smith",CategoryName);
+		evt.addQuickEvent(EVENT_NAME_02,EVENT_NAME_02,getDate(0,"MM/dd/yyyy"),getDate(0,"MM/dd/yyyy"),false,null,CategoryName);
 
 		info("Check event displayed in ALL category");
 		waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}",EVENT_NAME_02));
@@ -134,7 +134,7 @@ public class Calendar_Views extends CalendarBase{
 
 		info("Add new event with specific category");
 		Utils.pause(5000);
-		evt.addQuickEvent(EVENT_NAME_03,EVENT_NAME_03,getDate(0,"MM/dd/yyyy"),getDate(0,"MM/dd/yyyy"),false,"John Smith",CategoryName);
+		evt.addQuickEvent(EVENT_NAME_03,EVENT_NAME_03,getDate(0,"MM/dd/yyyy"),getDate(0,"MM/dd/yyyy"),false,null,CategoryName);
 		
 		
 		info("Choose List view of Calendar");

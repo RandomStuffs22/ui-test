@@ -39,7 +39,7 @@ public class ECMS_SE_BasicAction_Rename extends PlatformBase{
 	ManageDrive magDrv;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

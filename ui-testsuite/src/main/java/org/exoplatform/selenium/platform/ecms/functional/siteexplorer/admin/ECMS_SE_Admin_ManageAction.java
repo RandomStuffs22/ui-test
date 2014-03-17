@@ -40,7 +40,7 @@ public class ECMS_SE_Admin_ManageAction extends PlatformBase{
 		ActionBar actBar;
 		SitesExplorer siteExp;
 		public final String DATA_USER = "john";
-		public final String DATA_PASS = "gtn";
+		//public final String DATA_PASS = DATA_PASS;
 
 		@BeforeMethod
 		public void beforeMethods() {

@@ -22,7 +22,7 @@ public class Wiki_Quick_Search extends BasicAction {
 		initSeleniumTest();
 		driver.get(baseUrl);
 		magAc = new ManageAccount(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 	
 	//Qmetry ID: 79796
@@ -91,7 +91,7 @@ public class Wiki_Quick_Search extends BasicAction {
 
 		magAc.signOut();
 
-		magAc.signIn("james", "gtn");
+		magAc.signIn("james", DATA_PASS);
 
 		goToWiki();
 
@@ -102,7 +102,7 @@ public class Wiki_Quick_Search extends BasicAction {
 
 		magAc.signOut();
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 
 		goToWiki();
 

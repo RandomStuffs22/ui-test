@@ -63,7 +63,7 @@ import org.testng.annotations.*;
 			pConn = new PeopleConnection(driver,this.plfVersion);
 			mMember = new ManageMember(driver,this.plfVersion);
 			spaceMan = new SpaceManagement(driver,this.plfVersion);
-			acc.signIn(DATA_USER1, DATA_PASS);		
+			acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 		}
 
 		@AfterMethod
@@ -155,7 +155,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
 	}
@@ -262,7 +262,7 @@ import org.testng.annotations.*;
 	
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -314,7 +314,7 @@ import org.testng.annotations.*;
 		
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
  	}
@@ -440,7 +440,7 @@ import org.testng.annotations.*;
 		waitForActivityNotPresent(text3, true);
 		//remove data
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		mMember.goToAllSpaces();
 		mMember.deleteSpace(spaceName);
 	}

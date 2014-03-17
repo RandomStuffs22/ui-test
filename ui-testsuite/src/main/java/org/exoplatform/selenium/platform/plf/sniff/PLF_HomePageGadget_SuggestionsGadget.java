@@ -33,7 +33,7 @@ public class PLF_HomePageGadget_SuggestionsGadget extends Activity{
 		magMember = new ManageMember(driver);
 		peoConn = new PeopleConnection(driver);
 		navToolBar = new NavigationToolbar(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 
 	}
 

@@ -31,7 +31,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 		magCat = new AnswerManageCategory(driver);
 		magQuest = new AnswerManageQuestion(driver);
 		magAns = new AnswerManageAnwser(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 	}
 	@AfterMethod
@@ -65,7 +65,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 		
 		/*Clear data*/
 		info("-- Clear data --");
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -320,7 +320,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 
 		/*Clear data*/
 		info("-- Clear data --");
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -386,7 +386,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 
 		/*Clear data*/
 		info("-- Clear data --");
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -443,7 +443,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 		
 		/*Clear data*/
 		info("-- Clear data --");
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -507,7 +507,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 		
 		/* Step 5: Activate answer */
 		//- Login as root
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.openCategoryInAnswer(categoryName);
 		click(By.linkText(questionName));
@@ -522,7 +522,7 @@ public class Forum_Answers_Question_AnswerQuestion extends AnswerBase{
 		
 		/*Clear data*/
 		info("-- Clear data --");
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}

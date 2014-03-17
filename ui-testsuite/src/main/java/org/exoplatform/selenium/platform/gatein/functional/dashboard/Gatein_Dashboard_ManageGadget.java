@@ -35,7 +35,7 @@ public class Gatein_Dashboard_ManageGadget extends DashBoard{
 		magNav = new NavigationManagement(driver);
 		magApp = new ManageApplications(driver);
 
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	@AfterMethod

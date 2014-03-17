@@ -35,7 +35,7 @@ public class Forum_Forum_Poll_AddEditDelete extends ForumBase {
 		fmPoll = new ForumManagePoll(driver,this.plfVersion);
 		fmTopic = new ForumManageTopic(driver,this.plfVersion);
 		acc = new ManageAccount(driver,this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

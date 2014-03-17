@@ -40,7 +40,7 @@ public class Forum_Setting extends ForumBase {
 		button = new Button(driver, this.plfVersion);
 		navTool = new NavigationToolbar(driver);
 		pageE = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToForums();
 	}
 
@@ -96,14 +96,14 @@ public class Forum_Setting extends ForumBase {
 		magAc.signOut();
 		
 		info("Create topic and post with user demo");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		goToForums();
 		click(By.linkText(forumName));
 		magtopic.quickStartTopic(title, message);
 		click(By.linkText(title));
 		post.postReply(postname, messagePost, null, null);
 		magAc.signOut();
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		
 		goToForums();
 		goToUserManagement("demo");
@@ -120,14 +120,14 @@ public class Forum_Setting extends ForumBase {
 		magAc.signOut();
 		
 		info("Check ban user demo");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		goToForums();
 		click(By.linkText(forumName));
 		waitForAndGetElement(ELEMENT_START_TOPIC_DISABLE);
 		magAc.signOut();
 		
 		info("Reset data");
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToForums();
 		click(By.linkText(catName));
 		cat.deleteCategoryInForum(catName);

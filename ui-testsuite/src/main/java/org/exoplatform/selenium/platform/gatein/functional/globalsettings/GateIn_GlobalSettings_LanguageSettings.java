@@ -64,7 +64,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 
 		/* Step 1: Show form to change language */
 		//- Login by user
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 
 		/*Create data*/
 		userGroup.editUserAccount("john", false, null, null, null, null, null, null, null, "");
@@ -92,7 +92,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 
 		/* Step 4: Check displaying language when sign in again */
 		//Sign In
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 
 		//- Portal is displayed in private mode
 		//- It is displayed in new selected language at step 2, 
@@ -142,7 +142,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		/*Clear data*/
 		info("-- Clear data --");
 		magAc.changeLanguageWithoutLogin(LANGUAGE_ENGLISH);
-		magAc.signInAcme(DATA_USER1, DATA_PASS);
+		magAc.signInAcme(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	/**CaseId: 73585
@@ -182,7 +182,7 @@ public class GateIn_GlobalSettings_LanguageSettings extends PortalManagement {
 		/*Clear data*/
 		info("-- Clear data --");
 		magAc.changeLanguageWithoutLogin(LANGUAGE_ENGLISH);
-		magAc.signInAcme(DATA_USER1, DATA_PASS);
+		magAc.signInAcme(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	/**CaseId: 73641

@@ -54,7 +54,7 @@ public class PLF_ContentNavigation extends PlatformBase{
 		act = new ActionBar(driver, this.plfVersion);
 		brMag = new BrandingManagement(driver, this.plfVersion);
 		temCont = new ContentTemplate(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);	
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);	
 		mnView = new ManageView(driver,this.plfVersion);
 		ecMain = new ECMainFunction(driver);
 		pEdit = new PageEditor(driver, this.plfVersion);

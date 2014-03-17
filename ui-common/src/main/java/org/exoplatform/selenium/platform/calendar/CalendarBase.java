@@ -1,7 +1,6 @@
 package org.exoplatform.selenium.platform.calendar;
 
 import static org.exoplatform.selenium.TestLogger.info;
-import java.awt.event.KeyEvent;
 import org.exoplatform.selenium.Button;
 import org.exoplatform.selenium.ManageAlert;
 import org.exoplatform.selenium.Utils;
@@ -9,9 +8,11 @@ import org.exoplatform.selenium.platform.PlatformBase;
 import org.exoplatform.selenium.platform.PlatformPermission;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.Keys;
 //import org.openqa.selenium.internal.seleniumemulation.KeyEvent;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Provides all basic actions of managing Calendar portlet 
@@ -35,8 +36,8 @@ public class CalendarBase extends PlatformBase {
 	public By ELEMENT_CALENDAR_IMPORT_MENU = By.xpath("//*[@id='tmpMenuElement']//a[contains(@href,'ImportCalendar')]");
 	public String ELEMENT_CALENDAR_GET_BY_TAG_LI = "//a[@class='calendarName' and contains(text(), '${calendar}')]/../..";
 	public By ELEMENT_CALENDAR_POPUP_WINDOW = By.xpath("//*[@id='UICalendarPopupWindow']/div[2]");
-	public String ELEMENT_VERIFY_CALENDAR_FORM = "//*[@id='defaultCalendarTab'] //div[@class='myCalendar']/*[@class='calendarTitle']/..//li[contains(@class,'calendarItem' )]//*[text()='${UserName}']/../a[@class='${CheckboxColor}']";
-	public String ELEMENT_DISPLAY_CALENDAR= "//a[@data-original-title='${calendar}']";
+	public String ELEMENT_VERIFY_CALENDAR_FORM = "//*[@id='defaultCalendarTab'] //div[@class='myCalendar']/*[@class='calendarTitle']/..//li[contains(@class,'calendarItem' )]//*[contains(text(),'${UserName}')]/../a[@class='${CheckboxColor}']";
+	public String ELEMENT_DISPLAY_CALENDAR= "//a[contains(@data-original-title,'${calendar}')]";
 	//--------------Mini calendar-------------------
 	public String ELEMENT_MINI_CALENDAR_DATE_HIGHLIGHT = "//td[contains(@class,'highLight') and contains(text(),'${date}')]";
 
@@ -50,7 +51,7 @@ public class CalendarBase extends PlatformBase {
 	public By ELEMENT_CALENDAR_TAB_DEFAULT = By.id("defaultCalendarTab");
 	public By ELEMENT_PERSONAL_CALENDAR = By.xpath("//*[@id='defaultCalendarTab']//div[@class='myCalendar']/*[@class='calendarTitle' and text()='Personal Calendars']");
 	public By ELEMENT_GROUP_CALENDAR = By.xpath("//*[@id='defaultCalendarTab']//div[@class='myCalendar']/*[@class='calendarTitle' and text()='Group Calendars']");
-	public String ELEMENT_VERIFY_CALENDAR = "//*[@id='defaultCalendarTab'] //div[@class='myCalendar']/*[@class='calendarTitle']/..//li[contains(@class,'calendarItem' )]//*[text()='${UserName}']/../a[@class='${CheckboxColor}']//span[@class='${checkicon}']";
+	public String ELEMENT_VERIFY_CALENDAR = "//*[@id='defaultCalendarTab'] //div[@class='myCalendar']/*[@class='calendarTitle']/..//li[contains(@class,'calendarItem' )]//*[contains(text(),'${UserName}')]/../a[@class='${CheckboxColor}']//span[@class='${checkicon}']";
 	public By ELEMENT_UNCHECK_BOX = By.xpath("//span[@class='iconCheckBox checkbox']");
 	public By ELEMENT_SETTINGS_FORM_SAVE_BUTTON = By.xpath("//*[@id='UICalendarSettingForm']//*[text()='Save']");
 
@@ -134,8 +135,8 @@ public class CalendarBase extends PlatformBase {
 	public String ELEMENT_EVENT_TASK_ALL_DAY = "//*[@id='UIWeekViewGridAllDay']//div[contains(text(),'${event}')]";
 	public String ELEMENT_EVENT_TASK_ALL_DAY_PLF41 = "//*[@id='UIWeekViewGridAllDay']//div[contains(@class,'eventAlldayContent') and contains(.,'${event}')]";
 	//public String ELEMENT_EVENT_TASK_ONE_DAY = "//*[@id='UIWeekViewGrid']//div[contains(text(),'${taskName}')]/parent::div[@class='clearfix']/div[@class='eventContainerBar eventTitle pull-left']";
-	public String ELEMENT_EVENT_TASK_ONE_DAY = "//*[@id='UIWeekViewGrid']//div[contains(text(),'${taskName}')]";
-	public String ELEMENT_EVENT_TASK_ONE_DAY_1 = "//*[@id='UIWeekView']//div[contains(text(),'${taskName}')]";
+	public String ELEMENT_EVENT_TASK_ONE_DAY = "//*[@id='UIWeekViewGrid']//div[contains(text(),'${taskName}')]/../div/span";
+	public String ELEMENT_EVENT_TASK_ONE_DAY_1 = "//*[@id='UIWeekView']//div[contains(text(),'${taskName}')]/../div/span";
 	public String ELEMENT_EVENT_TASK_WORKING_PANE = "//*[@id='UIWeekViewGrid']//div[@class='eventContainer' and contains(text(),'${event}')]";
 	public String ELEMENT_EVENT_TASK_WORKING_PANE_PLF41 = "//*[@id='UIWeekViewGrid']//div[contains(@class,'eventAlldayContent') and contains(.,'${event}')]";
 	public By ELEMENT_EVENT_TASK_DELETE_MENU = By.xpath("//div[@id='tmpMenuElement']//a[@class='eventAction' and contains(@href,'Delete')]");
@@ -218,6 +219,8 @@ public class CalendarBase extends PlatformBase {
 	public void goToCalendarPage(){	
 		info("--Go to calendar--");
 		click(ELEMENT_CALENDAR_LINK);
+		if(isElementNotPresent(ELEMENT_CALENDAR_PANEL))
+			driver.navigate().refresh();
 		waitForAndGetElement(ELEMENT_CALENDAR_PANEL);
 		ID_CALENDAR_PAGE = waitForAndGetElement(ELEMENT_GET_ID_PAGE).getAttribute("id");
 	}
@@ -398,7 +401,7 @@ public class CalendarBase extends PlatformBase {
 			click(ELEMENT_CAL_GROUP_TAB);
 			if(type.equals("0")){
 				click(ELEMENT_CAL_SELECT_GROUP_ICON);
-				click(ELEMENT_DATA_ORIGINAL_TITLE.replace("${title}", groups[0]));
+				click("//*[@id='UIGroupSelector']"+ELEMENT_DATA_ORIGINAL_TITLE.replace("${title}", groups[0]));
 			}else
 				type(ELEMENT_CAL_GROUP_INPUT,groups[0],true);
 			click(button.ELEMENT_ADD_BUTTON);
@@ -427,10 +430,13 @@ public class CalendarBase extends PlatformBase {
 		Utils.pause(1000);
 		if(name != null)
 			type(ELEMENT_NAME_FEEDS,name,true);
-		for(int i = 0; i < calendar.length; i++){
-			select(ELEMENT_ADD_MORE,calendar[i]);
-			click(ELEMENT_ADD_CALENDAR_BUTTON);
+		if(calendar!=null){
+			for(int i = 0; i < calendar.length; i++){
+				click(ELEMENT_ADD_MORE);
+				select(ELEMENT_ADD_MORE,calendar[i]);
+			}
 		}
+		click(ELEMENT_ADD_CALENDAR_BUTTON);
 		int urlfeed = url.length > 0 ? url[0] : 0;
 		switch (urlfeed){
 		case 1:
@@ -497,7 +503,9 @@ public class CalendarBase extends PlatformBase {
 		alert = new ManageAlert(driver);
 		info("--Delete event--");
 		click(ELEMENT_DELETE_FEEDS);
-		alert.verifyAlertMessage(MSG_FEEDS_DELETE);
+		assert alert.getTextFromAlert().contains(MSG_FEEDS_DELETE);
+		alert.acceptAlert();
+		//alert.verifyAlertMessage(MSG_FEEDS_DELETE);
 		waitForElementNotPresent(By.linkText(name));
 		click(ELEMENT_SETTINGS_FORM_SAVE_BUTTON);
 	}
@@ -613,8 +621,7 @@ public class CalendarBase extends PlatformBase {
 		alert = new ManageAlert(driver);
 		button = new Button(driver);
 		waitForAndGetElement(ELEMENT_WORKING_PANE_23H);
-		selectDayOption optDay = (waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event), 5000,0) == null) ? selectDayOption.ALLDAY : selectDayOption.ONEDAY;
-
+		selectDayOption optDay = (selectDayOption) (options.length > 0 ? options[0]: selectDayOption.ALLDAY);		
 		info("--Delete an Event/Task--");
 		switch (optDay) {
 		case ALLDAY:
@@ -636,8 +643,10 @@ public class CalendarBase extends PlatformBase {
 			}
 			break;
 		case ONEDAY:
-			Utils.pause(3000);
-			rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
+			if(isElementNotPresent(By.xpath(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event))))
+				rightClickOnElement(By.xpath(ELEMENT_EVENT_TASK_ONE_DAY_1.replace("${taskName}", event)));
+			else
+				rightClickOnElement(By.xpath(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event)));
 			break;			
 		default:
 			break;
@@ -657,7 +666,8 @@ public class CalendarBase extends PlatformBase {
 				waitForElementNotPresent(ELEMENT_EVENT_TASK_WORKING_PANE_PLF41.replace("${event}", event),5000);
 			}
 		}else if (optDay.equals(selectDayOption.ONEDAY)){
-			waitForElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event));
+			if(isElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event)))
+				waitForElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY_1.replace("${taskName}", event));
 		}	
 	}
 
@@ -683,7 +693,7 @@ public class CalendarBase extends PlatformBase {
 		goToAddCalendar();
 		inputAddCalendarForm(name,description,color,groups);
 		click(ELEMENT_CAL_ADD_SAVE_BUTTON);
-		
+
 		waitForAndGetElement(ELEMENT_CALENDAR_GET_BY_TAG_LI.replace("${calendar}", name));
 	}
 
@@ -812,10 +822,10 @@ public class CalendarBase extends PlatformBase {
 		type(By.xpath(ELEMENT_INPUT_QUICK_SEARCH), keyword, true);
 		info("----Send search request----");
 		Utils.pause(5000);
-		click(ELEMENT_INPUT_QUICK_SEARCH);
-		Utils.javaSimulateKeyPress(KeyEvent.VK_ENTER);
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.RETURN).build().perform();
 		info("----Confirm search result page displayed----");
-		Utils.pause(3000);
+		Utils.pause(5000);
 		waitForAndGetElement(ELEMENT_BUTTON_CLOSE_QUICK_SEARCH_RESULT);
 	}
 

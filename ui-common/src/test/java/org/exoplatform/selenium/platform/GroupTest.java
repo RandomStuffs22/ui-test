@@ -51,7 +51,7 @@ public class GroupTest extends NavigationToolbar{
 	@Test(groups={"platform", "add new group"})
 	public void testAddNewGroup(){
 		System.out.println("--Create a new group--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn("root", DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);
@@ -66,7 +66,7 @@ public class GroupTest extends NavigationToolbar{
 	@Test(groups={"platform", "add new group"})
 	public void testSelectAndEditGroup(){
 		System.out.println("--Edit a new group--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn("root", DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);
@@ -85,7 +85,7 @@ public class GroupTest extends NavigationToolbar{
 	@Test(groups={"platform", "add new group"})
 	public void testAddUserIntoGroup(){
 		System.out.println("--Add user to a group--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn("root", DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);
@@ -103,7 +103,7 @@ public class GroupTest extends NavigationToolbar{
 	@Test(groups={"platform", "add new group"})
 	public void testDeleteGroup(){
 		System.out.println("--Delete a new group--");
-		magAcc.signIn("root", "gtn");
+		magAcc.signIn("root", DATA_PASS);
 		Utils.pause(1000);
 		goToUsersAndGroupsManagement();
 		Utils.pause(1000);

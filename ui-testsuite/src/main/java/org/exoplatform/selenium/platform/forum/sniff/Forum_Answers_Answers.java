@@ -37,7 +37,7 @@ public class Forum_Answers_Answers extends AnswerBase {
 		magAns = new AnswerManageAnwser(driver, this.plfVersion);
 		magCom = new AnswerManageComment(driver, this.plfVersion);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 	}
 
@@ -155,7 +155,7 @@ public class Forum_Answers_Answers extends AnswerBase {
 		magAns.viewAnswerWithOtherUser(userType.DEVELOPER,categoryName, questionName, answerContent, false);
 		
 		info("Active answer");
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 		magCat.openCategoryInAnswer(categoryName);
 		click(By.linkText(questionName));
@@ -164,7 +164,7 @@ public class Forum_Answers_Answers extends AnswerBase {
 		info("Normal user can view active answer");
 		magAns.viewAnswerWithOtherUser(userType.DEVELOPER,categoryName, questionName, answerContent, true);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}
@@ -193,7 +193,7 @@ public class Forum_Answers_Answers extends AnswerBase {
 		magAns.viewAnswerWithOtherUser(userType.DEVELOPER,categoryName, questionName, answerContent, false);
 		
 		info("Approve answer");
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 		magCat.openCategoryInAnswer(categoryName);
 		click(By.linkText(questionName));
@@ -202,7 +202,7 @@ public class Forum_Answers_Answers extends AnswerBase {
 		info("Normal user can view approved answer");
 		magAns.viewAnswerWithOtherUser(userType.DEVELOPER,categoryName, questionName, answerContent, true);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 		magCat.deleteCategoryInAnswer(categoryName);
 	}

@@ -32,7 +32,7 @@ public class ECMS_SE_Admin_ManageRelation extends PlatformBase {
 		ContextMenu cMenu;
 
 		public final String DATA_USER = "john";
-		public final String DATA_PASS = "gtn";
+		//public final String DATA_PASS = DATA_PASS;
 		public final String file = "phuong_filecontent.txt";
 
 		@BeforeMethod

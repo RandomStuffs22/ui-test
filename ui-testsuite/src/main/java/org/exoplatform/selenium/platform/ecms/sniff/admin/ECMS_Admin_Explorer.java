@@ -36,7 +36,7 @@ public class ECMS_Admin_Explorer extends PlatformBase{
 	ActionBar actBar;
 
 	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
+	//String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods(){

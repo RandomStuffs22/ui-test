@@ -37,7 +37,7 @@ public class ECMS_SE_FileManagementView_Actions_Select extends PlatformBase{
 	ContextMenu cMenu;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

@@ -56,7 +56,7 @@ public class ECMS_SE_BasicAction_AddSymlink extends PlatformBase{
 	SitesExplorer siteExp;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {
@@ -455,7 +455,7 @@ public class ECMS_SE_BasicAction_AddSymlink extends PlatformBase{
 		//login with mary
 		magAcc.signOut();
 		info("Login ECMS with user: mary");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		info("create new content folder");
@@ -505,7 +505,7 @@ public class ECMS_SE_BasicAction_AddSymlink extends PlatformBase{
 		magAcc.signOut();
 
 		info("Login with mary");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 
 		//check user does not see that content node
@@ -680,7 +680,7 @@ public class ECMS_SE_BasicAction_AddSymlink extends PlatformBase{
 		magAcc.signOut();
 
 		info("Login with mary");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 		navToolBar.goToSiteExplorer();
 		ecms.goToNode(ELEMENT_CONTENT_FOLDER);
 
@@ -768,7 +768,7 @@ public class ECMS_SE_BasicAction_AddSymlink extends PlatformBase{
 		cMenu = new ContextMenu(driver);
 
 		info("Login with Mary");
-		magAcc.signIn("mary", "gtn");
+		magAcc.signIn("mary", DATA_PASS);
 
 		//check cannot add symlink for node by user mary
 		navToolBar.goToSiteExplorer();

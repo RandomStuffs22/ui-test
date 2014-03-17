@@ -36,7 +36,7 @@ public class Forum_Answers_Setting extends AnswerBase {
 		forum = new ForumManageForum(driver, this.plfVersion);
 		question = new AnswerManageQuestion(driver, this.plfVersion);
 		pageE = new PageEditor(driver);
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		goToAnswer();
 	}
 

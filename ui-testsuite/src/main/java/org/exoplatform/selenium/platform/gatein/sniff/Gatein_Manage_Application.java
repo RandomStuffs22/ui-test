@@ -34,7 +34,7 @@ public class Gatein_Manage_Application extends PlatformBase {
 		pageE = new PageEditor(driver);
 		app = new ManageApplications(driver);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 	}
 
 	@AfterMethod

@@ -30,7 +30,7 @@ public class Wiki_SpacePermission_Add extends BasicAction {
 	PlatformPermission per;
 	
 	String DATA_USER_ADMIN = "john";
-	String DATA_PASS = "gtn";
+	//String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void setUpBeforeTest(){

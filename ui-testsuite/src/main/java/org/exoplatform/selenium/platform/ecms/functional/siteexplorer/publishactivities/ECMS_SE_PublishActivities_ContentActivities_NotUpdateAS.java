@@ -45,7 +45,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_NotUpdateAS extends Pla
 	EcmsBase ecms;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

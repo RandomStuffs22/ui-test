@@ -37,7 +37,7 @@ public class ECMS_SE_Admin extends PlatformBase {
 	SitesExplorer siteExp;
 
 	String DATA_USER = "john";
-	String DATA_PASS = "gtn";
+	//String DATA_PASS = DATA_PASS;
 	
 	/**CaseID 65844 Export a node
 	 * Step 1: Export a node

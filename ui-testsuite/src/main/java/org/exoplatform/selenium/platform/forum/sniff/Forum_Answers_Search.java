@@ -29,7 +29,7 @@ public class Forum_Answers_Search extends AnswerBase {
 		magQuest = new AnswerManageQuestion(driver, this.plfVersion);
 		magCat = new AnswerManageCategory(driver,this.plfVersion);
 		
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToAnswer();
 	}
 

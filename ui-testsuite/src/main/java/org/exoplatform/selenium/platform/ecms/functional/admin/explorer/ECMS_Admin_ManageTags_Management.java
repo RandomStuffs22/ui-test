@@ -68,7 +68,7 @@ public class ECMS_Admin_ManageTags_Management extends PlatformBase {
 
 	public final String DATA_USER_ADMIN = "john";
 	public final String DATA_USER_NORMAL = "mary";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

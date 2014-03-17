@@ -38,7 +38,7 @@ public class ECMS_SE_CreateNode_PictureOnHeadLayout extends PlatformBase{
 	SitesExplorer sitesExp;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethod(){

@@ -237,7 +237,7 @@ public class ManageDrive extends EcmsBase{
 			selectCheckBoxList(view);
 			button.save();
 			magAcc.signOut();
-			magAcc.signIn("john", "gtn");
+			magAcc.signIn("john", "gtngtn");
 		}else {
 			info("-- Web View is already displayed --");
 		}

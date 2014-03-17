@@ -45,7 +45,7 @@ public class ECMS_Admin_ManageDriver_Action extends PlatformBase{
 	ManageDrive magDrv;
 
 	public final String DATA_USER = "john";
-	public final String DATA_PASS = "gtn";
+	//public final String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods() {

@@ -32,7 +32,7 @@ public class PLF_HomepageGadgets_CalendarGadget_Tasks extends CalendarBase{
 		nav = new NavigationToolbar(driver, this.plfVersion);	
 		task = new Task(driver, this.plfVersion);
 		event = new Event(driver, this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);		
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 		goToCalendarPage();
 		setTimezoneForCalendar("(GMT +07:00) Asia/Ho_Chi_Minh");
 		

@@ -41,6 +41,12 @@ public class UserGroupManagement extends PlatformBase {
 	public final String ELEMENT_MEMBERSHIP_MANAGEMENT_TAB_FAIL_DEL_MSG = "//span[contains(text(),'You cannot delete this membership because it is mandatory.')]";
 	//User Management -> Edit User form
 	public  final By ELEMENT_USER_MEMBERSHIP_TAB = By.xpath("//*[text()='User Membership']");
+	public final String ELEMENT_GROUP_PERMISSION = "//a[@title='${groupName}']";
+	public final By ELEMENT_USER_CHANGE_PASSWORD = By.id("changePassword");
+	public final By ELEMENT_USER_NEW_PASSWORD = By.id("newPassword");
+	public final By ELEMENT_USER_CONFIRM_PASSWORD = By.id("confirmPassword");
+	public final String MSG_UPDATE_USER_ACCOUNT = "The user profile has been updated.";
+	
 
 	/*
 	 *  Choose TAB actions
@@ -109,11 +115,12 @@ public class UserGroupManagement extends PlatformBase {
 		String userEditIcon = ELEMENT_USER_EDIT_ICON.replace("${username}", username);
 
 		info("--Editing user " + username + "--");
+		searchUser(username,"User Name");
 		click(userEditIcon);
 		Utils.pause(1000);
 	}
 
-	public void editUserInfo_AccountTab(String first, String last, String displayName, String email){
+	public void editUserInfo_AccountTab(String first, String last, String displayName, String email, String...newPassword){
 		if (first != null){
 			type(ELEMENT_INPUT_FIRSTNAME, first, true);
 		}
@@ -124,7 +131,16 @@ public class UserGroupManagement extends PlatformBase {
 			type(ELEMENT_INPUT_DISPLAY_NAME, displayName, true);
 		}
 		if (email != null){
-			type(ELEMENT_INPUT_EMAIL, email, true);
+			if(isElementPresent(ELEMENT_INPUT_EMAIL_UPDATE))
+				type(ELEMENT_INPUT_EMAIL_UPDATE, email, true);
+			else
+				type(ELEMENT_INPUT_EMAIL, email, true);
+		}
+		
+		if(newPassword.length > 0){
+			check(ELEMENT_USER_CHANGE_PASSWORD,2);
+			type(ELEMENT_USER_NEW_PASSWORD,newPassword[0],true);
+			type(ELEMENT_USER_CONFIRM_PASSWORD,newPassword[0],true);
 		}
 	}
 

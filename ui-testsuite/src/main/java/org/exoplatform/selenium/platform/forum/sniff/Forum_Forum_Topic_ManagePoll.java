@@ -37,7 +37,7 @@ public class Forum_Forum_Topic_ManagePoll extends ForumBase{
 		mngPoll = new ForumManagePoll(driver);
 		mngPost = new ForumManagePost(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 	}
 

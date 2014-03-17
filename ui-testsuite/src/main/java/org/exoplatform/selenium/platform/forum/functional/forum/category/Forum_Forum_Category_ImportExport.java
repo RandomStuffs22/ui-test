@@ -33,7 +33,7 @@ public class Forum_Forum_Category_ImportExport extends ForumBase {
     magForum = new ForumManageForum(driver);
     magTopic = new ForumManageTopic(driver);
 
-    magAc.signIn("john", "gtn");
+    magAc.signIn("john", DATA_PASS);
     goToForums();
 
   }

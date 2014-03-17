@@ -31,13 +31,13 @@ public class Wiki_BasicAction_Other extends Permalink {
 	public void setUpBeforeTest(){
 		getDriverAutoSave();
 		driver.get(baseUrl);
-		magAc = new ManageAccount(driver);
+		magAc = new ManageAccount(driver,this.plfVersion);
 		dialog = new Dialog(driver);
 		button = new Button(driver);
 		magMem = new ManageMember(driver);
 		per = new PlatformPermission(driver);
 		
-		magAc.signIn("john", "gtn"); 
+		magAc.signIn("john", DATA_PASS); 
 		goToWiki();
 	}
 
@@ -248,7 +248,7 @@ public class Wiki_BasicAction_Other extends Permalink {
 		addBlankWikiPage(title1, content1, 0);		
 		magAc.signOut();
 		
-		magAc.signIn("mary", "gtn");
+		magAc.signIn("mary", DATA_PASS);
 		addWikiForSpace(spaceName, title2, content2);
 		
 		info("Move page2 of space to page1 of Intranet");
@@ -319,12 +319,12 @@ public class Wiki_BasicAction_Other extends Permalink {
 		magAc.signOut();
 		
 		info("User demo joint in space");
-		magAc.signIn("demo", "gtn");
+		magAc.signIn("demo", DATA_PASS);
 		magMem.joinOpenSpace(spaceName);
 		magAc.signOut();
 		
 		info("Add new wiki page in space");
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		magMem.goToMySpacePage();
 		goToWikiFromSpace(spaceName);
 		addBlankWikiPage(title, content, 0);
@@ -335,9 +335,9 @@ public class Wiki_BasicAction_Other extends Permalink {
 		
 		goToWikiByPermalink("demo", permalink, true, content);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		magMem.goToAllSpaces();
-		magMem.deleteSpace(spaceName, 180000);
+		magMem.deleteSpace(spaceName, 240000);
 	}
 	
 	/**CaseId: 70252
@@ -357,7 +357,7 @@ public class Wiki_BasicAction_Other extends Permalink {
 		
 		goToWikiByPermalink("demo", permalink, false, content);
 		
-		magAc.signIn("john", "gtn");
+		magAc.signIn("john", DATA_PASS);
 		magMem.goToAllSpaces();
 		magMem.deleteSpace(spaceName, 180000);
 	}

@@ -40,7 +40,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_Update extends Platform
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login ECMS with " + DATA_USER1);
+		info("Login ECMS with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver);
 		actBar = new ActionBar(driver);
 		cTemplate = new ContentTemplate(driver);
@@ -49,7 +49,7 @@ public class ECMS_SE_PublishActivities_ContentActivities_Update extends Platform
 		ecms = new EcmsBase(driver);
 		cMenu = new ContextMenu(driver);
 		activity = new HomePageActivity(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

@@ -45,7 +45,7 @@ public class PLF_HomepageGadgets_GettingStartedGadget extends Activity{
 	public void setUpBeforeTest(){
 		getDriverAutoSave();
 		acc = new ManageAccount(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		homeGad = new HomePageGadget(driver);
 		magMember = new ManageMember(driver);
 		spaceMag = new SpaceManagement(driver);
@@ -175,7 +175,7 @@ public class PLF_HomepageGadgets_GettingStartedGadget extends Activity{
 		
 		//Sign in by other user (mary williams)
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		
 		info("79588: Upload a document");
 		selectFile(driverName,true,folderPath,"",uploadFileName);
@@ -200,12 +200,12 @@ public class PLF_HomepageGadgets_GettingStartedGadget extends Activity{
 		info("79585: Connect to co-workers");
 		click(homeGad.ELEMENT_CONNECT_TO_COWORKERS);
 		click(peoConn.ELEMENT_EVERYONE_TAB);
-		peoConn.connectPeople(DATA_USER1); 
+		peoConn.connectPeople(DATA_USER_JOHN); 
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS); 
-		peoConn.acceptInvitation(DATA_USER2);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS); 
+		peoConn.acceptInvitation(DATA_USER_MARY);
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS); 
+		acc.signIn(DATA_USER_MARY, DATA_PASS); 
 		
 		info("79589: Remove gadget after all actions are done");
 		//confirm progress bar
@@ -264,7 +264,7 @@ public class PLF_HomepageGadgets_GettingStartedGadget extends Activity{
 		
 		info("79597: display Getting started gadget for other users in case admin deletes his started gadget");
 		acc.signOut();
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		driver.navigate().refresh();
 		waitForAndGetElement(homeGad.ELEMENT_GETTING_STARTED_GADGET_FORM);
 		

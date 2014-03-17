@@ -38,7 +38,7 @@ public class PLF_HomepageActivityStream_ActivityStream_ActivityFilter_AllActivit
 		nav = new NavigationToolbar(driver);	
 		pConn = new PeopleConnection(driver);
 		mMember = new ManageMember(driver);
-		acc.signIn(DATA_USER1, DATA_PASS);		
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 	}
 
 	@AfterMethod

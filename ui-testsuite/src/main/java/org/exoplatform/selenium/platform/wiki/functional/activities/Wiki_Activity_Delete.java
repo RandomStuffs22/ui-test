@@ -39,7 +39,7 @@ public class Wiki_Activity_Delete extends Permalink{
 		home = new HomePageActivity(driver,this.plfVersion);
 		nav = new NavigationToolbar(driver,this.plfVersion);
 		acc = new ManageAccount(driver,this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

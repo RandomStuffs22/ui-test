@@ -37,7 +37,7 @@ public class Gatein_Registration_PrivateMode extends PlatformBase {
 		dialog = new Dialog(driver);
 		button = new Button(driver);
 
-		magAc.signIn(DATA_USER1, DATA_PASS);
+		magAc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod

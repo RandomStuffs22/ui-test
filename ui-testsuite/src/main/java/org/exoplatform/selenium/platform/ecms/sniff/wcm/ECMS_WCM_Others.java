@@ -350,7 +350,7 @@ public class ECMS_WCM_Others extends PlatformBase{
 		siteExp = new SitesExplorer(driver);
 		pages = new PageManagement(driver);
 		seo = new SEO(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 		driver.get(acmeURL);
 		driver.navigate().refresh();
 		waitForAndGetElement(ecms.ELEMENT_ACME_WELCOME_TEXT);	

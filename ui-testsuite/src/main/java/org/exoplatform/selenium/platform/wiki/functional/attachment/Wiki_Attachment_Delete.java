@@ -24,7 +24,7 @@ public class Wiki_Attachment_Delete extends BasicAction{
 		driver.get(baseUrl);
 		magAcc = new ManageAccount(driver);
 		button = new Button(driver);
-		magAcc.signIn("john", "gtn"); 
+		magAcc.signIn("john", DATA_PASS); 
 		goToWiki();
 	}
 

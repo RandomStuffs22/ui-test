@@ -35,7 +35,7 @@ public class ECMS_SE_PublicActivity extends PlatformBase {
 	NavigationToolbar navToolBar;
 
 	public String DATA_USER = "john";
-	public String DATA_PASS = "gtn";
+	//public String DATA_PASS = DATA_PASS;
 
 	@BeforeMethod
 	public void beforeMethods(){

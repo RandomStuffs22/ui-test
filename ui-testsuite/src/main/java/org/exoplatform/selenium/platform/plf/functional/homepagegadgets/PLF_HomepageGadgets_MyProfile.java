@@ -36,7 +36,7 @@ public class PLF_HomepageGadgets_MyProfile extends Activity{
 		acc = new ManageAccount(driver, this.plfVersion);
 		pageEditor = new PageEditor(driver, this.plfVersion);
 		hpGadget = new HomePageGadget(driver, this.plfVersion);
-		acc.signIn(DATA_USER1, DATA_PASS);		
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);		
 	}
 
 	@AfterMethod

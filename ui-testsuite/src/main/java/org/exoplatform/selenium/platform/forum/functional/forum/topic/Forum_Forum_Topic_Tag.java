@@ -41,7 +41,7 @@ public class Forum_Forum_Topic_Tag extends ForumBase {
     alert = new ManageAlert(driver);
     acc = new ManageAccount(driver);
     navTool = new NavigationToolbar(driver);
-    acc.signIn(DATA_USER1, DATA_PASS);
+    acc.signIn(DATA_USER_JOHN, DATA_PASS);
   }
 
   @AfterMethod
@@ -315,7 +315,7 @@ public class Forum_Forum_Topic_Tag extends ForumBase {
 		acc.signOut();
 		
 		info("Create another topic by another user");
-		acc.signIn(DATA_USER2, DATA_PASS);
+		acc.signIn(DATA_USER_MARY, DATA_PASS);
 		goToForums();
 		waitForAndGetElement(ELEMENT_FORUM_ON_HOMEPAGE.replace("${category}", titleCat).replace("${forum}", titleForum)).click();
 		click(fmTopic.ELEMENT_START_TOPIC_BUTTON);
@@ -335,7 +335,7 @@ public class Forum_Forum_Topic_Tag extends ForumBase {
 		
 		info("Restore data");
 		acc.signOut();
-		acc.signIn(DATA_USER1, DATA_PASS);
+		acc.signIn(DATA_USER_JOHN, DATA_PASS);
 		goToForums();
 		click(By.linkText(titleCat));
 		fmCat.deleteCategoryInForum(titleCat, true); 

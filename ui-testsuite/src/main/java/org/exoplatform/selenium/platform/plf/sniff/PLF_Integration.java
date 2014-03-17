@@ -32,14 +32,14 @@ public class PLF_Integration extends PlatformBase {
 	public void beforeMethods() {
 		initSeleniumTest();
 		driver.get(baseUrl);
-		info("Login with " + DATA_USER1);
+		info("Login with " + DATA_USER_JOHN);
 		magAcc = new ManageAccount(driver);
 		naviToolbar = new NavigationToolbar(driver);
 		magApp = new ManageApplications(driver);
 		pagEditor = new PageEditor(driver);
 		pageMag = new PageManagement(driver);
 		hpActivity = new HomePageActivity(driver);
-		magAcc.signIn(DATA_USER1, DATA_PASS);
+		magAcc.signIn(DATA_USER_JOHN, DATA_PASS);
 	}
 
 	@AfterMethod
