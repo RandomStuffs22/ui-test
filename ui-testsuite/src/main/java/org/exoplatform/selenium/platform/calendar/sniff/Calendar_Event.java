@@ -39,7 +39,6 @@ public class Calendar_Event extends CalendarBase {
 		driver.quit();
 	}
 
-
 	/**
 	 * Add new event in Personal Calendar
 	 * CaseID 68651
@@ -212,7 +211,6 @@ public class Calendar_Event extends CalendarBase {
 		deleteEventTask(EVENT06, selectDayOption.ONEDAY);
 	}
 
-
 	/**
 	 * Edit event in Group Calendar
 	 * CaseID 69288
@@ -383,7 +381,6 @@ public class Calendar_Event extends CalendarBase {
 
 		info("==Restore data==");
 		deleteCalendar(CAL_10,true);
-
 	}
 
 	/** 

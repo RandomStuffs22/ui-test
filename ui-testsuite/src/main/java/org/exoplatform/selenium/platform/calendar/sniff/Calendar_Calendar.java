@@ -32,6 +32,7 @@ public class Calendar_Calendar extends CalendarBase{
 		tsk = new Task(driver);
 		acc.signIn(DATA_USER1, DATA_PASS);
 		goToCalendarPage();
+		setTimezoneForCalendar("(GMT +07:00) Asia/Ho_Chi_Minh");
 	}
 
 	@AfterMethod
@@ -40,7 +41,8 @@ public class Calendar_Calendar extends CalendarBase{
 		driver.quit();
 	}
 
-	/**Check highlighted mini calendar
+	/**
+	 * Check highlighted mini calendar
 	 * CaseID 68653
 	 */
 	@Test
@@ -65,7 +67,8 @@ public class Calendar_Calendar extends CalendarBase{
 		info("Task deleted successfully");
 	}
 
-	/**Export calendar, Import calendar
+	/**
+	 * Export calendar, Import calendar
 	 * CaseID 68662, 68661
 	 */
 	@Test
@@ -84,7 +87,6 @@ public class Calendar_Calendar extends CalendarBase{
 		//Delete data
 		deleteFile("TestOutput/" + fileName);
 		deleteCalendar(calendar);		
-
 	}
 
 	/** Add Personal Calendar, Edit Personal Calendar, Delete Personal Calendar
@@ -99,7 +101,8 @@ public class Calendar_Calendar extends CalendarBase{
 		deleteCalendar(newCalendar);
 	}
 
-	/** Add Group Calendar, Edit Group Calendar, Delete Group Calendar
+	/** 
+	 * Add Group Calendar, Edit Group Calendar, Delete Group Calendar
 	 * CaseID 69649, 69660, 69661
 	 */
 	@Test
@@ -112,7 +115,8 @@ public class Calendar_Calendar extends CalendarBase{
 		deleteCalendar(newCalendar);
 	}
 
-	/** Add Shared Calendar, Delete Shared Calendar
+	/** 
+	 * Add Shared Calendar, Delete Shared Calendar
 	 * CaseID 69650, 69662
 	 * 
 	 */
@@ -139,12 +143,11 @@ public class Calendar_Calendar extends CalendarBase{
 		acc.signIn(DATA_USER1,DATA_PASS);
 		goToCalendarPage();
 		driver.navigate().refresh();
-		deleteCalendar(calendar,true);
-		
-		
+		deleteCalendar(calendar,true);		
 	}
 
-	/**Edit Shared Calendar, 
+	/**
+	 * Edit Shared Calendar, 
 	 * Case 69263: pending because cannot click on icon Settings of calendar
 	 */
 	@Test

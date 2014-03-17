@@ -611,6 +611,7 @@ public class CalendarBase extends PlatformBase {
 	 */
 	public void deleteEventTask(String event, selectDayOption... options){
 		alert = new ManageAlert(driver);
+		button = new Button(driver);
 		waitForAndGetElement(ELEMENT_WORKING_PANE_23H);
 		selectDayOption optDay = (waitForAndGetElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event), 5000,0) == null) ? selectDayOption.ALLDAY : selectDayOption.ONEDAY;
 
@@ -635,6 +636,7 @@ public class CalendarBase extends PlatformBase {
 			}
 			break;
 		case ONEDAY:
+			Utils.pause(3000);
 			rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
 			break;			
 		default:
@@ -642,6 +644,7 @@ public class CalendarBase extends PlatformBase {
 		}
 		click(ELEMENT_EVENT_TASK_DELETE_MENU);
 		alert.verifyAlertMessage(MSG_EVENT_TASK_DELETE);
+		button.yes();
 		driver.navigate().refresh();
 		Utils.pause(1000);
 		if (optDay.equals(selectDayOption.ALLDAY)){
@@ -873,9 +876,11 @@ public class CalendarBase extends PlatformBase {
 	 */
 	public void deleteEventCategory(String categoryName){
 		alert = new ManageAlert(driver);
+		button = new Button(driver);
 		waitForAndGetElement(ELEMENT_LIST_DELETE_EVENT_BUTTON.replace("${categoryName}",categoryName));
 		click(ELEMENT_LIST_DELETE_EVENT_BUTTON.replace("${categoryName}",categoryName));
 		alert.acceptAlert();
+		button.yes();
 		waitForElementNotPresent(ELEMENT_LIST_DELETE_EVENT_BUTTON.replace("${categoryName}",categoryName));
 		click(ELEMENT_ADD_EVENT_CATEGORY_BUTTON_CLOSE);	
 	}
@@ -904,7 +909,7 @@ public class CalendarBase extends PlatformBase {
 	 */
 	public void gotoAddEventCategory(){
 		click(ELEMENT_CALENDAR_ACTIONS_ICON);
-		info("----GO to Add Event Category form----");
+		info("----Go to Add Event Category form----");
 		click(ELEMENT_ADD_EVENT_CATEGORY_ICON);
 		Utils.pause(3000);
 	}	 

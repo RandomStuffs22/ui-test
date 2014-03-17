@@ -50,6 +50,7 @@ public class Calendar_Task extends CalendarBase {
 
 		info("Go to Intranet Calendar");
 		goToCalendarPage();
+		setTimezoneForCalendar("(GMT +07:00) Asia/Ho_Chi_Minh");
 		driver.navigate().refresh();
 
 		info("Add a new task");
@@ -146,6 +147,7 @@ public class Calendar_Task extends CalendarBase {
 
 		info("Go to Intranet Calendar");
 		goToCalendarPage();
+		//setTimezoneForCalendar("(GMT +07:00) Asia/Ho_Chi_Minh");
 		driver.navigate().refresh();
 
 		info("Add a new task");

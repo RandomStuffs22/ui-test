@@ -14,7 +14,7 @@ public class Button extends TestBase{
 	
 	public Button(WebDriver dr,String...plfVersion) {
 		driver = dr;
-		this.plfVersion = plfVersion.length>0?plfVersion[0]:"4.0";
+		this.plfVersion = plfVersion.length > 0 ? plfVersion[0]:"4.0";
 	}
 
 	//public final By ELEMENT_CONFIRM_BUTTON = By.xpath("//*[text()='Confirm']");
@@ -24,7 +24,9 @@ public class Button extends TestBase{
 
 	public final By ELEMENT_OK_BUTTON = By.xpath("//*[text()='OK']");
 	public final By ELEMENT_NO_BUTTON = By.xpath("//*[text()='No']");
+	public final By ELEMENT_NO_BUTTON_AUX = By.xpath("//*[contains(@class, 'popup')]//*[contains(text(),'No')]");
 	public final By ELEMENT_YES_BUTTON = By.xpath("//*[text()='Yes']");
+	public final By ELEMENT_YES_BUTTON_AUX = By.xpath("//*[contains(@class, 'popup')]//*[contains(text(),'Yes')]");
 	public final By ELEMENT_APPLY_FRENCH_BUTTON = By.linkText("Appliquer");
 	public final By ELEMENT_APPLY_GERMAN_BUTTON = By.linkText("Anwenden");
 	public final By ELEMENT_APPLY_BUTTON = By.xpath("//*[text()='Apply']");
@@ -83,11 +85,15 @@ public class Button extends TestBase{
 		click(ELEMENT_NO_BUTTON);
 		Utils.pause(500);
 	}
-	public void yes() {
-		waitForAndGetElement(ELEMENT_YES_BUTTON);
-		click(ELEMENT_YES_BUTTON);
+	public void yes() {		
+		if (waitForAndGetElement(ELEMENT_YES_BUTTON, 3000, 0) != null){
+			click(ELEMENT_YES_BUTTON);
+		}else if (waitForAndGetElement(ELEMENT_YES_BUTTON_AUX, 3000, 0) != null){
+			click(ELEMENT_YES_BUTTON_AUX);
+		}
 		Utils.pause(500);
 	}
+	
 	public void close(){
 		waitForAndGetElement(ELEMENT_CLOSE_BUTTON);
 		click(ELEMENT_CLOSE_BUTTON);
@@ -111,9 +117,9 @@ public class Button extends TestBase{
 	}
 
 	public void saveAndClose(){
-		if (waitForAndGetElement(ELEMENT_SAVE_CLOSE_BUTTON, 5000, 0) != null){
+		if (waitForAndGetElement(ELEMENT_SAVE_CLOSE_BUTTON, 3000, 0) != null){
 			click(ELEMENT_SAVE_CLOSE_BUTTON);
-		}else if (waitForAndGetElement(ELEMENT_SAVE_CLOSE_BUTTON_2, 5000, 0) != null){
+		}else if (waitForAndGetElement(ELEMENT_SAVE_CLOSE_BUTTON_2, 3000, 0) != null){
 			click(ELEMENT_SAVE_CLOSE_BUTTON_2);
 		}
 		Utils.pause(500);
