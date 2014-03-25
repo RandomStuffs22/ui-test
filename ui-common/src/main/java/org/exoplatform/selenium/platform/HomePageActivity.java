@@ -184,7 +184,9 @@ public class HomePageActivity extends PlatformBase{
 	public final String MSG_TASK_COMMENT_UPDATE_ATTACHMENT = "Attachment(s) has been added to the task.";
 	public final String MSG_TASK_COMMENT_UPDATE_NOTE = "Note has been updated: ${note}.";
 	public final String MSG_TASK_COMMENT_UPDATE_STATUS = "Task has been completed.";
-
+	public final String MSG_EVENT_COMMENT_DELETE_EDITED_EVENT = "Event cancelled for ${date}";
+	public final String MSG_EVENT_REPEAT_EVERYDAY = "Event will be repeated every day.";
+	public final String ELEMENT_EVENT_ACTIVITY_DATE_TIME_INFO = "//div[${index}][contains(@id,'activityContainer')]//*[contains(@id,'ActivityContextBox')]//*[@class='text']/*[@class='dateTime']";
 
 	public HomePageActivity(WebDriver dr, String...plfVersion){
 		driver = dr;
