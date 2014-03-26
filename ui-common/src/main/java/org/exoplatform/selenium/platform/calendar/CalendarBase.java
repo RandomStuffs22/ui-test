@@ -37,10 +37,10 @@ public class CalendarBase extends PlatformBase {
 	public String ELEMENT_CALENDAR_GET_BY_TAG_LI = "//a[@class='calendarName' and contains(text(), '${calendar}')]/../..";
 	public By ELEMENT_CALENDAR_POPUP_WINDOW = By.xpath("//*[@id='UICalendarPopupWindow']/div[2]");
 	public String ELEMENT_VERIFY_CALENDAR_FORM = "//*[@id='defaultCalendarTab'] //div[@class='myCalendar']/*[@class='calendarTitle']/..//li[contains(@class,'calendarItem' )]//*[text()='${UserName}']/../a[@class='${CheckboxColor}']";
-	
+
 	//--------------Mini calendar-------------------
 	public String ELEMENT_MINI_CALENDAR_DATE_HIGHLIGHT = "//td[contains(@class,'highLight') and contains(text(),'${date}')]";
-	
+
 	//---------------Working pane---------------------
 	public String ELEMENT_WORKING_PANE_23H = "//td[@class='tdTime center']/div[contains(text(),'23:00')]";
 
@@ -97,7 +97,7 @@ public class CalendarBase extends PlatformBase {
 	public By ELEMENT_CAL_EDIT_MENU = By.xpath("//*[@id='tmpMenuElement']//a[contains(@href,'EditCalendar')]");
 	public By ELEMENT_CAL_SETTING_MENU = By.xpath("//*[@id='UIActionBar']//i[@class='uiIconSetting uiIconLightGray']");
 	public String ELEMENT_CAL_SETTING_TIMEZONE_VALUE = "//*[@id='setting']//select[@name='timeZone']/option[@value='${timezoneOpt}']";
-	
+
 	//------------Export calendar---------------
 	public By ELEMENT_CALENDAR_EXPORT = By.xpath("//div[@id='CalendarPopupMenu']//*[@class='uiIconCalExportCalendar uiIconLightGray']");
 	public By ELEMENT_CALENDAR_EXPORT_POPUP = By.xpath("//span[@class='PopupTitle popupTitle' and text()='Export Calendar']");
@@ -190,7 +190,7 @@ public class CalendarBase extends PlatformBase {
 	public String EVENT_DAY_VIEW = "//*[@id='UIDayView']//div[contains(text(),'${eventTitle}')]/..";
 	public String EVENT_MONTH_VIEW = "//*[@id='UIMonthView']//span[contains(text(),'${eventTitle}')]";
 	public String EVENT_LIST_VIEW = "//*[@id='UIListUsers']//span[contains(text(),'${eventTitle}')]";
-//	public String EVENT_WORK_WEEK_VIEW = "//*[@id='UIWeekViewGridAllDay']//div[contains(text(),'${eventTitle}')]";
+	//	public String EVENT_WORK_WEEK_VIEW = "//*[@id='UIWeekViewGridAllDay']//div[contains(text(),'${eventTitle}')]";
 
 	//----------------Group calendar---------------------------------
 	public String ELEMENT_GROUP_CAL = "//*[@id='UICalendars']//a[contains(text(),'${calName}')]";
@@ -205,8 +205,14 @@ public class CalendarBase extends PlatformBase {
 	public final By ELEMENT_TOOLBAR_START_TIME = By.name("start_time");
 	public final By ELEMENT_TOOLBAR_END_TIME = By.name("end_time");
 	public final By ELEMENT_TOOLBAR_SELECT_CALENDAR = By.name("Calendar");
-	public final String ELEMENT_CREATE_EVENT_MESSAGE = "//*[contains(text(),'The Event was added to ${userName}')]";
-	public final String ELEMENT_CREATE_TASK_MESSAGE = "//*[contains(text(),'The Task was added to ${userName}')]";
+	public final String ELEMENT_CREATE_EVENT_MESSAGE = "//*[contains(text(),'The Event was added to ${calendar}')]";
+	public final String ELEMENT_CREATE_TASK_MESSAGE = "//*[contains(text(),'The Task was added to ${calendar}')]";
+	public final By ELEMENT_PRIVATE_CALENDAR = By.xpath("//optgroup[@label='privateCalendar']");
+	public final By ELEMENT_PUBLIC_CALENDAR = By.xpath("//optgroup[@label='publicCalendar']");
+	public final String ELEMENT_MESSAGE_WARNING_CALENDAR = "//span[contains(text(), 'Sorry, you cannot create an event that ends before it starts.')]";
+	public final String ELEMENT_TOOLBAR_TIME_CONTENT = "//*[@name='start_time']//option[${index}]";
+	public final By ELEMENT_TOOLBAT_MINI_CALENDAR = By.id("BlockCalendar");
+
 	/*================== Common functions for Calendar =================*/
 
 	/** 
@@ -344,7 +350,7 @@ public class CalendarBase extends PlatformBase {
 		type(ELEMENT_CAL_EXPORT_FILE_NAME,name,true);
 		click(ELEMENT_CAL_EXPORT_SAVE_BUTTON);
 		Utils.pause(3000);
-//		driver.navigate().refresh();
+		//		driver.navigate().refresh();
 		Utils.pause(3000);
 	}
 
@@ -565,34 +571,34 @@ public class CalendarBase extends PlatformBase {
 		waitForAndGetElement(By.linkText(name));
 	}
 
-//	/** 
-//	 * Delete event/task
-//	 * @author thuntn, havtt edited
-//	 * @param String event
-//	 * @param boolean allDay
-//	 */
-//	public void deleteEventTask(String event, boolean allDay){
-//		alert = new ManageAlert(driver);
-//		if (allDay == true)
-//		{
-//			info("--Delete event--");
-//			rightClickOnElement(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event),2);
-//			click(ELEMENT_EVENT_TASK_DELETE_MENU);
-//			alert.waitForConfirmation(MSG_EVENT_TASK_DELETE);
-//			waitForElementNotPresent(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event));
-//			waitForElementNotPresent(ELEMENT_EVENT_TASK_WORKING_PANE.replace("${event}", event));
-//		}
-//		else
-//		{        
-//			info("--Delete event--");
-//			rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
-//			click(ELEMENT_EVENT_TASK_DELETE_MENU);
-//			info("--Confirm deleted event--");
-//			alert.waitForConfirmation(MSG_EVENT_TASK_DELETE);
-//			alert.acceptAlert();
-//			waitForElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event));
-//		}
-//	}
+	//	/** 
+	//	 * Delete event/task
+	//	 * @author thuntn, havtt edited
+	//	 * @param String event
+	//	 * @param boolean allDay
+	//	 */
+	//	public void deleteEventTask(String event, boolean allDay){
+	//		alert = new ManageAlert(driver);
+	//		if (allDay == true)
+	//		{
+	//			info("--Delete event--");
+	//			rightClickOnElement(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event),2);
+	//			click(ELEMENT_EVENT_TASK_DELETE_MENU);
+	//			alert.waitForConfirmation(MSG_EVENT_TASK_DELETE);
+	//			waitForElementNotPresent(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event));
+	//			waitForElementNotPresent(ELEMENT_EVENT_TASK_WORKING_PANE.replace("${event}", event));
+	//		}
+	//		else
+	//		{        
+	//			info("--Delete event--");
+	//			rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
+	//			click(ELEMENT_EVENT_TASK_DELETE_MENU);
+	//			info("--Confirm deleted event--");
+	//			alert.waitForConfirmation(MSG_EVENT_TASK_DELETE);
+	//			alert.acceptAlert();
+	//			waitForElementNotPresent(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event));
+	//		}
+	//	}
 
 	/**
 	 * Select an option when creating an Event/Task: ONE DAY or ALL DAY  
@@ -600,7 +606,7 @@ public class CalendarBase extends PlatformBase {
 	public enum selectDayOption{
 		ONEDAY, ALLDAY;
 	}
-	
+
 	/**
 	 * Delete an event or task
 	 * 
@@ -623,8 +629,8 @@ public class CalendarBase extends PlatformBase {
 				rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
 			}        
 			else{*/
-				rightClickOnElement(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event),2);
-//			}
+			rightClickOnElement(ELEMENT_EVENT_TASK_ALL_DAY.replace("${event}", event),2);
+			//			}
 			break;
 		case ONEDAY:
 			rightClickOnElement(ELEMENT_EVENT_TASK_ONE_DAY.replace("${taskName}", event),2);
@@ -666,7 +672,7 @@ public class CalendarBase extends PlatformBase {
 		goToAddCalendar();
 		inputAddCalendarForm(name,description,color,groups);
 		click(ELEMENT_CAL_ADD_SAVE_BUTTON);
-		
+
 		waitForAndGetElement(ELEMENT_CALENDAR_GET_BY_TAG_LI.replace("${calendar}", name));
 	}
 
@@ -796,9 +802,9 @@ public class CalendarBase extends PlatformBase {
 		info("----Send search request----");
 		Utils.pause(5000);
 		((JavascriptExecutor)driver).executeScript("javascript:eXo.webui.UIForm.submitForm('"+ID_CALENDAR_PAGE+"#UISearchForm','Search',true)");
-//		click(ELEMENT_INPUT_QUICK_SEARCH);
-		
-//		Utils.javaSimulateKeyPress(KeyEvent.VK_ENTER);
+		//		click(ELEMENT_INPUT_QUICK_SEARCH);
+
+		//		Utils.javaSimulateKeyPress(KeyEvent.VK_ENTER);
 		info("----Confirm search result page displayed----");
 		Utils.pause(3000);
 		waitForAndGetElement(ELEMENT_BUTTON_CLOSE_QUICK_SEARCH_RESULT);
@@ -969,17 +975,17 @@ public class CalendarBase extends PlatformBase {
 		}
 		if (opt.length > 0 && opt[0] != null){
 			select(ELEMENT_TOOLBAR_SELECT_CALENDAR,opt[0]);
-			button.save();
+			button.save();			
 			if(verify){
 				if(isEvent){
-					waitForAndGetElement(ELEMENT_CREATE_EVENT_MESSAGE.replace("${userName}", opt[0]));
+					waitForAndGetElement(ELEMENT_CREATE_EVENT_MESSAGE.replace("${calendar}", opt[0]));
 					Utils.pause(3000);
-					waitForElementNotPresent(ELEMENT_CREATE_EVENT_MESSAGE.replace("${userName}", opt[0]));
+					waitForElementNotPresent(ELEMENT_CREATE_EVENT_MESSAGE.replace("${calendar}", opt[0]));
 				}
 				else{
-					waitForAndGetElement(ELEMENT_CREATE_TASK_MESSAGE.replace("${userName}", opt[0]));
+					waitForAndGetElement(ELEMENT_CREATE_TASK_MESSAGE.replace("${calendar}", opt[0]));
 					Utils.pause(3000);
-					waitForElementNotPresent(ELEMENT_CREATE_TASK_MESSAGE.replace("${userName}", opt[0]));
+					waitForElementNotPresent(ELEMENT_CREATE_TASK_MESSAGE.replace("${calendar}", opt[0]));
 				}
 			}
 		}
@@ -987,14 +993,14 @@ public class CalendarBase extends PlatformBase {
 			button.save();
 			if(verify){
 				if(isEvent){
-					waitForAndGetElement(ELEMENT_CREATE_EVENT_MESSAGE.replace("${userName}", waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
+					waitForAndGetElement(ELEMENT_CREATE_EVENT_MESSAGE.replace("${calendar}", waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
 					Utils.pause(3000);
-					waitForElementNotPresent(ELEMENT_CREATE_EVENT_MESSAGE.replace("${userName}",  waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
+					waitForElementNotPresent(ELEMENT_CREATE_EVENT_MESSAGE.replace("${calendar}",  waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
 				}
 				else{
-					waitForAndGetElement(ELEMENT_CREATE_TASK_MESSAGE.replace("${userName}", waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
+					waitForAndGetElement(ELEMENT_CREATE_TASK_MESSAGE.replace("${calendar}", waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
 					Utils.pause(3000);
-					waitForElementNotPresent(ELEMENT_CREATE_TASK_MESSAGE.replace("${userName}",  waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
+					waitForElementNotPresent(ELEMENT_CREATE_TASK_MESSAGE.replace("${calendar}",  waitForAndGetElement(ELEMENT_ACCOUNT_NAME_LINK).getText()));
 
 				}
 			}

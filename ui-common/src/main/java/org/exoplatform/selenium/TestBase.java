@@ -970,4 +970,18 @@ public class TestBase {
 		element2.click();
 		element2.sendKeys(Keys.chord(Keys.CONTROL, "v"));
 	}
+	
+	/**
+	 * Get minute in format "HH" from current date
+	 * @author chinhdtt
+	 * @return hours
+	 * 
+	 */
+	public int getHours(){
+		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date); 
+		int minute = cal.get(Calendar.HOUR);
+		return (minute); 
+	}
 }
