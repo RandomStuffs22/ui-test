@@ -48,12 +48,26 @@ public class RichTextMode extends Template {
 	public By ELEMENT_MACRO_LINK = By.xpath("//*[text()='Macro']");
 	public By ELEMENT_INSERT_MACRO_LINK = By.xpath("//*[text()='Insert Macro...']");
 	public By ELEMENT_MACRO_CATEGORY_SELECT = By.xpath("//select[@title='Select a macro category']");
+	public By ELEMENT_MACRO_TYPE_FILTER = By.xpath("//input[@title='Type to filter']");
 	public String ELEMENT_MACRO_LABEL = "//*[text()='${macro}']";
+	public By ELEMENT_RICHTEXTMODE_FRAME = By.id("gwt-RichTextArea");
 
 	//Macro: Tip message
 	public By ELEMENT_CONTENT_MESSAGE_TEXTAREA = By.id("pd-content-input");
 	public String ELEMENT_TIP_MESSAGE_MACRO = "//*[@class='box tipmessage' and text()='${message}']";
-
+	
+	//Macro: Box
+	public By ELEMENT_BOX_TITLE = By.id("pd-title-input");
+	public By ELEMENT_BOX_CONTENT = By.id("pd-content-input");
+	
+	//Macro: Children
+	public By ELEMENT_CHILDREN_DESCENDANT_SELECT = By.id("pd-descendant-input");
+	
+	//Macro: Code
+	public By ELEMENT_CODE_LANGUAGE_INPUT = By.id("pd-language-input");
+	public By ELEMENT_CODE_TITLE_INPUT = By.id("pd-title-input");
+	public By ELEMENT_CODE_CONTENT_INPUT = By.id("pd-content-input");
+	
 	//Macro: Color
 	public By ELEMENT_COLOR_TEXTBOX = By.id("pd-name-input");
 	public By ELEMENT_COLOR_MESSAGE = By.id("pd-content-input");
@@ -142,10 +156,12 @@ public class RichTextMode extends Template {
 	 * @see #createColorMacro(String, String)
 	 */
 	public void goToSelectAMacro(String cat, String macro){
-		info("Go to a macro: " + macro);
+		info("Select a macro: " + macro);
 		mouseOverAndClick(ELEMENT_MACRO_LINK);
 		mouseOverAndClick(ELEMENT_INSERT_MACRO_LINK);
 		select(ELEMENT_MACRO_CATEGORY_SELECT, cat);
+		mouseOverAndClick(ELEMENT_MACRO_TYPE_FILTER);
+		type(ELEMENT_MACRO_TYPE_FILTER,macro,true);
 		Utils.pause(1000);
 		click(ELEMENT_MACRO_LABEL.replace("${macro}", macro));
 		click(but.ELEMENT_SELECT_BUTTON);
@@ -153,16 +169,67 @@ public class RichTextMode extends Template {
 	}
 
 	/**
-	 * Add macro: "Tip Message"
+	 * Add macro: "Message"
 	 * 
 	 * @param message
 	 * 			 message that will be displayed in macro
 	 */
-	public void createTipMessageMacro(String message){
-		goToSelectAMacro("Formatting", "Tip Message");
-		type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+	
+	public void createMessageMacro(String type, String message){
+		if (type == "Tip") {
+				goToSelectAMacro("Formatting", "Tip Message");
+				type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+				click(but.ELEMENT_CREATE_MACRO_BUTTON);
+		}
+		if (type == "Info") {
+				goToSelectAMacro("Formatting", "Info Message");
+				type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+				click(but.ELEMENT_CREATE_MACRO_BUTTON);
+		}
+		if (type == "Warning") {
+				goToSelectAMacro("Formatting", "Warning Message");
+				type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+				click(but.ELEMENT_CREATE_MACRO_BUTTON);
+		}
+		if (type == "Success") {
+				goToSelectAMacro("Formatting", "Success Message");
+				type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+				click(but.ELEMENT_CREATE_MACRO_BUTTON);
+		}
+		if (type == "Excerpt") {
+			goToSelectAMacro("Content", "Excerpt");
+			type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+			click(but.ELEMENT_CREATE_MACRO_BUTTON);	
+		}
+	}
+	
+	public void createBoxMacro(String title,String content){
+		goToSelectAMacro("Formatting", "Box");
+		type(ELEMENT_BOX_TITLE, title, true);
+		type(ELEMENT_BOX_CONTENT, content, true);
 		click(but.ELEMENT_CREATE_MACRO_BUTTON);
-		waitForAndGetElement(ELEMENT_TIP_MESSAGE_MACRO.replace("${message}", message));
+	}
+	
+	public void createChildrenMacro(String descendant){
+		goToSelectAMacro("Navigation", "Chilren");
+		//WIKI-863 found for "Chilren" text
+		mouseOverAndClick(ELEMENT_CHILDREN_DESCENDANT_SELECT);
+		type(ELEMENT_CHILDREN_DESCENDANT_SELECT,descendant,false);
+		Utils.pause(1000);
+		click(but.ELEMENT_CREATE_MACRO_BUTTON);		
+	}
+	
+	public void createTableOfContentsMacro(){
+		goToSelectAMacro("Navigation", "Table Of Contents");
+		click(but.ELEMENT_CREATE_MACRO_BUTTON);
+	
+	}
+	public void createCodeMacro(String language, String title, String message){
+		goToSelectAMacro("Formatting", "Code");
+		type(ELEMENT_CODE_LANGUAGE_INPUT,language,true);
+		type(ELEMENT_CODE_TITLE_INPUT,title,true);
+		type(ELEMENT_CONTENT_MESSAGE_TEXTAREA, message, true);
+		click(but.ELEMENT_CREATE_MACRO_BUTTON);	
 	}
 
 	/**

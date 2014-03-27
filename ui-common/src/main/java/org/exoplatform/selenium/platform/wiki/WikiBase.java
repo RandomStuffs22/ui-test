@@ -96,6 +96,7 @@ public class WikiBase extends PlatformBase{
 	public final By ELEMENT_PUBLISH_ACTIVITY_CHECKBOX = By.id("PublishActivityUpper");
 	public final By ELEMENT_COMMENT_TEXTBOX = By.id("Comment");
 	public final By ELEMENT_SAVE_BUTTON_ADD_PAGE = By.id("UISubmitToolBarUpper_SavePage_");
+	//public final By ELEMENT_SAVE_BUTTON_ADD_PAGE = By.xpath("//div[@id = 'UISubmitToolBarUpper']//button[@id = 'UISubmitToolBarUpper_SavePage_']");
 	public final By ELEMENT_CANCEL_BUTTON_ADD_PAGE = By.id("UISubmitToolBarBottom_Cancel_");
 	public final By ELEMENT_CONFIRM_BUTTON_ADD_PAGE = By.xpath("//button[text()='Confirm']");
 	public final By ELEMENT_CANCEL_BUTTON_ADD_PAGE_NULL_TITLE = By.xpath("//button[text()='Cancel']");
