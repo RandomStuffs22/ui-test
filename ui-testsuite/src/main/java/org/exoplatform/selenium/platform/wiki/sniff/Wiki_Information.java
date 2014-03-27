@@ -180,11 +180,11 @@ public class Wiki_Information extends Version {
 	 */
 	@Test
 	public void test06_AddRelation_NoSpace(){
-		String title = "Wiki_sniff_infor_page_title_06";
-		String content = "Wiki_sniff_infor_page_content_06";
+		String title = "wikititle70342";
+		String content = "wikicontent70342";
 
 		magAc.signOut();
-		magAc.signIn("fqa", DATA_PASS);
+		magAc.signIn(DATA_USER1, DATA_PASS);
 		goToWiki();
 		addBlankWikiPage(title, content, 0);
 		goToAddRelation();

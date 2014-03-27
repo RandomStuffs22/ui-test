@@ -79,9 +79,9 @@ public class Forum_Setting extends ForumBase {
 	}
 	
 	/**CaseId: 68940 -> User Management
-	 * 
+	 * FORUM-849 - Not show post on User management
 	 */
-	@Test
+	@Test(groups="error")
 	public void test02_UserManagement(){
 		String catName = "Category User Management 02";
 		String description = "Add new category in forum";

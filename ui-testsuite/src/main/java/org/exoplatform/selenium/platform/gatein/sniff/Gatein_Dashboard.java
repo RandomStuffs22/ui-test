@@ -10,6 +10,9 @@ import org.exoplatform.selenium.platform.NavigationToolbar;
 import org.exoplatform.selenium.platform.PageEditor;
 import org.exoplatform.selenium.platform.PageManagement;
 import org.exoplatform.selenium.platform.UserGroupManagement;
+import org.exoplatform.selenium.platform.ecms.EcmsBase;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ActionBar;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,18 +30,23 @@ public class Gatein_Dashboard extends DashBoard {
 	PageManagement pageMag;
 	PageEditor pageE;
 	Button but;
+	ActionBar actBar;
+	EcmsBase ecms;
+	ContextMenu cMenu;
 
 	@BeforeMethod
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		magAc = new ManageAccount(driver);
-		navTool = new NavigationToolbar(driver);
-		user = new UserGroupManagement(driver);
-		pageMag = new PageManagement(driver);
-		pageE = new PageEditor(driver);
-		but = new Button(driver);
-
+		magAc = new ManageAccount(driver,this.plfVersion);
+		navTool = new NavigationToolbar(driver,this.plfVersion);
+		user = new UserGroupManagement(driver,this.plfVersion);
+		pageMag = new PageManagement(driver,this.plfVersion);
+		pageE = new PageEditor(driver,this.plfVersion);
+		but = new Button(driver,this.plfVersion);
+		actBar = new ActionBar(driver,this.plfVersion);
+		ecms = new EcmsBase(driver,this.plfVersion);
+		cMenu= new ContextMenu(driver,this.plfVersion);
 		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
@@ -128,8 +136,25 @@ public class Gatein_Dashboard extends DashBoard {
 	 */
 	@Test
 	public void test00_ChangeAppWhenEditingPageLayout(){
-		String pageName = "gateinsniff05";
-
+		String pageName = "gateinsniff68860";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
+		
 		navTool.goToDashboard();
 		pageE.createNewPageWithLayout(pageName, 2);
 		navTool.goToEditPageEditor();
@@ -139,7 +164,7 @@ public class Gatein_Dashboard extends DashBoard {
 		click(ELEMENT_SWITCH_VIEW_MODE);
 
 		info("Edit portlet");
-		pageE.selectCLVPath("General Drives/Sites Management/acme", "documents");
+		pageE.selectCLVPath("General Drives/Sites Management/intranet", "documents");
 		click(ELEMENT_SWITCH_VIEW_MODE);
 		waitForTextPresent("offices.jpg");
 		waitForTextPresent("metro.pdf");
@@ -155,6 +180,18 @@ public class Gatein_Dashboard extends DashBoard {
 		waitForTextNotPresent("offices.jpg");
 
 		deleteTabOnDashboard(pageName);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 
 	/**CaseId: 68861
@@ -162,7 +199,7 @@ public class Gatein_Dashboard extends DashBoard {
 	 */
 	@Test
 	public void test06_AddAppIntoContainerWhenEditingPageLayout(){
-		String pageName = "gateinsniff06";
+		String pageName = "gateinsniff68861";
 
 		navTool.goToDashboard();
 		pageE.createNewPageWithLayout(pageName, 2);

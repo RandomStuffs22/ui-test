@@ -151,8 +151,9 @@ public class Forum_Answers_PublishActivity extends AnswerBase{
 
 	/**CaseId: 74756
 	 * Unactivate a question
+	 * Forum-850: Not show comments of answer activity
 	 */
-	@Test
+	@Test(groups="error")
 	public void test03_UnactivateQuestion(){
 		String questionName = "Question03";
 		String questionContent = "Content of question 03";

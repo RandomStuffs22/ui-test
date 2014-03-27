@@ -382,7 +382,7 @@ public class SpaceManagement extends SocialBase {
 		if(waitForAndGetElement(eMenuItem.replace("${menuItem}", menuItem),DEFAULT_TIMEOUT,0)!=null)
 			click(By.xpath(eMenuItem.replace("${menuItem}", menuItem)));
 		else{
-			click(By.xpath(eMenuItem.replace("${menuItem}", "members")));
+			click(By.xpath(eMenuItem.replace("${menuItem}", "More")));
 			String []items = menuItem.split(" ");
 			if(items.length>1){
 				click(By.xpath(eMenuItem.replace("${menuItem}", menuItem.split(" ")[0]+" ...")));

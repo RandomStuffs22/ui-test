@@ -79,7 +79,7 @@ public class WikiBase extends PlatformBase{
 	public final By ELEMENT_QUICK_SEARCH = By.id("wikiSearchValue");
 	public final By ELEMENT_SEARCH_RESULT = By.className("resultNumber");
 	//public final String ELEMENT_PAGE_RESULT = "//*[@id='UIWikiAdvanceSearchResult']//*[contains(text(), '${title}')]";
-	public final String ELEMENT_PAGE_RESULT="//*[@href='/portal/intranet/wiki/${title}']";
+	public final String ELEMENT_PAGE_RESULT="//*[@id='UIWikiSearchSpaceArea']//*[contains(@href,'${title}')]";
 	public final String ELEMENT_PAGE_SPACR_RESULT="";
 	
 	//Wiki Home

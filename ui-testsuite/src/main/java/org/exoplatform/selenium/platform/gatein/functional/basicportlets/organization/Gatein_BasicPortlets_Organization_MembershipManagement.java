@@ -30,7 +30,7 @@ public class Gatein_BasicPortlets_Organization_MembershipManagement extends Plat
 		but = new Button(driver);
 		dialog = new Dialog(driver);
 
-		magAc.signIn("fqa", DATA_PASS); 
+		magAc.signIn(DATA_USER1, DATA_PASS); 
 	}
 
 	@AfterMethod

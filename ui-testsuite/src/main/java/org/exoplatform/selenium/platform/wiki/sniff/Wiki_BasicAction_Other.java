@@ -6,7 +6,9 @@ import org.exoplatform.selenium.Button;
 import org.exoplatform.selenium.Dialog;
 import org.exoplatform.selenium.Utils;
 import org.exoplatform.selenium.platform.ManageAccount;
+import org.exoplatform.selenium.platform.NavigationToolbar;
 import org.exoplatform.selenium.platform.PlatformPermission;
+import org.exoplatform.selenium.platform.UserGroupManagement;
 import org.exoplatform.selenium.platform.social.ManageMember;
 import org.exoplatform.selenium.platform.wiki.Permalink;
 import org.openqa.selenium.By;
@@ -26,6 +28,8 @@ public class Wiki_BasicAction_Other extends Permalink {
 	Button button;
 	ManageMember magMem;
 	PlatformPermission per;
+	NavigationToolbar navBar;
+	UserGroupManagement userGroupMag;
 	
 	@BeforeMethod
 	public void setUpBeforeTest(){
@@ -36,7 +40,8 @@ public class Wiki_BasicAction_Other extends Permalink {
 		button = new Button(driver);
 		magMem = new ManageMember(driver);
 		per = new PlatformPermission(driver);
-		
+		userGroupMag = new UserGroupManagement(driver, this.plfVersion);
+		navBar = new NavigationToolbar(driver, this.plfVersion);
 		magAc.signIn(DATA_USER1, DATA_PASS); 
 		goToWiki();
 	}
@@ -432,6 +437,14 @@ public class Wiki_BasicAction_Other extends Permalink {
 		String content = "Wiki_sniff_permalink_content_14_2";
 		String userGroup2 = "Development/Select this Group";
 		
+		//Group Management
+		navBar.goToUsersAndGroupsManagement();
+		userGroupMag.chooseGroupTab();
+		userGroupMag.selectGroup("Development", true);
+		if(isElementNotPresent(userGroupMag.ELEMENT_GROUP_USER_IN_TABLE.replace("${username}", DATA_USER4)))
+			userGroupMag.addUsersToGroup(DATA_USER4, "*", true, true);
+		goToWiki();
+		
 		addBlankWikiPage(title, content, 0);
 		deletePagePermission("any");
 		
@@ -455,7 +468,15 @@ public class Wiki_BasicAction_Other extends Permalink {
 	public void test14_ChangePermissionOfPageInPermalink_SelectMembership(){
 		String title = "Wiki_sniff_permalink_title_14_3";
 		String content = "Wiki_sniff_permalink_content_14_3";
-		String[] userGroup3 = {"Platform/Content Management", "author"}; 
+		String[] userGroup3 = {"Platform/Content Management", "author"};
+		
+		//Group Management
+		navBar.goToUsersAndGroupsManagement();
+		userGroupMag.chooseGroupTab();
+		userGroupMag.selectGroup("Platform/Content Management", true);
+		if(isElementNotPresent(userGroupMag.ELEMENT_GROUP_USER_IN_TABLE.replace("${username}", DATA_USER3)))
+			userGroupMag.addUsersToGroup(DATA_USER3, "author", true, true);
+		goToWiki();
 		
 		addBlankWikiPage(title, content, 0);
 		deletePagePermission("any");

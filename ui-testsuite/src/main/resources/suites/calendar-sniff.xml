@@ -8,15 +8,15 @@
 			</run>
 		</groups>
 		<classes>
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Views" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Calendar" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Category" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Event" />
-			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Event" />
-			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Task" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Search" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Settings" />
 			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Task" />
-			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_Views" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Event" />
+			<class name="org.exoplatform.selenium.platform.calendar.sniff.Calendar_PublishActivities_Task" />
 		</classes>
 	</test>
 	<listeners>

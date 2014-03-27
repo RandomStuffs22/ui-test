@@ -37,7 +37,6 @@ public class HomePageActivity extends PlatformBase{
 	public final String ELEMENT_ACTIVITY_AUTHOR_NAME = "//div[contains(@id,'activityContainer')][${index}]//div[@class='author']//a[text()='${author}']";
 	public final String ELEMENT_ACTIVITY_AUTHOR_AVATAR = "//div[contains(@id,'activityContainer')][${index}]//div[@class='activityAvatar avatarCircle']//img[@alt='${author}']";
 
-	public final By ELEMENT_ACTIVITY_TEXTBOX = By.id("DisplaycomposerInput");
 	public final String ELEMENT_ACTIVITY = "//*[contains(text(),'${activityText}')]";
 	public final String ELEMENT_DOWNLOAD_ICON = "//*[contains(text(),'${activityText}')]/../../../..//i[@class='uiIconDownload uiIconLightGray']"; 
 	public final String ELEMENT_ACTIVITY_ORDER = "//div[contains(@id,'activityContainer')][${index}]//*[contains(text(),'${activityText}')]";
@@ -100,7 +99,7 @@ public class HomePageActivity extends PlatformBase{
 	public final String ELEMENT_CONTENT_COMMENT_USER_JOIN_SPACE="//div[@class='author']/a[contains(text(), '${spacename}')]//ancestor::div[contains(@id,'ContextBox')]/div[contains(@id,'CommentBlockBound')]//div[@class='author']/a[text()='${username}']/../../p[contains(text(),'Has joined the space')]";
 
 	public final String ELEMENT_CONTENT_COMMENT_USER_CHANGE_AVATAR="//div[@class='author']/a[contains(text(), '${username}')]//ancestor::div[contains(@id,'ContextBox')]/div[contains(@id,'CommentBlockBound')]//div[@class='author']/a[text()='${username}']/../../p[contains(text(),'Avatar has been updated.')]";
-	public final String ELEMENT_CONTENT_COMMENT_USER_EDIT_BASIC_INFO="//div[@class='author']/a[contains(text(), '${username}')]//ancestor::div[contains(@id,'ContextBox')]/div[contains(@id,'CommentBlockBound')]//div[@class='author']/a[text()='${username}']/../../p[contains(text(),'Basic informations has been updated.')]";
+	public final String ELEMENT_CONTENT_COMMENT_USER_EDIT_BASIC_INFO="//div[@class='author']/a[contains(text(), '${username}')]//ancestor::div[contains(@id,'ContextBox')]/div[contains(@id,'CommentBlockBound')]//div[@class='author']/a[text()='${username}']/../../p[contains(text(),'Basic information has been updated.')]";
 	public final By ELEMENT_CONTENT_WIKI_VIEW_CHANGE = By.xpath("//*[@class='uiIconViewChange uiIconLightGray']");
 	
 	//File activity

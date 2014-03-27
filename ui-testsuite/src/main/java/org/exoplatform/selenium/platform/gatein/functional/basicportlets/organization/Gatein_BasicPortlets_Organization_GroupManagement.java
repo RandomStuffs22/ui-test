@@ -45,7 +45,7 @@ public class Gatein_BasicPortlets_Organization_GroupManagement extends PlatformB
 		pageMag = new PageManagement(driver);
 
 		button = new Button(driver);
-		magAc.signIn("fqa", DATA_PASS); 
+		magAc.signIn(DATA_USER1, DATA_PASS); 
 	}
 
 	@AfterMethod

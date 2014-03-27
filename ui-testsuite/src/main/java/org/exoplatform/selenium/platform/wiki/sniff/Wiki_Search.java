@@ -70,7 +70,7 @@ public class Wiki_Search extends Template {
 	public void test02_AdvancedSearch(){
 		String title = "Wiki_search_title_02";
 		String content = "line1/line2/line3/line4/line5";
-		String spaceName = "SearchSpace021";
+		String spaceName = "space68845";
 		
 		magMem.goToAllSpaces();
 		magMem.addNewSpace(spaceName, "", "Visible", "Validation", "", "");

@@ -48,7 +48,6 @@ public class ForumManageForum extends ForumBase {
 	public By ELEMENT_LOCK_FORUM = By.className("uiIconLockMedium");
 	public By ELEMENT_UNLOCK_FORUM = By.className("uiIconUnlockMedium");
 	public String ELEMENT_CATEGORY_BREAD = "//a[@data-original-title='${category}']";
-	public String ELEMENT_CATEGORY_BREAD41 = "//a[@title='${category}']";
 	public By ELEMENT_CLOSE_FORUM = By.xpath("//a[contains(@href,'SetCloseForum')]");
 	public By ELEMENT_OPEN_FORUM = By.xpath("//a[contains(@href,'SetOpenForum')]");
 	public By ELEMENT_NO_FORUM = By.xpath("//td[@class='noticeEmpty' and text()='No Forums']");

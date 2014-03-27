@@ -45,6 +45,7 @@ public class PlatformBase extends TestBase {
 	 * */
 	public final String ELEMENT_SIGN_IN_LINK = "//b[contains(text(),'Sign in')]";
 	public final By ELEMENT_REFRESH = By.xpath("//div[@class='activityStreamStatus pull-left']");
+	public final By ELEMENT_ACTIVITY_TEXTBOX = By.id("DisplaycomposerInput");
 
 	/*
 	 * Log in Form - Sign-out 
@@ -457,6 +458,7 @@ public class PlatformBase extends TestBase {
 
 	public final String ELEMENT_LIST_NODE_LINK = ELEMENT_NODE_LINK.replace("${nodeLabel}", "${nodeLabel}") + "/..//li[${number}]//*[@title='${childNode}']";
 	public final String ELEMENT_CHILD_NODE_LINK = ELEMENT_NODE_LINK.replace("${nodeLabel}", "${nodeLabel}") + "/../*[contains(@class, 'childrenContainer')]//*[@title='${childNode}']";
+	public final By ELEMENT_NODE_LIST_IN_NAVIGATION = By.xpath("//*[@class='node']//*[@title='Home']/..//ul[@class='childrenContainer nodeGroup']/li");
 	public final String ELEMENT_SELECT_HOME_PAGE = "//div[@id='UIRepeater']//table//tbody/tr/td[5]/div[@class='ActionContainer']/img";
 	public final String ELEMENT_NAVIGATION_HOME_NODE = "//div[@class='HomeNode']";				 
 	public final String ELEMENT_NODE_ADD_NEW_TOP_NODE = "//div[@id='UINavigationNodeSelectorPopupMenu']/div[@class='UIContextMenuContainer']//a[@class='ItemIcon AddNode16x16Icon']";
@@ -1354,7 +1356,7 @@ public class PlatformBase extends TestBase {
 	 * @param content: mail content
 	 */
 	public void checkAndDeleteMail(By mail, String content){
-		waitForAndGetElement(mail,300000);
+		waitForAndGetElement(mail,360000);
 
 		click(mail);	
 		if(waitForAndGetElement(ELEMENT_GMAIL_CONTENT.replace("${content}",content),20000,0) == null )

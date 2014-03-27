@@ -38,7 +38,7 @@
 			</run>
 		</groups>
 		<packages>
-			<package name="org.exoplatform.selenium.platform.ecms.sniff.wcm.*" />
+			<!-- <package name="org.exoplatform.selenium.platform.ecms.sniff.wcm.*" /> -->
 		</packages>
 	</test>
 	<listeners>

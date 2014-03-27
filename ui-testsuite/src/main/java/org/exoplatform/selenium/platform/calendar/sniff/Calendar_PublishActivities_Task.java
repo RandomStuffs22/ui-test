@@ -87,8 +87,8 @@ public class Calendar_PublishActivities_Task extends CalendarBase{
 	 */
 	@Test
 	public void test02_UpdateActivityForTaskWhenAddAttachment() {
-		String space = "Space74735";
-		String task = "Task74735";
+		String space = "Space74741";
+		String task = "Task74741";
 		String path = "TestData/Calendar_74741.xml";
 		info("Update activity for event of Space Calendar- event is updated as all day event a space");
 		

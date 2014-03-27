@@ -11,6 +11,10 @@ import org.exoplatform.selenium.platform.ManageAccount;
 import org.exoplatform.selenium.platform.NavigationToolbar;
 import org.exoplatform.selenium.platform.PageEditor;
 import org.exoplatform.selenium.platform.PageManagement;
+import org.exoplatform.selenium.platform.ecms.EcmsBase;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ActionBar;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -28,7 +32,9 @@ public class Gatein_Navigation_GroupNavigation_EditLayout extends GroupNavigatio
 	PageManagement pageMag;
 	PageEditor pageE;
 	Button but;
-	
+	ActionBar actBar;
+	EcmsBase ecms;
+	ContextMenu cMenu;
 	@BeforeMethod
 	public void setUpBeforeTest(){
 		initSeleniumTest();
@@ -38,7 +44,9 @@ public class Gatein_Navigation_GroupNavigation_EditLayout extends GroupNavigatio
 		pageMag = new PageManagement(driver, this.plfVersion);
 		pageE = new PageEditor(driver, this.plfVersion);
 		but = new Button(driver, this.plfVersion);
-		
+		actBar = new ActionBar(driver,this.plfVersion);
+		ecms = new EcmsBase(driver,this.plfVersion);
+		cMenu= new ContextMenu(driver,this.plfVersion);
 		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
@@ -54,6 +62,24 @@ public class Gatein_Navigation_GroupNavigation_EditLayout extends GroupNavigatio
 	@Test
 	public void test01_AddEditRemoveAppWhenEditLayout_GroupPage(){
 		String pageName = "Sniffgroupnavigationlayout01";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
+		navTool.goToManagePages();
 		
 		info("Add new page of group");
 		navTool.goToSiteExplorer();
@@ -70,7 +96,7 @@ public class Gatein_Navigation_GroupNavigation_EditLayout extends GroupNavigatio
 		
 		info("Edit application when edit layout of page");
 		navTool.goToEditPageEditor();
-		pageE.selectCLVPath("General Drives/Sites Management/acme", "documents");
+		pageE.selectCLVPath("General Drives/Sites Management/intranet", "documents");
 		click(ELEMENT_SWITCH_VIEW_MODE);
 		waitForTextPresent("offices.jpg");
 		waitForTextPresent("metro.pdf");
@@ -84,7 +110,19 @@ public class Gatein_Navigation_GroupNavigation_EditLayout extends GroupNavigatio
 		waitForElementNotPresent(ELEMENT_CLV_PORTLET);
 		
 		info("Delete page");
-		pageMag.deletePageAtManagePageAndPortalNavigation(pageName, false, null, true, "Content Management");	
+		pageMag.deletePageAtManagePageAndPortalNavigation(pageName, false, null, true, "Content Management");
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 68875 -> Move application when edit layout for group's page

@@ -84,9 +84,9 @@ public class Wiki_BasicAction_ManagePage extends ManageDraft{
 		typeEnterInRichText();
 		createColorMacro("red", message);
 		typeEnterInRichText();
-		insertPageLink2WikiPage(true, pageLink, "Link to pageLink", "Go to pageLink");
-		typeEnterInRichText();
 		insertTable2WikiPage("2", "2");
+		typeEnterInRichText();
+		insertPageLink2WikiPage(true, pageLink, "Link to pageLink", "Go to pageLink");
 		click(ELEMENT_SAVE_BUTTON_ADD_PAGE);
 		waitForElementNotPresent(ELEMENT_SAVE_BUTTON_ADD_PAGE);
 		//waitForAndGetElement(By.xpath("//a[@title='Go to pageLink' and contains(text(), 'Link to pageLink')]"));

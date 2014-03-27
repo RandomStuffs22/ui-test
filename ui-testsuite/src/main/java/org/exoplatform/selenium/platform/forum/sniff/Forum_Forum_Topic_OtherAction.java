@@ -120,8 +120,9 @@ public class Forum_Forum_Topic_OtherAction extends ForumBase{
 
 	/** Watch & Unwatch topic
 	 * CaseID: 68915
+	 * Forum-767 : Cannot watch topic
 	 */
-	@Test
+	@Test(groups="error")
 	public void test04_WatchUnwatchTopic() {
 		String titleCat = "Category 68915";
 		String titleForum = "Forum 68915";
@@ -134,10 +135,8 @@ public class Forum_Forum_Topic_OtherAction extends ForumBase{
 		magAc.updateUserProfile(null,null, null, EMAIL_ADDRESS1);
 		goToForums();
 		mngTopic.addCategoryForumTopic(titleCat, titleForum, titleTop, titleTop);
-		
 
-		
-			click(mngFru.ELEMENT_TOPIC_LINK.replace("${topic}", titleTop));
+		click(mngFru.ELEMENT_TOPIC_LINK.replace("${topic}", titleTop));
 		waitForAndGetElement(mngPost.ELEMENT_POST_REPLY_BUTTON);
 		mngTopic.watchItem(true);
 		mngPost.postReply(newTopic, newTopic, "", "", "");
@@ -152,9 +151,9 @@ public class Forum_Forum_Topic_OtherAction extends ForumBase{
 		switchToNewWindow();
 		Utils.pause(30000);
 		waitForElementNotPresent(ELEMENT_GMAIL_EMAIL.replace("${category}",titleCat).replace("${forum}", titleForum).replace("${topic}", titleTop));
-		
+
 		switchToParentWindow();
-		
+
 		//Delete data
 		click(By.linkText(titleCat));
 		mngCat.deleteCategoryInForum(titleCat, true); 
