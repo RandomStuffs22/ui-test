@@ -322,7 +322,7 @@ public class ECMS_SE_PublicActivity extends PlatformBase {
 		info("Add a category for uploaded file");
 		navToolBar.goToSiteExplorer();
 		ecms.goToNode(elementUploadFile);
-		actBar.addCategoryForNode("powers", false, "", category1);
+		actBar.addCategoryForNode("intranet", false, "", category1);
 		
 		info("Check activity after adding a category");
 		navTool.goToHomePage();
@@ -330,8 +330,8 @@ public class ECMS_SE_PublicActivity extends PlatformBase {
 		
 		info("Add 2 category for uploaded file");
 		navToolBar.goToSiteExplorer();
-		actBar.addCategoryForNode("powers", false, "", category2);
-		actBar.addCategoryForNode("powers", false, "", category3);
+		actBar.addCategoryForNode("intranet", false, "", category2);
+		actBar.addCategoryForNode("intranet", false, "", category3);
 		
 		info("Check activity after adding 2 categories");
 		navTool.goToHomePage();

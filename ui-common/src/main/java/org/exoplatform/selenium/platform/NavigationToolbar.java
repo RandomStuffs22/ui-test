@@ -298,10 +298,11 @@ public class NavigationToolbar extends PlatformBase {
 
 	//Enter Sites Management Form 
 	public void goToSiteExplorer(){
+		String url =DEFAULT_BASEURL+"/g/:platform:web-contributors/siteExplorer";
 		Utils.pause(500);
 		for(int repeat=0;; repeat ++){
 			if (repeat > 1){
-				mouseOverAndClick(ELEMENT_LINK_SETUP);
+				driver.get(url);
 				break;
 			}
 			mouseOver(ELEMENT_LINK_SETUP, true);

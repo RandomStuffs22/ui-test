@@ -67,7 +67,7 @@ public class ECMS_SE_Collaboration extends PlatformBase {
 		By elementFile = By.linkText(file);
 
 		navToolBar.goToSiteExplorer();
-		click(By.linkText("acme"));
+		click(By.linkText("intranet"));
 		click(By.linkText("documents"));
 		click(By.linkText("metro.pdf"));
 		actBar.addItem2ActionBar("comment", actBar.ELEMENT_ADD_COMMENT_LINK);
@@ -98,7 +98,7 @@ public class ECMS_SE_Collaboration extends PlatformBase {
 		By elementUploadFile = By.linkText(fileUpload);
 
 		navToolBar.goToSiteExplorer();
-		click(By.linkText("acme"));
+		click(By.linkText("intranet"));
 		click(By.linkText("documents"));
 		click(By.linkText("metro.pdf"));
 		actBar.addItem2ActionBar("comment", actBar.ELEMENT_ADD_COMMENT_LINK);

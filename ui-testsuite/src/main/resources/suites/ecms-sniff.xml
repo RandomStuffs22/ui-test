@@ -1,6 +1,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Platform Sniff Test" verbose="1" preserve-order="true">
+	<test name="Create-data" enabled="true" preserve-order="true">
+		<groups>
+			<run>
+				<exclude name="pending" />
+			</run>
+		</groups>
+		<classes>
+			<class name="org.exoplatform.selenium.platform.ecms.sniff.siteexplorer.Create_DataTest" />
+		</classes>
+	</test>
+	
 	<test name="ecms-sniff-siteexplorer" enabled="true" preserve-order="true">
 		<groups>
 			<run>

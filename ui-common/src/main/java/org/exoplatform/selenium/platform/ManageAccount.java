@@ -66,6 +66,7 @@ public class ManageAccount extends PlatformBase {
 		type(ELEMENT_INPUT_PASSWORD, password, true);
 		click(ELEMENT_SIGN_IN_BUTTON);
 		if(verify){
+
 			waitForAndGetElement(ELEMENT_ACTIVITY_TEXTBOX);
 			waitForElementNotPresent(ELEMENT_SIGN_IN_BUTTON);
 		}

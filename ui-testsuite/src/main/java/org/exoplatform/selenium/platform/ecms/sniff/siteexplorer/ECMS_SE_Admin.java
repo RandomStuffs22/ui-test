@@ -67,7 +67,7 @@ public class ECMS_SE_Admin extends PlatformBase {
 		String node1 = "test02_AddCategory";
 		By bNode = By.xpath(siteExp.ELEMENT_SE_NODE.replace("{$node}", node1));
 		String categoryPath = "Defense";
-		String categoryTree = "powers";
+		String categoryTree = "intranet";
 		
 		info("Add Category");
 		//Create node
@@ -176,7 +176,7 @@ public class ECMS_SE_Admin extends PlatformBase {
 	public void test06_DeleteCategory() {
 		String node1 = "test06_DeleteCategory1";
 		By bNode = By.xpath(siteExp.ELEMENT_SE_NODE.replace("{$node}", node1));
-		String catePath="powers";
+		String catePath="intranet";
 
 		info("Add Category");
 		//Create node
