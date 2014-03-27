@@ -11,6 +11,9 @@ import org.exoplatform.selenium.platform.ManageAccount;
 import org.exoplatform.selenium.platform.NavigationToolbar;
 import org.exoplatform.selenium.platform.PageEditor;
 import org.exoplatform.selenium.platform.PageManagement;
+import org.exoplatform.selenium.platform.ecms.EcmsBase;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ActionBar;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,17 +30,21 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 	PageManagement pageMag;
 	PageEditor pageE;
 	Button but;
-	
+	ActionBar actBar;
+	EcmsBase ecms;
+	ContextMenu cMenu;
 	@BeforeMethod
 	public void setUpBeforeTest(){
 		initSeleniumTest();
 		driver.get(baseUrl);
-		magAc = new ManageAccount(driver);
-		navTool = new NavigationToolbar(driver);
-		pageMag = new PageManagement(driver);
-		pageE = new PageEditor(driver);
-		but = new Button(driver);
-		
+		magAc = new ManageAccount(driver,this.plfVersion);
+		navTool = new NavigationToolbar(driver,this.plfVersion);
+		pageMag = new PageManagement(driver,this.plfVersion);
+		pageE = new PageEditor(driver,this.plfVersion);
+		but = new Button(driver,this.plfVersion);
+		actBar = new ActionBar(driver,this.plfVersion);
+		ecms = new EcmsBase(driver,this.plfVersion);
+		cMenu= new ContextMenu(driver,this.plfVersion);
 		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
@@ -83,6 +90,23 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		String pageTitle = "SniffManagePageTitle02";
 		String groupPath = "Platform /Content Management ";
 		String membership = "*";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
 		
 		navTool.goToManagePages();
 		
@@ -104,6 +128,18 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		
 		info("Delete page");
 		pageMag.deletePage(PageType.PORTAL, pageTitle);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 68893 + 68862 -> Add page for portal from Wizard and edit page from Edit -> Page -> Layout
@@ -112,6 +148,23 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 	@Test
 	public void test03_AddEditPageForPortal_WiZard(){
 		String nodeName = "SniffManagePageName03";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
 		
 		navTool.goToPageCreationWizard();
 		Map<String, String> portal = new HashMap<String, String>();
@@ -140,6 +193,18 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		
 		info("Delete page");
 		pageMag.deletePageAtManagePageAndPortalNavigation(nodeName, true, "intranet", false, null);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 70420 + 70419 + 68853 -> Add, edit and delete page for group in Page management
@@ -152,7 +217,23 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		String ownerId = "/organization/management/executive-board";
 		String groupPath = "Platform /Content Management ";
 		String membership = "*";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
 		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
 		navTool.goToManagePages();
 		
 		info("Add page for portal");
@@ -172,6 +253,18 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		pageE.finishEditLayout();
 		
 		pageMag.deletePage(PageType.GROUP, pageTitle);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 68871 + 68872 -> Add new page for group by Wizard and edit page
@@ -180,6 +273,23 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 	@Test
 	public void test05_AddEditPageForGroup_Wizard(){
 		String nodeName = "SniffManagePageName05";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
 		
 		navTool.goToSiteExplorer();
 		navTool.goToPageCreationWizard();
@@ -209,6 +319,18 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		
 		info("Delete page");
 		pageMag.deletePageAtManagePageAndPortalNavigation(nodeName, false, null, true, "Content Management");
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 68856 + 68857 -> Add new page and edit page for user
@@ -218,6 +340,23 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 	public void test06_AddPageForUser(){
 		String nodeName = "SniffManagePageName06";
 		String displayName = "SniffManagePage06";
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
+		
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
 		
 		navTool.goToDashboard();
 		
@@ -249,10 +388,22 @@ public class Gatein_Manage_ManagePage extends DashBoard {
 		
 		info("Delete Page");
 		deleteTabOnDashboard(nodeName);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	public void editCLVPortletAndSwitchViewMode(){
-		pageE.selectCLVPath("General Drives/Sites Management/acme", "documents");
+		pageE.selectCLVPath("General Drives/Sites Management/intranet", "documents");
 		click(ELEMENT_SWITCH_VIEW_MODE);
 		waitForTextPresent("offices.jpg");
 		waitForTextPresent("metro.pdf");
