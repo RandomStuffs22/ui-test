@@ -56,7 +56,7 @@ public class ForumBase extends PlatformBase {
 	public final By ELEMENT_HOME_BUTTON = By.xpath("//*[@id='UIBreadcumbs']//*[text()='Home']");
 	public final String ELEMENT_HOME_FORUM = "Forum Home";
 	public final By ELEMENT_USER_MANAGEMENT = By.xpath("//*[@id='ManageModerator']//*[@class='uiIconUser uiIconLightGray']");
-	public final By ELEMENT_MORE_BUTTON = By.xpath("//li[@class='dropdown moreItem pull-right']");
+	public final By ELEMENT_MORE_BUTTON = By.xpath("//li[@class='dropdown moreItem pull-right']/div[contains(.,'More')]");
 	public final By ELEMENT_PENDING = By.id("PendingJob");
 	
 	public String ELEMENT_FORUM_BREADCUMB = "//*[@id='UIBreadcumbs']/div[@class='pull-left']//a[@class='Selected' and contains(text(),'${forumName}')]";
@@ -294,6 +294,7 @@ public class ForumBase extends PlatformBase {
 	public final By ELEMENT_ADD_MODERATOR_CATEGORY_ICON = By.xpath("//*[@id='ForumUserProfile']//*[@data-original-title='Select Categories']");
 	public final By ELEMENT_ADD_MODERATOR_FORUM_ICON = By.xpath("//*[@id='ForumUserProfile']//*[@data-original-title='Select Forums']");
 	public final String ELEMENT_CATEGORY_SELECT_CHECKBOX = "//*[contains(text(),'${cat}')]/..//*[@type='checkbox']";
+	public final String ELEMENT_MODERATOR_CATEGORY_SELECT = "//*[@id='UISelectItemForum']//a[contains(.,'${category}')]";
 	public final By ELEMENT_USER_MANAGEMENT_SETTING_TAB = By.xpath("//*[@id='UIModeratorManagementForm']//a[text()='Settings']");
 	public final By ELEMENT_USER_MANAGEMENT_BAN_USER_TAB = By.linkText("Ban User");
 	public final By ELEMENT_BAN_USER_CHECKBOX = By.id("IsBanned");
@@ -1315,6 +1316,7 @@ public class ForumBase extends PlatformBase {
 		}
 		if (forum != null){
 			click(ELEMENT_ADD_MODERATOR_FORUM_ICON);
+			click(ELEMENT_MODERATOR_CATEGORY_SELECT.replace("${category}", category));
 			check(ELEMENT_CATEGORY_SELECT_CHECKBOX.replace("${cat}", forum), 2);
 			click(button.ELEMENT_ADD_BUTTON);
 			Utils.pause(1000);
