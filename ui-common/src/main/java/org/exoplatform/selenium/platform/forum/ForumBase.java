@@ -29,6 +29,7 @@ public class ForumBase extends PlatformBase {
 	public PlatformPermission per ;
 
 	public final By ELEMENT_FORUM_LINK = By.linkText("Forums");
+	public final By ELEMENT_COMMUNITY_FORUM_LINK = By.xpath("//span[@data-original-title='Support Forums']");
 	public final By ELEMENT_OK_INFOR_POPUP = By.xpath("//div[@class='UIPopupWindow UIDragObject uiPopup']/.//a[text()='OK']");
 	public final By ELEMENT_OK_DELETE = By.xpath("//*[@id='UIForumPopupConfirmation']//*[text()='OK']");
 	public final By ELEMENT_CANCEL_DELETE = By.xpath("//*[@id='UIForumPopupConfirmation']//*[text()='Cancel']");
@@ -404,7 +405,10 @@ public class ForumBase extends PlatformBase {
 
 	public void goToForums(){
 		info("--Go to Forums--");
-		click(ELEMENT_FORUM_LINK);
+		if(this.plfVersion.equals("com"))
+			click(ELEMENT_COMMUNITY_FORUM_LINK);
+		else
+			click(ELEMENT_FORUM_LINK);
 		waitForAndGetElement(ELEMENT_FORUM_STATE,DEFAULT_TIMEOUT,0);
 	}
 

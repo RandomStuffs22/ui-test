@@ -159,7 +159,7 @@ public class Community_Create_Users extends PlatformBase{
 		button.ok();
 
 		navBar.goToNewStaff(); 
-		magAccount.addNewUserAccount("james", DATA_PASS, DATA_PASS, "James", "Davis", "", "james.davis@acme.exoplatform.com", "", "", true);
+		magAccount.addNewUserAccount("james", DATA_PASS, DATA_PASS, "James", "Davis", "", "james.davis@acme.exoplatform.com", null, null, true);
 	}
 
 	@Test(priority=1)

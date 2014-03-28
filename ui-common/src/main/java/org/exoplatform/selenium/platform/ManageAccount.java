@@ -187,13 +187,12 @@ public class ManageAccount extends PlatformBase {
 			if (language != null){
 				select(ELEMENT_SELECT_USER_LANGUAGE, language);
 			}
-			click(ELEMENT_ACCOUNT_SETTING_TAB);
 		}
 		button.save();
 
 		if (verify) {
 			Utils.pause(10000);
-			waitForMessage("You have registered a new account.",60000);
+			waitForMessage("You have registered a new account.",100000);
 			dialog.closeMessageDialog();
 		}
 		Utils.pause(1000);
