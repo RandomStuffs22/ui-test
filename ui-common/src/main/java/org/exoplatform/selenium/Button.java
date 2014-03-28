@@ -25,7 +25,7 @@ public class Button extends TestBase{
 	public final By ELEMENT_OK_BUTTON = By.xpath("//*[text()='OK']");
 	public final By ELEMENT_NO_BUTTON = By.xpath("//*[text()='No']");
 	public final By ELEMENT_NO_BUTTON_AUX = By.xpath("//*[contains(@class, 'popup')]//*[contains(text(),'No')]");
-	public final By ELEMENT_YES_BUTTON = By.xpath("//*[text()='Yes']");
+	public final By ELEMENT_YES_BUTTON = By.xpath("//*[normalize-space(text())='Yes']");
 	public final By ELEMENT_YES_BUTTON_AUX = By.xpath("//*[contains(@class, 'popup')]//*[contains(text(),'Yes')]");
 	public final By ELEMENT_APPLY_FRENCH_BUTTON = By.linkText("Appliquer");
 	public final By ELEMENT_APPLY_GERMAN_BUTTON = By.linkText("Anwenden");

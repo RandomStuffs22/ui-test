@@ -65,7 +65,9 @@ public class Calendar_Views extends CalendarBase{
 
 		info("Switch to Month view");
 		click(ELEMENT_BUTTON_MONTH_VIEW);
-		waitForAndGetElement(EVENT_MONTH_VIEW.replace("${eventTitle}",EVENT_NAME_01),60000);
+		if(waitForAndGetElement(EVENT_MONTH_VIEW.replace("${eventTitle}",EVENT_NAME_01),DEFAULT_TIMEOUT,0) == null)
+			click(ELEMENT_MONTH_VIEW_MORE);
+		waitForAndGetElement(EVENT_MONTH_VIEW.replace("${eventTitle}",EVENT_NAME_01),DEFAULT_TIMEOUT);
 
 		info("Switch to List view");
 		click(ELEMENT_BUTTON_LIST_VIEW);

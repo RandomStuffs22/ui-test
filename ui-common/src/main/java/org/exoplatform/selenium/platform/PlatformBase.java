@@ -45,6 +45,7 @@ public class PlatformBase extends TestBase {
 	 * */
 	public final String ELEMENT_SIGN_IN_LINK = "//b[contains(text(),'Sign in')]";
 	public final By ELEMENT_REFRESH = By.xpath("//div[@class='activityStreamStatus pull-left']");
+	public final By ELEMENT_ACTIVITY_TEXTBOX = By.id("DisplaycomposerInput");
 
 	/*
 	 * Log in Form - Sign-out 
