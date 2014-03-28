@@ -84,7 +84,8 @@ public class WikiBase extends PlatformBase{
 	public final By ELEMENT_SPACE_SWITCHER_BREADCRUMB = By.id("DisplayModesDropDown");
 	public final By ELEMENT_SPACE_SWITCHER_INPUT = By.xpath("//*[@id='uiSpaceSwitcher_BreadCrumb']//input[@class='spaceSearchText lostFocus']") ;
 	public final By ELEMENT_SPACE_SWITCHER_PLACEHOLDER = By.xpath("//*[contains(text(),'Filter Spaces')]");
-
+	public final String ELEMENT_SPACE_SWITCHER_SELECT = "//a[text() = '${spaceName}']";
+	
 	/*------------------add/edit wiki page---------------------*/
 	//Source Editor mode
 	public final By ELEMENT_TITLE_WIKI_INPUT = By.id("titleInput");
@@ -146,12 +147,15 @@ public class WikiBase extends PlatformBase{
 	public final By ELEMENT_CANCEL_BUTTON_MOVE_PAGE = By.xpath("//*[contains(@class, 'uiWikiMovePageForm')]//button[contains(text(), 'Cancel')]");
 	public final By ELEMENT_MOVE_PAGE_POPUP = By.xpath("//*[contains(@class, 'popupTitle') and text()='Move Page']");
 	public final By ELEMENT_SELECT_SPACE_DESTINATION = By.xpath("//*[contains(text(), 'Select the destination:')]/..//*[@class='btn dropdown-toggle']");
-	public final String ELEMENT_SPACE_NAME_SELECTED = "//*[@id='UISpaceSwitcher_/spaces/${space}']/a";
+	public final String ELEMENT_SPACE_NAME_SELECTED = "//a[text() = '${space}']";
 	public final By ELEMENT_PORTAL_NAME_SELECTED = By.id("UISpaceSwitcher_/portal/intranet");
 	public final String MESSAGE_MOVE_PAGE_DUPLICATE_TITLE = "Another page with the same title already exists in the selected space.";
 	public final By ELEMENT_RENAME_LINK_WHEN_MOVE_PAGE = By.linkText("Rename");
 	public final String MESSAGE_NO_PERMISSION_MOVE_PAGE = "You have no edit permission at the destination page";
-
+	public final String ELEMENT_MOVE_PAGE_MESSAGE = "//div['${index}'][@class='alert']";
+	public final String ELEMENT_MOVE_PAGE_RENAME_LINK = "//div['${index}'][@class='alert']/..//a";
+	public final By ELEMENT_MY_WIKI_NAME_SELECTED = By.xpath("//*[@title='My Wiki']");
+	
 	/*-------------------------Permission page--------------------*/
 	public final By ELEMENT_SELECT_USER = By.xpath("//a[contains(@onclick, 'OpenSelectUserForm')]");
 	public final String ELEMENT_USERNAME_CHECK = "//input[@id='${user}' and @type='checkbox']";
@@ -456,8 +460,12 @@ public class WikiBase extends PlatformBase{
 			click(ELEMENT_SELECT_SPACE_DESTINATION);
 			if (space == "Intranet"){
 				click(ELEMENT_PORTAL_NAME_SELECTED);
-			}else {
-				click(ELEMENT_SPACE_NAME_SELECTED.replace("${space}", space.toLowerCase()));
+			}
+			else if (space == "My Wiki"){
+				click(ELEMENT_MY_WIKI_NAME_SELECTED);
+			}			
+			else {
+				click(ELEMENT_SPACE_NAME_SELECTED.replace("${space}", space));
 			}
 		}
 		info("CURRENT_LOCATION");

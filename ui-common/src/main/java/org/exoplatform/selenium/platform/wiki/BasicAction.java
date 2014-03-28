@@ -7,6 +7,7 @@ import org.exoplatform.selenium.Dialog;
 import org.exoplatform.selenium.ManageAlert;
 import org.exoplatform.selenium.Utils;
 import org.exoplatform.selenium.platform.ManageAccount;
+import org.exoplatform.selenium.platform.social.ManageMember;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -26,11 +27,14 @@ public class BasicAction extends Permission{
 	Dialog dialog = new Dialog(driver);
 	Button button = new Button(driver);
 	ManageAlert magAlert = new ManageAlert(driver);
+	ManageMember mMember = new ManageMember(driver, this.plfVersion);
 
 	public final String ELEMENT_RESTRICTED_WIKI = "//*[@id='UIWikiPageInfoArea']//a[@data-original-title='This page is restricted. Click to share.']";
 	public final String ELEMENT_MAKE_PUBLIC_BUTTON = "//*[@id='UIWikiPermalinkForm']//button[contains(text(),'Make Public')]";
 	public final String ELEMENT_PERMISSION_WINDOW_CLOSE_BUTTON = "//*[@id='UIWikiPopupWindowL1']//a[@title='Close Window']";
-
+	public final By ELEMENT_MEMBERS_TAB = By.xpath("//div[@id='UISpaceSetting']//a[text()='Members']");
+	public String ELEMENT_ACTION_USER_ON_SPACE = "//a[text()='${spaceName}']/../../..//button[text()='${action}']";
+	
 	// Wiki page
 	/*===================== Add Page ====================*/	
 
@@ -138,7 +142,7 @@ public class BasicAction extends Permission{
 	 * 
 	 */
 	public void addWikiPageRichText(String title, String content){
-		
+
 		if(this.plfVersion=="4.0"){
 			if(title != null)
 				type(ELEMENT_TITLE_WIKI_INPUT, title, true);
@@ -169,7 +173,7 @@ public class BasicAction extends Permission{
 			//waitForAndGetElement(ELEMENT_SAVE_BUTTON_ADD_PAGE);
 			Utils.pause(1000);
 		}		
-		
+
 	}
 
 	/**
@@ -217,7 +221,7 @@ public class BasicAction extends Permission{
 	public void editWikiPage(String title, String content, int mode, Object... opParams)
 	{
 		Boolean isEditMultiLine = (Boolean)(opParams.length>0 ? opParams[0]:false);
-		
+
 		info("--Edit a wiki page--");
 		Utils.pause(1000);
 		mouseOverAndClick(ELEMENT_EDIT_PAGE_LINK);
@@ -711,5 +715,41 @@ public class BasicAction extends Permission{
 			}
 		}
 		Utils.pause(1000);
+	}
+
+	public void goToMySpacePage(){
+		mMember = new ManageMember(driver, this.plfVersion);
+		info("--Go to My Space Page--");
+		mMember.goToAllSpaces();		
+		waitForAndGetElement(ELEMENT_MY_SPACES_LINK);
+		click(ELEMENT_MY_SPACES_LINK);
+		Utils.pause(700);
+	}
+
+	public void goToMembers(String spaceName){
+		goToMySpacePage();
+		doAction("Edit", spaceName);
+		goToMembers();
+	}
+
+	/**
+	 * Migrate to PLF 4
+	 * <li>Update by @author vuna2</li>
+	 * Do a action on space such as Edit, delete, ...
+	 * 
+	 * @param action : Action name 
+	 * @param spaceName : Space name
+	 */
+	public void doAction(String action, String spaceName){
+		By actionLink = By.xpath(ELEMENT_ACTION_USER_ON_SPACE.replace("${spaceName}", spaceName).replace("${action}", action));
+		waitForAndGetElement(actionLink, DEFAULT_TIMEOUT,1);
+		click(actionLink);
+		Utils.pause(1000);
+	}
+
+	// Go to Member tab
+	public void goToMembers(){
+		click(ELEMENT_MEMBERS_TAB);
+		waitForAndGetElement(By.id("user"));
 	}
 }
