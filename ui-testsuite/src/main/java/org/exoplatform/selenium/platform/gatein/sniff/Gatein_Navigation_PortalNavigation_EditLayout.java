@@ -8,10 +8,14 @@ import java.util.Map;
 import org.exoplatform.selenium.Button;
 import org.exoplatform.selenium.Utils;
 import org.exoplatform.selenium.platform.ManageAccount;
+import org.exoplatform.selenium.platform.NavigationManagement;
 import org.exoplatform.selenium.platform.NavigationToolbar;
 import org.exoplatform.selenium.platform.PageEditor;
 import org.exoplatform.selenium.platform.PageManagement;
 import org.exoplatform.selenium.platform.PortalManagement;
+import org.exoplatform.selenium.platform.ecms.EcmsBase;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ActionBar;
+import org.exoplatform.selenium.platform.ecms.contentexplorer.ContextMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -30,6 +34,10 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 	PageManagement pageMag;
 	PageEditor pageE;
 	Button but;
+	ActionBar actBar;
+	EcmsBase ecms;
+	ContextMenu cMenu;
+	NavigationManagement navMag;
 	
 	@BeforeMethod
 	public void setUpBeforeTest(){
@@ -40,7 +48,10 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 		pageMag = new PageManagement(driver, this.plfVersion);
 		pageE = new PageEditor(driver, this.plfVersion);
 		but = new Button(driver, this.plfVersion);
-		
+		actBar = new ActionBar(driver,this.plfVersion);
+		ecms = new EcmsBase(driver,this.plfVersion);
+		cMenu= new ContextMenu(driver,this.plfVersion);
+		navMag = new NavigationManagement(driver,this.plfVersion);
 		magAc.signIn(DATA_USER1, DATA_PASS);
 	}
 
@@ -81,9 +92,9 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 	 */
 	@Test
 	public void test02_ChangeSiteConfigOfPortal_FromEditLayout(){
-		String portalName = "Sniffportalnavigation02";
-		String label = "sniff portal lable 02";
-		String description = "sniff portal descriptrion 02";
+		String portalName = "Sniffportalnavigation68888";
+		String label = "sniff portal lable 68888";
+		String description = "sniff portal descriptrion 68888";
 		
 		info("Add new portal");
 		navTool.goToPortalSites();
@@ -100,8 +111,8 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 		
 		info("Check config portal successfully");
 		goToEditSiteConfiguration(portalName);
-		assert getValue(ELEMENT_PORTAL_LABEL).equalsIgnoreCase(label);
-		assert getValue(ELEMENT_PORTAL_DESCRIPTION).equalsIgnoreCase(description);
+		assert getValue(ELEMENT_PORTAL_LABEL).toLowerCase().equalsIgnoreCase(label.toLowerCase());
+		assert getValue(ELEMENT_PORTAL_DESCRIPTION).toLowerCase().equalsIgnoreCase(description.toLowerCase());
 		click(ELEMENT_PERMISSION_SETTING_TAB);
 		click(ELEMENT_EDIT_PERMISSION_SETTING);
 		waitForTextPresent("/developers");
@@ -204,9 +215,36 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 	@Test
 	public void test06_AddEditRemoveAppWhenEditLayout_PortalPage() {
 		String pageName = "Sniffportalnavigation06";
+		String portalName = "intranet";
+		String parentNode = "Home";
+		String nodeName = "test70588EditNode";
+		Map<String, String> languages = new HashMap<String, String>();
+		languages.put("English", "");
+		String uploadFileName1 = "offices.jpg";
+		String uploadFileName2 = "metro.pdf";
+		String uploadFileName3 = "conditions.doc";
 		
-		info("Create new page of portal with empty layout and applications");
-		pageE.createNewPageEmptyLayout(pageName);
+		info("-- Upload file --");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		ecms.uploadFile("TestData/"+uploadFileName1);
+		ecms.uploadFile("TestData/"+uploadFileName2);
+		ecms.uploadFile("TestData/"+uploadFileName3);
+		actBar.goToNode(By.linkText(uploadFileName1));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName2));
+		actBar.publishDocument();
+		actBar.goToNode(By.linkText(uploadFileName3));
+		actBar.publishDocument();
+				
+		info("Go to Administration/Portal Sites");
+		navTool.goToPortalSites();
+
+		info("Add a node for testing");
+		navMag.addNodeForPortal(portalName, parentNode, true, nodeName, true, languages, nodeName, pageName, pageName, true, true);
+		
+		driver.get(baseUrl+"/intranet/home/"+nodeName);
 		
 		info("Add application when edit layout of page");
 		navTool.goToEditPageEditor();
@@ -219,7 +257,7 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 		
 		info("Edit application when edit layout of page");
 		navTool.goToEditPageEditor();
-		pageE.selectCLVPath("General Drives/Sites Management/acme", "documents");
+		pageE.selectCLVPath("General Drives/Sites Management/intranet", "documents");
 		click(ELEMENT_SWITCH_VIEW_MODE);
 		waitForTextPresent("offices.jpg");
 		waitForTextPresent("metro.pdf");
@@ -233,7 +271,19 @@ public class Gatein_Navigation_PortalNavigation_EditLayout extends PortalManagem
 		waitForElementNotPresent(ELEMENT_CLV_PORTLET);
 		
 		info("Delete page");
-		pageMag.deletePageAtManagePageAndPortalNavigation(pageName, true, "intranet", false, null);	
+		pageMag.deletePageAtManagePageAndPortalNavigation(pageName, true, "intranet", false, null,nodeName);
+		
+		info("clear data");
+		navTool.goToSiteExplorer();
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName1));
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName2));	
+		actBar.goToNode(By.linkText("intranet"));
+		actBar.goToNode(By.linkText("documents"));
+		cMenu.deleteData(By.linkText(uploadFileName3));	
 	}
 	
 	/**CaseId: 70593 + 70594 + 70592 + 70595 

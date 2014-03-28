@@ -54,10 +54,10 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		String displayName = username;
 		String email = username+"@gmail.com";
 		
-		String newFirstName = "UserUpdate";
-		String newLastName = "ProfileUpdate";
-		String newDisplayName = "New User Update";
-		String newEmail = "newmail@gmail.com";
+		String newFirstName = username+"firstnew";
+		String newLastName = username+"lastnew";
+		String newDisplayName = username+"fullnew";
+		String newEmail = username+"newmail@gmail.com";
 		
 		navTool.goToNewStaff();
 		info("Create new user");
@@ -73,7 +73,7 @@ public class Gatein_Manage_UserAndGroup extends PlatformBase{
 		
 		info("Search user follow username, last name, first name, email");
 		user.searchUser(DATA_USER1, "User Name");
-		user.searchUser("Davis", "Last Name");
+		user.searchUser("Smith", "Last Name");
 		user.searchUser("Mary", "First Name");
 		user.searchUser(newEmail, "Email");
 		

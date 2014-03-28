@@ -199,7 +199,7 @@ public class Gatein_Dashboard extends DashBoard {
 	 */
 	@Test
 	public void test06_AddAppIntoContainerWhenEditingPageLayout(){
-		String pageName = "gateinsniff06";
+		String pageName = "gateinsniff68861";
 
 		navTool.goToDashboard();
 		pageE.createNewPageWithLayout(pageName, 2);

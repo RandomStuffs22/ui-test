@@ -7,9 +7,20 @@
 				<exclude name="pending" />
 			</run>
 		</groups>
-		<packages>
-			<package name="org.exoplatform.selenium.platform.gatein.sniff" />
-		</packages>
+		<classes>
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Authentication" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Dashboard" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_GlobalSetting" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Manage_Application" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Manage_ManagePage" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Manage_Portal" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Manage_UserAndGroup" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Navigation_GroupNavigation_EditLayout" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Navigation_GroupNavigation_EditNavigation" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Navigation_GroupNavigation_ManageNavigation" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Navigation_PortalNavigation_EditLayout" />
+			<class name="org.exoplatform.selenium.platform.gatein.sniff.Gatein_Navigation_PortalNavigation_EditNavigation" />
+		</classes>
 	</test>
 	<listeners>
 		<listener class-name="org.exoplatform.selenium.TestReportListener" />

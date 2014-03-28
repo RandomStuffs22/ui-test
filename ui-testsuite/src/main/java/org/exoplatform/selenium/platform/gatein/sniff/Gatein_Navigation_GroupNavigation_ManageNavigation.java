@@ -45,7 +45,7 @@ public class Gatein_Navigation_GroupNavigation_ManageNavigation extends GroupNav
 	 */
 	@Test
 	public void test01_ManageGroupNavigation(){
-		String groupName = "sniffgroup01";
+		String groupName = "sniffgroup68869";
 		
 		info("Create new group with John");
 		navTool.goToUsersAndGroupsManagement();
@@ -57,9 +57,9 @@ public class Gatein_Navigation_GroupNavigation_ManageNavigation extends GroupNav
 		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Content Management"));
 		//waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Development"));
 		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Administration"));
-		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Executive Board"));
-		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Employees"));
-		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Users"));
+//		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Executive Board"));
+//		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Employees"));
+//		waitForAndGetElement(ELEMENT_GROUP_NAME.replace("${groupName}", "Users"));
 		
 		info("Add new navigation for new group");
 		navTool.goToGroupSites();

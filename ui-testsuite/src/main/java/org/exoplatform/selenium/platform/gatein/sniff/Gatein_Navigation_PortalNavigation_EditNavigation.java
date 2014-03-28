@@ -3,6 +3,7 @@ package org.exoplatform.selenium.platform.gatein.sniff;
 import static org.exoplatform.selenium.TestLogger.info;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.selenium.Button;
@@ -247,12 +248,20 @@ public class Gatein_Navigation_PortalNavigation_EditNavigation extends PortalMan
 
 		info("Select Move Up from the drop-down menu");
 		editNavigation(portalName);
-		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", "1").replace("${childNode}", nodeName2));
-		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", "2").replace("${childNode}", nodeName));	
+		List<WebElement> allElements = driver.findElements(ELEMENT_NODE_LIST_IN_NAVIGATION); 
+		int i = 1;
+		for (WebElement element: allElements) {
+			if(element.getText().contains(nodeName2))
+				break;
+			else
+				i++;
+		}
+		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", String.valueOf(i)).replace("${childNode}", nodeName2));
+		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", String.valueOf(i+1)).replace("${childNode}", nodeName));	
 		rightClickOnElement(nodeLinkToMove);
 		click(ELEMENT_NAVIGATION_MOVE_DOWN_NODE);
-		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", "1").replace("${childNode}", nodeName));
-		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", "2").replace("${childNode}", nodeName2));
+		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", String.valueOf(i)).replace("${childNode}", nodeName));
+		waitForAndGetElement(ELEMENT_LIST_NODE_LINK.replace("${nodeLabel}", parentNode).replace("${number}", String.valueOf(i+1)).replace("${childNode}", nodeName2));
 		button.save();
 		waitForElementNotPresent(button.ELEMENT_SAVE_BUTTON);
 
